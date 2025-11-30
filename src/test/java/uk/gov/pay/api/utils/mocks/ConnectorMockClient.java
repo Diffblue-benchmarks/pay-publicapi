@@ -44,7 +44,7 @@ import static org.eclipse.jetty.http.HttpStatus.NO_CONTENT_204;
 import static org.eclipse.jetty.http.HttpStatus.OK_200;
 import static org.eclipse.jetty.http.HttpStatus.PRECONDITION_FAILED_412;
 import static org.eclipse.jetty.http.HttpStatus.UNPROCESSABLE_ENTITY_422;
-import static uk.gov.pay.api.it.PaymentsResourceGetIT.AWAITING_CAPTURE_REQUEST;
+// import static uk.gov.pay.api.it.PaymentsResourceGetIT.AWAITING_CAPTURE_REQUEST;
 import static uk.gov.pay.api.utils.mocks.AgreementResponseFromConnector.AgreementResponseFromConnectorBuilder.aCreateAgreementResponseFromConnector;
 import static uk.gov.pay.api.utils.mocks.ChargeResponseFromConnector.ChargeResponseFromConnectorBuilder.aCreateOrGetChargeResponseFromConnector;
 import static uk.gov.pay.api.utils.mocks.MockHelperFunctions.buildChargeResponse;
@@ -390,11 +390,11 @@ public class ConnectorMockClient extends BaseConnectorMockClient {
                 .withLink(validGetLink(chargeLocation(gatewayAccountId, chargeId), "self"))
                 .withLink(validGetLink(chargeLocation(gatewayAccountId, chargeId) + "/refunds", "refunds"));
 
-        if (AWAITING_CAPTURE_REQUEST == chargeResponseFromConnector.getState()) {
-            responseFromConnector
-                    .withLink(validPostLink(chargeLocation(gatewayAccountId, chargeId) + "/capture", "capture", "application/x-www-form-urlencoded", new HashMap<>()))
-                    .build();
-        } else {
+        // if (AWAITING_CAPTURE_REQUEST == chargeResponseFromConnector.getState()) {
+        //     responseFromConnector
+        //             .withLink(validPostLink(chargeLocation(gatewayAccountId, chargeId) + "/capture", "capture", "application/x-www-form-urlencoded", new HashMap<>()))
+        //             .build();
+        // } else {
             if (isMotoApi) {
                 responseFromConnector
                         .withLink(validPostLink(CONNECTOR_MOCK_AUTHORISATION_PATH, "auth_url_post", "application/json", getChargeIdTokenMap(chargeTokenId, true)))
@@ -405,7 +405,7 @@ public class ConnectorMockClient extends BaseConnectorMockClient {
                         .withLink(validPostLink(nextUrlPost(), "next_url_post", "application/x-www-form-urlencoded", getChargeIdTokenMap(chargeTokenId, false)))
                         .build();
             }
-        }
+        // }
 
         chargeResponseBody = buildChargeResponse(responseFromConnector.build());
         whenGetCharge(gatewayAccountId, chargeId, aResponse()

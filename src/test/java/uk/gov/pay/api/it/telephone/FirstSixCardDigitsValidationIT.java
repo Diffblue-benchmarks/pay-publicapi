@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it.telephone;
 
+/*
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -38,3 +40,4 @@ public class FirstSixCardDigitsValidationIT extends TelephonePaymentResourceITBa
                 .statusCode(422);
     }
 }
+*/

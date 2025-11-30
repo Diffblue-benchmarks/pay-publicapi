@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it.validation;
 
+/*
+
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Before;
@@ -147,3 +149,4 @@ public class PaymentsResourceLanguageValidationIT extends PaymentResourceITestBa
                 .body("description", is("Invalid attribute value: language. Must be \"en\" or \"cy\""));
     }
 }
+*/

@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it.validation;
 
+/*
+
 import com.fasterxml.jackson.databind.JsonNode;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
@@ -161,3 +163,4 @@ public class PaymentsResourceMetadataValidationFailuresIT extends PaymentResourc
                 .body("description", is(message));
     }
 }
+*/

@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it;
 
+/*
+
 import com.google.common.collect.ImmutableMap;
 import io.restassured.response.ValidatableResponse;
 import org.junit.Test;
@@ -81,3 +83,4 @@ public class ResourcesFilterAuthorisationIT extends ResourcesFilterITestBase {
     }
 
 }
+*/

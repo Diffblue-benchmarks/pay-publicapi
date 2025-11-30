@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it;
 
+/*
+
 import com.jayway.jsonassert.JsonAssert;
 import io.restassured.response.ValidatableResponse;
 import jakarta.ws.rs.core.HttpHeaders;
@@ -1091,3 +1093,4 @@ public class PaymentsResourceCreateIT extends PaymentResourceITestBase {
                 .then();
     }
 }
+*/

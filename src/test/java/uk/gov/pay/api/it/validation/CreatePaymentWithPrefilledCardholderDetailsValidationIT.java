@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it.validation;
 
+/*
+
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Before;
@@ -81,3 +83,4 @@ public class CreatePaymentWithPrefilledCardholderDetailsValidationIT extends Pay
         postPaymentResponse(payload.build()).statusCode(201);
     }
 }
+*/

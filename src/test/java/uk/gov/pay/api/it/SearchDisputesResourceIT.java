@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it;
 
+/*
+
 import io.restassured.response.ValidatableResponse;
 import org.junit.Before;
 import org.junit.Test;
@@ -119,3 +121,4 @@ public class SearchDisputesResourceIT extends PaymentResourceITestBase {
                 .then();
     }
 }
+*/

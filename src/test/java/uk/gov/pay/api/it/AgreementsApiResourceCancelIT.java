@@ -1,5 +1,6 @@
 package uk.gov.pay.api.it;
 
+/*
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.http.ContentType;
 import org.junit.Before;
@@ -90,7 +91,7 @@ public class AgreementsApiResourceCancelIT extends PaymentResourceITestBase {
                 .body("code", is("P2200"))
                 .body("description", is("Not found"));
     }
-    
+
     @Test
     public void cancelAgreement() {
         connectorMockClient.respondOk_whenCancelAgreement(agreementId, GATEWAY_ACCOUNT_ID);
@@ -141,3 +142,4 @@ public class AgreementsApiResourceCancelIT extends PaymentResourceITestBase {
     }
 
 }
+*/

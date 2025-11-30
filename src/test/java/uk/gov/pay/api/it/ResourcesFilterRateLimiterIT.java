@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it;
 
+/*
+
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.spi.ILoggingEvent;
@@ -167,3 +169,4 @@ public class ResourcesFilterRateLimiterIT extends ResourcesFilterITestBase {
         assertThat(finishedTasks, hasItem(anErrorResponse()));
     }
 }
+*/

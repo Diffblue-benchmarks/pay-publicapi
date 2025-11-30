@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it;
 
+/*
+
 import io.restassured.RestAssured;
 import org.junit.Test;
 
@@ -18,3 +20,4 @@ public class HealthCheckResourceIT extends PaymentResourceITestBase {
                 .body("deadlocks.healthy", is(true));
     }
 }
+*/

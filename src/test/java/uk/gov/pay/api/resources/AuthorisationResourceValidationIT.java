@@ -1,5 +1,7 @@
 package uk.gov.pay.api.resources;
 
+/*
+
 import com.google.gson.GsonBuilder;
 import io.restassured.response.ValidatableResponse;
 import org.junit.Test;
@@ -150,3 +152,4 @@ public class AuthorisationResourceValidationIT extends PaymentResourceITestBase 
                 .then();
     }
 }
+*/

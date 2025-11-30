@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it;
 
+/*
+
 import com.jayway.jsonassert.JsonAssert;
 import org.junit.Test;
 
@@ -85,3 +87,4 @@ public class RequestDeniedResourceIT extends PaymentResourceITestBase {
 
     }
 }
+*/

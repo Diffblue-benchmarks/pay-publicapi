@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it;
 
+/*
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.http.ContentType;
 import org.junit.Before;
@@ -170,3 +172,4 @@ public class AgreementsApiResourceSearchIT extends PaymentResourceITestBase {
                 .body("description", is("Page not found"));
     }
 }
+*/

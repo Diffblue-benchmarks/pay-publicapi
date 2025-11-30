@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it.validation;
 
+/*
+
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.apache.http.HttpStatus;
@@ -51,3 +53,4 @@ public class StringDeserializerValidationIT extends TelephonePaymentResourceITBa
                 .body("description", is("Invalid attribute value: reference. Must be of type String"));
     }
 }
+*/

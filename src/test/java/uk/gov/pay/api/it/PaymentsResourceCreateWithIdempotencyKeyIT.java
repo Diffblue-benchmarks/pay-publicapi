@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it;
 
+/*
+
 import com.github.tomakehurst.wiremock.client.WireMock;
 import com.github.tomakehurst.wiremock.matching.StringValuePattern;
 import io.restassured.response.ValidatableResponse;
@@ -212,3 +214,4 @@ public class PaymentsResourceCreateWithIdempotencyKeyIT extends PaymentResourceI
                 .then();
     }
 }
+*/

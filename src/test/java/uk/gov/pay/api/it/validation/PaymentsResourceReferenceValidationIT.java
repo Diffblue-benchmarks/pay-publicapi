@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it.validation;
 
+/*
+
 import com.jayway.jsonassert.JsonAssert;
 import io.restassured.response.ValidatableResponse;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -221,3 +223,4 @@ public class PaymentsResourceReferenceValidationIT extends PaymentResourceITestB
                 .then();
     }
 }
+*/

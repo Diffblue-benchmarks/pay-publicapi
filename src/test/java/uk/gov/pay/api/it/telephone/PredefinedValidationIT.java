@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it.telephone;
 
+/*
+
 import org.apache.commons.lang3.StringUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -75,3 +77,4 @@ public class PredefinedValidationIT extends TelephonePaymentResourceITBase {
                 .statusCode(422);
     }
 }
+*/

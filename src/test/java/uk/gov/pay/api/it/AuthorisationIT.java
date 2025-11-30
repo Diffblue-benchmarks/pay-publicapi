@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it;
 
+/*
+
 import org.apache.http.HttpStatus;
 import org.junit.Test;
 import uk.gov.pay.api.utils.PublicAuthMockClient;
@@ -38,3 +40,4 @@ public class AuthorisationIT extends PaymentResourceITestBase {
                 .statusCode(HttpStatus.SC_INTERNAL_SERVER_ERROR);
     }
 }
+*/

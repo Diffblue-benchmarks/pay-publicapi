@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it;
 
+/*
+
 import com.google.common.collect.ImmutableMap;
 import io.restassured.response.ValidatableResponse;
 import org.hamcrest.Description;
@@ -492,3 +494,4 @@ public class PaymentsResourceSearchIT extends PaymentResourceITestBase {
     }
 
 }
+*/

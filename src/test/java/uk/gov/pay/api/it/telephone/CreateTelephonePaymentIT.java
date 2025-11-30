@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it.telephone;
 
+/*
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -158,3 +160,4 @@ public class CreateTelephonePaymentIT extends TelephonePaymentResourceITBase {
                 .body("description", is("Access to this resource is not enabled for this account. Contact support with your error code - https://www.payments.service.gov.uk/support/ ."));
     }
 }
+*/

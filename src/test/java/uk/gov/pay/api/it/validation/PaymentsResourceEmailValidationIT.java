@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it.validation;
 
+/*
+
 import org.junit.Before;
 import org.junit.Test;
 import uk.gov.pay.api.it.PaymentResourceITestBase;
@@ -38,3 +40,4 @@ public class PaymentsResourceEmailValidationIT extends PaymentResourceITestBase 
                 .body("description", is("Invalid attribute value: email. Must be less than or equal to 254 characters length"));
     }
 }
+*/

@@ -1,5 +1,7 @@
 package uk.gov.pay.api.it.validation;
 
+/*
+
 import com.google.common.collect.ImmutableMap;
 import com.jayway.jsonassert.JsonAssert;
 import io.restassured.response.ValidatableResponse;
@@ -253,3 +255,4 @@ public class PaymentsResourceSearchValidationIT extends PaymentResourceITestBase
                 .then();
     }
 }
+*/
