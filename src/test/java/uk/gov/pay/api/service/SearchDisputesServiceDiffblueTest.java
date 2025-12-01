@@ -1,14 +1,13 @@
 package uk.gov.pay.api.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.core.server.DefaultServerFactory;
@@ -21,8 +20,9 @@ import io.dropwizard.servlets.tasks.TaskConfiguration;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.app.config.PublicApiConfig;
 import uk.gov.pay.api.auth.Account;
@@ -32,7 +32,7 @@ import uk.gov.pay.api.model.links.SearchNavigationLinks;
 import uk.gov.pay.api.model.search.PaginationDecorator;
 import uk.gov.pay.api.model.search.dispute.DisputesSearchResults;
 
-public class SearchDisputesServiceDiffblueTest {
+class SearchDisputesServiceDiffblueTest {
   /**
    * Test {@link SearchDisputesService#searchDisputes(Account, DisputesSearchParams)}.
    *
@@ -44,12 +44,13 @@ public class SearchDisputesServiceDiffblueTest {
    * DisputesSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test searchDisputes(Account, DisputesSearchParams); then return Page is one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "DisputesSearchResults SearchDisputesService.searchDisputes(Account, DisputesSearchParams)"
   })
-  public void testSearchDisputes_thenReturnPageIsOne() {
+  void testSearchDisputes_thenReturnPageIsOne() {
     // Arrange
     SearchDisputesResponseFromLedger searchDisputesResponseFromLedger =
         mock(SearchDisputesResponseFromLedger.class);

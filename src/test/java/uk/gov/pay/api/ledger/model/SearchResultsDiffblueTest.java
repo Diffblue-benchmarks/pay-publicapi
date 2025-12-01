@@ -1,19 +1,19 @@
 package uk.gov.pay.api.ledger.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.links.SearchNavigationLinks;
 
-public class SearchResultsDiffblueTest {
+class SearchResultsDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -33,7 +33,8 @@ public class SearchResultsDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; then return Results is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void SearchResults.<init>()",
@@ -44,7 +45,7 @@ public class SearchResultsDiffblueTest {
     "List SearchResults.getResults()",
     "int SearchResults.getTotal()"
   })
-  public void testGettersAndSetters_thenReturnResultsIsNull() {
+  void testGettersAndSetters_thenReturnResultsIsNull() {
     // Arrange and Act
     SearchResults<Object> actualSearchResults = new SearchResults<>();
     int actualCount = actualSearchResults.getCount();
@@ -80,7 +81,8 @@ public class SearchResultsDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; when one; then return Page is one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void SearchResults.<init>()",
@@ -91,7 +93,7 @@ public class SearchResultsDiffblueTest {
     "List SearchResults.getResults()",
     "int SearchResults.getTotal()"
   })
-  public void testGettersAndSetters_whenOne_thenReturnPageIsOne() {
+  void testGettersAndSetters_whenOne_thenReturnPageIsOne() {
     // Arrange
     ArrayList<Object> results = new ArrayList<>();
     SearchNavigationLinks links = new SearchNavigationLinks();

@@ -1,12 +1,11 @@
 package uk.gov.pay.api.service;
 
-import static org.junit.Assert.assertSame;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.client.Client;
@@ -17,23 +16,25 @@ import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.Response;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
 import org.glassfish.jersey.message.internal.OutboundMessageContext;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.auth.Account;
 import uk.gov.pay.api.model.TokenPaymentType;
 
-public class CapturePaymentServiceDiffblueTest {
+class CapturePaymentServiceDiffblueTest {
   /**
    * Test {@link CapturePaymentService#capture(Account, String)}.
    *
    * <p>Method under test: {@link CapturePaymentService#capture(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test capture(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response CapturePaymentService.capture(Account, String)"})
-  public void testCapture() {
+  void testCapture() {
     // Arrange
     Builder builder = mock(Builder.class);
     OutboundJaxrsResponse outboundJaxrsResponse =

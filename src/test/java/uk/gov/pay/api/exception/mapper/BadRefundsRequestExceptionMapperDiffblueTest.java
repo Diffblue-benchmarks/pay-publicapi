@@ -1,10 +1,9 @@
 package uk.gov.pay.api.exception.mapper;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.core.MultivaluedMap;
@@ -13,13 +12,14 @@ import jakarta.ws.rs.core.Response.Status;
 import jakarta.ws.rs.core.Response.StatusType;
 import java.util.Set;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.exception.BadRefundsRequestException;
 import uk.gov.pay.api.model.RequestError;
 import uk.gov.pay.api.model.RequestError.Code;
 
-public class BadRefundsRequestExceptionMapperDiffblueTest {
+class BadRefundsRequestExceptionMapperDiffblueTest {
   /**
    * Test {@link BadRefundsRequestExceptionMapper#toResponse(BadRefundsRequestException)} with
    * {@code exception}.
@@ -32,12 +32,14 @@ public class BadRefundsRequestExceptionMapperDiffblueTest {
    * BadRefundsRequestExceptionMapper#toResponse(BadRefundsRequestException)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test toResponse(BadRefundsRequestException) with 'exception'; then StatusInfo return Status")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response BadRefundsRequestExceptionMapper.toResponse(BadRefundsRequestException)"
   })
-  public void testToResponseWithException_thenStatusInfoReturnStatus() {
+  void testToResponseWithException_thenStatusInfoReturnStatus() {
     // Arrange
     BadRefundsRequestExceptionMapper badRefundsRequestExceptionMapper =
         new BadRefundsRequestExceptionMapper();

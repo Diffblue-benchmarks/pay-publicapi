@@ -1,13 +1,12 @@
 package uk.gov.pay.api.service.telephone;
 
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.client.Client;
@@ -16,8 +15,9 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.client.Invocation.Builder;
 import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.Response;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.auth.Account;
 import uk.gov.pay.api.exception.ConnectorResponseErrorException;
@@ -28,7 +28,7 @@ import uk.gov.pay.api.model.telephone.CreateTelephonePaymentRequest;
 import uk.gov.pay.api.model.telephone.PaymentOutcome;
 import uk.gov.pay.api.service.ConnectorUriGenerator;
 
-public class CreateTelephonePaymentServiceDiffblueTest {
+class CreateTelephonePaymentServiceDiffblueTest {
   /**
    * Test {@link CreateTelephonePaymentService#create(Account, CreateTelephonePaymentRequest)}.
    *
@@ -36,12 +36,13 @@ public class CreateTelephonePaymentServiceDiffblueTest {
    * CreateTelephonePaymentRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test create(Account, CreateTelephonePaymentRequest)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "org.apache.commons.lang3.tuple.Pair CreateTelephonePaymentService.create(Account, CreateTelephonePaymentRequest)"
   })
-  public void testCreate() {
+  void testCreate() {
     // Arrange
     Response response = mock(Response.class);
     when(response.getStatus()).thenReturn(1);
@@ -113,12 +114,13 @@ public class CreateTelephonePaymentServiceDiffblueTest {
    * CreateTelephonePaymentRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test create(Account, CreateTelephonePaymentRequest)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "org.apache.commons.lang3.tuple.Pair CreateTelephonePaymentService.create(Account, CreateTelephonePaymentRequest)"
   })
-  public void testCreate2() {
+  void testCreate2() {
     // Arrange
     Response response = mock(Response.class);
     when(response.getStatus()).thenReturn(1);
@@ -190,12 +192,13 @@ public class CreateTelephonePaymentServiceDiffblueTest {
    * CreateTelephonePaymentRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test create(Account, CreateTelephonePaymentRequest)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "org.apache.commons.lang3.tuple.Pair CreateTelephonePaymentService.create(Account, CreateTelephonePaymentRequest)"
   })
-  public void testCreate3() {
+  void testCreate3() {
     // Arrange
     Response response = mock(Response.class);
     when(response.getStatus()).thenReturn(1);
@@ -267,12 +270,13 @@ public class CreateTelephonePaymentServiceDiffblueTest {
    * CreateTelephonePaymentRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test create(Account, CreateTelephonePaymentRequest)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "org.apache.commons.lang3.tuple.Pair CreateTelephonePaymentService.create(Account, CreateTelephonePaymentRequest)"
   })
-  public void testCreate4() {
+  void testCreate4() {
     // Arrange
     Response response = mock(Response.class);
     when(response.getStatus()).thenReturn(1);
@@ -344,12 +348,13 @@ public class CreateTelephonePaymentServiceDiffblueTest {
    * CreateTelephonePaymentRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test create(Account, CreateTelephonePaymentRequest)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "org.apache.commons.lang3.tuple.Pair CreateTelephonePaymentService.create(Account, CreateTelephonePaymentRequest)"
   })
-  public void testCreate5() {
+  void testCreate5() {
     // Arrange
     Response response = mock(Response.class);
     when(response.getStatus()).thenReturn(1);
@@ -421,12 +426,13 @@ public class CreateTelephonePaymentServiceDiffblueTest {
    * CreateTelephonePaymentRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test create(Account, CreateTelephonePaymentRequest)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "org.apache.commons.lang3.tuple.Pair CreateTelephonePaymentService.create(Account, CreateTelephonePaymentRequest)"
   })
-  public void testCreate6() {
+  void testCreate6() {
     // Arrange
     Response response = mock(Response.class);
     when(response.getStatus()).thenReturn(1);
@@ -498,12 +504,13 @@ public class CreateTelephonePaymentServiceDiffblueTest {
    * CreateTelephonePaymentRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test create(Account, CreateTelephonePaymentRequest)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "org.apache.commons.lang3.tuple.Pair CreateTelephonePaymentService.create(Account, CreateTelephonePaymentRequest)"
   })
-  public void testCreate7() {
+  void testCreate7() {
     // Arrange
     Response response = mock(Response.class);
     when(response.getStatus()).thenReturn(1);
@@ -575,12 +582,13 @@ public class CreateTelephonePaymentServiceDiffblueTest {
    * CreateTelephonePaymentRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test create(Account, CreateTelephonePaymentRequest)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "org.apache.commons.lang3.tuple.Pair CreateTelephonePaymentService.create(Account, CreateTelephonePaymentRequest)"
   })
-  public void testCreate8() {
+  void testCreate8() {
     // Arrange
     Response response = mock(Response.class);
     when(response.getStatus()).thenReturn(1);
@@ -652,12 +660,13 @@ public class CreateTelephonePaymentServiceDiffblueTest {
    * CreateTelephonePaymentRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test create(Account, CreateTelephonePaymentRequest)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "org.apache.commons.lang3.tuple.Pair CreateTelephonePaymentService.create(Account, CreateTelephonePaymentRequest)"
   })
-  public void testCreate9() {
+  void testCreate9() {
     // Arrange
     Response response = mock(Response.class);
     when(response.getStatus()).thenReturn(1);
@@ -729,12 +738,13 @@ public class CreateTelephonePaymentServiceDiffblueTest {
    * CreateTelephonePaymentRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test create(Account, CreateTelephonePaymentRequest)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "org.apache.commons.lang3.tuple.Pair CreateTelephonePaymentService.create(Account, CreateTelephonePaymentRequest)"
   })
-  public void testCreate10() {
+  void testCreate10() {
     // Arrange
     Response response = mock(Response.class);
     when(response.getStatus()).thenReturn(1);
@@ -806,12 +816,13 @@ public class CreateTelephonePaymentServiceDiffblueTest {
    * CreateTelephonePaymentRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test create(Account, CreateTelephonePaymentRequest)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "org.apache.commons.lang3.tuple.Pair CreateTelephonePaymentService.create(Account, CreateTelephonePaymentRequest)"
   })
-  public void testCreate11() {
+  void testCreate11() {
     // Arrange
     Response response = mock(Response.class);
     when(response.getStatus()).thenReturn(1);

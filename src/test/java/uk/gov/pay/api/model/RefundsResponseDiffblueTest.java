@@ -1,22 +1,22 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.RefundsResponse.EmbeddedRefunds;
 import uk.gov.pay.api.model.links.Link;
 import uk.gov.pay.api.model.links.RefundLinksForSearch;
 
-public class RefundsResponseDiffblueTest {
+class RefundsResponseDiffblueTest {
   /**
    * Test EmbeddedRefunds getters and setters.
    *
@@ -29,14 +29,15 @@ public class RefundsResponseDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test EmbeddedRefunds getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void EmbeddedRefunds.<init>(RefundsResponse)",
     "List EmbeddedRefunds.getRefunds()",
     "String EmbeddedRefunds.toString()"
   })
-  public void testEmbeddedRefundsGettersAndSetters() {
+  void testEmbeddedRefundsGettersAndSetters() {
     // Arrange
     RefundsResponse fromResult =
         RefundsResponse.from("42", new ArrayList<>(), "Self Link", "Payment Link");
@@ -60,10 +61,12 @@ public class RefundsResponseDiffblueTest {
    * <p>Method under test: {@link RefundsResponse#from(String, List, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test from(String, List, String, String); then return Embedded Refunds is ArrayList()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RefundsResponse RefundsResponse.from(String, List, String, String)"})
-  public void testFrom_thenReturnEmbeddedRefundsIsArrayList() {
+  void testFrom_thenReturnEmbeddedRefundsIsArrayList() {
     // Arrange
     ArrayList<RefundResponse> refundsForPayment = new ArrayList<>();
     RefundResponse fromResult =
@@ -91,10 +94,11 @@ public class RefundsResponseDiffblueTest {
    * <p>Method under test: {@link RefundsResponse#from(String, List, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test from(String, List, String, String); then return Embedded Refunds size is two")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RefundsResponse RefundsResponse.from(String, List, String, String)"})
-  public void testFrom_thenReturnEmbeddedRefundsSizeIsTwo() {
+  void testFrom_thenReturnEmbeddedRefundsSizeIsTwo() {
     // Arrange
     ArrayList<RefundResponse> refundsForPayment = new ArrayList<>();
     RefundResponse fromResult =
@@ -131,10 +135,12 @@ public class RefundsResponseDiffblueTest {
    * <p>Method under test: {@link RefundsResponse#from(String, List, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test from(String, List, String, String); when ArrayList(); then return PaymentId is '42'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RefundsResponse RefundsResponse.from(String, List, String, String)"})
-  public void testFrom_whenArrayList_thenReturnPaymentIdIs42() {
+  void testFrom_whenArrayList_thenReturnPaymentIdIs42() {
     // Arrange and Act
     RefundsResponse actualFromResult =
         RefundsResponse.from("42", new ArrayList<>(), "Self Link", "Payment Link");
@@ -163,14 +169,15 @@ public class RefundsResponseDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "EmbeddedRefunds RefundsResponse.getEmbedded()",
     "RefundLinksForSearch RefundsResponse.getLinks()",
     "String RefundsResponse.getPaymentId()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     ArrayList<RefundResponse> refundsForPayment = new ArrayList<>();
     RefundsResponse fromResult =

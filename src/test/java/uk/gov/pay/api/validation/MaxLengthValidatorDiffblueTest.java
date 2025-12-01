@@ -1,14 +1,14 @@
 package uk.gov.pay.api.validation;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class MaxLengthValidatorDiffblueTest {
+class MaxLengthValidatorDiffblueTest {
   /**
    * Test {@link MaxLengthValidator#isInvalid(String, int)}.
    *
@@ -20,10 +20,11 @@ public class MaxLengthValidatorDiffblueTest {
    * <p>Method under test: {@link MaxLengthValidator#isInvalid(String, int)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test isInvalid(String, int); when '42'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean MaxLengthValidator.isInvalid(String, int)"})
-  public void testIsInvalid_when42_thenReturnFalse() {
+  void testIsInvalid_when42_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(MaxLengthValidator.isInvalid("42", 3));
   }
@@ -39,10 +40,11 @@ public class MaxLengthValidatorDiffblueTest {
    * <p>Method under test: {@link MaxLengthValidator#isInvalid(String, int)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test isInvalid(String, int); when 'not blank'; then return 'true'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean MaxLengthValidator.isInvalid(String, int)"})
-  public void testIsInvalid_whenNotBlank_thenReturnTrue() {
+  void testIsInvalid_whenNotBlank_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue(MaxLengthValidator.isInvalid("not blank", 3));
   }
@@ -58,10 +60,11 @@ public class MaxLengthValidatorDiffblueTest {
    * <p>Method under test: {@link MaxLengthValidator#isInvalid(String, int)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test isInvalid(String, int); when 'null'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean MaxLengthValidator.isInvalid(String, int)"})
-  public void testIsInvalid_whenNull_thenReturnFalse() {
+  void testIsInvalid_whenNull_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(MaxLengthValidator.isInvalid(null, 3));
   }
@@ -77,10 +80,11 @@ public class MaxLengthValidatorDiffblueTest {
    * <p>Method under test: {@link MaxLengthValidator#isInvalid(String, int)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test isInvalid(String, int); when space; then return 'false'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean MaxLengthValidator.isInvalid(String, int)"})
-  public void testIsInvalid_whenSpace_thenReturnFalse() {
+  void testIsInvalid_whenSpace_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(MaxLengthValidator.isInvalid(" ", 3));
   }

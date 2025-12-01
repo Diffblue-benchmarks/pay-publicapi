@@ -1,23 +1,23 @@
 package uk.gov.pay.api.model.search.dispute;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.net.URI;
 import java.nio.file.Paths;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.ledger.DisputeSettlementSummary;
 import uk.gov.pay.api.model.ledger.DisputeTransactionFromLedger;
 import uk.gov.pay.api.model.ledger.TransactionState;
 import uk.gov.pay.api.model.links.Link;
 
-public class DisputeForSearchResultDiffblueTest {
+class DisputeForSearchResultDiffblueTest {
   /**
    * Test {@link DisputeForSearchResult#DisputeForSearchResult(Long, String, String, String, Long,
    * Long, String, String, DisputeSettlementSummary, String, URI)}.
@@ -26,12 +26,14 @@ public class DisputeForSearchResultDiffblueTest {
    * String, String, Long, Long, String, String, DisputeSettlementSummary, String, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test new DisputeForSearchResult(Long, String, String, String, Long, Long, String, String, DisputeSettlementSummary, String, URI)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void DisputeForSearchResult.<init>(Long, String, String, String, Long, Long, String, String, DisputeSettlementSummary, String, URI)"
   })
-  public void testNewDisputeForSearchResult() {
+  void testNewDisputeForSearchResult() {
     // Arrange
     DisputeSettlementSummary settlementSummary = new DisputeSettlementSummary("2020-03-01");
 
@@ -79,12 +81,14 @@ public class DisputeForSearchResultDiffblueTest {
    * <p>Method under test: {@link DisputeForSearchResult#valueOf(DisputeTransactionFromLedger, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test valueOf(DisputeTransactionFromLedger, URI); given ten; then return SettlementSummary SettledDate is '2020-03-01'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "DisputeForSearchResult DisputeForSearchResult.valueOf(DisputeTransactionFromLedger, URI)"
   })
-  public void testValueOf_givenTen_thenReturnSettlementSummarySettledDateIs20200301() {
+  void testValueOf_givenTen_thenReturnSettlementSummarySettledDateIs20200301() {
     // Arrange
     DisputeTransactionFromLedger fromLedger = mock(DisputeTransactionFromLedger.class);
     when(fromLedger.getAmount()).thenReturn(10L);

@@ -1,17 +1,16 @@
 package uk.gov.pay.api.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.ProcessingException;
@@ -27,25 +26,27 @@ import jakarta.ws.rs.core.Response.StatusType;
 import java.util.Set;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
 import org.glassfish.jersey.message.internal.OutboundMessageContext;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.exception.AuthorisationRequestException;
 import uk.gov.pay.api.exception.ConnectorResponseErrorException;
 import uk.gov.pay.api.exception.ConnectorResponseErrorException.ConnectorErrorResponse;
 import uk.gov.pay.api.model.AuthorisationRequest;
 
-public class AuthorisationServiceDiffblueTest {
+class AuthorisationServiceDiffblueTest {
   /**
    * Test {@link AuthorisationService#authoriseRequest(AuthorisationRequest)}.
    *
    * <p>Method under test: {@link AuthorisationService#authoriseRequest(AuthorisationRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test authoriseRequest(AuthorisationRequest)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response AuthorisationService.authoriseRequest(AuthorisationRequest)"})
-  public void testAuthoriseRequest() {
+  void testAuthoriseRequest() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.post(Mockito.<Entity<?>>any()))
@@ -86,10 +87,12 @@ public class AuthorisationServiceDiffblueTest {
    * <p>Method under test: {@link AuthorisationService#authoriseRequest(AuthorisationRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test authoriseRequest(AuthorisationRequest); given OutboundJaxrsResponse getStatus() return one; then calls close()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response AuthorisationService.authoriseRequest(AuthorisationRequest)"})
-  public void testAuthoriseRequest_givenOutboundJaxrsResponseGetStatusReturnOne_thenCallsClose()
+  void testAuthoriseRequest_givenOutboundJaxrsResponseGetStatusReturnOne_thenCallsClose()
       throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
@@ -138,10 +141,11 @@ public class AuthorisationServiceDiffblueTest {
    * <p>Method under test: {@link AuthorisationService#authoriseRequest(AuthorisationRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test authoriseRequest(AuthorisationRequest); then StatusInfo return Status")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response AuthorisationService.authoriseRequest(AuthorisationRequest)"})
-  public void testAuthoriseRequest_thenStatusInfoReturnStatus() {
+  void testAuthoriseRequest_thenStatusInfoReturnStatus() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.post(Mockito.<Entity<?>>any()))

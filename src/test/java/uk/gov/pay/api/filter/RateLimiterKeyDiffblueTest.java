@@ -1,8 +1,7 @@
 package uk.gov.pay.api.filter;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.container.ContainerRequestContext;
@@ -11,20 +10,22 @@ import java.net.URI;
 import java.nio.file.Paths;
 import org.glassfish.jersey.internal.MapPropertiesDelegate;
 import org.glassfish.jersey.server.ContainerRequest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class RateLimiterKeyDiffblueTest {
+class RateLimiterKeyDiffblueTest {
   /**
    * Test {@link RateLimiterKey#from(ContainerRequestContext, String)}.
    *
    * <p>Method under test: {@link RateLimiterKey#from(ContainerRequestContext, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test from(ContainerRequestContext, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RateLimiterKey RateLimiterKey.from(ContainerRequestContext, String)"})
-  public void testFrom() {
+  void testFrom() {
     // Arrange
     URI baseUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     URI requestUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
@@ -53,10 +54,11 @@ public class RateLimiterKeyDiffblueTest {
    * <p>Method under test: {@link RateLimiterKey#from(ContainerRequestContext, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test from(ContainerRequestContext, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RateLimiterKey RateLimiterKey.from(ContainerRequestContext, String)"})
-  public void testFrom2() {
+  void testFrom2() {
     // Arrange
     URI baseUri = Paths.get(System.getProperty("java.io.tmpdir"), "/").toUri();
     URI requestUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
@@ -91,14 +93,15 @@ public class RateLimiterKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "String RateLimiterKey.getKey()",
     "String RateLimiterKey.getKeyType()",
     "String RateLimiterKey.getMethod()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     URI baseUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     URI requestUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();

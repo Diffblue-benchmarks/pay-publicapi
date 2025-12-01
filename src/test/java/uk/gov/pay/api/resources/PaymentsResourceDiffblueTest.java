@@ -1,16 +1,15 @@
 package uk.gov.pay.api.resources;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.core.server.DefaultServerFactory;
@@ -36,8 +35,9 @@ import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
 import org.glassfish.jersey.message.internal.OutboundMessageContext;
 import org.glassfish.jersey.server.ContainerRequest;
 import org.glassfish.jersey.server.internal.routing.UriRoutingContext;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.app.config.PublicApiConfig;
 import uk.gov.pay.api.auth.Account;
@@ -73,7 +73,7 @@ import uk.gov.service.payments.commons.model.AuthorisationMode;
 import uk.gov.service.payments.commons.model.SupportedLanguage;
 import uk.gov.service.payments.commons.model.charge.ExternalMetadata;
 
-public class PaymentsResourceDiffblueTest {
+class PaymentsResourceDiffblueTest {
   /**
    * Test {@link PaymentsResource#searchPayments(Account, String, String, String, String, String,
    * String, String, String, String, String, String, String, String, String, UriInfo)}.
@@ -88,12 +88,14 @@ public class PaymentsResourceDiffblueTest {
    * UriInfo)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test searchPayments(Account, String, String, String, String, String, String, String, String, String, String, String, String, String, String, UriInfo); when 'Card Brand'; then return OutboundJaxrsResponse")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response PaymentsResource.searchPayments(Account, String, String, String, String, String, String, String, String, String, String, String, String, String, String, UriInfo)"
   })
-  public void testSearchPayments_whenCardBrand_thenReturnOutboundJaxrsResponse() {
+  void testSearchPayments_whenCardBrand_thenReturnOutboundJaxrsResponse() {
     // Arrange
     PublicApiConfig configuration = new PublicApiConfig();
     configuration.setAdminFactory(new AdminFactory());
@@ -246,12 +248,14 @@ public class PaymentsResourceDiffblueTest {
    * UriInfo)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test searchPayments(Account, String, String, String, String, String, String, String, String, String, String, String, String, String, String, UriInfo); when empty string; then return OutboundJaxrsResponse")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response PaymentsResource.searchPayments(Account, String, String, String, String, String, String, String, String, String, String, String, String, String, String, UriInfo)"
   })
-  public void testSearchPayments_whenEmptyString_thenReturnOutboundJaxrsResponse() {
+  void testSearchPayments_whenEmptyString_thenReturnOutboundJaxrsResponse() {
     // Arrange
     PublicApiConfig configuration = new PublicApiConfig();
     configuration.setAdminFactory(new AdminFactory());
@@ -404,12 +408,14 @@ public class PaymentsResourceDiffblueTest {
    * UriInfo)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test searchPayments(Account, String, String, String, String, String, String, String, String, String, String, String, String, String, String, UriInfo); when 'null'; then return OutboundJaxrsResponse")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response PaymentsResource.searchPayments(Account, String, String, String, String, String, String, String, String, String, String, String, String, String, String, UriInfo)"
   })
-  public void testSearchPayments_whenNull_thenReturnOutboundJaxrsResponse() {
+  void testSearchPayments_whenNull_thenReturnOutboundJaxrsResponse() {
     // Arrange
     PublicApiConfig configuration = new PublicApiConfig();
     configuration.setAdminFactory(new AdminFactory());
@@ -562,12 +568,14 @@ public class PaymentsResourceDiffblueTest {
    * UriInfo)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test searchPayments(Account, String, String, String, String, String, String, String, String, String, String, String, String, String, String, UriInfo); when space; then return OutboundJaxrsResponse")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response PaymentsResource.searchPayments(Account, String, String, String, String, String, String, String, String, String, String, String, String, String, String, UriInfo)"
   })
-  public void testSearchPayments_whenSpace_thenReturnOutboundJaxrsResponse() {
+  void testSearchPayments_whenSpace_thenReturnOutboundJaxrsResponse() {
     // Arrange
     PublicApiConfig configuration = new PublicApiConfig();
     configuration.setAdminFactory(new AdminFactory());
@@ -717,12 +725,14 @@ public class PaymentsResourceDiffblueTest {
    * CreateCardPaymentRequest, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test createNewPayment(Account, CreateCardPaymentRequest, String); then Entity return PaymentWithAllLinks")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response PaymentsResource.createNewPayment(Account, CreateCardPaymentRequest, String)"
   })
-  public void testCreateNewPayment_thenEntityReturnPaymentWithAllLinks() {
+  void testCreateNewPayment_thenEntityReturnPaymentWithAllLinks() {
     // Arrange
     PaymentWithAllLinksBuilder withAuthorisationModeResult =
         new PaymentWithAllLinksBuilder()
@@ -1004,12 +1014,14 @@ public class PaymentsResourceDiffblueTest {
    * CreateCardPaymentRequest, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test createNewPayment(Account, CreateCardPaymentRequest, String); then return Location is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response PaymentsResource.createNewPayment(Account, CreateCardPaymentRequest, String)"
   })
-  public void testCreateNewPayment_thenReturnLocationIsNull() {
+  void testCreateNewPayment_thenReturnLocationIsNull() {
     // Arrange
     PaymentWithAllLinksBuilder withAuthorisationModeResult =
         new PaymentWithAllLinksBuilder()
@@ -1290,12 +1302,14 @@ public class PaymentsResourceDiffblueTest {
    * CreateCardPaymentRequest, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test createNewPayment(Account, CreateCardPaymentRequest, String); then return Status is two hundred one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response PaymentsResource.createNewPayment(Account, CreateCardPaymentRequest, String)"
   })
-  public void testCreateNewPayment_thenReturnStatusIsTwoHundredOne() {
+  void testCreateNewPayment_thenReturnStatusIsTwoHundredOne() {
     // Arrange
     PaymentWithAllLinksBuilder withAuthorisationModeResult =
         new PaymentWithAllLinksBuilder()
@@ -1565,12 +1579,14 @@ public class PaymentsResourceDiffblueTest {
    * CreateCardPaymentRequest, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test createNewPayment(Account, CreateCardPaymentRequest, String); when 'null'; then return Headers size is three")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response PaymentsResource.createNewPayment(Account, CreateCardPaymentRequest, String)"
   })
-  public void testCreateNewPayment_whenNull_thenReturnHeadersSizeIsThree() {
+  void testCreateNewPayment_whenNull_thenReturnHeadersSizeIsThree() {
     // Arrange
     PaymentWithAllLinksBuilder withAuthorisationModeResult =
         new PaymentWithAllLinksBuilder()
@@ -1837,10 +1853,11 @@ public class PaymentsResourceDiffblueTest {
    * <p>Method under test: {@link PaymentsResource#cancelPayment(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test cancelPayment(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response PaymentsResource.cancelPayment(Account, String)"})
-  public void testCancelPayment() {
+  void testCancelPayment() {
     // Arrange
     PublicApiConfig configuration = new PublicApiConfig();
     configuration.setAdminFactory(new AdminFactory());
@@ -1972,10 +1989,11 @@ public class PaymentsResourceDiffblueTest {
    * <p>Method under test: {@link PaymentsResource#capturePayment(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test capturePayment(Account, String); then calls capture(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response PaymentsResource.capturePayment(Account, String)"})
-  public void testCapturePayment_thenCallsCapture() {
+  void testCapturePayment_thenCallsCapture() {
     // Arrange
     PublicApiConfig configuration = new PublicApiConfig();
     configuration.setAdminFactory(new AdminFactory());

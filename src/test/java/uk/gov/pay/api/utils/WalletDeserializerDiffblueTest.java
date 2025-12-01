@@ -1,12 +1,11 @@
 package uk.gov.pay.api.utils;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.core.JsonParser;
@@ -19,11 +18,12 @@ import com.fasterxml.jackson.databind.deser.DefaultDeserializationContext;
 import com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.Impl;
 import com.fasterxml.jackson.databind.util.AccessPattern;
 import java.io.IOException;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.Wallet;
 
-public class WalletDeserializerDiffblueTest {
+class WalletDeserializerDiffblueTest {
   /**
    * Test {@link WalletDeserializer#deserialize(JsonParser, DeserializationContext)} with {@code
    * jsonParser}, {@code deserializationContext}.
@@ -37,10 +37,12 @@ public class WalletDeserializerDiffblueTest {
    * DeserializationContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test deserialize(JsonParser, DeserializationContext) with 'jsonParser', 'deserializationContext'; given 'Text'; then return 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Wallet WalletDeserializer.deserialize(JsonParser, DeserializationContext)"})
-  public void testDeserializeWithJsonParserDeserializationContext_givenText_thenReturnNull()
+  void testDeserializeWithJsonParserDeserializationContext_givenText_thenReturnNull()
       throws IOException {
     // Arrange
     WalletDeserializer walletDeserializer = new WalletDeserializer();
@@ -65,10 +67,11 @@ public class WalletDeserializerDiffblueTest {
    * <p>Method under test: default or parameterless constructor of {@link WalletDeserializer}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new WalletDeserializer (default constructor)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void WalletDeserializer.<init>()"})
-  public void testNewWalletDeserializer() {
+  void testNewWalletDeserializer() {
     // Arrange and Act
     WalletDeserializer actualWalletDeserializer = new WalletDeserializer();
 

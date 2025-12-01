@@ -1,15 +1,14 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -19,11 +18,12 @@ import com.fasterxml.jackson.databind.node.BooleanNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.MissingNode;
 import java.math.BigInteger;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-public class PaymentStateDiffblueTest {
+class PaymentStateDiffblueTest {
   /**
    * Test {@link PaymentState#createPaymentState(JsonNode)}.
    *
@@ -35,10 +35,11 @@ public class PaymentStateDiffblueTest {
    * <p>Method under test: {@link PaymentState#createPaymentState(JsonNode)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test createPaymentState(JsonNode); given False; then return Code is FALSE toString")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentState PaymentState.createPaymentState(JsonNode)"})
-  public void testCreatePaymentState_givenFalse_thenReturnCodeIsFalseToString() {
+  void testCreatePaymentState_givenFalse_thenReturnCodeIsFalseToString() {
     // Arrange
     ArrayNode node = mock(ArrayNode.class);
     when(node.has(Mockito.<String>any())).thenReturn(true);
@@ -67,10 +68,12 @@ public class PaymentStateDiffblueTest {
    * <p>Method under test: {@link PaymentState#createPaymentState(JsonNode)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test createPaymentState(JsonNode); given False; then return Status is FALSE toString")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentState PaymentState.createPaymentState(JsonNode)"})
-  public void testCreatePaymentState_givenFalse_thenReturnStatusIsFalseToString() {
+  void testCreatePaymentState_givenFalse_thenReturnStatusIsFalseToString() {
     // Arrange
     ArrayNode node = mock(ArrayNode.class);
     when(node.has(Mockito.<String>any())).thenReturn(false);
@@ -99,10 +102,12 @@ public class PaymentStateDiffblueTest {
    * <p>Method under test: {@link PaymentState#createPaymentState(JsonNode)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test createPaymentState(JsonNode); given Instance; then return Code is empty string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentState PaymentState.createPaymentState(JsonNode)"})
-  public void testCreatePaymentState_givenInstance_thenReturnCodeIsEmptyString() {
+  void testCreatePaymentState_givenInstance_thenReturnCodeIsEmptyString() {
     // Arrange
     ArrayNode node = mock(ArrayNode.class);
     when(node.has(Mockito.<String>any())).thenReturn(true);
@@ -131,10 +136,12 @@ public class PaymentStateDiffblueTest {
    * <p>Method under test: {@link PaymentState#createPaymentState(JsonNode)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test createPaymentState(JsonNode); given Instance; then return Status is empty string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentState PaymentState.createPaymentState(JsonNode)"})
-  public void testCreatePaymentState_givenInstance_thenReturnStatusIsEmptyString() {
+  void testCreatePaymentState_givenInstance_thenReturnStatusIsEmptyString() {
     // Arrange
     ArrayNode node = mock(ArrayNode.class);
     when(node.has(Mockito.<String>any())).thenReturn(false);
@@ -163,10 +170,11 @@ public class PaymentStateDiffblueTest {
    * <p>Method under test: {@link PaymentState#createPaymentState(JsonNode)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test createPaymentState(JsonNode); given valueOf ten; then return Code is '10.0'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentState PaymentState.createPaymentState(JsonNode)"})
-  public void testCreatePaymentState_givenValueOfTen_thenReturnCodeIs100() {
+  void testCreatePaymentState_givenValueOfTen_thenReturnCodeIs100() {
     // Arrange
     ArrayNode node = mock(ArrayNode.class);
     when(node.has(Mockito.<String>any())).thenReturn(true);
@@ -195,10 +203,11 @@ public class PaymentStateDiffblueTest {
    * <p>Method under test: {@link PaymentState#createPaymentState(JsonNode)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test createPaymentState(JsonNode); given valueOf ten; then return Status is '10.0'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentState PaymentState.createPaymentState(JsonNode)"})
-  public void testCreatePaymentState_givenValueOfTen_thenReturnStatusIs100() {
+  void testCreatePaymentState_givenValueOfTen_thenReturnStatusIs100() {
     // Arrange
     ArrayNode node = mock(ArrayNode.class);
     when(node.has(Mockito.<String>any())).thenReturn(false);
@@ -226,10 +235,11 @@ public class PaymentStateDiffblueTest {
    * <p>Method under test: {@link PaymentState#createPaymentState(JsonNode)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test createPaymentState(JsonNode); then return Status is '42'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentState PaymentState.createPaymentState(JsonNode)"})
-  public void testCreatePaymentState_thenReturnStatusIs42() {
+  void testCreatePaymentState_thenReturnStatusIs42() {
     // Arrange
     ArrayNode node = mock(ArrayNode.class);
     when(node.has(Mockito.<String>any())).thenReturn(false);
@@ -268,7 +278,8 @@ public class PaymentStateDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; then return Status is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentState.<init>()",
@@ -281,7 +292,7 @@ public class PaymentStateDiffblueTest {
     "String PaymentState.getStatus()",
     "boolean PaymentState.isFinished()"
   })
-  public void testGettersAndSetters_thenReturnStatusIsNull() {
+  void testGettersAndSetters_thenReturnStatusIsNull() {
     // Arrange and Act
     PaymentState actualPaymentState = new PaymentState();
     Boolean actualCanRetry = actualPaymentState.getCanRetry();
@@ -317,7 +328,8 @@ public class PaymentStateDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; when 'Not all who wander are lost'; then return CanRetry")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentState.<init>()",
@@ -330,7 +342,7 @@ public class PaymentStateDiffblueTest {
     "String PaymentState.getStatus()",
     "boolean PaymentState.isFinished()"
   })
-  public void testGettersAndSetters_whenNotAllWhoWanderAreLost_thenReturnCanRetry() {
+  void testGettersAndSetters_whenNotAllWhoWanderAreLost_thenReturnCanRetry() {
     // Arrange and Act
     PaymentState actualPaymentState =
         new PaymentState("Status", true, "Not all who wander are lost", "Code", true);
@@ -367,7 +379,8 @@ public class PaymentStateDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; when 'Not all who wander are lost'; then return 'Code'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentState.<init>()",
@@ -380,7 +393,7 @@ public class PaymentStateDiffblueTest {
     "String PaymentState.getStatus()",
     "boolean PaymentState.isFinished()"
   })
-  public void testGettersAndSetters_whenNotAllWhoWanderAreLost_thenReturnCode() {
+  void testGettersAndSetters_whenNotAllWhoWanderAreLost_thenReturnCode() {
     // Arrange and Act
     PaymentState actualPaymentState =
         new PaymentState("Status", true, "Not all who wander are lost", "Code");
@@ -417,7 +430,8 @@ public class PaymentStateDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; when 'Status'; then return Code is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentState.<init>()",
@@ -430,7 +444,7 @@ public class PaymentStateDiffblueTest {
     "String PaymentState.getStatus()",
     "boolean PaymentState.isFinished()"
   })
-  public void testGettersAndSetters_whenStatus_thenReturnCodeIsNull() {
+  void testGettersAndSetters_whenStatus_thenReturnCodeIsNull() {
     // Arrange and Act
     PaymentState actualPaymentState = new PaymentState("Status", true);
     Boolean actualCanRetry = actualPaymentState.getCanRetry();
@@ -452,10 +466,11 @@ public class PaymentStateDiffblueTest {
    * <p>Method under test: {@link PaymentState#toString()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test toString()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String PaymentState.toString()"})
-  public void testToString() {
+  void testToString() {
     // Arrange, Act and Assert
     assertEquals(
         "PaymentState{status='Status', finished='true', message=null, code=null}",
@@ -478,10 +493,11 @@ public class PaymentStateDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean PaymentState.equals(Object)", "int PaymentState.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     PaymentState paymentState = new PaymentState("Status", true);
     PaymentState paymentState2 = new PaymentState("Status", true);
@@ -507,10 +523,11 @@ public class PaymentStateDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean PaymentState.equals(Object)", "int PaymentState.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     PaymentState paymentState = new PaymentState("Status", true);
 
@@ -531,10 +548,11 @@ public class PaymentStateDiffblueTest {
    * <p>Method under test: {@link PaymentState#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean PaymentState.equals(Object)", "int PaymentState.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     PaymentState paymentState = new PaymentState(null, true);
 
@@ -553,10 +571,11 @@ public class PaymentStateDiffblueTest {
    * <p>Method under test: {@link PaymentState#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean PaymentState.equals(Object)", "int PaymentState.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     PaymentState paymentState = new PaymentState("Status", false);
 
@@ -575,10 +594,11 @@ public class PaymentStateDiffblueTest {
    * <p>Method under test: {@link PaymentState#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean PaymentState.equals(Object)", "int PaymentState.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     PaymentState paymentState =
         new PaymentState("Status", true, "Not all who wander are lost", "Code");
@@ -598,10 +618,11 @@ public class PaymentStateDiffblueTest {
    * <p>Method under test: {@link PaymentState#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean PaymentState.equals(Object)", "int PaymentState.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     PaymentState paymentState = new PaymentState("Status", true, null, "Code");
 
@@ -620,10 +641,11 @@ public class PaymentStateDiffblueTest {
    * <p>Method under test: {@link PaymentState#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean PaymentState.equals(Object)", "int PaymentState.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new PaymentState("Status", true), null);
   }
@@ -639,10 +661,11 @@ public class PaymentStateDiffblueTest {
    * <p>Method under test: {@link PaymentState#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean PaymentState.equals(Object)", "int PaymentState.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new PaymentState("Status", true), "Different type to PaymentState");
   }

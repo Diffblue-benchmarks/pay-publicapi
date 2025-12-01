@@ -1,10 +1,9 @@
 package uk.gov.pay.api.auth;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.core.server.DefaultServerFactory;
@@ -17,11 +16,12 @@ import io.dropwizard.logging.common.LoggingFactory;
 import io.dropwizard.metrics.common.MetricsFactory;
 import io.dropwizard.servlets.tasks.TaskConfiguration;
 import jakarta.ws.rs.client.Client;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.app.config.PublicApiConfig;
 
-public class AccountAuthenticatorDiffblueTest {
+class AccountAuthenticatorDiffblueTest {
   /**
    * Test {@link AccountAuthenticator#AccountAuthenticator(Client, PublicApiConfig)}.
    *
@@ -34,10 +34,12 @@ public class AccountAuthenticatorDiffblueTest {
    * PublicApiConfig)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test new AccountAuthenticator(Client, PublicApiConfig); then PublicApiConfig (default constructor) ServerFactory DefaultServerFactory")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void AccountAuthenticator.<init>(Client, PublicApiConfig)"})
-  public void testNewAccountAuthenticator_thenPublicApiConfigServerFactoryDefaultServerFactory() {
+  void testNewAccountAuthenticator_thenPublicApiConfigServerFactoryDefaultServerFactory() {
     // Arrange
     Client client = mock(Client.class);
 

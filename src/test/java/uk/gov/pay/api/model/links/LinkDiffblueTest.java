@@ -1,15 +1,15 @@
 package uk.gov.pay.api.model.links;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class LinkDiffblueTest {
+class LinkDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -27,7 +27,9 @@ public class LinkDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getters and setters; then return toString is 'Link{href='null', method='null'}'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void Link.<init>()",
@@ -37,7 +39,7 @@ public class LinkDiffblueTest {
     "String Link.getMethod()",
     "String Link.toString()"
   })
-  public void testGettersAndSetters_thenReturnToStringIsLinkHrefNullMethodNull() {
+  void testGettersAndSetters_thenReturnToStringIsLinkHrefNullMethodNull() {
     // Arrange and Act
     Link actualLink = new Link();
     String actualToStringResult = actualLink.toString();
@@ -67,7 +69,9 @@ public class LinkDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getters and setters; when 'Href'; then return toString is 'Link{href='Href', method='null'}'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void Link.<init>()",
@@ -77,7 +81,7 @@ public class LinkDiffblueTest {
     "String Link.getMethod()",
     "String Link.toString()"
   })
-  public void testGettersAndSetters_whenHref_thenReturnToStringIsLinkHrefHrefMethodNull() {
+  void testGettersAndSetters_whenHref_thenReturnToStringIsLinkHrefHrefMethodNull() {
     // Arrange and Act
     Link actualLink = new Link("Href");
     String actualToStringResult = actualLink.toString();
@@ -107,7 +111,9 @@ public class LinkDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getters and setters; when 'Method'; then return toString is 'Link{href='Href', method='Method'}'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void Link.<init>()",
@@ -117,7 +123,7 @@ public class LinkDiffblueTest {
     "String Link.getMethod()",
     "String Link.toString()"
   })
-  public void testGettersAndSetters_whenMethod_thenReturnToStringIsLinkHrefHrefMethodMethod() {
+  void testGettersAndSetters_whenMethod_thenReturnToStringIsLinkHrefHrefMethodMethod() {
     // Arrange and Act
     Link actualLink = new Link("Href", "Method");
     String actualToStringResult = actualLink.toString();
@@ -145,10 +151,11 @@ public class LinkDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean Link.equals(Object)", "int Link.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     Link link = new Link("Href");
     Link link2 = new Link("Href");
@@ -174,10 +181,11 @@ public class LinkDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean Link.equals(Object)", "int Link.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     Link link = new Link("Href");
 
@@ -198,10 +206,11 @@ public class LinkDiffblueTest {
    * <p>Method under test: {@link Link#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean Link.equals(Object)", "int Link.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     Link link = new Link(null);
 
@@ -220,10 +229,11 @@ public class LinkDiffblueTest {
    * <p>Method under test: {@link Link#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean Link.equals(Object)", "int Link.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     Link link = new Link("Href", "Method");
 
@@ -242,10 +252,11 @@ public class LinkDiffblueTest {
    * <p>Method under test: {@link Link#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean Link.equals(Object)", "int Link.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new Link("Href"), null);
   }
@@ -261,10 +272,11 @@ public class LinkDiffblueTest {
    * <p>Method under test: {@link Link#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean Link.equals(Object)", "int Link.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new Link("Href"), "Different type to Link");
   }

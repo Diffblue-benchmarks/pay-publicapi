@@ -1,25 +1,26 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.agreement.model.CreateAgreementRequest;
 
-public class CreateAgreementRequestBuilderDiffblueTest {
+class CreateAgreementRequestBuilderDiffblueTest {
   /**
    * Test {@link CreateAgreementRequestBuilder#builder()}.
    *
    * <p>Method under test: {@link CreateAgreementRequestBuilder#builder()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test builder()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"CreateAgreementRequestBuilder CreateAgreementRequestBuilder.builder()"})
-  public void testBuilder() {
+  void testBuilder() {
     // Arrange and Act
     CreateAgreementRequestBuilder actualBuilderResult = CreateAgreementRequestBuilder.builder();
 
@@ -45,7 +46,8 @@ public class CreateAgreementRequestBuilderDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test build()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void CreateAgreementRequestBuilder.<init>()",
@@ -57,7 +59,7 @@ public class CreateAgreementRequestBuilderDiffblueTest {
     "CreateAgreementRequestBuilder CreateAgreementRequestBuilder.reference(String)",
     "CreateAgreementRequestBuilder CreateAgreementRequestBuilder.userIdentifier(String)"
   })
-  public void testBuild() {
+  void testBuild() {
     // Arrange and Act
     CreateAgreementRequestBuilder actualBuilderResult = CreateAgreementRequestBuilder.builder();
     CreateAgreementRequestBuilder actualDescriptionResult =

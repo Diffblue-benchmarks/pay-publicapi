@@ -1,21 +1,21 @@
 package uk.gov.pay.api.exception.mapper;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
 import org.glassfish.jersey.message.internal.OutboundMessageContext;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.exception.CreateChargeException;
 import uk.gov.pay.api.model.RequestError;
 
-public class CreateChargeExceptionMapperDiffblueTest {
+class CreateChargeExceptionMapperDiffblueTest {
   /**
    * Test {@link CreateChargeExceptionMapper#toResponse(CreateChargeException)} with {@code
    * exception}.
@@ -27,10 +27,12 @@ public class CreateChargeExceptionMapperDiffblueTest {
    * <p>Method under test: {@link CreateChargeExceptionMapper#toResponse(CreateChargeException)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test toResponse(CreateChargeException) with 'exception'; then return Entity Code is 'P0199'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response CreateChargeExceptionMapper.toResponse(CreateChargeException)"})
-  public void testToResponseWithException_thenReturnEntityCodeIsP0199() {
+  void testToResponseWithException_thenReturnEntityCodeIsP0199() {
     // Arrange
     CreateChargeExceptionMapper createChargeExceptionMapper = new CreateChargeExceptionMapper();
 
@@ -63,10 +65,12 @@ public class CreateChargeExceptionMapperDiffblueTest {
    * <p>Method under test: {@link CreateChargeExceptionMapper#toResponse(CreateChargeException)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test toResponse(CreateChargeException) with 'exception'; then return Entity Description is 'Downstream system error'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response CreateChargeExceptionMapper.toResponse(CreateChargeException)"})
-  public void testToResponseWithException_thenReturnEntityDescriptionIsDownstreamSystemError() {
+  void testToResponseWithException_thenReturnEntityDescriptionIsDownstreamSystemError() {
     // Arrange
     CreateChargeExceptionMapper createChargeExceptionMapper = new CreateChargeExceptionMapper();
 

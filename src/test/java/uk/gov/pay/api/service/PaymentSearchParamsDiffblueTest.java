@@ -1,18 +1,18 @@
 package uk.gov.pay.api.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Map;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.service.PaymentSearchParams.Builder;
 
-public class PaymentSearchParamsDiffblueTest {
+class PaymentSearchParamsDiffblueTest {
   /**
    * Test Builder {@link Builder#build()}.
    *
@@ -37,7 +37,8 @@ public class PaymentSearchParamsDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test Builder build()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void Builder.<init>()",
@@ -56,7 +57,7 @@ public class PaymentSearchParamsDiffblueTest {
     "Builder Builder.withToDate(String)",
     "Builder Builder.withToSettledDate(String)"
   })
-  public void testBuilderBuild() {
+  void testBuilderBuild() {
     // Arrange and Act
     PaymentSearchParams actualPaymentSearchParams =
         new Builder()
@@ -111,10 +112,12 @@ public class PaymentSearchParamsDiffblueTest {
    * <p>Method under test: {@link Builder#withCardBrand(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test Builder withCardBrand(String); then Builder (default constructor) build ParamsAsMap CARD_BRAND_KEY is 'card brand'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Builder Builder.withCardBrand(String)"})
-  public void testBuilderWithCardBrand_thenBuilderBuildParamsAsMapCard_brand_keyIsCardBrand() {
+  void testBuilderWithCardBrand_thenBuilderBuildParamsAsMapCard_brand_keyIsCardBrand() {
     // Arrange
     Builder builder = new Builder();
 
@@ -144,10 +147,12 @@ public class PaymentSearchParamsDiffblueTest {
    * <p>Method under test: {@link Builder#withCardBrand(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test Builder withCardBrand(String); then Builder (default constructor) build ParamsAsMap CARD_BRAND_KEY is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Builder Builder.withCardBrand(String)"})
-  public void testBuilderWithCardBrand_thenBuilderBuildParamsAsMapCard_brand_keyIsNull() {
+  void testBuilderWithCardBrand_thenBuilderBuildParamsAsMapCard_brand_keyIsNull() {
     // Arrange
     Builder builder = new Builder();
 
@@ -177,10 +182,12 @@ public class PaymentSearchParamsDiffblueTest {
    * <p>Method under test: {@link Builder#withCardBrand(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test Builder withCardBrand(String); then Builder (default constructor) build ParamsAsMap CARD_BRAND_KEY is space")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Builder Builder.withCardBrand(String)"})
-  public void testBuilderWithCardBrand_thenBuilderBuildParamsAsMapCard_brand_keyIsSpace() {
+  void testBuilderWithCardBrand_thenBuilderBuildParamsAsMapCard_brand_keyIsSpace() {
     // Arrange
     Builder builder = new Builder();
 
@@ -210,10 +217,12 @@ public class PaymentSearchParamsDiffblueTest {
    * <p>Method under test: {@link PaymentSearchParams#PaymentSearchParams(Builder)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test new PaymentSearchParams(Builder); when Builder (default constructor); then return AgreementId is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentSearchParams.<init>(Builder)"})
-  public void testNewPaymentSearchParams_whenBuilder_thenReturnAgreementIdIsNull() {
+  void testNewPaymentSearchParams_whenBuilder_thenReturnAgreementIdIsNull() {
     // Arrange and Act
     PaymentSearchParams actualPaymentSearchParams = new PaymentSearchParams(new Builder());
 
@@ -247,10 +256,11 @@ public class PaymentSearchParamsDiffblueTest {
    * <p>Method under test: {@link PaymentSearchParams#getParamsAsMap()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getParamsAsMap()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Map PaymentSearchParams.getParamsAsMap()"})
-  public void testGetParamsAsMap() {
+  void testGetParamsAsMap() {
     // Arrange and Act
     Map<String, String> actualParamsAsMap = new PaymentSearchParams(new Builder()).getParamsAsMap();
 
@@ -291,7 +301,8 @@ public class PaymentSearchParamsDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "String PaymentSearchParams.getAgreementId()",
@@ -308,7 +319,7 @@ public class PaymentSearchParamsDiffblueTest {
     "String PaymentSearchParams.getToDate()",
     "String PaymentSearchParams.getToSettledDate()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     PaymentSearchParams paymentSearchParams =
         new Builder()

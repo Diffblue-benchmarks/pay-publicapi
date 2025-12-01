@@ -1,19 +1,19 @@
 package uk.gov.pay.api.resources;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.auth.Account;
 import uk.gov.pay.api.model.Address;
@@ -32,17 +32,18 @@ import uk.gov.service.payments.commons.model.AuthorisationMode;
 import uk.gov.service.payments.commons.model.SupportedLanguage;
 import uk.gov.service.payments.commons.model.charge.ExternalMetadata;
 
-public class LedgerOrConnectorStrategyTemplateDiffblueTest {
+class LedgerOrConnectorStrategyTemplateDiffblueTest {
   /**
    * Test {@link LedgerOrConnectorStrategyTemplate#validateAndExecute()}.
    *
    * <p>Method under test: {@link LedgerOrConnectorStrategyTemplate#validateAndExecute()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateAndExecute()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"java.lang.Object LedgerOrConnectorStrategyTemplate.validateAndExecute()"})
-  public void testValidateAndExecute() {
+  void testValidateAndExecute() {
     // Arrange
     GetPaymentService getPaymentService = mock(GetPaymentService.class);
 
@@ -142,10 +143,11 @@ public class LedgerOrConnectorStrategyTemplateDiffblueTest {
    * <p>Method under test: {@link LedgerOrConnectorStrategyTemplate#validateAndExecute()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateAndExecute()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"java.lang.Object LedgerOrConnectorStrategyTemplate.validateAndExecute()"})
-  public void testValidateAndExecute2() {
+  void testValidateAndExecute2() {
     // Arrange
     PaymentWithAllLinksBuilder withAuthorisationModeResult =
         new PaymentWithAllLinksBuilder()
@@ -323,10 +325,11 @@ public class LedgerOrConnectorStrategyTemplateDiffblueTest {
    * <p>Method under test: {@link LedgerOrConnectorStrategyTemplate#validateAndExecute()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateAndExecute(); then calls getConnectorCharge(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"java.lang.Object LedgerOrConnectorStrategyTemplate.validateAndExecute()"})
-  public void testValidateAndExecute_thenCallsGetConnectorCharge() {
+  void testValidateAndExecute_thenCallsGetConnectorCharge() {
     // Arrange
     PaymentWithAllLinksBuilder withAuthorisationModeResult =
         new PaymentWithAllLinksBuilder()

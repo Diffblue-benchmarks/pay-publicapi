@@ -1,15 +1,16 @@
 package uk.gov.pay.api.validation;
 
-import static org.junit.Assert.assertThrows;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.exception.PaymentValidationException;
 import uk.gov.pay.api.model.CreatePaymentRefundRequest;
 
-public class PaymentRefundRequestValidatorDiffblueTest {
+class PaymentRefundRequestValidatorDiffblueTest {
   /**
    * Test {@link PaymentRefundRequestValidator#validate(CreatePaymentRefundRequest)} with {@code
    * paymentRefundRequest}.
@@ -18,10 +19,11 @@ public class PaymentRefundRequestValidatorDiffblueTest {
    * PaymentRefundRequestValidator#validate(CreatePaymentRefundRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validate(CreatePaymentRefundRequest) with 'paymentRefundRequest'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentRefundRequestValidator.validate(CreatePaymentRefundRequest)"})
-  public void testValidateWithPaymentRefundRequest() {
+  void testValidateWithPaymentRefundRequest() {
     // Arrange
     PaymentRefundRequestValidator paymentRefundRequestValidator =
         new PaymentRefundRequestValidator();
@@ -44,16 +46,19 @@ public class PaymentRefundRequestValidatorDiffblueTest {
    * PaymentRefundRequestValidator#validate(CreatePaymentRefundRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validate(CreatePaymentRefundRequest) with 'paymentRefundRequest'; then does not throw")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentRefundRequestValidator.validate(CreatePaymentRefundRequest)"})
-  public void testValidateWithPaymentRefundRequest_thenDoesNotThrow() {
+  void testValidateWithPaymentRefundRequest_thenDoesNotThrow() {
     // Arrange
     PaymentRefundRequestValidator paymentRefundRequestValidator =
         new PaymentRefundRequestValidator();
 
     // Act and Assert
-    paymentRefundRequestValidator.validate(new CreatePaymentRefundRequest(1, 1));
+    assertDoesNotThrow(
+        () -> paymentRefundRequestValidator.validate(new CreatePaymentRefundRequest(1, 1)));
   }
 
   /**
@@ -68,10 +73,12 @@ public class PaymentRefundRequestValidatorDiffblueTest {
    * PaymentRefundRequestValidator#validate(CreatePaymentRefundRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validate(CreatePaymentRefundRequest) with 'paymentRefundRequest'; when CreatePaymentRefundRequest()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentRefundRequestValidator.validate(CreatePaymentRefundRequest)"})
-  public void testValidateWithPaymentRefundRequest_whenCreatePaymentRefundRequest() {
+  void testValidateWithPaymentRefundRequest_whenCreatePaymentRefundRequest() {
     // Arrange
     PaymentRefundRequestValidator paymentRefundRequestValidator =
         new PaymentRefundRequestValidator();

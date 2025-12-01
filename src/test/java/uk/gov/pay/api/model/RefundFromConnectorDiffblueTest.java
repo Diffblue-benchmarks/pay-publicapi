@@ -1,14 +1,14 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class RefundFromConnectorDiffblueTest {
+class RefundFromConnectorDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -24,7 +24,8 @@ public class RefundFromConnectorDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void RefundFromConnector.<init>()",
@@ -34,7 +35,7 @@ public class RefundFromConnectorDiffblueTest {
     "String RefundFromConnector.getStatus()",
     "String RefundFromConnector.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     RefundFromConnector actualRefundFromConnector = new RefundFromConnector();
     String actualToStringResult = actualRefundFromConnector.toString();

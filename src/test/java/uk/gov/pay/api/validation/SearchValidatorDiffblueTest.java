@@ -1,16 +1,16 @@
 package uk.gov.pay.api.validation;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class SearchValidatorDiffblueTest {
+class SearchValidatorDiffblueTest {
   /**
    * Test {@link SearchValidator#validatePageIfNotNull(String, List)}.
    *
@@ -22,10 +22,12 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validatePageIfNotNull(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validatePageIfNotNull(String, List); given empty string; then ArrayList() size is two")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validatePageIfNotNull(String, List)"})
-  public void testValidatePageIfNotNull_givenEmptyString_thenArrayListSizeIsTwo() {
+  void testValidatePageIfNotNull_givenEmptyString_thenArrayListSizeIsTwo() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
     validationErrors.add("");
@@ -50,10 +52,11 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validatePageIfNotNull(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validatePageIfNotNull(String, List); when '0'; then ArrayList() size is one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validatePageIfNotNull(String, List)"})
-  public void testValidatePageIfNotNull_when0_thenArrayListSizeIsOne() {
+  void testValidatePageIfNotNull_when0_thenArrayListSizeIsOne() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -76,10 +79,11 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validatePageIfNotNull(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validatePageIfNotNull(String, List); when '42'; then ArrayList() Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validatePageIfNotNull(String, List)"})
-  public void testValidatePageIfNotNull_when42_thenArrayListEmpty() {
+  void testValidatePageIfNotNull_when42_thenArrayListEmpty() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -101,10 +105,12 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validatePageIfNotNull(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validatePageIfNotNull(String, List); when empty string; then ArrayList() Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validatePageIfNotNull(String, List)"})
-  public void testValidatePageIfNotNull_whenEmptyString_thenArrayListEmpty() {
+  void testValidatePageIfNotNull_whenEmptyString_thenArrayListEmpty() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -126,10 +132,12 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validatePageIfNotNull(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validatePageIfNotNull(String, List); when 'not blank'; then ArrayList() size is one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validatePageIfNotNull(String, List)"})
-  public void testValidatePageIfNotNull_whenNotBlank_thenArrayListSizeIsOne() {
+  void testValidatePageIfNotNull_whenNotBlank_thenArrayListSizeIsOne() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -152,10 +160,11 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validatePageIfNotNull(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validatePageIfNotNull(String, List); when 'null'; then ArrayList() Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validatePageIfNotNull(String, List)"})
-  public void testValidatePageIfNotNull_whenNull_thenArrayListEmpty() {
+  void testValidatePageIfNotNull_whenNull_thenArrayListEmpty() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -178,10 +187,12 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateDisplaySizeIfNotNull(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateDisplaySizeIfNotNull(String, List); given '9'; when ArrayList() add '9'; then ArrayList() size is two")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateDisplaySizeIfNotNull(String, List)"})
-  public void testValidateDisplaySizeIfNotNull_given9_whenArrayListAdd9_thenArrayListSizeIsTwo() {
+  void testValidateDisplaySizeIfNotNull_given9_whenArrayListAdd9_thenArrayListSizeIsTwo() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
     validationErrors.add("9");
@@ -206,10 +217,12 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateDisplaySizeIfNotNull(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateDisplaySizeIfNotNull(String, List); when '0'; then ArrayList() size is one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateDisplaySizeIfNotNull(String, List)"})
-  public void testValidateDisplaySizeIfNotNull_when0_thenArrayListSizeIsOne() {
+  void testValidateDisplaySizeIfNotNull_when0_thenArrayListSizeIsOne() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -232,10 +245,11 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateDisplaySizeIfNotNull(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateDisplaySizeIfNotNull(String, List); when '1'; then ArrayList() Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateDisplaySizeIfNotNull(String, List)"})
-  public void testValidateDisplaySizeIfNotNull_when1_thenArrayListEmpty() {
+  void testValidateDisplaySizeIfNotNull_when1_thenArrayListEmpty() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -257,10 +271,12 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateDisplaySizeIfNotNull(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateDisplaySizeIfNotNull(String, List); when 'Display Size'; then ArrayList() size is one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateDisplaySizeIfNotNull(String, List)"})
-  public void testValidateDisplaySizeIfNotNull_whenDisplaySize_thenArrayListSizeIsOne() {
+  void testValidateDisplaySizeIfNotNull_whenDisplaySize_thenArrayListSizeIsOne() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -283,10 +299,12 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateDisplaySizeIfNotNull(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateDisplaySizeIfNotNull(String, List); when empty string; then ArrayList() Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateDisplaySizeIfNotNull(String, List)"})
-  public void testValidateDisplaySizeIfNotNull_whenEmptyString_thenArrayListEmpty() {
+  void testValidateDisplaySizeIfNotNull_whenEmptyString_thenArrayListEmpty() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -308,10 +326,12 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateDisplaySizeIfNotNull(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateDisplaySizeIfNotNull(String, List); when 'null'; then ArrayList() Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateDisplaySizeIfNotNull(String, List)"})
-  public void testValidateDisplaySizeIfNotNull_whenNull_thenArrayListEmpty() {
+  void testValidateDisplaySizeIfNotNull_whenNull_thenArrayListEmpty() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -334,10 +354,12 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateToDate(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateToDate(String, List); given 'to_date'; when ArrayList() add 'to_date'; then ArrayList() size is two")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateToDate(String, List)"})
-  public void testValidateToDate_givenToDate_whenArrayListAddToDate_thenArrayListSizeIsTwo() {
+  void testValidateToDate_givenToDate_whenArrayListAddToDate_thenArrayListSizeIsTwo() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
     validationErrors.add("to_date");
@@ -362,10 +384,11 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateToDate(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateToDate(String, List); when '2020-03-01'; then ArrayList() size is one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateToDate(String, List)"})
-  public void testValidateToDate_when20200301_thenArrayListSizeIsOne() {
+  void testValidateToDate_when20200301_thenArrayListSizeIsOne() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -388,10 +411,11 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateToDate(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateToDate(String, List); when 'null'; then ArrayList() Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateToDate(String, List)"})
-  public void testValidateToDate_whenNull_thenArrayListEmpty() {
+  void testValidateToDate_whenNull_thenArrayListEmpty() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -413,10 +437,11 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateToDate(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateToDate(String, List); when space; then ArrayList() Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateToDate(String, List)"})
-  public void testValidateToDate_whenSpace_thenArrayListEmpty() {
+  void testValidateToDate_whenSpace_thenArrayListEmpty() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -438,10 +463,12 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateFromDate(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateFromDate(String, List); given 'from_date'; then ArrayList() size is two")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateFromDate(String, List)"})
-  public void testValidateFromDate_givenFromDate_thenArrayListSizeIsTwo() {
+  void testValidateFromDate_givenFromDate_thenArrayListSizeIsTwo() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
     validationErrors.add("from_date");
@@ -466,10 +493,12 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateFromDate(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateFromDate(String, List); when '2020-03-01'; then ArrayList() size is one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateFromDate(String, List)"})
-  public void testValidateFromDate_when20200301_thenArrayListSizeIsOne() {
+  void testValidateFromDate_when20200301_thenArrayListSizeIsOne() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -492,10 +521,11 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateFromDate(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateFromDate(String, List); when 'null'; then ArrayList() Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateFromDate(String, List)"})
-  public void testValidateFromDate_whenNull_thenArrayListEmpty() {
+  void testValidateFromDate_whenNull_thenArrayListEmpty() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -517,10 +547,11 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateFromDate(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateFromDate(String, List); when space; then ArrayList() Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateFromDate(String, List)"})
-  public void testValidateFromDate_whenSpace_thenArrayListEmpty() {
+  void testValidateFromDate_whenSpace_thenArrayListEmpty() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -542,10 +573,12 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateFromSettledDate(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateFromSettledDate(String, List); given empty string; then ArrayList() size is two")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateFromSettledDate(String, List)"})
-  public void testValidateFromSettledDate_givenEmptyString_thenArrayListSizeIsTwo() {
+  void testValidateFromSettledDate_givenEmptyString_thenArrayListSizeIsTwo() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
     validationErrors.add("");
@@ -570,10 +603,12 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateFromSettledDate(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateFromSettledDate(String, List); when '2020-03-01'; then ArrayList() Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateFromSettledDate(String, List)"})
-  public void testValidateFromSettledDate_when20200301_thenArrayListEmpty() {
+  void testValidateFromSettledDate_when20200301_thenArrayListEmpty() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -595,10 +630,12 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateFromSettledDate(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateFromSettledDate(String, List); when empty string; then ArrayList() Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateFromSettledDate(String, List)"})
-  public void testValidateFromSettledDate_whenEmptyString_thenArrayListEmpty() {
+  void testValidateFromSettledDate_whenEmptyString_thenArrayListEmpty() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -620,10 +657,12 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateFromSettledDate(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateFromSettledDate(String, List); when 'not blank'; then ArrayList() size is one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateFromSettledDate(String, List)"})
-  public void testValidateFromSettledDate_whenNotBlank_thenArrayListSizeIsOne() {
+  void testValidateFromSettledDate_whenNotBlank_thenArrayListSizeIsOne() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -646,10 +685,11 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateFromSettledDate(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateFromSettledDate(String, List); when 'null'; then ArrayList() Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateFromSettledDate(String, List)"})
-  public void testValidateFromSettledDate_whenNull_thenArrayListEmpty() {
+  void testValidateFromSettledDate_whenNull_thenArrayListEmpty() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -671,10 +711,12 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateToSettledDate(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateToSettledDate(String, List); given empty string; then ArrayList() size is two")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateToSettledDate(String, List)"})
-  public void testValidateToSettledDate_givenEmptyString_thenArrayListSizeIsTwo() {
+  void testValidateToSettledDate_givenEmptyString_thenArrayListSizeIsTwo() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
     validationErrors.add("");
@@ -699,10 +741,12 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateToSettledDate(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateToSettledDate(String, List); when '2020-03-01'; then ArrayList() Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateToSettledDate(String, List)"})
-  public void testValidateToSettledDate_when20200301_thenArrayListEmpty() {
+  void testValidateToSettledDate_when20200301_thenArrayListEmpty() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -724,10 +768,12 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateToSettledDate(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateToSettledDate(String, List); when empty string; then ArrayList() Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateToSettledDate(String, List)"})
-  public void testValidateToSettledDate_whenEmptyString_thenArrayListEmpty() {
+  void testValidateToSettledDate_whenEmptyString_thenArrayListEmpty() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -749,10 +795,12 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateToSettledDate(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateToSettledDate(String, List); when 'not blank'; then ArrayList() size is one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateToSettledDate(String, List)"})
-  public void testValidateToSettledDate_whenNotBlank_thenArrayListSizeIsOne() {
+  void testValidateToSettledDate_whenNotBlank_thenArrayListSizeIsOne() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 
@@ -775,10 +823,11 @@ public class SearchValidatorDiffblueTest {
    * <p>Method under test: {@link SearchValidator#validateToSettledDate(String, List)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateToSettledDate(String, List); when 'null'; then ArrayList() Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchValidator.validateToSettledDate(String, List)"})
-  public void testValidateToSettledDate_whenNull_thenArrayListEmpty() {
+  void testValidateToSettledDate_whenNull_thenArrayListEmpty() {
     // Arrange
     ArrayList<String> validationErrors = new ArrayList<>();
 

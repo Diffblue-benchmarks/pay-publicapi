@@ -1,25 +1,26 @@
 package uk.gov.pay.api.validation;
 
-import static org.junit.Assert.assertThrows;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.exception.RefundsValidationException;
 import uk.gov.pay.api.service.RefundsParams;
 
-public class RefundSearchValidatorDiffblueTest {
+class RefundSearchValidatorDiffblueTest {
   /**
    * Test {@link RefundSearchValidator#validateSearchParameters(RefundsParams)}.
    *
    * <p>Method under test: {@link RefundSearchValidator#validateSearchParameters(RefundsParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(RefundsParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RefundSearchValidator.validateSearchParameters(RefundsParams)"})
-  public void testValidateSearchParameters() {
+  void testValidateSearchParameters() {
     // Arrange
     RefundsParams params =
         new RefundsParams(
@@ -37,10 +38,11 @@ public class RefundSearchValidatorDiffblueTest {
    * <p>Method under test: {@link RefundSearchValidator#validateSearchParameters(RefundsParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(RefundsParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RefundSearchValidator.validateSearchParameters(RefundsParams)"})
-  public void testValidateSearchParameters2() {
+  void testValidateSearchParameters2() {
     // Arrange
     RefundsParams params =
         new RefundsParams(" ", " ", "not blank", "not blank", "not blank", "not blank");
@@ -57,10 +59,11 @@ public class RefundSearchValidatorDiffblueTest {
    * <p>Method under test: {@link RefundSearchValidator#validateSearchParameters(RefundsParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(RefundsParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RefundSearchValidator.validateSearchParameters(RefundsParams)"})
-  public void testValidateSearchParameters3() {
+  void testValidateSearchParameters3() {
     // Arrange
     RefundsParams params = new RefundsParams(" ", " ", "not blank", "1", "not blank", "not blank");
 
@@ -76,10 +79,11 @@ public class RefundSearchValidatorDiffblueTest {
    * <p>Method under test: {@link RefundSearchValidator#validateSearchParameters(RefundsParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(RefundsParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RefundSearchValidator.validateSearchParameters(RefundsParams)"})
-  public void testValidateSearchParameters4() {
+  void testValidateSearchParameters4() {
     // Arrange
     RefundsParams params = new RefundsParams(" ", " ", "not blank", "0", "not blank", "not blank");
 
@@ -95,10 +99,11 @@ public class RefundSearchValidatorDiffblueTest {
    * <p>Method under test: {@link RefundSearchValidator#validateSearchParameters(RefundsParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(RefundsParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RefundSearchValidator.validateSearchParameters(RefundsParams)"})
-  public void testValidateSearchParameters5() {
+  void testValidateSearchParameters5() {
     // Arrange
     RefundsParams params = new RefundsParams(" ", " ", "not blank", null, "not blank", "not blank");
 
@@ -114,10 +119,11 @@ public class RefundSearchValidatorDiffblueTest {
    * <p>Method under test: {@link RefundSearchValidator#validateSearchParameters(RefundsParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(RefundsParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RefundSearchValidator.validateSearchParameters(RefundsParams)"})
-  public void testValidateSearchParameters6() {
+  void testValidateSearchParameters6() {
     // Arrange
     RefundsParams params = new RefundsParams(" ", " ", "1", "not blank", "not blank", "not blank");
 
@@ -133,10 +139,11 @@ public class RefundSearchValidatorDiffblueTest {
    * <p>Method under test: {@link RefundSearchValidator#validateSearchParameters(RefundsParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(RefundsParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RefundSearchValidator.validateSearchParameters(RefundsParams)"})
-  public void testValidateSearchParameters7() {
+  void testValidateSearchParameters7() {
     // Arrange
     RefundsParams params = new RefundsParams(" ", " ", "0", "not blank", "not blank", "not blank");
 
@@ -152,10 +159,11 @@ public class RefundSearchValidatorDiffblueTest {
    * <p>Method under test: {@link RefundSearchValidator#validateSearchParameters(RefundsParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(RefundsParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RefundSearchValidator.validateSearchParameters(RefundsParams)"})
-  public void testValidateSearchParameters8() {
+  void testValidateSearchParameters8() {
     // Arrange
     RefundsParams params = new RefundsParams(" ", " ", null, "not blank", "not blank", "not blank");
 
@@ -171,10 +179,11 @@ public class RefundSearchValidatorDiffblueTest {
    * <p>Method under test: {@link RefundSearchValidator#validateSearchParameters(RefundsParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(RefundsParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RefundSearchValidator.validateSearchParameters(RefundsParams)"})
-  public void testValidateSearchParameters9() {
+  void testValidateSearchParameters9() {
     // Arrange
     RefundsParams params = new RefundsParams(" ", " ", "not blank", "not blank", "not blank", null);
 
@@ -190,10 +199,11 @@ public class RefundSearchValidatorDiffblueTest {
    * <p>Method under test: {@link RefundSearchValidator#validateSearchParameters(RefundsParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(RefundsParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RefundSearchValidator.validateSearchParameters(RefundsParams)"})
-  public void testValidateSearchParameters10() {
+  void testValidateSearchParameters10() {
     // Arrange
     RefundsParams params =
         new RefundsParams("", "2020-03-01", "Page", "Display Size", "2020-03-01", "2020-03-01");
@@ -210,10 +220,11 @@ public class RefundSearchValidatorDiffblueTest {
    * <p>Method under test: {@link RefundSearchValidator#validateSearchParameters(RefundsParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(RefundsParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RefundSearchValidator.validateSearchParameters(RefundsParams)"})
-  public void testValidateSearchParameters11() {
+  void testValidateSearchParameters11() {
     // Arrange
     RefundsParams params =
         new RefundsParams(
@@ -231,10 +242,11 @@ public class RefundSearchValidatorDiffblueTest {
    * <p>Method under test: {@link RefundSearchValidator#validateSearchParameters(RefundsParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(RefundsParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RefundSearchValidator.validateSearchParameters(RefundsParams)"})
-  public void testValidateSearchParameters12() {
+  void testValidateSearchParameters12() {
     // Arrange
     RefundsParams params =
         new RefundsParams("2020-03-01", "2020-03-01", "Page", "Display Size", "", "2020-03-01");

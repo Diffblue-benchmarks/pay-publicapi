@@ -1,27 +1,28 @@
 package uk.gov.pay.api.healthcheck;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.codahale.metrics.health.HealthCheck;
 import com.codahale.metrics.health.HealthCheck.Result;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class PingDiffblueTest {
+class PingDiffblueTest {
   /**
    * Test {@link Ping#check()}.
    *
    * <p>Method under test: {@link Ping#check()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test check()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"HealthCheck.Result Ping.check()"})
-  public void testCheck() {
+  void testCheck() {
     // Arrange and Act
     Result actualCheckResult = new Ping().check();
 

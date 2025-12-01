@@ -1,22 +1,22 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.net.URI;
 import java.nio.file.Paths;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.links.Link;
 import uk.gov.pay.api.model.links.RefundLinksForSearch;
 
-public class RefundResponseDiffblueTest {
+class RefundResponseDiffblueTest {
   /**
    * Test {@link RefundResponse#from(RefundFromConnector, URI, URI)} with {@code
    * RefundFromConnector}, {@code URI}, {@code URI}.
@@ -28,10 +28,12 @@ public class RefundResponseDiffblueTest {
    * <p>Method under test: {@link RefundResponse#from(RefundFromConnector, URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test from(RefundFromConnector, URI, URI) with 'RefundFromConnector', 'URI', 'URI'; then return Links Payment Method is 'GET'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RefundResponse RefundResponse.from(RefundFromConnector, URI, URI)"})
-  public void testFromWithRefundFromConnectorUriUri_thenReturnLinksPaymentMethodIsGet() {
+  void testFromWithRefundFromConnectorUriUri_thenReturnLinksPaymentMethodIsGet() {
     // Arrange and Act
     RefundResponse actualFromResult =
         RefundResponse.from(
@@ -65,10 +67,12 @@ public class RefundResponseDiffblueTest {
    * <p>Method under test: {@link RefundResponse#valueOf(RefundFromConnector, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test valueOf(RefundFromConnector, String, String); given ten; then return CreatedDate is '2020-03-01'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RefundResponse RefundResponse.valueOf(RefundFromConnector, String, String)"})
-  public void testValueOf_givenTen_thenReturnCreatedDateIs20200301() {
+  void testValueOf_givenTen_thenReturnCreatedDateIs20200301() {
     // Arrange
     RefundFromConnector refundEntity = mock(RefundFromConnector.class);
     when(refundEntity.getAmount()).thenReturn(10L);
@@ -114,7 +118,8 @@ public class RefundResponseDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Long RefundResponse.getAmount()",
@@ -124,7 +129,7 @@ public class RefundResponseDiffblueTest {
     "RefundSettlementSummary RefundResponse.getSettlementSummary()",
     "String RefundResponse.getStatus()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     RefundResponse fromResult =
         RefundResponse.from(

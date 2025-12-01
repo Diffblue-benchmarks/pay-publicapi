@@ -1,14 +1,14 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.List;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class TransactionEventsDiffblueTest {
+class TransactionEventsDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -21,14 +21,15 @@ public class TransactionEventsDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void TransactionEvents.<init>()",
     "List TransactionEvents.getEvents()",
     "java.lang.String TransactionEvents.getTransactionId()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     TransactionEvents actualTransactionEvents = new TransactionEvents();
     List<TransactionEvent> actualEvents = actualTransactionEvents.getEvents();

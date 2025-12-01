@@ -1,24 +1,25 @@
 package uk.gov.pay.api.model.links;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class PaymentLinksForEventsDiffblueTest {
+class PaymentLinksForEventsDiffblueTest {
   /**
    * Test {@link PaymentLinksForEvents#addSelf(String)}.
    *
    * <p>Method under test: {@link PaymentLinksForEvents#addSelf(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test addSelf(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentLinksForEvents.addSelf(String)"})
-  public void testAddSelf() {
+  void testAddSelf() {
     // Arrange
     PaymentLinksForEvents paymentLinksForEvents = new PaymentLinksForEvents();
 
@@ -42,10 +43,11 @@ public class PaymentLinksForEventsDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentLinksForEvents.<init>()", "Link PaymentLinksForEvents.getSelf()"})
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange, Act and Assert
     assertNull(new PaymentLinksForEvents().getSelf());
   }

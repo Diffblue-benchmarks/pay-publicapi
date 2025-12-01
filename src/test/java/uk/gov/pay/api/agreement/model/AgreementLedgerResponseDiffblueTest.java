@@ -1,19 +1,19 @@
 package uk.gov.pay.api.agreement.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.agreement.model.AgreementLedgerResponse.PaymentInstrumentLedgerResponse;
 import uk.gov.pay.api.agreement.model.AgreementLedgerResponse.PaymentInstrumentLedgerResponse.Builder;
 import uk.gov.pay.api.model.Address;
 import uk.gov.pay.api.model.CardDetailsFromResponse;
 
-public class AgreementLedgerResponseDiffblueTest {
+class AgreementLedgerResponseDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -34,7 +34,8 @@ public class AgreementLedgerResponseDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AgreementLedgerResponse.<init>()",
@@ -49,7 +50,7 @@ public class AgreementLedgerResponseDiffblueTest {
     "String AgreementLedgerResponse.getUserIdentifier()",
     "void AgreementLedgerResponse.setExternalId(String)"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     AgreementLedgerResponse actualAgreementLedgerResponse = new AgreementLedgerResponse();
     actualAgreementLedgerResponse.setExternalId("42");
@@ -90,7 +91,8 @@ public class AgreementLedgerResponseDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test PaymentInstrumentLedgerResponse getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentInstrumentLedgerResponse.<init>()",
@@ -100,7 +102,7 @@ public class AgreementLedgerResponseDiffblueTest {
     "String PaymentInstrumentLedgerResponse.getExternalId()",
     "String PaymentInstrumentLedgerResponse.getType()"
   })
-  public void testPaymentInstrumentLedgerResponseGettersAndSetters() {
+  void testPaymentInstrumentLedgerResponseGettersAndSetters() {
     // Arrange and Act
     PaymentInstrumentLedgerResponse actualPaymentInstrumentLedgerResponse =
         new PaymentInstrumentLedgerResponse();
@@ -136,7 +138,8 @@ public class AgreementLedgerResponseDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test PaymentInstrumentLedgerResponse_Builder build()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentInstrumentLedgerResponse.Builder.<init>()",
@@ -147,7 +150,7 @@ public class AgreementLedgerResponseDiffblueTest {
     "PaymentInstrumentLedgerResponse.Builder PaymentInstrumentLedgerResponse.Builder.withExternalId(String)",
     "PaymentInstrumentLedgerResponse.Builder PaymentInstrumentLedgerResponse.Builder.withType(String)"
   })
-  public void testPaymentInstrumentLedgerResponse_BuilderBuild() {
+  void testPaymentInstrumentLedgerResponse_BuilderBuild() {
     // Arrange and Act
     Builder actualWithAgreementExternalIdResult = new Builder().withAgreementExternalId("42");
     Address billingAddress = new Address("Line1", "Line2", "OX1 1PT", "Oxford", "GB");

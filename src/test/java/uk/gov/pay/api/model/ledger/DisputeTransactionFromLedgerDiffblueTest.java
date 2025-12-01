@@ -1,13 +1,13 @@
 package uk.gov.pay.api.model.ledger;
 
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class DisputeTransactionFromLedgerDiffblueTest {
+class DisputeTransactionFromLedgerDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -28,7 +28,8 @@ public class DisputeTransactionFromLedgerDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void DisputeTransactionFromLedger.<init>()",
@@ -43,7 +44,7 @@ public class DisputeTransactionFromLedgerDiffblueTest {
     "TransactionState DisputeTransactionFromLedger.getState()",
     "String DisputeTransactionFromLedger.getTransactionId()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     DisputeTransactionFromLedger actualDisputeTransactionFromLedger =
         new DisputeTransactionFromLedger();

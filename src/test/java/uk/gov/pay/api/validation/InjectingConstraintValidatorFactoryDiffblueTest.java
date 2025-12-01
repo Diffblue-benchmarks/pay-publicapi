@@ -4,25 +4,26 @@ import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.inject.Injector;
 import jakarta.validation.ConstraintValidator;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class InjectingConstraintValidatorFactoryDiffblueTest {
+class InjectingConstraintValidatorFactoryDiffblueTest {
   /**
    * Test {@link InjectingConstraintValidatorFactory#getInstance(Class)}.
    *
    * <p>Method under test: {@link InjectingConstraintValidatorFactory#getInstance(Class)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getInstance(Class)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"ConstraintValidator InjectingConstraintValidatorFactory.getInstance(Class)"})
-  public void testGetInstance() {
+  void testGetInstance() {
     // Arrange
     Injector injector = mock(Injector.class);
     when(injector.getInstance(ConstraintValidator.class))

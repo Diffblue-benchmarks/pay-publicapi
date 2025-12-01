@@ -1,16 +1,16 @@
 package uk.gov.pay.api.json;
 
-import static org.junit.Assert.assertThrows;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.exception.BadRequestException;
 
-public class RequestJsonParserDiffblueTest {
+class RequestJsonParserDiffblueTest {
   /**
    * Test {@link RequestJsonParser#parseRefundRequest(JsonNode)}.
    *
@@ -22,12 +22,14 @@ public class RequestJsonParserDiffblueTest {
    * <p>Method under test: {@link RequestJsonParser#parseRefundRequest(JsonNode)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test parseRefundRequest(JsonNode); when valueOf ten; then throw BadRequestException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "uk.gov.pay.api.model.CreatePaymentRefundRequest RequestJsonParser.parseRefundRequest(JsonNode)"
   })
-  public void testParseRefundRequest_whenValueOfTen_thenThrowBadRequestException() {
+  void testParseRefundRequest_whenValueOfTen_thenThrowBadRequestException() {
     // Arrange, Act and Assert
     assertThrows(
         BadRequestException.class,
@@ -45,12 +47,14 @@ public class RequestJsonParserDiffblueTest {
    * <p>Method under test: {@link RequestJsonParser#parsePaymentRequest(JsonNode)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test parsePaymentRequest(JsonNode); when valueOf ten; then throw BadRequestException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "uk.gov.pay.api.model.CreateCardPaymentRequest RequestJsonParser.parsePaymentRequest(JsonNode)"
   })
-  public void testParsePaymentRequest_whenValueOfTen_thenThrowBadRequestException() {
+  void testParsePaymentRequest_whenValueOfTen_thenThrowBadRequestException() {
     // Arrange, Act and Assert
     assertThrows(
         BadRequestException.class,
@@ -63,12 +67,13 @@ public class RequestJsonParserDiffblueTest {
    * <p>Method under test: {@link RequestJsonParser#parseAgreementRequest(JsonNode)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test parseAgreementRequest(JsonNode)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "uk.gov.pay.api.agreement.model.CreateAgreementRequest RequestJsonParser.parseAgreementRequest(JsonNode)"
   })
-  public void testParseAgreementRequest() {
+  void testParseAgreementRequest() {
     // Arrange, Act and Assert
     assertThrows(
         BadRequestException.class,

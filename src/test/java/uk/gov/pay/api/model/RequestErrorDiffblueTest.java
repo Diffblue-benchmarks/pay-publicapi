@@ -1,15 +1,15 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.RequestError.Code;
 
-public class RequestErrorDiffblueTest {
+class RequestErrorDiffblueTest {
   /**
    * Test {@link RequestError#aRequestError(Code, Object[])} with {@code code}, {@code parameters}.
    *
@@ -20,10 +20,12 @@ public class RequestErrorDiffblueTest {
    * <p>Method under test: {@link RequestError#aRequestError(Code, Object[])}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test aRequestError(Code, Object[]) with 'code', 'parameters'; then return Code is 'P0199'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RequestError RequestError.aRequestError(Code, Object[])"})
-  public void testARequestErrorWithCodeParameters_thenReturnCodeIsP0199() {
+  void testARequestErrorWithCodeParameters_thenReturnCodeIsP0199() {
     // Arrange and Act
     RequestError actualARequestErrorResult =
         RequestError.aRequestError(Code.CREATE_PAYMENT_ACCOUNT_ERROR, "Parameters");
@@ -49,10 +51,12 @@ public class RequestErrorDiffblueTest {
    * <p>Method under test: {@link RequestError#aRequestError(String, Code, Object[])}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test aRequestError(String, Code, Object[]) with 'fieldName', 'code', 'parameters'; then return Field is 'Field Name'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RequestError RequestError.aRequestError(String, Code, Object[])"})
-  public void testARequestErrorWithFieldNameCodeParameters_thenReturnFieldIsFieldName() {
+  void testARequestErrorWithFieldNameCodeParameters_thenReturnFieldIsFieldName() {
     // Arrange and Act
     RequestError actualARequestErrorResult =
         RequestError.aRequestError("Field Name", Code.CREATE_PAYMENT_ACCOUNT_ERROR, "Parameters");
@@ -78,10 +82,12 @@ public class RequestErrorDiffblueTest {
    * <p>Method under test: {@link RequestError#aRequestError(String, Code, Object[])}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test aRequestError(String, Code, Object[]) with 'fieldName', 'code', 'parameters'; then return Field is 'Field Name'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RequestError RequestError.aRequestError(String, Code, Object[])"})
-  public void testARequestErrorWithFieldNameCodeParameters_thenReturnFieldIsFieldName2() {
+  void testARequestErrorWithFieldNameCodeParameters_thenReturnFieldIsFieldName2() {
     // Arrange and Act
     RequestError actualARequestErrorResult =
         RequestError.aRequestError("Field Name", Code.CREATE_PAYMENT_ACCOUNT_ERROR);
@@ -107,10 +113,12 @@ public class RequestErrorDiffblueTest {
    * <p>Method under test: {@link RequestError#aHeaderRequestError(String, Code, Object[])}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test aHeaderRequestError(String, Code, Object[]); when 'CREATE_PAYMENT_ACCOUNT_ERROR'; then return 'Header'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RequestError RequestError.aHeaderRequestError(String, Code, Object[])"})
-  public void testAHeaderRequestError_whenCreatePaymentAccountError_thenReturnHeader() {
+  void testAHeaderRequestError_whenCreatePaymentAccountError_thenReturnHeader() {
     // Arrange and Act
     RequestError actualAHeaderRequestErrorResult =
         RequestError.aHeaderRequestError("Header", Code.CREATE_PAYMENT_ACCOUNT_ERROR, "Parameters");
@@ -136,10 +144,11 @@ public class RequestErrorDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test Code getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String Code.getFormat()", "String Code.value()"})
-  public void testCodeGettersAndSetters() {
+  void testCodeGettersAndSetters() {
     // Arrange
     Code valueOfResult = Code.valueOf("CREATE_PAYMENT_ACCOUNT_ERROR");
 
@@ -160,10 +169,11 @@ public class RequestErrorDiffblueTest {
    * <p>Method under test: {@link RequestError#getCode()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getCode()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String RequestError.getCode()"})
-  public void testGetCode() {
+  void testGetCode() {
     // Arrange, Act and Assert
     assertEquals(
         "P0199",
@@ -184,7 +194,8 @@ public class RequestErrorDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "String RequestError.getDescription()",
@@ -192,7 +203,7 @@ public class RequestErrorDiffblueTest {
     "String RequestError.getHeader()",
     "String RequestError.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     RequestError aHeaderRequestErrorResult =
         RequestError.aHeaderRequestError("Header", Code.CREATE_PAYMENT_ACCOUNT_ERROR, "Parameters");

@@ -1,14 +1,13 @@
 package uk.gov.pay.api.exception.mapper;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.core.MultivaluedMap;
@@ -17,13 +16,14 @@ import jakarta.ws.rs.core.Response.Status;
 import jakarta.ws.rs.core.Response.StatusType;
 import java.util.Set;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.exception.AuthorisationRequestException;
 import uk.gov.pay.api.model.RequestError;
 import uk.gov.service.payments.commons.model.ErrorIdentifier;
 
-public class AuthorisationRequestExceptionMapperDiffblueTest {
+class AuthorisationRequestExceptionMapperDiffblueTest {
   /**
    * Test {@link AuthorisationRequestExceptionMapper#toResponse(AuthorisationRequestException)} with
    * {@code exception}.
@@ -37,12 +37,14 @@ public class AuthorisationRequestExceptionMapperDiffblueTest {
    * AuthorisationRequestExceptionMapper#toResponse(AuthorisationRequestException)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test toResponse(AuthorisationRequestException) with 'exception'; given 'AUTHORISATION_ERROR'; then return Entity Code is 'P0050'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response AuthorisationRequestExceptionMapper.toResponse(AuthorisationRequestException)"
   })
-  public void testToResponseWithException_givenAuthorisationError_thenReturnEntityCodeIsP0050() {
+  void testToResponseWithException_givenAuthorisationError_thenReturnEntityCodeIsP0050() {
     // Arrange
     AuthorisationRequestExceptionMapper authorisationRequestExceptionMapper =
         new AuthorisationRequestExceptionMapper();
@@ -79,12 +81,14 @@ public class AuthorisationRequestExceptionMapperDiffblueTest {
    * AuthorisationRequestExceptionMapper#toResponse(AuthorisationRequestException)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test toResponse(AuthorisationRequestException) with 'exception'; given 'AUTHORISATION_REJECTED'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response AuthorisationRequestExceptionMapper.toResponse(AuthorisationRequestException)"
   })
-  public void testToResponseWithException_givenAuthorisationRejected() {
+  void testToResponseWithException_givenAuthorisationRejected() {
     // Arrange
     AuthorisationRequestExceptionMapper authorisationRequestExceptionMapper =
         new AuthorisationRequestExceptionMapper();
@@ -122,12 +126,14 @@ public class AuthorisationRequestExceptionMapperDiffblueTest {
    * AuthorisationRequestExceptionMapper#toResponse(AuthorisationRequestException)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test toResponse(AuthorisationRequestException) with 'exception'; given 'CARD_NUMBER_REJECTED'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response AuthorisationRequestExceptionMapper.toResponse(AuthorisationRequestException)"
   })
-  public void testToResponseWithException_givenCardNumberRejected() {
+  void testToResponseWithException_givenCardNumberRejected() {
     // Arrange
     AuthorisationRequestExceptionMapper authorisationRequestExceptionMapper =
         new AuthorisationRequestExceptionMapper();
@@ -166,12 +172,14 @@ public class AuthorisationRequestExceptionMapperDiffblueTest {
    * AuthorisationRequestExceptionMapper#toResponse(AuthorisationRequestException)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test toResponse(AuthorisationRequestException) with 'exception'; given 'INVALID_ATTRIBUTE_VALUE'; then return EntityTag is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response AuthorisationRequestExceptionMapper.toResponse(AuthorisationRequestException)"
   })
-  public void testToResponseWithException_givenInvalidAttributeValue_thenReturnEntityTagIsNull() {
+  void testToResponseWithException_givenInvalidAttributeValue_thenReturnEntityTagIsNull() {
     // Arrange
     AuthorisationRequestExceptionMapper authorisationRequestExceptionMapper =
         new AuthorisationRequestExceptionMapper();
@@ -217,12 +225,14 @@ public class AuthorisationRequestExceptionMapperDiffblueTest {
    * AuthorisationRequestExceptionMapper#toResponse(AuthorisationRequestException)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test toResponse(AuthorisationRequestException) with 'exception'; then return Entity Description is 'Downstream system error'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response AuthorisationRequestExceptionMapper.toResponse(AuthorisationRequestException)"
   })
-  public void testToResponseWithException_thenReturnEntityDescriptionIsDownstreamSystemError() {
+  void testToResponseWithException_thenReturnEntityDescriptionIsDownstreamSystemError() {
     // Arrange
     AuthorisationRequestExceptionMapper authorisationRequestExceptionMapper =
         new AuthorisationRequestExceptionMapper();

@@ -1,14 +1,13 @@
 package uk.gov.pay.api.resources;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.codahale.metrics.health.HealthCheck;
 import com.codahale.metrics.health.HealthCheck.Result;
 import com.codahale.metrics.health.HealthCheckRegistry;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.core.setup.Environment;
@@ -16,10 +15,11 @@ import jakarta.ws.rs.core.Response;
 import java.util.Map;
 import java.util.TreeMap;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class HealthCheckResourceDiffblueTest {
+class HealthCheckResourceDiffblueTest {
   /**
    * Test {@link HealthCheckResource#healthCheck()}.
    *
@@ -31,10 +31,11 @@ public class HealthCheckResourceDiffblueTest {
    * <p>Method under test: {@link HealthCheckResource#healthCheck()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test healthCheck(); given Environment healthChecks() return HealthCheckRegistry()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response HealthCheckResource.healthCheck()"})
-  public void testHealthCheck_givenEnvironmentHealthChecksReturnHealthCheckRegistry() {
+  void testHealthCheck_givenEnvironmentHealthChecksReturnHealthCheckRegistry() {
     // Arrange
     Environment environment = mock(Environment.class);
     when(environment.healthChecks()).thenReturn(new HealthCheckRegistry());
@@ -60,10 +61,11 @@ public class HealthCheckResourceDiffblueTest {
    * <p>Method under test: {@link HealthCheckResource#healthCheck()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test healthCheck(); then return StringHeaders is TreeMap()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response HealthCheckResource.healthCheck()"})
-  public void testHealthCheck_thenReturnStringHeadersIsTreeMap() {
+  void testHealthCheck_thenReturnStringHeadersIsTreeMap() {
     // Arrange
     HealthCheckRegistry healthCheckRegistry = mock(HealthCheckRegistry.class);
     TreeMap<String, Result> stringResultMap = new TreeMap<>();

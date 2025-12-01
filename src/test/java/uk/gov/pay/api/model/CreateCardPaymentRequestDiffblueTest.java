@@ -1,23 +1,23 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Optional;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.service.payments.commons.model.AgreementPaymentType;
 import uk.gov.service.payments.commons.model.AuthorisationMode;
 import uk.gov.service.payments.commons.model.Source;
 import uk.gov.service.payments.commons.model.SupportedLanguage;
 import uk.gov.service.payments.commons.model.charge.ExternalMetadata;
 
-public class CreateCardPaymentRequestDiffblueTest {
+class CreateCardPaymentRequestDiffblueTest {
   /**
    * Test {@link
    * CreateCardPaymentRequest#CreateCardPaymentRequest(CreateCardPaymentRequestBuilder)}.
@@ -31,10 +31,12 @@ public class CreateCardPaymentRequestDiffblueTest {
    * CreateCardPaymentRequest#CreateCardPaymentRequest(CreateCardPaymentRequestBuilder)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test new CreateCardPaymentRequest(CreateCardPaymentRequestBuilder); when builder; then return Description is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void CreateCardPaymentRequest.<init>(CreateCardPaymentRequestBuilder)"})
-  public void testNewCreateCardPaymentRequest_whenBuilder_thenReturnDescriptionIsNull() {
+  void testNewCreateCardPaymentRequest_whenBuilder_thenReturnDescriptionIsNull() {
     // Arrange and Act
     CreateCardPaymentRequest actualCreateCardPaymentRequest =
         new CreateCardPaymentRequest(CreateCardPaymentRequestBuilder.builder());
@@ -72,7 +74,8 @@ public class CreateCardPaymentRequestDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "int CreateCardPaymentRequest.getAmount()",
@@ -81,7 +84,7 @@ public class CreateCardPaymentRequestDiffblueTest {
     "String CreateCardPaymentRequest.getReturnUrl()",
     "String CreateCardPaymentRequest.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     CreateCardPaymentRequest createCardPaymentRequest =
         new CreateCardPaymentRequest(CreateCardPaymentRequestBuilder.builder());
@@ -106,10 +109,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#getLanguage()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getLanguage()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CreateCardPaymentRequest.getLanguage()"})
-  public void testGetLanguage() {
+  void testGetLanguage() {
     // Arrange, Act and Assert
     assertFalse(
         new CreateCardPaymentRequest(CreateCardPaymentRequestBuilder.builder())
@@ -123,10 +127,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#getEmail()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getEmail()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CreateCardPaymentRequest.getEmail()"})
-  public void testGetEmail() {
+  void testGetEmail() {
     // Arrange, Act and Assert
     assertFalse(
         new CreateCardPaymentRequest(CreateCardPaymentRequestBuilder.builder())
@@ -140,10 +145,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#getPrefilledCardholderDetails()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPrefilledCardholderDetails()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CreateCardPaymentRequest.getPrefilledCardholderDetails()"})
-  public void testGetPrefilledCardholderDetails() {
+  void testGetPrefilledCardholderDetails() {
     // Arrange, Act and Assert
     assertFalse(
         new CreateCardPaymentRequest(CreateCardPaymentRequestBuilder.builder())
@@ -157,10 +163,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#getDelayedCapture()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getDelayedCapture()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CreateCardPaymentRequest.getDelayedCapture()"})
-  public void testGetDelayedCapture() {
+  void testGetDelayedCapture() {
     // Arrange, Act and Assert
     assertFalse(
         new CreateCardPaymentRequest(CreateCardPaymentRequestBuilder.builder())
@@ -174,10 +181,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#getMoto()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getMoto()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CreateCardPaymentRequest.getMoto()"})
-  public void testGetMoto() {
+  void testGetMoto() {
     // Arrange, Act and Assert
     assertFalse(
         new CreateCardPaymentRequest(CreateCardPaymentRequestBuilder.builder())
@@ -191,10 +199,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#getMetadata()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getMetadata()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CreateCardPaymentRequest.getMetadata()"})
-  public void testGetMetadata() {
+  void testGetMetadata() {
     // Arrange, Act and Assert
     assertFalse(
         new CreateCardPaymentRequest(CreateCardPaymentRequestBuilder.builder())
@@ -208,10 +217,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#getInternal()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getInternal()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CreateCardPaymentRequest.getInternal()"})
-  public void testGetInternal() {
+  void testGetInternal() {
     // Arrange, Act and Assert
     assertFalse(
         new CreateCardPaymentRequest(CreateCardPaymentRequestBuilder.builder())
@@ -225,10 +235,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#getSetUpAgreement()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getSetUpAgreement()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CreateCardPaymentRequest.getSetUpAgreement()"})
-  public void testGetSetUpAgreement() {
+  void testGetSetUpAgreement() {
     // Arrange, Act and Assert
     assertFalse(
         new CreateCardPaymentRequest(CreateCardPaymentRequestBuilder.builder())
@@ -242,10 +253,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#getAgreementId()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getAgreementId()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CreateCardPaymentRequest.getAgreementId()"})
-  public void testGetAgreementId() {
+  void testGetAgreementId() {
     // Arrange, Act and Assert
     assertFalse(
         new CreateCardPaymentRequest(CreateCardPaymentRequestBuilder.builder())
@@ -259,10 +271,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#getAuthorisationMode()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getAuthorisationMode()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CreateCardPaymentRequest.getAuthorisationMode()"})
-  public void testGetAuthorisationMode() {
+  void testGetAuthorisationMode() {
     // Arrange, Act and Assert
     assertFalse(
         new CreateCardPaymentRequest(CreateCardPaymentRequestBuilder.builder())
@@ -276,10 +289,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#getAgreementPaymentType()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getAgreementPaymentType()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CreateCardPaymentRequest.getAgreementPaymentType()"})
-  public void testGetAgreementPaymentType() {
+  void testGetAgreementPaymentType() {
     // Arrange, Act and Assert
     assertFalse(
         new CreateCardPaymentRequest(CreateCardPaymentRequestBuilder.builder())
@@ -293,10 +307,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#toConnectorPayload()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test toConnectorPayload()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CreateCardPaymentRequest.toConnectorPayload()"})
-  public void testToConnectorPayload() {
+  void testToConnectorPayload() {
     // Arrange, Act and Assert
     assertEquals(
         "{\n  \"amount\" : 0\n}",
@@ -309,10 +324,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#toConnectorPayload()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test toConnectorPayload()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CreateCardPaymentRequest.toConnectorPayload()"})
-  public void testToConnectorPayload2() {
+  void testToConnectorPayload2() {
     // Arrange
     CreateCardPaymentRequestBuilder builder = CreateCardPaymentRequestBuilder.builder();
     builder.cardholderName(CreateCardPaymentRequest.AMOUNT_FIELD_NAME);
@@ -334,10 +350,12 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#toConnectorPayload()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test toConnectorPayload(); given builder addressLine1 '42 Main St'; then return a string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CreateCardPaymentRequest.toConnectorPayload()"})
-  public void testToConnectorPayload_givenBuilderAddressLine142MainSt_thenReturnAString() {
+  void testToConnectorPayload_givenBuilderAddressLine142MainSt_thenReturnAString() {
     // Arrange
     CreateCardPaymentRequestBuilder builder = CreateCardPaymentRequestBuilder.builder();
     builder.addressLine1("42 Main St");
@@ -370,10 +388,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#toConnectorPayload()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test toConnectorPayload(); given builder agreementId '42'; then return a string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CreateCardPaymentRequest.toConnectorPayload()"})
-  public void testToConnectorPayload_givenBuilderAgreementId42_thenReturnAString() {
+  void testToConnectorPayload_givenBuilderAgreementId42_thenReturnAString() {
     // Arrange
     CreateCardPaymentRequestBuilder builder = CreateCardPaymentRequestBuilder.builder();
     builder.agreementId("42");
@@ -407,10 +426,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#toConnectorPayload()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test toConnectorPayload(); given builder agreementPaymentType 'INSTALMENT'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CreateCardPaymentRequest.toConnectorPayload()"})
-  public void testToConnectorPayload_givenBuilderAgreementPaymentTypeInstalment() {
+  void testToConnectorPayload_givenBuilderAgreementPaymentTypeInstalment() {
     // Arrange
     CreateCardPaymentRequestBuilder builder = CreateCardPaymentRequestBuilder.builder();
     builder.agreementPaymentType(AgreementPaymentType.INSTALMENT);
@@ -445,10 +465,12 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#toConnectorPayload()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test toConnectorPayload(); given builder authorisationMode 'WEB'; then return a string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CreateCardPaymentRequest.toConnectorPayload()"})
-  public void testToConnectorPayload_givenBuilderAuthorisationModeWeb_thenReturnAString() {
+  void testToConnectorPayload_givenBuilderAuthorisationModeWeb_thenReturnAString() {
     // Arrange
     CreateCardPaymentRequestBuilder builder = CreateCardPaymentRequestBuilder.builder();
     builder.authorisationMode(AuthorisationMode.WEB);
@@ -482,10 +504,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#toConnectorPayload()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test toConnectorPayload(); given builder cardholderName AMOUNT_FIELD_NAME")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CreateCardPaymentRequest.toConnectorPayload()"})
-  public void testToConnectorPayload_givenBuilderCardholderNameAmount_field_name() {
+  void testToConnectorPayload_givenBuilderCardholderNameAmount_field_name() {
     // Arrange
     CreateCardPaymentRequestBuilder builder = CreateCardPaymentRequestBuilder.builder();
     builder.cardholderName(CreateCardPaymentRequest.AMOUNT_FIELD_NAME);
@@ -520,10 +543,12 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#toConnectorPayload()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test toConnectorPayload(); given builder delayedCapture 'true'; then return a string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CreateCardPaymentRequest.toConnectorPayload()"})
-  public void testToConnectorPayload_givenBuilderDelayedCaptureTrue_thenReturnAString() {
+  void testToConnectorPayload_givenBuilderDelayedCaptureTrue_thenReturnAString() {
     // Arrange
     CreateCardPaymentRequestBuilder builder = CreateCardPaymentRequestBuilder.builder();
     builder.delayedCapture(true);
@@ -558,10 +583,12 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#toConnectorPayload()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test toConnectorPayload(); given builder email 'jane.doe@example.org'; then return a string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CreateCardPaymentRequest.toConnectorPayload()"})
-  public void testToConnectorPayload_givenBuilderEmailJaneDoeExampleOrg_thenReturnAString() {
+  void testToConnectorPayload_givenBuilderEmailJaneDoeExampleOrg_thenReturnAString() {
     // Arrange
     CreateCardPaymentRequestBuilder builder = CreateCardPaymentRequestBuilder.builder();
     builder.email("jane.doe@example.org");
@@ -596,10 +623,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#toConnectorPayload()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test toConnectorPayload(); given builder language 'ENGLISH'; then return a string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CreateCardPaymentRequest.toConnectorPayload()"})
-  public void testToConnectorPayload_givenBuilderLanguageEnglish_thenReturnAString() {
+  void testToConnectorPayload_givenBuilderLanguageEnglish_thenReturnAString() {
     // Arrange
     CreateCardPaymentRequestBuilder builder = CreateCardPaymentRequestBuilder.builder();
     builder.language(SupportedLanguage.ENGLISH);
@@ -634,10 +662,12 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#toConnectorPayload()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test toConnectorPayload(); given builder metadata ExternalMetadata(Map) with metadata is HashMap()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CreateCardPaymentRequest.toConnectorPayload()"})
-  public void testToConnectorPayload_givenBuilderMetadataExternalMetadataWithMetadataIsHashMap() {
+  void testToConnectorPayload_givenBuilderMetadataExternalMetadataWithMetadataIsHashMap() {
     // Arrange
     CreateCardPaymentRequestBuilder builder = CreateCardPaymentRequestBuilder.builder();
     builder.metadata(new ExternalMetadata(new HashMap<>()));
@@ -672,10 +702,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#toConnectorPayload()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test toConnectorPayload(); given builder moto 'true'; then return a string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CreateCardPaymentRequest.toConnectorPayload()"})
-  public void testToConnectorPayload_givenBuilderMotoTrue_thenReturnAString() {
+  void testToConnectorPayload_givenBuilderMotoTrue_thenReturnAString() {
     // Arrange
     CreateCardPaymentRequestBuilder builder = CreateCardPaymentRequestBuilder.builder();
     builder.moto(true);
@@ -710,10 +741,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#toConnectorPayload()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test toConnectorPayload(); given builder source 'CARD_API'; then return a string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CreateCardPaymentRequest.toConnectorPayload()"})
-  public void testToConnectorPayload_givenBuilderSourceCardApi_thenReturnAString() {
+  void testToConnectorPayload_givenBuilderSourceCardApi_thenReturnAString() {
     // Arrange
     CreateCardPaymentRequestBuilder builder = CreateCardPaymentRequestBuilder.builder();
     builder.source(Source.CARD_API);
@@ -747,10 +779,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#toConnectorPayload()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test toConnectorPayload(); given builder UpAgreement is AMOUNT_FIELD_NAME")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CreateCardPaymentRequest.toConnectorPayload()"})
-  public void testToConnectorPayload_givenBuilderUpAgreementIsAmount_field_name() {
+  void testToConnectorPayload_givenBuilderUpAgreementIsAmount_field_name() {
     // Arrange
     CreateCardPaymentRequestBuilder builder = CreateCardPaymentRequestBuilder.builder();
     builder.setUpAgreement(CreateCardPaymentRequest.AMOUNT_FIELD_NAME);
@@ -785,10 +818,11 @@ public class CreateCardPaymentRequestDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequest#toConnectorPayload()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test toConnectorPayload(); then return '{ \"amount\" : 0 }'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CreateCardPaymentRequest.toConnectorPayload()"})
-  public void testToConnectorPayload_thenReturnAmount0() {
+  void testToConnectorPayload_thenReturnAmount0() {
     // Arrange, Act and Assert
     assertEquals(
         "{\n  \"amount\" : 0\n}",

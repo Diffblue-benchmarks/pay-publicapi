@@ -1,17 +1,17 @@
 package uk.gov.pay.api.exception;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.RequestError;
 import uk.gov.pay.api.model.RequestError.Code;
 
-public class BadRefundsRequestExceptionDiffblueTest {
+class BadRefundsRequestExceptionDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -24,14 +24,15 @@ public class BadRefundsRequestExceptionDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void BadRefundsRequestException.<init>(RequestError)",
     "RequestError BadRefundsRequestException.getRequestError()",
     "String BadRefundsRequestException.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     RequestError refundError =
         RequestError.aHeaderRequestError("Header", Code.CREATE_PAYMENT_ACCOUNT_ERROR, "Parameters");

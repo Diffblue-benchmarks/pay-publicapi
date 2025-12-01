@@ -1,25 +1,26 @@
 package uk.gov.pay.api.model.links;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class PaymentLinksForSearchDiffblueTest {
+class PaymentLinksForSearchDiffblueTest {
   /**
    * Test {@link PaymentLinksForSearch#addSelf(String)}.
    *
    * <p>Method under test: {@link PaymentLinksForSearch#addSelf(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test addSelf(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentLinksForSearch.addSelf(String)"})
-  public void testAddSelf() {
+  void testAddSelf() {
     // Arrange
     PaymentLinksForSearch paymentLinksForSearch = new PaymentLinksForSearch();
 
@@ -38,10 +39,11 @@ public class PaymentLinksForSearchDiffblueTest {
    * <p>Method under test: {@link PaymentLinksForSearch#addEvents(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test addEvents(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentLinksForSearch.addEvents(String)"})
-  public void testAddEvents() {
+  void testAddEvents() {
     // Arrange
     PaymentLinksForSearch paymentLinksForSearch = new PaymentLinksForSearch();
 
@@ -60,10 +62,11 @@ public class PaymentLinksForSearchDiffblueTest {
    * <p>Method under test: {@link PaymentLinksForSearch#addCancel(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test addCancel(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentLinksForSearch.addCancel(String)"})
-  public void testAddCancel() {
+  void testAddCancel() {
     // Arrange
     PaymentLinksForSearch paymentLinksForSearch = new PaymentLinksForSearch();
 
@@ -84,10 +87,11 @@ public class PaymentLinksForSearchDiffblueTest {
    * <p>Method under test: {@link PaymentLinksForSearch#addRefunds(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test addRefunds(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentLinksForSearch.addRefunds(String)"})
-  public void testAddRefunds() {
+  void testAddRefunds() {
     // Arrange
     PaymentLinksForSearch paymentLinksForSearch = new PaymentLinksForSearch();
 
@@ -106,10 +110,11 @@ public class PaymentLinksForSearchDiffblueTest {
    * <p>Method under test: {@link PaymentLinksForSearch#addCapture(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test addCapture(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentLinksForSearch.addCapture(String)"})
-  public void testAddCapture() {
+  void testAddCapture() {
     // Arrange
     PaymentLinksForSearch paymentLinksForSearch = new PaymentLinksForSearch();
 
@@ -140,7 +145,8 @@ public class PaymentLinksForSearchDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentLinksForSearch.<init>()",
@@ -150,7 +156,7 @@ public class PaymentLinksForSearchDiffblueTest {
     "Link PaymentLinksForSearch.getRefunds()",
     "Link PaymentLinksForSearch.getSelf()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     PaymentLinksForSearch actualPaymentLinksForSearch = new PaymentLinksForSearch();
     PostLink actualCancel = actualPaymentLinksForSearch.getCancel();

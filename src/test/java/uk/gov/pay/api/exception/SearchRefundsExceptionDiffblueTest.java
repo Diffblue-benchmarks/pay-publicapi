@@ -1,31 +1,32 @@
 package uk.gov.pay.api.exception;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
 import org.glassfish.jersey.message.internal.OutboundMessageContext;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.service.payments.commons.model.ErrorIdentifier;
 
-public class SearchRefundsExceptionDiffblueTest {
+class SearchRefundsExceptionDiffblueTest {
   /**
    * Test {@link SearchRefundsException#SearchRefundsException(Throwable)}.
    *
    * <p>Method under test: {@link SearchRefundsException#SearchRefundsException(Throwable)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new SearchRefundsException(Throwable)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchRefundsException.<init>(Throwable)"})
-  public void testNewSearchRefundsException() {
+  void testNewSearchRefundsException() {
     // Arrange
     Throwable cause = new Throwable();
 
@@ -44,10 +45,11 @@ public class SearchRefundsExceptionDiffblueTest {
    * <p>Method under test: {@link SearchRefundsException#SearchRefundsException(Response)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new SearchRefundsException(Response)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchRefundsException.<init>(Response)"})
-  public void testNewSearchRefundsException2() {
+  void testNewSearchRefundsException2() {
     // Arrange and Act
     SearchRefundsException actualSearchRefundsException =
         new SearchRefundsException(

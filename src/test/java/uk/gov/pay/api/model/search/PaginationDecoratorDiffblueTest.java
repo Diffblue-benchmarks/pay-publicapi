@@ -1,6 +1,6 @@
 package uk.gov.pay.api.model.search;
 
-import static org.junit.Assert.assertSame;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.mock;
@@ -8,7 +8,6 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import black.door.hate.HalRepresentation;
 import black.door.hate.HalRepresentation.HalRepresentationBuilder;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.core.server.DefaultServerFactory;
@@ -18,14 +17,15 @@ import io.dropwizard.health.HealthFactory;
 import io.dropwizard.logging.common.DefaultLoggingFactory;
 import io.dropwizard.metrics.common.MetricsFactory;
 import io.dropwizard.servlets.tasks.TaskConfiguration;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.app.config.PublicApiConfig;
 import uk.gov.pay.api.model.links.SearchNavigationLinks;
 import uk.gov.pay.api.model.search.card.PaymentSearchResponse;
 
-public class PaginationDecoratorDiffblueTest {
+class PaginationDecoratorDiffblueTest {
   /**
    * Test {@link PaginationDecorator#decoratePagination(HalRepresentationBuilder, SearchPagination,
    * String)}.
@@ -40,12 +40,14 @@ public class PaginationDecoratorDiffblueTest {
    * SearchPagination, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test decoratePagination(HalRepresentationBuilder, SearchPagination, String); given builder; then return HalRepresentationBuilder")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "HalRepresentation.HalRepresentationBuilder PaginationDecorator.decoratePagination(HalRepresentation.HalRepresentationBuilder, SearchPagination, String)"
   })
-  public void testDecoratePagination_givenBuilder_thenReturnHalRepresentationBuilder() {
+  void testDecoratePagination_givenBuilder_thenReturnHalRepresentationBuilder() {
     // Arrange
     HealthCheckConfiguration healthChecks = new HealthCheckConfiguration();
     healthChecks.setMaxThreads(3);
@@ -93,12 +95,14 @@ public class PaginationDecoratorDiffblueTest {
    * PaginationDecorator#transformLinksToPublicApiUri(SearchNavigationLinks, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test transformLinksToPublicApiUri(SearchNavigationLinks, String); then return SearchNavigationLinks (default constructor)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "SearchNavigationLinks PaginationDecorator.transformLinksToPublicApiUri(SearchNavigationLinks, String)"
   })
-  public void testTransformLinksToPublicApiUri_thenReturnSearchNavigationLinks() {
+  void testTransformLinksToPublicApiUri_thenReturnSearchNavigationLinks() {
     // Arrange
     HealthCheckConfiguration healthChecks = new HealthCheckConfiguration();
     healthChecks.setMaxThreads(3);

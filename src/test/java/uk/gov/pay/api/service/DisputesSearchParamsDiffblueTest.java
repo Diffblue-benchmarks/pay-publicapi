@@ -1,15 +1,15 @@
 package uk.gov.pay.api.service;
 
-import static org.junit.Assert.assertEquals;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Map;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.service.DisputesSearchParams.Builder;
 
-public class DisputesSearchParamsDiffblueTest {
+class DisputesSearchParamsDiffblueTest {
   /**
    * Test Builder {@link Builder#build()}.
    *
@@ -28,7 +28,8 @@ public class DisputesSearchParamsDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test Builder build()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void Builder.<init>()",
@@ -41,7 +42,7 @@ public class DisputesSearchParamsDiffblueTest {
     "Builder Builder.withToDate(String)",
     "Builder Builder.withToSettledDate(String)"
   })
-  public void testBuilderBuild() {
+  void testBuilderBuild() {
     // Arrange and Act
     DisputesSearchParams actualDisputesSearchParams =
         new Builder()
@@ -78,10 +79,11 @@ public class DisputesSearchParamsDiffblueTest {
    * <p>Method under test: {@link DisputesSearchParams#getParamsAsMap()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getParamsAsMap()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Map DisputesSearchParams.getParamsAsMap()"})
-  public void testGetParamsAsMap() {
+  void testGetParamsAsMap() {
     // Arrange and Act
     Map<String, String> actualParamsAsMap =
         new Builder()
@@ -122,7 +124,8 @@ public class DisputesSearchParamsDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "String DisputesSearchParams.getDisplaySize()",
@@ -133,7 +136,7 @@ public class DisputesSearchParamsDiffblueTest {
     "String DisputesSearchParams.getToDate()",
     "String DisputesSearchParams.getToSettledDate()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     DisputesSearchParams disputesSearchParams =
         new Builder()

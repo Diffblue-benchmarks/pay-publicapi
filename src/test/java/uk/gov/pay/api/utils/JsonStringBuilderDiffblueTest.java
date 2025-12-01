@@ -1,15 +1,15 @@
 package uk.gov.pay.api.utils;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThrows;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class JsonStringBuilderDiffblueTest {
+class JsonStringBuilderDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -22,14 +22,15 @@ public class JsonStringBuilderDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void JsonStringBuilder.<init>()",
     "JsonStringBuilder JsonStringBuilder.addRoot(String)",
     "JsonStringBuilder JsonStringBuilder.noPrettyPrint()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     JsonStringBuilder actualJsonStringBuilder = new JsonStringBuilder();
     JsonStringBuilder actualAddRootResult = actualJsonStringBuilder.addRoot("Root");
@@ -50,10 +51,12 @@ public class JsonStringBuilderDiffblueTest {
    * <p>Method under test: {@link JsonStringBuilder#add(String, Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test add(String, Object); then JsonStringBuilder (default constructor) build is '{ }'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"JsonStringBuilder JsonStringBuilder.add(String, Object)"})
-  public void testAdd_thenJsonStringBuilderBuildIsLeftCurlyBracketSpaceRightCurlyBracket() {
+  void testAdd_thenJsonStringBuilderBuildIsLeftCurlyBracketSpaceRightCurlyBracket() {
     // Arrange
     JsonStringBuilder jsonStringBuilder = new JsonStringBuilder();
 
@@ -78,10 +81,12 @@ public class JsonStringBuilderDiffblueTest {
    * <p>Method under test: {@link JsonStringBuilder#add(String, Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test add(String, Object); when 'Value'; then JsonStringBuilder (default constructor) build is '{ \"Key\" : \"Value\" }'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"JsonStringBuilder JsonStringBuilder.add(String, Object)"})
-  public void testAdd_whenValue_thenJsonStringBuilderBuildIsKeyValue() {
+  void testAdd_whenValue_thenJsonStringBuilderBuildIsKeyValue() {
     // Arrange
     JsonStringBuilder jsonStringBuilder = new JsonStringBuilder();
 
@@ -101,10 +106,11 @@ public class JsonStringBuilderDiffblueTest {
    * <p>Method under test: {@link JsonStringBuilder#addToMap(String, String, Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test addToMap(String, String, Object) with 'mapKey', 'key', 'value'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"JsonStringBuilder JsonStringBuilder.addToMap(String, String, Object)"})
-  public void testAddToMapWithMapKeyKeyValue() {
+  void testAddToMapWithMapKeyKeyValue() {
     // Arrange
     JsonStringBuilder jsonStringBuilder = new JsonStringBuilder();
 
@@ -129,10 +135,12 @@ public class JsonStringBuilderDiffblueTest {
    * <p>Method under test: {@link JsonStringBuilder#addToMap(String, String, Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test addToMap(String, String, Object) with 'mapKey', 'key', 'value'; given addToMap(String, String, Object) with 'Map Key' and 'Key' and 'Value'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"JsonStringBuilder JsonStringBuilder.addToMap(String, String, Object)"})
-  public void testAddToMapWithMapKeyKeyValue_givenAddToMapWithMapKeyAndKeyAndValue() {
+  void testAddToMapWithMapKeyKeyValue_givenAddToMapWithMapKeyAndKeyAndValue() {
     // Arrange
     JsonStringBuilder jsonStringBuilder = new JsonStringBuilder();
     jsonStringBuilder.addToMap("Map Key", "Key", "Value");
@@ -157,10 +165,12 @@ public class JsonStringBuilderDiffblueTest {
    * <p>Method under test: {@link JsonStringBuilder#addToMap(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test addToMap(String) with 'mapKey'; then JsonStringBuilder (default constructor) build is '{ \"Map Key\" : { } }'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"JsonStringBuilder JsonStringBuilder.addToMap(String)"})
-  public void testAddToMapWithMapKey_thenJsonStringBuilderBuildIsMapKey() {
+  void testAddToMapWithMapKey_thenJsonStringBuilderBuildIsMapKey() {
     // Arrange
     JsonStringBuilder jsonStringBuilder = new JsonStringBuilder();
 
@@ -184,10 +194,12 @@ public class JsonStringBuilderDiffblueTest {
    * <p>Method under test: {@link JsonStringBuilder#addToMap(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test addToMap(String) with 'mapKey'; then JsonStringBuilder (default constructor) build is '{ \"Map Key\" : { \"Key\" : \"Value\" } }'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"JsonStringBuilder JsonStringBuilder.addToMap(String)"})
-  public void testAddToMapWithMapKey_thenJsonStringBuilderBuildIsMapKeyKeyValue() {
+  void testAddToMapWithMapKey_thenJsonStringBuilderBuildIsMapKeyKeyValue() {
     // Arrange
     JsonStringBuilder jsonStringBuilder = new JsonStringBuilder();
     jsonStringBuilder.addToMap("Map Key", "Key", "Value");
@@ -207,12 +219,13 @@ public class JsonStringBuilderDiffblueTest {
    * <p>Method under test: {@link JsonStringBuilder#addToNestedMap(String, Object, String[])}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test addToNestedMap(String, Object, String[])")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "JsonStringBuilder JsonStringBuilder.addToNestedMap(String, Object, String[])"
   })
-  public void testAddToNestedMap() {
+  void testAddToNestedMap() {
     // Arrange
     JsonStringBuilder jsonStringBuilder = new JsonStringBuilder();
     jsonStringBuilder.addToNestedMap("Key", "Value", "Map Keys");
@@ -239,12 +252,14 @@ public class JsonStringBuilderDiffblueTest {
    * <p>Method under test: {@link JsonStringBuilder#addToNestedMap(String, Object, String[])}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test addToNestedMap(String, Object, String[]); when 'Map Keys'; then JsonStringBuilder (default constructor) build is '{ \"Map Keys\" : { \"Key\" : \"Value\" } }'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "JsonStringBuilder JsonStringBuilder.addToNestedMap(String, Object, String[])"
   })
-  public void testAddToNestedMap_whenMapKeys_thenJsonStringBuilderBuildIsMapKeysKeyValue() {
+  void testAddToNestedMap_whenMapKeys_thenJsonStringBuilderBuildIsMapKeysKeyValue() {
     // Arrange
     JsonStringBuilder jsonStringBuilder = new JsonStringBuilder();
 
@@ -269,10 +284,12 @@ public class JsonStringBuilderDiffblueTest {
    * <p>Method under test: {@link JsonStringBuilder#build()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test build(); given addToMap(String, String, Object) with mapKey is 'java.util.Map' and key is 'null' and 'Value'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String JsonStringBuilder.build()"})
-  public void testBuild_givenAddToMapWithMapKeyIsJavaUtilMapAndKeyIsNullAndValue() {
+  void testBuild_givenAddToMapWithMapKeyIsJavaUtilMapAndKeyIsNullAndValue() {
     // Arrange
     JsonStringBuilder jsonStringBuilder = new JsonStringBuilder();
     jsonStringBuilder.addToMap("java.util.Map", null, "Value");
@@ -292,10 +309,11 @@ public class JsonStringBuilderDiffblueTest {
    * <p>Method under test: {@link JsonStringBuilder#build()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test build(); given JsonStringBuilder (default constructor)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String JsonStringBuilder.build()"})
-  public void testBuild_givenJsonStringBuilder() {
+  void testBuild_givenJsonStringBuilder() {
     // Arrange and Act
     String actualString = new JsonStringBuilder().build();
 
@@ -314,10 +332,12 @@ public class JsonStringBuilderDiffblueTest {
    * <p>Method under test: {@link JsonStringBuilder#build()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test build(); given JsonStringBuilder (default constructor) add '42' and 'Value'; then return '{ \"Root\" : { \"42\" : \"Value\" } }'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String JsonStringBuilder.build()"})
-  public void testBuild_givenJsonStringBuilderAdd42AndValue_thenReturnRoot42Value() {
+  void testBuild_givenJsonStringBuilderAdd42AndValue_thenReturnRoot42Value() {
     // Arrange
     JsonStringBuilder jsonStringBuilder = new JsonStringBuilder();
     jsonStringBuilder.add("42", "Value");
@@ -341,10 +361,12 @@ public class JsonStringBuilderDiffblueTest {
    * <p>Method under test: {@link JsonStringBuilder#build()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test build(); given JsonStringBuilder (default constructor) add 'Key' and 'Value'; then return '{ \"Key\" : \"Value\" }'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String JsonStringBuilder.build()"})
-  public void testBuild_givenJsonStringBuilderAddKeyAndValue_thenReturnKeyValue() {
+  void testBuild_givenJsonStringBuilderAddKeyAndValue_thenReturnKeyValue() {
     // Arrange
     JsonStringBuilder jsonStringBuilder = new JsonStringBuilder();
     jsonStringBuilder.add("Key", "Value");
@@ -367,10 +389,12 @@ public class JsonStringBuilderDiffblueTest {
    * <p>Method under test: {@link JsonStringBuilder#build()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test build(); given JsonStringBuilder (default constructor) add 'null' and 'Value'; then throw IllegalStateException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String JsonStringBuilder.build()"})
-  public void testBuild_givenJsonStringBuilderAddNullAndValue_thenThrowIllegalStateException() {
+  void testBuild_givenJsonStringBuilderAddNullAndValue_thenThrowIllegalStateException() {
     // Arrange
     JsonStringBuilder jsonStringBuilder = new JsonStringBuilder();
     jsonStringBuilder.add(null, "Value");
@@ -391,10 +415,12 @@ public class JsonStringBuilderDiffblueTest {
    * <p>Method under test: {@link JsonStringBuilder#build()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test build(); given JsonStringBuilder (default constructor) add 'null' and 'Value'; then throw IllegalStateException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String JsonStringBuilder.build()"})
-  public void testBuild_givenJsonStringBuilderAddNullAndValue_thenThrowIllegalStateException2() {
+  void testBuild_givenJsonStringBuilderAddNullAndValue_thenThrowIllegalStateException2() {
     // Arrange
     JsonStringBuilder jsonStringBuilder = new JsonStringBuilder();
     jsonStringBuilder.add(null, "Value");
@@ -413,10 +439,11 @@ public class JsonStringBuilderDiffblueTest {
    * <p>Method under test: {@link JsonStringBuilder#build()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test build(); given JsonStringBuilder (default constructor) addRoot empty string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String JsonStringBuilder.build()"})
-  public void testBuild_givenJsonStringBuilderAddRootEmptyString() {
+  void testBuild_givenJsonStringBuilderAddRootEmptyString() {
     // Arrange
     JsonStringBuilder jsonStringBuilder = new JsonStringBuilder();
     jsonStringBuilder.addRoot("");
@@ -439,10 +466,12 @@ public class JsonStringBuilderDiffblueTest {
    * <p>Method under test: {@link JsonStringBuilder#build()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test build(); given JsonStringBuilder (default constructor) addRoot 'Root'; then return '{ \"Root\" : { } }'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String JsonStringBuilder.build()"})
-  public void testBuild_givenJsonStringBuilderAddRootRoot_thenReturnRoot() {
+  void testBuild_givenJsonStringBuilderAddRootRoot_thenReturnRoot() {
     // Arrange
     JsonStringBuilder jsonStringBuilder = new JsonStringBuilder();
     jsonStringBuilder.addRoot("Root");
@@ -464,10 +493,12 @@ public class JsonStringBuilderDiffblueTest {
    * <p>Method under test: {@link JsonStringBuilder#build()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test build(); then return '{ \"Root\" : { \"java.util.Map\" : { \"java.util.Map\" : 42 } } }'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String JsonStringBuilder.build()"})
-  public void testBuild_thenReturnRootJavaUtilMapJavaUtilMap42() {
+  void testBuild_thenReturnRootJavaUtilMapJavaUtilMap42() {
     // Arrange
     JsonStringBuilder jsonStringBuilder = new JsonStringBuilder();
     jsonStringBuilder.addToMap("java.util.Map", "java.util.Map", 42);
@@ -492,10 +523,12 @@ public class JsonStringBuilderDiffblueTest {
    * <p>Method under test: {@link JsonStringBuilder#build()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test build(); then return '{ \"Root\" : { \"java.util.Map\" : { \"java.util.Map\" : \"Value\" } } }'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String JsonStringBuilder.build()"})
-  public void testBuild_thenReturnRootJavaUtilMapJavaUtilMapValue() {
+  void testBuild_thenReturnRootJavaUtilMapJavaUtilMapValue() {
     // Arrange
     JsonStringBuilder jsonStringBuilder = new JsonStringBuilder();
     jsonStringBuilder.addToMap("java.util.Map", "java.util.Map", "Value");
@@ -520,10 +553,11 @@ public class JsonStringBuilderDiffblueTest {
    * <p>Method under test: {@link JsonStringBuilder#build()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test build(); then return '{ \"Root\" : { \"java.util.Map\" : \"Value\" } }'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String JsonStringBuilder.build()"})
-  public void testBuild_thenReturnRootJavaUtilMapValue() {
+  void testBuild_thenReturnRootJavaUtilMapValue() {
     // Arrange
     JsonStringBuilder jsonStringBuilder = new JsonStringBuilder();
     jsonStringBuilder.add("java.util.Map", "Value");

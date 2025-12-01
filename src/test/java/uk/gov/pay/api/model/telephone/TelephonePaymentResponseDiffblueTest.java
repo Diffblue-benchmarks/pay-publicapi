@@ -1,21 +1,21 @@
 package uk.gov.pay.api.model.telephone;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Optional;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.ChargeFromResponse;
 import uk.gov.pay.api.model.PaymentState;
 import uk.gov.pay.api.model.telephone.TelephonePaymentResponse.Builder;
 
-public class TelephonePaymentResponseDiffblueTest {
+class TelephonePaymentResponseDiffblueTest {
   /**
    * Test Builder {@link Builder#build()}.
    *
@@ -45,7 +45,8 @@ public class TelephonePaymentResponseDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test Builder build()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void Builder.<init>()",
@@ -69,7 +70,7 @@ public class TelephonePaymentResponseDiffblueTest {
     "Builder Builder.withState(PaymentState)",
     "Builder Builder.withTelephoneNumber(String)"
   })
-  public void testBuilderBuild() {
+  void testBuilderBuild() {
     // Arrange and Act
     Builder actualWithPaymentIdResult =
         new Builder()
@@ -154,7 +155,8 @@ public class TelephonePaymentResponseDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; then return Amount is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void TelephonePaymentResponse.<init>()",
@@ -172,7 +174,7 @@ public class TelephonePaymentResponseDiffblueTest {
     "String TelephonePaymentResponse.getReference()",
     "PaymentState TelephonePaymentResponse.getState()"
   })
-  public void testGettersAndSetters_thenReturnAmountIsNull() {
+  void testGettersAndSetters_thenReturnAmountIsNull() {
     // Arrange and Act
     TelephonePaymentResponse actualTelephonePaymentResponse = new TelephonePaymentResponse();
     Long actualAmount = actualTelephonePaymentResponse.getAmount();
@@ -231,7 +233,8 @@ public class TelephonePaymentResponseDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; when ten; then return PaymentId is '42'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void TelephonePaymentResponse.<init>()",
@@ -249,7 +252,7 @@ public class TelephonePaymentResponseDiffblueTest {
     "String TelephonePaymentResponse.getReference()",
     "PaymentState TelephonePaymentResponse.getState()"
   })
-  public void testGettersAndSetters_whenTen_thenReturnPaymentIdIs42() {
+  void testGettersAndSetters_whenTen_thenReturnPaymentIdIs42() {
     // Arrange
     PaymentOutcome paymentOutcome = new PaymentOutcome("Status");
     PaymentState state = new PaymentState("Status", true);
@@ -314,10 +317,12 @@ public class TelephonePaymentResponseDiffblueTest {
    * <p>Method under test: {@link TelephonePaymentResponse#TelephonePaymentResponse(Builder)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test new TelephonePaymentResponse(Builder); when Builder (default constructor); then return Amount is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void TelephonePaymentResponse.<init>(Builder)"})
-  public void testNewTelephonePaymentResponse_whenBuilder_thenReturnAmountIsNull() {
+  void testNewTelephonePaymentResponse_whenBuilder_thenReturnAmountIsNull() {
     // Arrange and Act
     TelephonePaymentResponse actualTelephonePaymentResponse =
         new TelephonePaymentResponse(new Builder());
@@ -350,10 +355,11 @@ public class TelephonePaymentResponseDiffblueTest {
    * <p>Method under test: {@link TelephonePaymentResponse#getCreatedDate()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getCreatedDate()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional TelephonePaymentResponse.getCreatedDate()"})
-  public void testGetCreatedDate() {
+  void testGetCreatedDate() {
     // Arrange, Act and Assert
     assertFalse(new TelephonePaymentResponse().getCreatedDate().isPresent());
   }
@@ -364,10 +370,11 @@ public class TelephonePaymentResponseDiffblueTest {
    * <p>Method under test: {@link TelephonePaymentResponse#getAuthorisedDate()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getAuthorisedDate()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional TelephonePaymentResponse.getAuthorisedDate()"})
-  public void testGetAuthorisedDate() {
+  void testGetAuthorisedDate() {
     // Arrange, Act and Assert
     assertFalse(new TelephonePaymentResponse().getAuthorisedDate().isPresent());
   }
@@ -378,10 +385,11 @@ public class TelephonePaymentResponseDiffblueTest {
    * <p>Method under test: {@link TelephonePaymentResponse#getAuthCode()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getAuthCode()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional TelephonePaymentResponse.getAuthCode()"})
-  public void testGetAuthCode() {
+  void testGetAuthCode() {
     // Arrange, Act and Assert
     assertFalse(new TelephonePaymentResponse().getAuthCode().isPresent());
   }
@@ -392,10 +400,11 @@ public class TelephonePaymentResponseDiffblueTest {
    * <p>Method under test: {@link TelephonePaymentResponse#getNameOnCard()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getNameOnCard()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional TelephonePaymentResponse.getNameOnCard()"})
-  public void testGetNameOnCard() {
+  void testGetNameOnCard() {
     // Arrange, Act and Assert
     assertFalse(new TelephonePaymentResponse().getNameOnCard().isPresent());
   }
@@ -406,10 +415,11 @@ public class TelephonePaymentResponseDiffblueTest {
    * <p>Method under test: {@link TelephonePaymentResponse#getEmailAddress()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getEmailAddress()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional TelephonePaymentResponse.getEmailAddress()"})
-  public void testGetEmailAddress() {
+  void testGetEmailAddress() {
     // Arrange, Act and Assert
     assertFalse(new TelephonePaymentResponse().getEmailAddress().isPresent());
   }
@@ -420,10 +430,11 @@ public class TelephonePaymentResponseDiffblueTest {
    * <p>Method under test: {@link TelephonePaymentResponse#getTelephoneNumber()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getTelephoneNumber()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional TelephonePaymentResponse.getTelephoneNumber()"})
-  public void testGetTelephoneNumber() {
+  void testGetTelephoneNumber() {
     // Arrange, Act and Assert
     assertFalse(new TelephonePaymentResponse().getTelephoneNumber().isPresent());
   }
@@ -439,10 +450,12 @@ public class TelephonePaymentResponseDiffblueTest {
    * <p>Method under test: {@link TelephonePaymentResponse#from(ChargeFromResponse)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test from(ChargeFromResponse); when ChargeFromResponse (default constructor); then return CardType is empty string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"TelephonePaymentResponse TelephonePaymentResponse.from(ChargeFromResponse)"})
-  public void testFrom_whenChargeFromResponse_thenReturnCardTypeIsEmptyString() {
+  void testFrom_whenChargeFromResponse_thenReturnCardTypeIsEmptyString() {
     // Arrange and Act
     TelephonePaymentResponse actualFromResult =
         TelephonePaymentResponse.from(new ChargeFromResponse());

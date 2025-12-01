@@ -1,18 +1,17 @@
 package uk.gov.pay.api.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.core.server.DefaultServerFactory;
@@ -37,8 +36,9 @@ import java.util.HashMap;
 import java.util.Optional;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
 import org.glassfish.jersey.message.internal.OutboundMessageContext;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.app.config.PublicApiConfig;
 import uk.gov.pay.api.auth.Account;
@@ -69,7 +69,7 @@ import uk.gov.service.payments.commons.model.AuthorisationMode;
 import uk.gov.service.payments.commons.model.SupportedLanguage;
 import uk.gov.service.payments.commons.model.charge.ExternalMetadata;
 
-public class CreatePaymentServiceDiffblueTest {
+class CreatePaymentServiceDiffblueTest {
   /**
    * Test {@link CreatePaymentService#create(Account, CreateCardPaymentRequest, String)}.
    *
@@ -77,12 +77,13 @@ public class CreatePaymentServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test create(Account, CreateCardPaymentRequest, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreatedPaymentWithAllLinks CreatePaymentService.create(Account, CreateCardPaymentRequest, String)"
   })
-  public void testCreate() {
+  void testCreate() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.post(Mockito.<Entity<?>>any()))
@@ -142,12 +143,13 @@ public class CreatePaymentServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test create(Account, CreateCardPaymentRequest, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreatedPaymentWithAllLinks CreatePaymentService.create(Account, CreateCardPaymentRequest, String)"
   })
-  public void testCreate2() throws ProcessingException {
+  void testCreate2() throws ProcessingException {
     // Arrange
     ArrayList<PaymentConnectorResponseLink> paymentConnectorResponseLinkList = new ArrayList<>();
     PaymentConnectorResponseLink paymentConnectorResponseLink =
@@ -317,12 +319,13 @@ public class CreatePaymentServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test create(Account, CreateCardPaymentRequest, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreatedPaymentWithAllLinks CreatePaymentService.create(Account, CreateCardPaymentRequest, String)"
   })
-  public void testCreate3() throws ProcessingException {
+  void testCreate3() throws ProcessingException {
     // Arrange
     ArrayList<PaymentConnectorResponseLink> paymentConnectorResponseLinkList = new ArrayList<>();
     PaymentConnectorResponseLink paymentConnectorResponseLink =
@@ -505,12 +508,14 @@ public class CreatePaymentServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test create(Account, CreateCardPaymentRequest, String); given ChargeFromResponse getAuthorisationSummary() return 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreatedPaymentWithAllLinks CreatePaymentService.create(Account, CreateCardPaymentRequest, String)"
   })
-  public void testCreate_givenChargeFromResponseGetAuthorisationSummaryReturnNull()
+  void testCreate_givenChargeFromResponseGetAuthorisationSummaryReturnNull()
       throws ProcessingException {
     // Arrange
     ChargeFromResponse chargeFromResponse = mock(ChargeFromResponse.class);
@@ -676,13 +681,14 @@ public class CreatePaymentServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test create(Account, CreateCardPaymentRequest, String); given ChargeFromResponse getExemption() return 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreatedPaymentWithAllLinks CreatePaymentService.create(Account, CreateCardPaymentRequest, String)"
   })
-  public void testCreate_givenChargeFromResponseGetExemptionReturnNull()
-      throws ProcessingException {
+  void testCreate_givenChargeFromResponseGetExemptionReturnNull() throws ProcessingException {
     // Arrange
     ChargeFromResponse chargeFromResponse = mock(ChargeFromResponse.class);
     when(chargeFromResponse.getDelayedCapture()).thenReturn(true);
@@ -847,13 +853,14 @@ public class CreatePaymentServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test create(Account, CreateCardPaymentRequest, String); given ExemptionOutcome(String) with result is 'Idempotency-Key'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreatedPaymentWithAllLinks CreatePaymentService.create(Account, CreateCardPaymentRequest, String)"
   })
-  public void testCreate_givenExemptionOutcomeWithResultIsIdempotencyKey()
-      throws ProcessingException {
+  void testCreate_givenExemptionOutcomeWithResultIsIdempotencyKey() throws ProcessingException {
     // Arrange
     ChargeFromResponse chargeFromResponse = mock(ChargeFromResponse.class);
     when(chargeFromResponse.getDelayedCapture()).thenReturn(true);
@@ -1020,12 +1027,14 @@ public class CreatePaymentServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test create(Account, CreateCardPaymentRequest, String); given OutboundJaxrsResponse getStatus() return one; then calls close()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreatedPaymentWithAllLinks CreatePaymentService.create(Account, CreateCardPaymentRequest, String)"
   })
-  public void testCreate_givenOutboundJaxrsResponseGetStatusReturnOne_thenCallsClose()
+  void testCreate_givenOutboundJaxrsResponseGetStatusReturnOne_thenCallsClose()
       throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
@@ -1099,12 +1108,14 @@ public class CreatePaymentServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test create(Account, CreateCardPaymentRequest, String); given OutboundJaxrsResponse getStatus() return one; then calls close()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreatedPaymentWithAllLinks CreatePaymentService.create(Account, CreateCardPaymentRequest, String)"
   })
-  public void testCreate_givenOutboundJaxrsResponseGetStatusReturnOne_thenCallsClose2()
+  void testCreate_givenOutboundJaxrsResponseGetStatusReturnOne_thenCallsClose2()
       throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
@@ -1177,12 +1188,14 @@ public class CreatePaymentServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test create(Account, CreateCardPaymentRequest, String); given ThreeDSecure(boolean) with required is 'false'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreatedPaymentWithAllLinks CreatePaymentService.create(Account, CreateCardPaymentRequest, String)"
   })
-  public void testCreate_givenThreeDSecureWithRequiredIsFalse() throws ProcessingException {
+  void testCreate_givenThreeDSecureWithRequiredIsFalse() throws ProcessingException {
     // Arrange
     ChargeFromResponse chargeFromResponse = mock(ChargeFromResponse.class);
     when(chargeFromResponse.getDelayedCapture()).thenReturn(true);
@@ -1347,13 +1360,14 @@ public class CreatePaymentServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test create(Account, CreateCardPaymentRequest, String); then return not Payment CardDetails WalletType Present")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreatedPaymentWithAllLinks CreatePaymentService.create(Account, CreateCardPaymentRequest, String)"
   })
-  public void testCreate_thenReturnNotPaymentCardDetailsWalletTypePresent()
-      throws ProcessingException {
+  void testCreate_thenReturnNotPaymentCardDetailsWalletTypePresent() throws ProcessingException {
     // Arrange
     ChargeFromResponse chargeFromResponse = mock(ChargeFromResponse.class);
     when(chargeFromResponse.getDelayedCapture()).thenReturn(true);
@@ -1518,12 +1532,14 @@ public class CreatePaymentServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test create(Account, CreateCardPaymentRequest, String); then return Payment CardBrand is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreatedPaymentWithAllLinks CreatePaymentService.create(Account, CreateCardPaymentRequest, String)"
   })
-  public void testCreate_thenReturnPaymentCardBrandIsNull() throws ProcessingException {
+  void testCreate_thenReturnPaymentCardBrandIsNull() throws ProcessingException {
     // Arrange
     ChargeFromResponse chargeFromResponse = mock(ChargeFromResponse.class);
     when(chargeFromResponse.getDelayedCapture()).thenReturn(true);
@@ -1675,13 +1691,14 @@ public class CreatePaymentServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test create(Account, CreateCardPaymentRequest, String); then return Payment CardDetails ExpiryDate is '2020-03-01'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreatedPaymentWithAllLinks CreatePaymentService.create(Account, CreateCardPaymentRequest, String)"
   })
-  public void testCreate_thenReturnPaymentCardDetailsExpiryDateIs20200301()
-      throws ProcessingException {
+  void testCreate_thenReturnPaymentCardDetailsExpiryDateIs20200301() throws ProcessingException {
     // Arrange
     ChargeFromResponse chargeFromResponse = mock(ChargeFromResponse.class);
     when(chargeFromResponse.getDelayedCapture()).thenReturn(true);
@@ -1845,13 +1862,14 @@ public class CreatePaymentServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test create(Account, CreateCardPaymentRequest, String); then return Payment CardDetails WalletType is 'Apple Pay'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreatedPaymentWithAllLinks CreatePaymentService.create(Account, CreateCardPaymentRequest, String)"
   })
-  public void testCreate_thenReturnPaymentCardDetailsWalletTypeIsApplePay()
-      throws ProcessingException {
+  void testCreate_thenReturnPaymentCardDetailsWalletTypeIsApplePay() throws ProcessingException {
     // Arrange
     ChargeFromResponse chargeFromResponse = mock(ChargeFromResponse.class);
     when(chargeFromResponse.getDelayedCapture()).thenReturn(true);
@@ -2010,12 +2028,14 @@ public class CreatePaymentServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test create(Account, CreateCardPaymentRequest, String); then return Payment Links Cancel Method is 'POST'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreatedPaymentWithAllLinks CreatePaymentService.create(Account, CreateCardPaymentRequest, String)"
   })
-  public void testCreate_thenReturnPaymentLinksCancelMethodIsPost() throws ProcessingException {
+  void testCreate_thenReturnPaymentLinksCancelMethodIsPost() throws ProcessingException {
     // Arrange
     ChargeFromResponse chargeFromResponse = mock(ChargeFromResponse.class);
     when(chargeFromResponse.getDelayedCapture()).thenReturn(true);

@@ -1,15 +1,15 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.RefundsFromConnector.Embedded;
 
-public class RefundsFromConnectorDiffblueTest {
+class RefundsFromConnectorDiffblueTest {
   /**
    * Test Embedded getters and setters.
    *
@@ -22,14 +22,15 @@ public class RefundsFromConnectorDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test Embedded getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void Embedded.<init>(RefundsFromConnector)",
     "java.util.List Embedded.getRefunds()",
     "String Embedded.toString()"
   })
-  public void testEmbeddedGettersAndSetters() {
+  void testEmbeddedGettersAndSetters() {
     // Arrange and Act
     Embedded actualEmbedded = new RefundsFromConnector().new Embedded();
     String actualToStringResult = actualEmbedded.toString();
@@ -52,7 +53,8 @@ public class RefundsFromConnectorDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void RefundsFromConnector.<init>()",
@@ -60,7 +62,7 @@ public class RefundsFromConnectorDiffblueTest {
     "String RefundsFromConnector.getPaymentId()",
     "String RefundsFromConnector.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     RefundsFromConnector actualRefundsFromConnector = new RefundsFromConnector();
     String actualToStringResult = actualRefundsFromConnector.toString();

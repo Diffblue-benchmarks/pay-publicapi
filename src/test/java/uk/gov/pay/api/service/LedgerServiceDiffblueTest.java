@@ -1,11 +1,11 @@
 package uk.gov.pay.api.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.atLeast;
@@ -13,7 +13,6 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.ProcessingException;
@@ -31,8 +30,9 @@ import java.util.Map;
 import java.util.Optional;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
 import org.glassfish.jersey.message.internal.OutboundMessageContext;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.agreement.model.AgreementLedgerResponse;
 import uk.gov.pay.api.auth.Account;
@@ -74,17 +74,18 @@ import uk.gov.service.payments.commons.model.AuthorisationMode;
 import uk.gov.service.payments.commons.model.SupportedLanguage;
 import uk.gov.service.payments.commons.model.charge.ExternalMetadata;
 
-public class LedgerServiceDiffblueTest {
+class LedgerServiceDiffblueTest {
   /**
    * Test {@link LedgerService#getPaymentTransaction(Account, String)}.
    *
    * <p>Method under test: {@link LedgerService#getPaymentTransaction(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentTransaction(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Charge LedgerService.getPaymentTransaction(Account, String)"})
-  public void testGetPaymentTransaction() {
+  void testGetPaymentTransaction() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.get())
@@ -121,10 +122,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getPaymentTransaction(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentTransaction(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Charge LedgerService.getPaymentTransaction(Account, String)"})
-  public void testGetPaymentTransaction2() {
+  void testGetPaymentTransaction2() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.get()).thenThrow(new ProcessingException("An error occurred"));
@@ -160,10 +162,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getPaymentTransaction(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentTransaction(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Charge LedgerService.getPaymentTransaction(Account, String)"})
-  public void testGetPaymentTransaction3() throws ProcessingException {
+  void testGetPaymentTransaction3() throws ProcessingException {
     // Arrange
     TransactionResponse transactionResponse = mock(TransactionResponse.class);
     when(transactionResponse.getDelayedCapture()).thenReturn(true);
@@ -312,10 +315,12 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getPaymentTransaction(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getPaymentTransaction(Account, String); given ExemptionOutcome(String) with result is 'PAYMENT'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Charge LedgerService.getPaymentTransaction(Account, String)"})
-  public void testGetPaymentTransaction_givenExemptionOutcomeWithResultIsPayment()
+  void testGetPaymentTransaction_givenExemptionOutcomeWithResultIsPayment()
       throws ProcessingException {
     // Arrange
     TransactionResponse transactionResponse = mock(TransactionResponse.class);
@@ -465,10 +470,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getPaymentTransaction(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentTransaction(Account, String); then calls close()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Charge LedgerService.getPaymentTransaction(Account, String)"})
-  public void testGetPaymentTransaction_thenCallsClose() throws ProcessingException {
+  void testGetPaymentTransaction_thenCallsClose() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     when(outboundJaxrsResponse.getStatus()).thenReturn(1);
@@ -517,10 +523,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getPaymentTransaction(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentTransaction(Account, String); then calls getThreeDSecure()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Charge LedgerService.getPaymentTransaction(Account, String)"})
-  public void testGetPaymentTransaction_thenCallsGetThreeDSecure() throws ProcessingException {
+  void testGetPaymentTransaction_thenCallsGetThreeDSecure() throws ProcessingException {
     // Arrange
     AuthorisationSummary authorisationSummary = mock(AuthorisationSummary.class);
     when(authorisationSummary.getThreeDSecure())
@@ -639,10 +646,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getPaymentTransaction(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentTransaction(Account, String); then calls getType()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Charge LedgerService.getPaymentTransaction(Account, String)"})
-  public void testGetPaymentTransaction_thenCallsGetType() throws ProcessingException {
+  void testGetPaymentTransaction_thenCallsGetType() throws ProcessingException {
     // Arrange
     Exemption exemption = mock(Exemption.class);
     when(exemption.getType()).thenThrow(new ProcessingException("An error occurred"));
@@ -766,11 +774,12 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getPaymentTransaction(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getPaymentTransaction(Account, String); then return AuthorisationSummary is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Charge LedgerService.getPaymentTransaction(Account, String)"})
-  public void testGetPaymentTransaction_thenReturnAuthorisationSummaryIsNull()
-      throws ProcessingException {
+  void testGetPaymentTransaction_thenReturnAuthorisationSummaryIsNull() throws ProcessingException {
     // Arrange
     TransactionResponse transactionResponse = mock(TransactionResponse.class);
     when(transactionResponse.getDelayedCapture()).thenReturn(true);
@@ -918,11 +927,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getPaymentTransaction(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentTransaction(Account, String); then return CardBrand is empty string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Charge LedgerService.getPaymentTransaction(Account, String)"})
-  public void testGetPaymentTransaction_thenReturnCardBrandIsEmptyString()
-      throws ProcessingException {
+  void testGetPaymentTransaction_thenReturnCardBrandIsEmptyString() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     when(outboundJaxrsResponse.readEntity(TransactionResponse.class))
@@ -991,12 +1000,13 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getRefundTransaction(Account, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getRefundTransaction(Account, String, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "RefundTransactionFromLedger LedgerService.getRefundTransaction(Account, String, String)"
   })
-  public void testGetRefundTransaction() {
+  void testGetRefundTransaction() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.get())
@@ -1040,12 +1050,13 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getRefundTransaction(Account, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getRefundTransaction(Account, String, String); then calls close()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "RefundTransactionFromLedger LedgerService.getRefundTransaction(Account, String, String)"
   })
-  public void testGetRefundTransaction_thenCallsClose() throws ProcessingException {
+  void testGetRefundTransaction_thenCallsClose() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     when(outboundJaxrsResponse.getStatus()).thenReturn(1);
@@ -1097,13 +1108,14 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getRefundTransaction(Account, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getRefundTransaction(Account, String, String); then return RefundTransactionFromLedger (default constructor)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "RefundTransactionFromLedger LedgerService.getRefundTransaction(Account, String, String)"
   })
-  public void testGetRefundTransaction_thenReturnRefundTransactionFromLedger()
-      throws ProcessingException {
+  void testGetRefundTransaction_thenReturnRefundTransactionFromLedger() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     RefundTransactionFromLedger refundTransactionFromLedger = new RefundTransactionFromLedger();
@@ -1157,12 +1169,13 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getRefundTransaction(Account, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getRefundTransaction(Account, String, String); then throw ProcessingException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "RefundTransactionFromLedger LedgerService.getRefundTransaction(Account, String, String)"
   })
-  public void testGetRefundTransaction_thenThrowProcessingException() {
+  void testGetRefundTransaction_thenThrowProcessingException() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.get()).thenThrow(new ProcessingException("An error occurred"));
@@ -1201,10 +1214,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getTransactionEvents(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getTransactionEvents(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"TransactionEvents LedgerService.getTransactionEvents(Account, String)"})
-  public void testGetTransactionEvents() {
+  void testGetTransactionEvents() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.get())
@@ -1244,10 +1258,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getTransactionEvents(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getTransactionEvents(Account, String); then calls close()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"TransactionEvents LedgerService.getTransactionEvents(Account, String)"})
-  public void testGetTransactionEvents_thenCallsClose() throws ProcessingException {
+  void testGetTransactionEvents_thenCallsClose() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     when(outboundJaxrsResponse.getStatus()).thenReturn(1);
@@ -1295,10 +1310,12 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getTransactionEvents(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getTransactionEvents(Account, String); then return TransactionEvents (default constructor)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"TransactionEvents LedgerService.getTransactionEvents(Account, String)"})
-  public void testGetTransactionEvents_thenReturnTransactionEvents() throws ProcessingException {
+  void testGetTransactionEvents_thenReturnTransactionEvents() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     TransactionEvents transactionEvents = new TransactionEvents();
@@ -1347,10 +1364,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getTransactionEvents(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getTransactionEvents(Account, String); then throw ProcessingException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"TransactionEvents LedgerService.getTransactionEvents(Account, String)"})
-  public void testGetTransactionEvents_thenThrowProcessingException() {
+  void testGetTransactionEvents_thenThrowProcessingException() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.get()).thenThrow(new ProcessingException("An error occurred"));
@@ -1385,10 +1403,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getPaymentRefunds(String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentRefunds(String, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RefundsFromLedger LedgerService.getPaymentRefunds(String, String)"})
-  public void testGetPaymentRefunds() {
+  void testGetPaymentRefunds() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.get())
@@ -1425,10 +1444,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getPaymentRefunds(String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentRefunds(String, String); then calls close()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RefundsFromLedger LedgerService.getPaymentRefunds(String, String)"})
-  public void testGetPaymentRefunds_thenCallsClose() throws ProcessingException {
+  void testGetPaymentRefunds_thenCallsClose() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     when(outboundJaxrsResponse.getStatus()).thenReturn(1);
@@ -1473,10 +1493,12 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getPaymentRefunds(String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getPaymentRefunds(String, String); then return RefundsFromLedger (default constructor)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RefundsFromLedger LedgerService.getPaymentRefunds(String, String)"})
-  public void testGetPaymentRefunds_thenReturnRefundsFromLedger() throws ProcessingException {
+  void testGetPaymentRefunds_thenReturnRefundsFromLedger() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     RefundsFromLedger refundsFromLedger = new RefundsFromLedger();
@@ -1524,10 +1546,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getPaymentRefunds(String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentRefunds(String, String); then throw ProcessingException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RefundsFromLedger LedgerService.getPaymentRefunds(String, String)"})
-  public void testGetPaymentRefunds_thenThrowProcessingException() {
+  void testGetPaymentRefunds_thenThrowProcessingException() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.get()).thenThrow(new ProcessingException("An error occurred"));
@@ -1559,51 +1582,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#searchRefunds(Account, Map)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test searchRefunds(Account, Map)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"SearchRefundsResponseFromLedger LedgerService.searchRefunds(Account, Map)"})
-  public void testSearchRefunds() {
-    // Arrange
-    Builder builder = mock(Builder.class);
-    when(builder.get())
-        .thenReturn(new OutboundJaxrsResponse(Status.CREATED, new OutboundMessageContext()));
-
-    Builder builder2 = mock(Builder.class);
-    when(builder2.accept(isA(MediaType[].class))).thenReturn(builder);
-
-    WebTarget webTarget = mock(WebTarget.class);
-    when(webTarget.request()).thenReturn(builder2);
-
-    Client client = mock(Client.class);
-    when(client.target(Mockito.<String>any())).thenReturn(webTarget);
-
-    LedgerUriGenerator ledgerUriGenerator = mock(LedgerUriGenerator.class);
-    when(ledgerUriGenerator.transactionsURIWithParams(Mockito.<Map<String, String>>any()))
-        .thenReturn("Transactions URIWith Params");
-
-    LedgerService ledgerService = new LedgerService(client, ledgerUriGenerator);
-    Account account = new Account("42", TokenPaymentType.CARD, "ABC123");
-
-    // Act and Assert
-    assertThrows(
-        SearchRefundsException.class, () -> ledgerService.searchRefunds(account, new HashMap<>()));
-    verify(client).target("Transactions URIWith Params");
-    verify(builder2).accept(isA(MediaType[].class));
-    verify(builder).get();
-    verify(webTarget).request();
-    verify(ledgerUriGenerator).transactionsURIWithParams(isA(Map.class));
-  }
-
-  /**
-   * Test {@link LedgerService#searchRefunds(Account, Map)}.
-   *
-   * <p>Method under test: {@link LedgerService#searchRefunds(Account, Map)}
-   */
-  @Test
-  @Category(ContributionFromDiffblue.class)
-  @ManagedByDiffblue
-  @MethodsUnderTest({"SearchRefundsResponseFromLedger LedgerService.searchRefunds(Account, Map)"})
-  public void testSearchRefunds2() throws ProcessingException {
+  void testSearchRefunds() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     when(outboundJaxrsResponse.readEntity(SearchRefundsResponseFromLedger.class))
@@ -1654,10 +1637,12 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#searchRefunds(Account, Map)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test searchRefunds(Account, Map); given OutboundJaxrsResponse getStatus() return one; then calls close()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"SearchRefundsResponseFromLedger LedgerService.searchRefunds(Account, Map)"})
-  public void testSearchRefunds_givenOutboundJaxrsResponseGetStatusReturnOne_thenCallsClose()
+  void testSearchRefunds_givenOutboundJaxrsResponseGetStatusReturnOne_thenCallsClose()
       throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
@@ -1708,10 +1693,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#searchRefunds(Account, Map)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test searchRefunds(Account, Map); then HashMap() size is two")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"SearchRefundsResponseFromLedger LedgerService.searchRefunds(Account, Map)"})
-  public void testSearchRefunds_thenHashMapSizeIsTwo() throws ProcessingException {
+  void testSearchRefunds_thenHashMapSizeIsTwo() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     SearchRefundsResponseFromLedger searchRefundsResponseFromLedger =
@@ -1764,16 +1750,73 @@ public class LedgerServiceDiffblueTest {
    * Test {@link LedgerService#searchRefunds(Account, Map)}.
    *
    * <ul>
+   *   <li>Then throw {@link GetChargeException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link LedgerService#searchRefunds(Account, Map)}
+   */
+  @Test
+  @DisplayName("Test searchRefunds(Account, Map); then throw GetChargeException")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"SearchRefundsResponseFromLedger LedgerService.searchRefunds(Account, Map)"})
+  void testSearchRefunds_thenThrowGetChargeException() throws ProcessingException {
+    // Arrange
+    OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
+    when(outboundJaxrsResponse.readEntity(SearchRefundsResponseFromLedger.class))
+        .thenThrow(
+            new GetChargeException(
+                new OutboundJaxrsResponse(Status.OK, new OutboundMessageContext())));
+    when(outboundJaxrsResponse.getStatus()).thenReturn(200);
+    when(outboundJaxrsResponse.readEntity(ConnectorErrorResponse.class))
+        .thenReturn(new ConnectorErrorResponse());
+
+    Builder builder = mock(Builder.class);
+    when(builder.get()).thenReturn(outboundJaxrsResponse);
+
+    Builder builder2 = mock(Builder.class);
+    when(builder2.accept(isA(MediaType[].class))).thenReturn(builder);
+
+    WebTarget webTarget = mock(WebTarget.class);
+    when(webTarget.request()).thenReturn(builder2);
+
+    Client client = mock(Client.class);
+    when(client.target(Mockito.<String>any())).thenReturn(webTarget);
+
+    LedgerUriGenerator ledgerUriGenerator = mock(LedgerUriGenerator.class);
+    when(ledgerUriGenerator.transactionsURIWithParams(Mockito.<Map<String, String>>any()))
+        .thenReturn("Transactions URIWith Params");
+
+    LedgerService ledgerService = new LedgerService(client, ledgerUriGenerator);
+    Account account = new Account("42", TokenPaymentType.CARD, "ABC123");
+
+    // Act and Assert
+    assertThrows(
+        GetChargeException.class, () -> ledgerService.searchRefunds(account, new HashMap<>()));
+    verify(client).target("Transactions URIWith Params");
+    verify(builder2).accept(isA(MediaType[].class));
+    verify(builder).get();
+    verify(webTarget).request();
+    verify(outboundJaxrsResponse).getStatus();
+    verify(outboundJaxrsResponse).readEntity(isA(Class.class));
+    verify(ledgerUriGenerator).transactionsURIWithParams(isA(Map.class));
+  }
+
+  /**
+   * Test {@link LedgerService#searchRefunds(Account, Map)}.
+   *
+   * <ul>
    *   <li>Then throw {@link ProcessingException}.
    * </ul>
    *
    * <p>Method under test: {@link LedgerService#searchRefunds(Account, Map)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test searchRefunds(Account, Map); then throw ProcessingException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"SearchRefundsResponseFromLedger LedgerService.searchRefunds(Account, Map)"})
-  public void testSearchRefunds_thenThrowProcessingException() {
+  void testSearchRefunds_thenThrowProcessingException() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.get()).thenThrow(new ProcessingException("An error occurred"));
@@ -1810,52 +1853,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#searchDisputes(Account, Map)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test searchDisputes(Account, Map)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"SearchDisputesResponseFromLedger LedgerService.searchDisputes(Account, Map)"})
-  public void testSearchDisputes() {
-    // Arrange
-    Builder builder = mock(Builder.class);
-    when(builder.get())
-        .thenReturn(new OutboundJaxrsResponse(Status.CREATED, new OutboundMessageContext()));
-
-    Builder builder2 = mock(Builder.class);
-    when(builder2.accept(isA(MediaType[].class))).thenReturn(builder);
-
-    WebTarget webTarget = mock(WebTarget.class);
-    when(webTarget.request()).thenReturn(builder2);
-
-    Client client = mock(Client.class);
-    when(client.target(Mockito.<String>any())).thenReturn(webTarget);
-
-    LedgerUriGenerator ledgerUriGenerator = mock(LedgerUriGenerator.class);
-    when(ledgerUriGenerator.transactionsURIWithParams(Mockito.<Map<String, String>>any()))
-        .thenReturn("Transactions URIWith Params");
-
-    LedgerService ledgerService = new LedgerService(client, ledgerUriGenerator);
-    Account account = new Account("42", TokenPaymentType.CARD, "ABC123");
-
-    // Act and Assert
-    assertThrows(
-        SearchDisputesException.class,
-        () -> ledgerService.searchDisputes(account, new HashMap<>()));
-    verify(client).target("Transactions URIWith Params");
-    verify(builder2).accept(isA(MediaType[].class));
-    verify(builder).get();
-    verify(webTarget).request();
-    verify(ledgerUriGenerator).transactionsURIWithParams(isA(Map.class));
-  }
-
-  /**
-   * Test {@link LedgerService#searchDisputes(Account, Map)}.
-   *
-   * <p>Method under test: {@link LedgerService#searchDisputes(Account, Map)}
-   */
-  @Test
-  @Category(ContributionFromDiffblue.class)
-  @ManagedByDiffblue
-  @MethodsUnderTest({"SearchDisputesResponseFromLedger LedgerService.searchDisputes(Account, Map)"})
-  public void testSearchDisputes2() throws ProcessingException {
+  void testSearchDisputes() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     when(outboundJaxrsResponse.readEntity(SearchDisputesResponseFromLedger.class))
@@ -1907,10 +1909,12 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#searchDisputes(Account, Map)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test searchDisputes(Account, Map); given OutboundJaxrsResponse getStatus() return one; then calls close()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"SearchDisputesResponseFromLedger LedgerService.searchDisputes(Account, Map)"})
-  public void testSearchDisputes_givenOutboundJaxrsResponseGetStatusReturnOne_thenCallsClose()
+  void testSearchDisputes_givenOutboundJaxrsResponseGetStatusReturnOne_thenCallsClose()
       throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
@@ -1962,10 +1966,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#searchDisputes(Account, Map)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test searchDisputes(Account, Map); then HashMap() size is two")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"SearchDisputesResponseFromLedger LedgerService.searchDisputes(Account, Map)"})
-  public void testSearchDisputes_thenHashMapSizeIsTwo() throws ProcessingException {
+  void testSearchDisputes_thenHashMapSizeIsTwo() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     SearchDisputesResponseFromLedger searchDisputesResponseFromLedger =
@@ -2018,16 +2023,73 @@ public class LedgerServiceDiffblueTest {
    * Test {@link LedgerService#searchDisputes(Account, Map)}.
    *
    * <ul>
+   *   <li>Then throw {@link GetChargeException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link LedgerService#searchDisputes(Account, Map)}
+   */
+  @Test
+  @DisplayName("Test searchDisputes(Account, Map); then throw GetChargeException")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"SearchDisputesResponseFromLedger LedgerService.searchDisputes(Account, Map)"})
+  void testSearchDisputes_thenThrowGetChargeException() throws ProcessingException {
+    // Arrange
+    OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
+    when(outboundJaxrsResponse.readEntity(SearchDisputesResponseFromLedger.class))
+        .thenThrow(
+            new GetChargeException(
+                new OutboundJaxrsResponse(Status.OK, new OutboundMessageContext())));
+    when(outboundJaxrsResponse.getStatus()).thenReturn(200);
+    when(outboundJaxrsResponse.readEntity(ConnectorErrorResponse.class))
+        .thenReturn(new ConnectorErrorResponse());
+
+    Builder builder = mock(Builder.class);
+    when(builder.get()).thenReturn(outboundJaxrsResponse);
+
+    Builder builder2 = mock(Builder.class);
+    when(builder2.accept(isA(MediaType[].class))).thenReturn(builder);
+
+    WebTarget webTarget = mock(WebTarget.class);
+    when(webTarget.request()).thenReturn(builder2);
+
+    Client client = mock(Client.class);
+    when(client.target(Mockito.<String>any())).thenReturn(webTarget);
+
+    LedgerUriGenerator ledgerUriGenerator = mock(LedgerUriGenerator.class);
+    when(ledgerUriGenerator.transactionsURIWithParams(Mockito.<Map<String, String>>any()))
+        .thenReturn("Transactions URIWith Params");
+
+    LedgerService ledgerService = new LedgerService(client, ledgerUriGenerator);
+    Account account = new Account("42", TokenPaymentType.CARD, "ABC123");
+
+    // Act and Assert
+    assertThrows(
+        GetChargeException.class, () -> ledgerService.searchDisputes(account, new HashMap<>()));
+    verify(client).target("Transactions URIWith Params");
+    verify(builder2).accept(isA(MediaType[].class));
+    verify(builder).get();
+    verify(webTarget).request();
+    verify(outboundJaxrsResponse).getStatus();
+    verify(outboundJaxrsResponse).readEntity(isA(Class.class));
+    verify(ledgerUriGenerator).transactionsURIWithParams(isA(Map.class));
+  }
+
+  /**
+   * Test {@link LedgerService#searchDisputes(Account, Map)}.
+   *
+   * <ul>
    *   <li>Then throw {@link ProcessingException}.
    * </ul>
    *
    * <p>Method under test: {@link LedgerService#searchDisputes(Account, Map)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test searchDisputes(Account, Map); then throw ProcessingException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"SearchDisputesResponseFromLedger LedgerService.searchDisputes(Account, Map)"})
-  public void testSearchDisputes_thenThrowProcessingException() {
+  void testSearchDisputes_thenThrowProcessingException() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.get()).thenThrow(new ProcessingException("An error occurred"));
@@ -2064,52 +2126,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#searchPayments(Account, Map)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test searchPayments(Account, Map)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentSearchResponse LedgerService.searchPayments(Account, Map)"})
-  public void testSearchPayments() {
-    // Arrange
-    Builder builder = mock(Builder.class);
-    when(builder.get())
-        .thenReturn(new OutboundJaxrsResponse(Status.CREATED, new OutboundMessageContext()));
-
-    Builder builder2 = mock(Builder.class);
-    when(builder2.accept(isA(MediaType[].class))).thenReturn(builder);
-
-    WebTarget webTarget = mock(WebTarget.class);
-    when(webTarget.request()).thenReturn(builder2);
-
-    Client client = mock(Client.class);
-    when(client.target(Mockito.<String>any())).thenReturn(webTarget);
-
-    LedgerUriGenerator ledgerUriGenerator = mock(LedgerUriGenerator.class);
-    when(ledgerUriGenerator.transactionsURIWithParams(Mockito.<Map<String, String>>any()))
-        .thenReturn("Transactions URIWith Params");
-
-    LedgerService ledgerService = new LedgerService(client, ledgerUriGenerator);
-    Account account = new Account("42", TokenPaymentType.CARD, "ABC123");
-
-    // Act and Assert
-    assertThrows(
-        SearchPaymentsException.class,
-        () -> ledgerService.searchPayments(account, new HashMap<>()));
-    verify(client).target("Transactions URIWith Params");
-    verify(builder2).accept(isA(MediaType[].class));
-    verify(builder).get();
-    verify(webTarget).request();
-    verify(ledgerUriGenerator).transactionsURIWithParams(isA(Map.class));
-  }
-
-  /**
-   * Test {@link LedgerService#searchPayments(Account, Map)}.
-   *
-   * <p>Method under test: {@link LedgerService#searchPayments(Account, Map)}
-   */
-  @Test
-  @Category(ContributionFromDiffblue.class)
-  @ManagedByDiffblue
-  @MethodsUnderTest({"PaymentSearchResponse LedgerService.searchPayments(Account, Map)"})
-  public void testSearchPayments2() throws ProcessingException {
+  void testSearchPayments() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     when(outboundJaxrsResponse.readEntity(
@@ -2160,10 +2181,12 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#searchPayments(Account, Map)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test searchPayments(Account, Map); given OutboundJaxrsResponse getStatus() return one; then calls close()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentSearchResponse LedgerService.searchPayments(Account, Map)"})
-  public void testSearchPayments_givenOutboundJaxrsResponseGetStatusReturnOne_thenCallsClose()
+  void testSearchPayments_givenOutboundJaxrsResponseGetStatusReturnOne_thenCallsClose()
       throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
@@ -2215,10 +2238,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#searchPayments(Account, Map)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test searchPayments(Account, Map); then HashMap() size is three")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentSearchResponse LedgerService.searchPayments(Account, Map)"})
-  public void testSearchPayments_thenHashMapSizeIsThree() throws ProcessingException {
+  void testSearchPayments_thenHashMapSizeIsThree() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     PaymentSearchResponse<TransactionResponse> paymentSearchResponse =
@@ -2272,16 +2296,72 @@ public class LedgerServiceDiffblueTest {
    * Test {@link LedgerService#searchPayments(Account, Map)}.
    *
    * <ul>
+   *   <li>Then throw {@link GetChargeException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link LedgerService#searchPayments(Account, Map)}
+   */
+  @Test
+  @DisplayName("Test searchPayments(Account, Map); then throw GetChargeException")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"PaymentSearchResponse LedgerService.searchPayments(Account, Map)"})
+  void testSearchPayments_thenThrowGetChargeException() throws ProcessingException {
+    // Arrange
+    OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
+    when(outboundJaxrsResponse.readEntity(
+            Mockito.<GenericType<PaymentSearchResponse<TransactionResponse>>>any()))
+        .thenThrow(
+            new GetChargeException(
+                new OutboundJaxrsResponse(Status.OK, new OutboundMessageContext())));
+    when(outboundJaxrsResponse.getStatus()).thenReturn(200);
+
+    Builder builder = mock(Builder.class);
+    when(builder.get()).thenReturn(outboundJaxrsResponse);
+
+    Builder builder2 = mock(Builder.class);
+    when(builder2.accept(isA(MediaType[].class))).thenReturn(builder);
+
+    WebTarget webTarget = mock(WebTarget.class);
+    when(webTarget.request()).thenReturn(builder2);
+
+    Client client = mock(Client.class);
+    when(client.target(Mockito.<String>any())).thenReturn(webTarget);
+
+    LedgerUriGenerator ledgerUriGenerator = mock(LedgerUriGenerator.class);
+    when(ledgerUriGenerator.transactionsURIWithParams(Mockito.<Map<String, String>>any()))
+        .thenReturn("Transactions URIWith Params");
+
+    LedgerService ledgerService = new LedgerService(client, ledgerUriGenerator);
+    Account account = new Account("42", TokenPaymentType.CARD, "ABC123");
+
+    // Act and Assert
+    assertThrows(
+        GetChargeException.class, () -> ledgerService.searchPayments(account, new HashMap<>()));
+    verify(client).target("Transactions URIWith Params");
+    verify(builder2).accept(isA(MediaType[].class));
+    verify(builder).get();
+    verify(webTarget).request();
+    verify(outboundJaxrsResponse).getStatus();
+    verify(outboundJaxrsResponse).readEntity(isA(GenericType.class));
+    verify(ledgerUriGenerator).transactionsURIWithParams(isA(Map.class));
+  }
+
+  /**
+   * Test {@link LedgerService#searchPayments(Account, Map)}.
+   *
+   * <ul>
    *   <li>Then throw {@link ProcessingException}.
    * </ul>
    *
    * <p>Method under test: {@link LedgerService#searchPayments(Account, Map)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test searchPayments(Account, Map); then throw ProcessingException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentSearchResponse LedgerService.searchPayments(Account, Map)"})
-  public void testSearchPayments_thenThrowProcessingException() {
+  void testSearchPayments_thenThrowProcessingException() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.get()).thenThrow(new ProcessingException("An error occurred"));
@@ -2318,10 +2398,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getAgreement(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getAgreement(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"AgreementLedgerResponse LedgerService.getAgreement(Account, String)"})
-  public void testGetAgreement() {
+  void testGetAgreement() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.get())
@@ -2364,10 +2445,12 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getAgreement(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getAgreement(Account, String); given OutboundJaxrsResponse getStatus() return one; then calls close()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"AgreementLedgerResponse LedgerService.getAgreement(Account, String)"})
-  public void testGetAgreement_givenOutboundJaxrsResponseGetStatusReturnOne_thenCallsClose()
+  void testGetAgreement_givenOutboundJaxrsResponseGetStatusReturnOne_thenCallsClose()
       throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
@@ -2418,10 +2501,12 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getAgreement(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getAgreement(Account, String); then return AgreementLedgerResponse (default constructor)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"AgreementLedgerResponse LedgerService.getAgreement(Account, String)"})
-  public void testGetAgreement_thenReturnAgreementLedgerResponse() throws ProcessingException {
+  void testGetAgreement_thenReturnAgreementLedgerResponse() throws ProcessingException {
     // Arrange
     AgreementLedgerResponse agreementLedgerResponse = new AgreementLedgerResponse();
     agreementLedgerResponse.setExternalId("42");
@@ -2476,10 +2561,11 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#getAgreement(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getAgreement(Account, String); then throw ProcessingException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"AgreementLedgerResponse LedgerService.getAgreement(Account, String)"})
-  public void testGetAgreement_thenThrowProcessingException() {
+  void testGetAgreement_thenThrowProcessingException() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.get()).thenThrow(new ProcessingException("An error occurred"));
@@ -2516,12 +2602,13 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#searchAgreements(Account, AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test searchAgreements(Account, AgreementSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "SearchResults LedgerService.searchAgreements(Account, AgreementSearchParams)"
   })
-  public void testSearchAgreements() {
+  void testSearchAgreements() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.get())
@@ -2560,12 +2647,13 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#searchAgreements(Account, AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test searchAgreements(Account, AgreementSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "SearchResults LedgerService.searchAgreements(Account, AgreementSearchParams)"
   })
-  public void testSearchAgreements2() throws ProcessingException {
+  void testSearchAgreements2() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     when(outboundJaxrsResponse.readEntity(
@@ -2611,12 +2699,13 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#searchAgreements(Account, AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test searchAgreements(Account, AgreementSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "SearchResults LedgerService.searchAgreements(Account, AgreementSearchParams)"
   })
-  public void testSearchAgreements3() throws ProcessingException {
+  void testSearchAgreements3() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     SearchResults<AgreementLedgerResponse> searchResults = new SearchResults<>();
@@ -2671,12 +2760,14 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#searchAgreements(Account, AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test searchAgreements(Account, AgreementSearchParams); given OutboundJaxrsResponse getStatus() return one; then calls close()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "SearchResults LedgerService.searchAgreements(Account, AgreementSearchParams)"
   })
-  public void testSearchAgreements_givenOutboundJaxrsResponseGetStatusReturnOne_thenCallsClose()
+  void testSearchAgreements_givenOutboundJaxrsResponseGetStatusReturnOne_thenCallsClose()
       throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
@@ -2728,12 +2819,13 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#searchAgreements(Account, AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test searchAgreements(Account, AgreementSearchParams); then return SearchResults()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "SearchResults LedgerService.searchAgreements(Account, AgreementSearchParams)"
   })
-  public void testSearchAgreements_thenReturnSearchResults() throws ProcessingException {
+  void testSearchAgreements_thenReturnSearchResults() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     SearchResults<AgreementLedgerResponse> searchResults = new SearchResults<>();
@@ -2786,12 +2878,14 @@ public class LedgerServiceDiffblueTest {
    * <p>Method under test: {@link LedgerService#searchAgreements(Account, AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test searchAgreements(Account, AgreementSearchParams); then throw ProcessingException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "SearchResults LedgerService.searchAgreements(Account, AgreementSearchParams)"
   })
-  public void testSearchAgreements_thenThrowProcessingException() {
+  void testSearchAgreements_thenThrowProcessingException() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.get()).thenThrow(new ProcessingException("An error occurred"));

@@ -1,12 +1,11 @@
 package uk.gov.pay.api.json;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.core.JsonParser;
@@ -23,13 +22,14 @@ import com.fasterxml.jackson.databind.deser.DefaultDeserializationContext;
 import com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.Impl;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import java.io.StringReader;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.exception.BadRequestException;
 import uk.gov.pay.api.model.CreatePaymentRefundRequest;
 import uk.gov.pay.api.validation.PaymentRefundRequestValidator;
 
-public class CreatePaymentRefundRequestDeserializerDiffblueTest {
+class CreatePaymentRefundRequestDeserializerDiffblueTest {
   /**
    * Test {@link
    * CreatePaymentRefundRequestDeserializer#CreatePaymentRefundRequestDeserializer(PaymentRefundRequestValidator)}.
@@ -38,12 +38,13 @@ public class CreatePaymentRefundRequestDeserializerDiffblueTest {
    * CreatePaymentRefundRequestDeserializer#CreatePaymentRefundRequestDeserializer(PaymentRefundRequestValidator)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new CreatePaymentRefundRequestDeserializer(PaymentRefundRequestValidator)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void CreatePaymentRefundRequestDeserializer.<init>(PaymentRefundRequestValidator)"
   })
-  public void testNewCreatePaymentRefundRequestDeserializer() {
+  void testNewCreatePaymentRefundRequestDeserializer() {
     // Arrange and Act
     CreatePaymentRefundRequestDeserializer actualCreatePaymentRefundRequestDeserializer =
         new CreatePaymentRefundRequestDeserializer(new PaymentRefundRequestValidator());
@@ -62,12 +63,13 @@ public class CreatePaymentRefundRequestDeserializerDiffblueTest {
    * DeserializationContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test deserialize(JsonParser, DeserializationContext) with 'parser', 'context'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreatePaymentRefundRequest CreatePaymentRefundRequestDeserializer.deserialize(JsonParser, DeserializationContext)"
   })
-  public void testDeserializeWithParserContext() {
+  void testDeserializeWithParserContext() {
     // Arrange
     CreatePaymentRefundRequestDeserializer createPaymentRefundRequestDeserializer =
         new CreatePaymentRefundRequestDeserializer(new PaymentRefundRequestValidator());
@@ -98,12 +100,13 @@ public class CreatePaymentRefundRequestDeserializerDiffblueTest {
    * DeserializationContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test deserialize(JsonParser, DeserializationContext) with 'parser', 'context'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreatePaymentRefundRequest CreatePaymentRefundRequestDeserializer.deserialize(JsonParser, DeserializationContext)"
   })
-  public void testDeserializeWithParserContext2() {
+  void testDeserializeWithParserContext2() {
     // Arrange
     CreatePaymentRefundRequestDeserializer createPaymentRefundRequestDeserializer =
         new CreatePaymentRefundRequestDeserializer(new PaymentRefundRequestValidator());
@@ -134,12 +137,13 @@ public class CreatePaymentRefundRequestDeserializerDiffblueTest {
    * DeserializationContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test deserialize(JsonParser, DeserializationContext) with 'parser', 'context'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreatePaymentRefundRequest CreatePaymentRefundRequestDeserializer.deserialize(JsonParser, DeserializationContext)"
   })
-  public void testDeserializeWithParserContext3() {
+  void testDeserializeWithParserContext3() {
     // Arrange
     CreatePaymentRefundRequestDeserializer createPaymentRefundRequestDeserializer =
         new CreatePaymentRefundRequestDeserializer(new PaymentRefundRequestValidator());

@@ -1,17 +1,16 @@
 package uk.gov.pay.api.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.core.server.DefaultServerFactory;
@@ -24,8 +23,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Optional;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.app.config.PublicApiConfig;
 import uk.gov.pay.api.auth.Account;
@@ -47,17 +47,18 @@ import uk.gov.service.payments.commons.model.AuthorisationMode;
 import uk.gov.service.payments.commons.model.SupportedLanguage;
 import uk.gov.service.payments.commons.model.charge.ExternalMetadata;
 
-public class GetPaymentServiceDiffblueTest {
+class GetPaymentServiceDiffblueTest {
   /**
    * Test {@link GetPaymentService#getConnectorCharge(Account, String)}.
    *
    * <p>Method under test: {@link GetPaymentService#getConnectorCharge(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getConnectorCharge(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetPaymentService.getConnectorCharge(Account, String)"})
-  public void testGetConnectorCharge() {
+  void testGetConnectorCharge() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -167,10 +168,11 @@ public class GetPaymentServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentService#getConnectorCharge(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getConnectorCharge(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetPaymentService.getConnectorCharge(Account, String)"})
-  public void testGetConnectorCharge2() {
+  void testGetConnectorCharge2() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -287,10 +289,11 @@ public class GetPaymentServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentService#getConnectorCharge(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getConnectorCharge(Account, String); then calls getAgreementId()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetPaymentService.getConnectorCharge(Account, String)"})
-  public void testGetConnectorCharge_thenCallsGetAgreementId() {
+  void testGetConnectorCharge_thenCallsGetAgreementId() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -423,10 +426,11 @@ public class GetPaymentServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentService#getConnectorCharge(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getConnectorCharge(Account, String); then return DelayedCapture")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetPaymentService.getConnectorCharge(Account, String)"})
-  public void testGetConnectorCharge_thenReturnDelayedCapture() {
+  void testGetConnectorCharge_thenReturnDelayedCapture() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -536,10 +540,12 @@ public class GetPaymentServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentService#getConnectorCharge(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getConnectorCharge(Account, String); then return Links Cancel Method is 'POST'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetPaymentService.getConnectorCharge(Account, String)"})
-  public void testGetConnectorCharge_thenReturnLinksCancelMethodIsPost() {
+  void testGetConnectorCharge_thenReturnLinksCancelMethodIsPost() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -654,10 +660,11 @@ public class GetPaymentServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentService#getConnectorCharge(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getConnectorCharge(Account, String); then return not DelayedCapture")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetPaymentService.getConnectorCharge(Account, String)"})
-  public void testGetConnectorCharge_thenReturnNotDelayedCapture() {
+  void testGetConnectorCharge_thenReturnNotDelayedCapture() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -763,10 +770,11 @@ public class GetPaymentServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentService#getLedgerTransaction(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getLedgerTransaction(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetPaymentService.getLedgerTransaction(Account, String)"})
-  public void testGetLedgerTransaction() {
+  void testGetLedgerTransaction() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -876,10 +884,11 @@ public class GetPaymentServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentService#getLedgerTransaction(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getLedgerTransaction(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetPaymentService.getLedgerTransaction(Account, String)"})
-  public void testGetLedgerTransaction2() {
+  void testGetLedgerTransaction2() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -996,10 +1005,11 @@ public class GetPaymentServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentService#getLedgerTransaction(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getLedgerTransaction(Account, String); then calls getAgreementId()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetPaymentService.getLedgerTransaction(Account, String)"})
-  public void testGetLedgerTransaction_thenCallsGetAgreementId() {
+  void testGetLedgerTransaction_thenCallsGetAgreementId() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -1132,10 +1142,11 @@ public class GetPaymentServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentService#getLedgerTransaction(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getLedgerTransaction(Account, String); then return DelayedCapture")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetPaymentService.getLedgerTransaction(Account, String)"})
-  public void testGetLedgerTransaction_thenReturnDelayedCapture() {
+  void testGetLedgerTransaction_thenReturnDelayedCapture() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -1245,10 +1256,12 @@ public class GetPaymentServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentService#getLedgerTransaction(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getLedgerTransaction(Account, String); then return Links Cancel Method is 'POST'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetPaymentService.getLedgerTransaction(Account, String)"})
-  public void testGetLedgerTransaction_thenReturnLinksCancelMethodIsPost() {
+  void testGetLedgerTransaction_thenReturnLinksCancelMethodIsPost() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -1363,10 +1376,11 @@ public class GetPaymentServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentService#getLedgerTransaction(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getLedgerTransaction(Account, String); then return not DelayedCapture")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetPaymentService.getLedgerTransaction(Account, String)"})
-  public void testGetLedgerTransaction_thenReturnNotDelayedCapture() {
+  void testGetLedgerTransaction_thenReturnNotDelayedCapture() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -1472,10 +1486,11 @@ public class GetPaymentServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentService#getPayment(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPayment(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetPaymentService.getPayment(Account, String)"})
-  public void testGetPayment() {
+  void testGetPayment() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -1584,10 +1599,11 @@ public class GetPaymentServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentService#getPayment(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPayment(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetPaymentService.getPayment(Account, String)"})
-  public void testGetPayment2() {
+  void testGetPayment2() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -1704,10 +1720,12 @@ public class GetPaymentServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentService#getPayment(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getPayment(Account, String); given Charge getDelayedCapture() return 'true'; then calls getAgreementId()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetPaymentService.getPayment(Account, String)"})
-  public void testGetPayment_givenChargeGetDelayedCaptureReturnTrue_thenCallsGetAgreementId() {
+  void testGetPayment_givenChargeGetDelayedCaptureReturnTrue_thenCallsGetAgreementId() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -1839,10 +1857,11 @@ public class GetPaymentServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentService#getPayment(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPayment(Account, String); then return DelayedCapture")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetPaymentService.getPayment(Account, String)"})
-  public void testGetPayment_thenReturnDelayedCapture() {
+  void testGetPayment_thenReturnDelayedCapture() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -1951,10 +1970,11 @@ public class GetPaymentServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentService#getPayment(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPayment(Account, String); then return Links Cancel Method is 'POST'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetPaymentService.getPayment(Account, String)"})
-  public void testGetPayment_thenReturnLinksCancelMethodIsPost() {
+  void testGetPayment_thenReturnLinksCancelMethodIsPost() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -2068,10 +2088,11 @@ public class GetPaymentServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentService#getPayment(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPayment(Account, String); then return not DelayedCapture")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetPaymentService.getPayment(Account, String)"})
-  public void testGetPayment_thenReturnNotDelayedCapture() {
+  void testGetPayment_thenReturnNotDelayedCapture() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())

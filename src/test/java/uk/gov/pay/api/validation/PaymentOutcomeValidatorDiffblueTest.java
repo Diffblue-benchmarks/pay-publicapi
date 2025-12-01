@@ -1,9 +1,8 @@
 package uk.gov.pay.api.validation;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.validation.ClockProvider;
@@ -12,12 +11,13 @@ import jakarta.validation.metadata.ConstraintDescriptor;
 import org.hibernate.validator.internal.engine.constraintvalidation.ConstraintValidatorContextImpl;
 import org.hibernate.validator.internal.engine.path.PathImpl;
 import org.hibernate.validator.messageinterpolation.ExpressionLanguageFeatureLevel;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.telephone.PaymentOutcome;
 import uk.gov.pay.api.model.telephone.Supplemental;
 
-public class PaymentOutcomeValidatorDiffblueTest {
+class PaymentOutcomeValidatorDiffblueTest {
   /**
    * Test {@link PaymentOutcomeValidator#isValid(PaymentOutcome, ConstraintValidatorContext)} with
    * {@code paymentOutcome}, {@code context}.
@@ -26,12 +26,14 @@ public class PaymentOutcomeValidatorDiffblueTest {
    * ConstraintValidatorContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test isValid(PaymentOutcome, ConstraintValidatorContext) with 'paymentOutcome', 'context'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PaymentOutcomeValidator.isValid(PaymentOutcome, ConstraintValidatorContext)"
   })
-  public void testIsValidWithPaymentOutcomeContext() {
+  void testIsValidWithPaymentOutcomeContext() {
     // Arrange
     PaymentOutcomeValidator paymentOutcomeValidator = new PaymentOutcomeValidator();
     PaymentOutcome paymentOutcome =
@@ -64,12 +66,14 @@ public class PaymentOutcomeValidatorDiffblueTest {
    * ConstraintValidatorContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test isValid(PaymentOutcome, ConstraintValidatorContext) with 'paymentOutcome', 'context'; when 'null'; then return 'true'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PaymentOutcomeValidator.isValid(PaymentOutcome, ConstraintValidatorContext)"
   })
-  public void testIsValidWithPaymentOutcomeContext_whenNull_thenReturnTrue() {
+  void testIsValidWithPaymentOutcomeContext_whenNull_thenReturnTrue() {
     // Arrange
     PaymentOutcomeValidator paymentOutcomeValidator = new PaymentOutcomeValidator();
     ClockProvider clockProvider = mock(ClockProvider.class);
@@ -98,12 +102,14 @@ public class PaymentOutcomeValidatorDiffblueTest {
    * ConstraintValidatorContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test isValid(PaymentOutcome, ConstraintValidatorContext) with 'paymentOutcome', 'context'; when PaymentOutcome(String) with 'Status'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PaymentOutcomeValidator.isValid(PaymentOutcome, ConstraintValidatorContext)"
   })
-  public void testIsValidWithPaymentOutcomeContext_whenPaymentOutcomeWithStatus() {
+  void testIsValidWithPaymentOutcomeContext_whenPaymentOutcomeWithStatus() {
     // Arrange
     PaymentOutcomeValidator paymentOutcomeValidator = new PaymentOutcomeValidator();
     PaymentOutcome paymentOutcome = new PaymentOutcome("Status");
@@ -133,12 +139,14 @@ public class PaymentOutcomeValidatorDiffblueTest {
    * ConstraintValidatorContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test isValid(PaymentOutcome, ConstraintValidatorContext) with 'paymentOutcome', 'context'; when PaymentOutcome(String) with status is 'failed'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PaymentOutcomeValidator.isValid(PaymentOutcome, ConstraintValidatorContext)"
   })
-  public void testIsValidWithPaymentOutcomeContext_whenPaymentOutcomeWithStatusIsFailed() {
+  void testIsValidWithPaymentOutcomeContext_whenPaymentOutcomeWithStatusIsFailed() {
     // Arrange
     PaymentOutcomeValidator paymentOutcomeValidator = new PaymentOutcomeValidator();
     PaymentOutcome paymentOutcome = new PaymentOutcome("failed");
@@ -168,12 +176,14 @@ public class PaymentOutcomeValidatorDiffblueTest {
    * ConstraintValidatorContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test isValid(PaymentOutcome, ConstraintValidatorContext) with 'paymentOutcome', 'context'; when PaymentOutcome(String) with status is 'success'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PaymentOutcomeValidator.isValid(PaymentOutcome, ConstraintValidatorContext)"
   })
-  public void testIsValidWithPaymentOutcomeContext_whenPaymentOutcomeWithStatusIsSuccess() {
+  void testIsValidWithPaymentOutcomeContext_whenPaymentOutcomeWithStatusIsSuccess() {
     // Arrange
     PaymentOutcomeValidator paymentOutcomeValidator = new PaymentOutcomeValidator();
     PaymentOutcome paymentOutcome = new PaymentOutcome("success");

@@ -1,27 +1,28 @@
 package uk.gov.pay.api.app;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.configuration.SubstitutingSourceProvider;
 import io.dropwizard.core.setup.Bootstrap;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.app.config.PublicApiConfig;
 
-public class PublicApiDiffblueTest {
+class PublicApiDiffblueTest {
   /**
    * Test {@link PublicApi#initialize(Bootstrap)}.
    *
    * <p>Method under test: {@link PublicApi#initialize(Bootstrap)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test initialize(Bootstrap)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PublicApi.initialize(Bootstrap)"})
-  public void testInitialize() {
+  void testInitialize() {
     // Arrange
     PublicApi publicApi = new PublicApi();
     Bootstrap<PublicApiConfig> bootstrap = new Bootstrap<>(new PublicApi());
@@ -39,10 +40,11 @@ public class PublicApiDiffblueTest {
    * <p>Method under test: default or parameterless constructor of {@link PublicApi}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new PublicApi (default constructor)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PublicApi.<init>()"})
-  public void testNewPublicApi() {
+  void testNewPublicApi() {
     // Arrange and Act
     PublicApi actualPublicApi = new PublicApi();
 

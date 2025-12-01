@@ -1,14 +1,14 @@
 package uk.gov.pay.api.agreement.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class AgreementCreatedResponseDiffblueTest {
+class AgreementCreatedResponseDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -21,7 +21,8 @@ public class AgreementCreatedResponseDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AgreementCreatedResponse.<init>()",
@@ -29,7 +30,7 @@ public class AgreementCreatedResponseDiffblueTest {
     "String AgreementCreatedResponse.getAgreementId()",
     "String AgreementCreatedResponse.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     AgreementCreatedResponse actualAgreementCreatedResponse = new AgreementCreatedResponse();
     String actualToStringResult = actualAgreementCreatedResponse.toString();
@@ -56,7 +57,8 @@ public class AgreementCreatedResponseDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; when '42'; then return AgreementId is '42'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AgreementCreatedResponse.<init>()",
@@ -64,7 +66,7 @@ public class AgreementCreatedResponseDiffblueTest {
     "String AgreementCreatedResponse.getAgreementId()",
     "String AgreementCreatedResponse.toString()"
   })
-  public void testGettersAndSetters_when42_thenReturnAgreementIdIs42() {
+  void testGettersAndSetters_when42_thenReturnAgreementIdIs42() {
     // Arrange and Act
     AgreementCreatedResponse actualAgreementCreatedResponse = new AgreementCreatedResponse("42");
     String actualToStringResult = actualAgreementCreatedResponse.toString();

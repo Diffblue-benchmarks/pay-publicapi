@@ -1,9 +1,8 @@
 package uk.gov.pay.api.validation;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.validation.ClockProvider;
@@ -12,10 +11,11 @@ import jakarta.validation.metadata.ConstraintDescriptor;
 import org.hibernate.validator.internal.engine.constraintvalidation.ConstraintValidatorContextImpl;
 import org.hibernate.validator.internal.engine.path.PathImpl;
 import org.hibernate.validator.messageinterpolation.ExpressionLanguageFeatureLevel;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class CardExpiryValidatorDiffblueTest {
+class CardExpiryValidatorDiffblueTest {
   /**
    * Test {@link CardExpiryValidator#isValid(String, ConstraintValidatorContext)} with {@code
    * value}, {@code context}.
@@ -28,10 +28,12 @@ public class CardExpiryValidatorDiffblueTest {
    * <p>Method under test: {@link CardExpiryValidator#isValid(String, ConstraintValidatorContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test isValid(String, ConstraintValidatorContext) with 'value', 'context'; when '42'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean CardExpiryValidator.isValid(String, ConstraintValidatorContext)"})
-  public void testIsValidWithValueContext_when42_thenReturnFalse() {
+  void testIsValidWithValueContext_when42_thenReturnFalse() {
     // Arrange
     CardExpiryValidator cardExpiryValidator = new CardExpiryValidator();
     ClockProvider clockProvider = mock(ClockProvider.class);
@@ -60,10 +62,12 @@ public class CardExpiryValidatorDiffblueTest {
    * <p>Method under test: {@link CardExpiryValidator#isValid(String, ConstraintValidatorContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test isValid(String, ConstraintValidatorContext) with 'value', 'context'; when '09/99'; then return 'true'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean CardExpiryValidator.isValid(String, ConstraintValidatorContext)"})
-  public void testIsValidWithValueContext_when0999_thenReturnTrue() {
+  void testIsValidWithValueContext_when0999_thenReturnTrue() {
     // Arrange
     CardExpiryValidator cardExpiryValidator = new CardExpiryValidator();
     ClockProvider clockProvider = mock(ClockProvider.class);
@@ -92,10 +96,12 @@ public class CardExpiryValidatorDiffblueTest {
    * <p>Method under test: {@link CardExpiryValidator#isValid(String, ConstraintValidatorContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test isValid(String, ConstraintValidatorContext) with 'value', 'context'; when 'null'; then return 'true'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean CardExpiryValidator.isValid(String, ConstraintValidatorContext)"})
-  public void testIsValidWithValueContext_whenNull_thenReturnTrue() {
+  void testIsValidWithValueContext_whenNull_thenReturnTrue() {
     // Arrange
     CardExpiryValidator cardExpiryValidator = new CardExpiryValidator();
     ClockProvider clockProvider = mock(ClockProvider.class);

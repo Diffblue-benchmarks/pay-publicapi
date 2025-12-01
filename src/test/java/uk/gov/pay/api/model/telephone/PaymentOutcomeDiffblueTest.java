@@ -1,15 +1,15 @@
 package uk.gov.pay.api.model.telephone;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class PaymentOutcomeDiffblueTest {
+class PaymentOutcomeDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -25,7 +25,8 @@ public class PaymentOutcomeDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; then return Status is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentOutcome.<init>()",
@@ -33,7 +34,7 @@ public class PaymentOutcomeDiffblueTest {
     "void PaymentOutcome.<init>(String, String, Supplemental)",
     "String PaymentOutcome.getStatus()"
   })
-  public void testGettersAndSetters_thenReturnStatusIsNull() {
+  void testGettersAndSetters_thenReturnStatusIsNull() {
     // Arrange, Act and Assert
     assertNull(new PaymentOutcome().getStatus());
   }
@@ -54,7 +55,8 @@ public class PaymentOutcomeDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; when 'Code'; then return 'Status'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentOutcome.<init>()",
@@ -62,7 +64,7 @@ public class PaymentOutcomeDiffblueTest {
     "void PaymentOutcome.<init>(String, String, Supplemental)",
     "String PaymentOutcome.getStatus()"
   })
-  public void testGettersAndSetters_whenCode_thenReturnStatus() {
+  void testGettersAndSetters_whenCode_thenReturnStatus() {
     // Arrange and Act
     PaymentOutcome actualPaymentOutcome =
         new PaymentOutcome(
@@ -88,7 +90,8 @@ public class PaymentOutcomeDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; when 'Status'; then return 'Status'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentOutcome.<init>()",
@@ -96,7 +99,7 @@ public class PaymentOutcomeDiffblueTest {
     "void PaymentOutcome.<init>(String, String, Supplemental)",
     "String PaymentOutcome.getStatus()"
   })
-  public void testGettersAndSetters_whenStatus_thenReturnStatus() {
+  void testGettersAndSetters_whenStatus_thenReturnStatus() {
     // Arrange, Act and Assert
     assertEquals("Status", new PaymentOutcome("Status").getStatus());
   }
@@ -107,10 +110,11 @@ public class PaymentOutcomeDiffblueTest {
    * <p>Method under test: {@link PaymentOutcome#getCode()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getCode()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"java.util.Optional PaymentOutcome.getCode()"})
-  public void testGetCode() {
+  void testGetCode() {
     // Arrange, Act and Assert
     assertFalse(new PaymentOutcome("Status").getCode().isPresent());
   }
@@ -121,10 +125,11 @@ public class PaymentOutcomeDiffblueTest {
    * <p>Method under test: {@link PaymentOutcome#getSupplemental()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getSupplemental()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"java.util.Optional PaymentOutcome.getSupplemental()"})
-  public void testGetSupplemental() {
+  void testGetSupplemental() {
     // Arrange, Act and Assert
     assertFalse(new PaymentOutcome("Status").getSupplemental().isPresent());
   }

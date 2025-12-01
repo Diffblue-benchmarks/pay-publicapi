@@ -1,21 +1,21 @@
 package uk.gov.pay.api.exception;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
 import org.glassfish.jersey.message.internal.OutboundMessageContext;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.service.payments.commons.model.ErrorIdentifier;
 
-public class SearchTransactionsExceptionDiffblueTest {
+class SearchTransactionsExceptionDiffblueTest {
   /**
    * Test {@link SearchTransactionsException#SearchTransactionsException(Throwable)}.
    *
@@ -23,10 +23,11 @@ public class SearchTransactionsExceptionDiffblueTest {
    * SearchTransactionsException#SearchTransactionsException(Throwable)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new SearchTransactionsException(Throwable)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchTransactionsException.<init>(Throwable)"})
-  public void testNewSearchTransactionsException() {
+  void testNewSearchTransactionsException() {
     // Arrange
     Throwable cause = new Throwable();
 
@@ -46,10 +47,11 @@ public class SearchTransactionsExceptionDiffblueTest {
    * <p>Method under test: {@link SearchTransactionsException#SearchTransactionsException(Response)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new SearchTransactionsException(Response)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchTransactionsException.<init>(Response)"})
-  public void testNewSearchTransactionsException2() {
+  void testNewSearchTransactionsException2() {
     // Arrange and Act
     SearchTransactionsException actualSearchTransactionsException =
         new SearchTransactionsException(

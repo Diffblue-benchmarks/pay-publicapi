@@ -1,23 +1,23 @@
 package uk.gov.pay.api.exception.mapper;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.core.MultivaluedMap;
 import jakarta.ws.rs.core.Response;
 import java.util.Set;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.exception.AgreementValidationException;
 import uk.gov.pay.api.model.RequestError;
 import uk.gov.pay.api.model.RequestError.Code;
 
-public class AgreementValidationExceptionMapperDiffblueTest {
+class AgreementValidationExceptionMapperDiffblueTest {
   /**
    * Test {@link AgreementValidationExceptionMapper#toResponse(AgreementValidationException)} with
    * {@code exception}.
@@ -30,12 +30,14 @@ public class AgreementValidationExceptionMapperDiffblueTest {
    * AgreementValidationExceptionMapper#toResponse(AgreementValidationException)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test toResponse(AgreementValidationException) with 'exception'; then return OutboundJaxrsResponse")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response AgreementValidationExceptionMapper.toResponse(AgreementValidationException)"
   })
-  public void testToResponseWithException_thenReturnOutboundJaxrsResponse() {
+  void testToResponseWithException_thenReturnOutboundJaxrsResponse() {
     // Arrange
     AgreementValidationExceptionMapper agreementValidationExceptionMapper =
         new AgreementValidationExceptionMapper();

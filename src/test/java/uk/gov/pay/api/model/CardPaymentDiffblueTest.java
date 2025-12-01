@@ -1,18 +1,18 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Optional;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.links.PaymentWithAllLinks;
 import uk.gov.pay.api.model.links.PaymentWithAllLinks.PaymentWithAllLinksBuilder;
 import uk.gov.service.payments.commons.model.AgreementPaymentType;
@@ -20,7 +20,7 @@ import uk.gov.service.payments.commons.model.AuthorisationMode;
 import uk.gov.service.payments.commons.model.SupportedLanguage;
 import uk.gov.service.payments.commons.model.charge.ExternalMetadata;
 
-public class CardPaymentDiffblueTest {
+class CardPaymentDiffblueTest {
   /**
    * Test {@link CardPayment#CardPayment(String, long, PaymentState, String, String, String, String,
    * String, String, RefundSummary, PaymentSettlementSummary, CardDetails, SupportedLanguage,
@@ -33,12 +33,14 @@ public class CardPaymentDiffblueTest {
    * AuthorisationSummary, String, AuthorisationMode, AgreementPaymentType, Exemption)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test new CardPayment(String, long, PaymentState, String, String, String, String, String, String, RefundSummary, PaymentSettlementSummary, CardDetails, SupportedLanguage, boolean, boolean, Long, Long, String, ExternalMetadata, Long, Long, AuthorisationSummary, String, AuthorisationMode, AgreementPaymentType, Exemption)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void CardPayment.<init>(String, long, PaymentState, String, String, String, String, String, String, RefundSummary, PaymentSettlementSummary, CardDetails, SupportedLanguage, boolean, boolean, Long, Long, String, ExternalMetadata, Long, Long, AuthorisationSummary, String, AuthorisationMode, AgreementPaymentType, Exemption)"
   })
-  public void testNewCardPayment() {
+  void testNewCardPayment() {
     // Arrange
     PaymentState state = new PaymentState("Status", true);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -123,10 +125,11 @@ public class CardPaymentDiffblueTest {
    * <p>Method under test: {@link CardPayment#getCardBrand()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getCardBrand(); then return 'Card Brand'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CardPayment.getCardBrand()"})
-  public void testGetCardBrand_thenReturnCardBrand() {
+  void testGetCardBrand_thenReturnCardBrand() {
     // Arrange
     PaymentState state = new PaymentState("Status", true);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -189,10 +192,11 @@ public class CardPaymentDiffblueTest {
    * <p>Method under test: {@link CardPayment#getCardBrand()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getCardBrand(); then return 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CardPayment.getCardBrand()"})
-  public void testGetCardBrand_thenReturnNull() {
+  void testGetCardBrand_thenReturnNull() {
     // Arrange
     PaymentState state = new PaymentState("Status", true);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -240,10 +244,11 @@ public class CardPaymentDiffblueTest {
    * <p>Method under test: {@link CardPayment#getRefundSummary()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getRefundSummary()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CardPayment.getRefundSummary()"})
-  public void testGetRefundSummary() {
+  void testGetRefundSummary() {
     // Arrange
     PaymentState state = new PaymentState("Status", true);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -306,10 +311,11 @@ public class CardPaymentDiffblueTest {
    * <p>Method under test: {@link CardPayment#getSettlementSummary()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getSettlementSummary()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CardPayment.getSettlementSummary()"})
-  public void testGetSettlementSummary() {
+  void testGetSettlementSummary() {
     // Arrange
     PaymentState state = new PaymentState("Status", true);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -372,10 +378,11 @@ public class CardPaymentDiffblueTest {
    * <p>Method under test: {@link CardPayment#getCardDetails()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getCardDetails()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CardPayment.getCardDetails()"})
-  public void testGetCardDetails() {
+  void testGetCardDetails() {
     // Arrange
     PaymentState state = new PaymentState("Status", true);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -438,10 +445,11 @@ public class CardPaymentDiffblueTest {
    * <p>Method under test: {@link CardPayment#getCorporateCardSurcharge()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getCorporateCardSurcharge()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CardPayment.getCorporateCardSurcharge()"})
-  public void testGetCorporateCardSurcharge() {
+  void testGetCorporateCardSurcharge() {
     // Arrange
     PaymentState state = new PaymentState("Status", true);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -504,10 +512,11 @@ public class CardPaymentDiffblueTest {
    * <p>Method under test: {@link CardPayment#getFee()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getFee()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CardPayment.getFee()"})
-  public void testGetFee() {
+  void testGetFee() {
     // Arrange
     PaymentState state = new PaymentState("Status", true);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -570,10 +579,11 @@ public class CardPaymentDiffblueTest {
    * <p>Method under test: {@link CardPayment#getNetAmount()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getNetAmount()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CardPayment.getNetAmount()"})
-  public void testGetNetAmount() {
+  void testGetNetAmount() {
     // Arrange
     PaymentState state = new PaymentState("Status", true);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -636,10 +646,11 @@ public class CardPaymentDiffblueTest {
    * <p>Method under test: {@link CardPayment#getTotalAmount()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getTotalAmount()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CardPayment.getTotalAmount()"})
-  public void testGetTotalAmount() {
+  void testGetTotalAmount() {
     // Arrange
     PaymentState state = new PaymentState("Status", true);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -702,10 +713,11 @@ public class CardPaymentDiffblueTest {
    * <p>Method under test: {@link CardPayment#getReturnUrl()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getReturnUrl()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CardPayment.getReturnUrl()"})
-  public void testGetReturnUrl() {
+  void testGetReturnUrl() {
     // Arrange
     PaymentState state = new PaymentState("Status", true);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -768,10 +780,11 @@ public class CardPaymentDiffblueTest {
    * <p>Method under test: {@link CardPayment#getEmail()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getEmail()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CardPayment.getEmail()"})
-  public void testGetEmail() {
+  void testGetEmail() {
     // Arrange
     PaymentState state = new PaymentState("Status", true);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -855,7 +868,8 @@ public class CardPaymentDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "String CardPayment.getAgreementId()",
@@ -877,7 +891,7 @@ public class CardPaymentDiffblueTest {
     "PaymentState CardPayment.getState()",
     "String CardPayment.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     PaymentWithAllLinksBuilder withAuthorisationModeResult =
         new PaymentWithAllLinksBuilder()

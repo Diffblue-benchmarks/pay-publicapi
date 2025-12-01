@@ -1,23 +1,24 @@
 package uk.gov.pay.api.model.links;
 
-import static org.junit.Assert.assertEquals;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class PaymentEventLinkDiffblueTest {
+class PaymentEventLinkDiffblueTest {
   /**
    * Test {@link PaymentEventLink#PaymentEventLink(String)}.
    *
    * <p>Method under test: {@link PaymentEventLink#PaymentEventLink(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new PaymentEventLink(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentEventLink.<init>(String)"})
-  public void testNewPaymentEventLink() {
+  void testNewPaymentEventLink() {
     // Arrange, Act and Assert
     Link paymentLink = new PaymentEventLink("Href").getPaymentLink();
     assertEquals("GET", paymentLink.getMethod());
@@ -35,13 +36,14 @@ public class PaymentEventLinkDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Link PaymentEventLink.getPaymentLink()",
     "String PaymentEventLink.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     PaymentEventLink paymentEventLink = new PaymentEventLink("Href");
 

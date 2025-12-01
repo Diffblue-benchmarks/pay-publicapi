@@ -1,24 +1,25 @@
 package uk.gov.pay.api.model.links;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class DisputeLinksForSearchDiffblueTest {
+class DisputeLinksForSearchDiffblueTest {
   /**
    * Test {@link DisputeLinksForSearch#addPayment(String)}.
    *
    * <p>Method under test: {@link DisputeLinksForSearch#addPayment(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test addPayment(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void DisputeLinksForSearch.addPayment(String)"})
-  public void testAddPayment() {
+  void testAddPayment() {
     // Arrange
     DisputeLinksForSearch disputeLinksForSearch = new DisputeLinksForSearch();
 
@@ -42,13 +43,14 @@ public class DisputeLinksForSearchDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void DisputeLinksForSearch.<init>()",
     "Link DisputeLinksForSearch.getPayment()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange, Act and Assert
     assertNull(new DisputeLinksForSearch().getPayment());
   }

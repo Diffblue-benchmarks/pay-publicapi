@@ -1,10 +1,9 @@
 package uk.gov.pay.api.resources;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.core.MultivaluedMap;
@@ -13,20 +12,22 @@ import jakarta.ws.rs.core.Response.Status;
 import jakarta.ws.rs.core.Response.StatusType;
 import java.util.Set;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class SecuritytxtResourceDiffblueTest {
+class SecuritytxtResourceDiffblueTest {
   /**
    * Test {@link SecuritytxtResource#redirectFromWellKnownSecuritytxt()}.
    *
    * <p>Method under test: {@link SecuritytxtResource#redirectFromWellKnownSecuritytxt()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test redirectFromWellKnownSecuritytxt()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response SecuritytxtResource.redirectFromWellKnownSecuritytxt()"})
-  public void testRedirectFromWellKnownSecuritytxt() {
+  void testRedirectFromWellKnownSecuritytxt() {
     // Arrange and Act
     Response actualRedirectFromWellKnownSecuritytxtResult =
         new SecuritytxtResource().redirectFromWellKnownSecuritytxt();
@@ -69,10 +70,11 @@ public class SecuritytxtResourceDiffblueTest {
    * <p>Method under test: {@link SecuritytxtResource#redirectFromSecuritytxt()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test redirectFromSecuritytxt()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response SecuritytxtResource.redirectFromSecuritytxt()"})
-  public void testRedirectFromSecuritytxt() {
+  void testRedirectFromSecuritytxt() {
     // Arrange and Act
     Response actualRedirectFromSecuritytxtResult =
         new SecuritytxtResource().redirectFromSecuritytxt();

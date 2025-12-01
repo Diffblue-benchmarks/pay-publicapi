@@ -1,9 +1,9 @@
 package uk.gov.pay.api.agreement.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.ArgumentMatchers.isNull;
@@ -11,7 +11,6 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.core.server.DefaultServerFactory;
@@ -31,8 +30,9 @@ import jakarta.ws.rs.core.Response.Status;
 import java.util.ArrayList;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
 import org.glassfish.jersey.message.internal.OutboundMessageContext;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.agreement.model.AgreementCreatedResponse;
 import uk.gov.pay.api.agreement.model.AgreementLedgerResponse;
@@ -51,7 +51,7 @@ import uk.gov.pay.api.service.ConnectorService;
 import uk.gov.pay.api.service.ConnectorUriGenerator;
 import uk.gov.pay.api.service.LedgerService;
 
-public class AgreementsServiceDiffblueTest {
+class AgreementsServiceDiffblueTest {
   /**
    * Test {@link AgreementsService#createAgreement(Account, CreateAgreementRequest)}.
    *
@@ -63,12 +63,14 @@ public class AgreementsServiceDiffblueTest {
    * CreateAgreementRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test createAgreement(Account, CreateAgreementRequest); then return AgreementId is '42'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "AgreementCreatedResponse AgreementsService.createAgreement(Account, CreateAgreementRequest)"
   })
-  public void testCreateAgreement_thenReturnAgreementIdIs42() {
+  void testCreateAgreement_thenReturnAgreementIdIs42() {
     // Arrange
     ConnectorService connectorService = mock(ConnectorService.class);
     AgreementCreatedResponse agreementCreatedResponse = new AgreementCreatedResponse("42");
@@ -120,10 +122,11 @@ public class AgreementsServiceDiffblueTest {
    * <p>Method under test: {@link AgreementsService#cancelAgreement(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test cancelAgreement(Account, String); then calls cancelAgreement(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response AgreementsService.cancelAgreement(Account, String)"})
-  public void testCancelAgreement_thenCallsCancelAgreement() {
+  void testCancelAgreement_thenCallsCancelAgreement() {
     // Arrange
     ConnectorService connectorService = mock(ConnectorService.class);
     doNothing()
@@ -172,10 +175,11 @@ public class AgreementsServiceDiffblueTest {
    * <p>Method under test: {@link AgreementsService#cancelAgreement(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test cancelAgreement(Account, String); then calls target(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response AgreementsService.cancelAgreement(Account, String)"})
-  public void testCancelAgreement_thenCallsTarget() {
+  void testCancelAgreement_thenCallsTarget() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.post(Mockito.<Entity<?>>any()))
@@ -238,10 +242,12 @@ public class AgreementsServiceDiffblueTest {
    * <p>Method under test: {@link AgreementsService#getAgreement(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getAgreement(Account, String); then return AgreementLedgerResponse (default constructor)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"AgreementLedgerResponse AgreementsService.getAgreement(Account, String)"})
-  public void testGetAgreement_thenReturnAgreementLedgerResponse() {
+  void testGetAgreement_thenReturnAgreementLedgerResponse() {
     // Arrange
     PublicApiConfig configuration = new PublicApiConfig();
     configuration.setAdminFactory(new AdminFactory());
@@ -293,12 +299,14 @@ public class AgreementsServiceDiffblueTest {
    * AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test searchAgreements(Account, AgreementSearchParams); then return Links FirstPage Href is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "AgreementSearchResults AgreementsService.searchAgreements(Account, AgreementSearchParams)"
   })
-  public void testSearchAgreements_thenReturnLinksFirstPageHrefIsNull() {
+  void testSearchAgreements_thenReturnLinksFirstPageHrefIsNull() {
     // Arrange
     PublicApiConfig configuration = new PublicApiConfig();
     configuration.setAdminFactory(new AdminFactory());
@@ -359,12 +367,14 @@ public class AgreementsServiceDiffblueTest {
    * AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test searchAgreements(Account, AgreementSearchParams); then return Links FirstPage is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "AgreementSearchResults AgreementsService.searchAgreements(Account, AgreementSearchParams)"
   })
-  public void testSearchAgreements_thenReturnLinksFirstPageIsNull() {
+  void testSearchAgreements_thenReturnLinksFirstPageIsNull() {
     // Arrange
     PublicApiConfig configuration = new PublicApiConfig();
     configuration.setAdminFactory(new AdminFactory());

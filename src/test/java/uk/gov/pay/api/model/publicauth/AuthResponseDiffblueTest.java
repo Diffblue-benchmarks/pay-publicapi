@@ -1,15 +1,15 @@
 package uk.gov.pay.api.model.publicauth;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.TokenPaymentType;
 
-public class AuthResponseDiffblueTest {
+class AuthResponseDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -27,7 +27,8 @@ public class AuthResponseDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; then return AccountId is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AuthResponse.<init>()",
@@ -36,7 +37,7 @@ public class AuthResponseDiffblueTest {
     "String AuthResponse.getTokenLink()",
     "TokenPaymentType AuthResponse.getTokenType()"
   })
-  public void testGettersAndSetters_thenReturnAccountIdIsNull() {
+  void testGettersAndSetters_thenReturnAccountIdIsNull() {
     // Arrange and Act
     AuthResponse actualAuthResponse = new AuthResponse();
     String actualAccountId = actualAuthResponse.getAccountId();
@@ -66,7 +67,8 @@ public class AuthResponseDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; when '42'; then return AccountId is '42'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AuthResponse.<init>()",
@@ -75,7 +77,7 @@ public class AuthResponseDiffblueTest {
     "String AuthResponse.getTokenLink()",
     "TokenPaymentType AuthResponse.getTokenType()"
   })
-  public void testGettersAndSetters_when42_thenReturnAccountIdIs42() {
+  void testGettersAndSetters_when42_thenReturnAccountIdIs42() {
     // Arrange and Act
     AuthResponse actualAuthResponse = new AuthResponse("42", "ABC123", TokenPaymentType.CARD);
     String actualAccountId = actualAuthResponse.getAccountId();

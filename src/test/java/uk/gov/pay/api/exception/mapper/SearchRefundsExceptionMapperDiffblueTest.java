@@ -1,8 +1,7 @@
 package uk.gov.pay.api.exception.mapper;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.core.Response;
@@ -10,11 +9,12 @@ import jakarta.ws.rs.core.Response.Status;
 import jakarta.ws.rs.core.Response.StatusType;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
 import org.glassfish.jersey.message.internal.OutboundMessageContext;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.exception.SearchRefundsException;
 
-public class SearchRefundsExceptionMapperDiffblueTest {
+class SearchRefundsExceptionMapperDiffblueTest {
   /**
    * Test {@link SearchRefundsExceptionMapper#toResponse(SearchRefundsException)} with {@code
    * exception}.
@@ -26,10 +26,12 @@ public class SearchRefundsExceptionMapperDiffblueTest {
    * <p>Method under test: {@link SearchRefundsExceptionMapper#toResponse(SearchRefundsException)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test toResponse(SearchRefundsException) with 'exception'; then return Status is five hundred")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response SearchRefundsExceptionMapper.toResponse(SearchRefundsException)"})
-  public void testToResponseWithException_thenReturnStatusIsFiveHundred() {
+  void testToResponseWithException_thenReturnStatusIsFiveHundred() {
     // Arrange
     SearchRefundsExceptionMapper searchRefundsExceptionMapper = new SearchRefundsExceptionMapper();
 
@@ -58,10 +60,12 @@ public class SearchRefundsExceptionMapperDiffblueTest {
    * <p>Method under test: {@link SearchRefundsExceptionMapper#toResponse(SearchRefundsException)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test toResponse(SearchRefundsException) with 'exception'; then return Status is four hundred four")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response SearchRefundsExceptionMapper.toResponse(SearchRefundsException)"})
-  public void testToResponseWithException_thenReturnStatusIsFourHundredFour() {
+  void testToResponseWithException_thenReturnStatusIsFourHundredFour() {
     // Arrange
     SearchRefundsExceptionMapper searchRefundsExceptionMapper = new SearchRefundsExceptionMapper();
 

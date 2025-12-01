@@ -1,10 +1,9 @@
 package uk.gov.pay.api.app;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.client.Client;
@@ -12,11 +11,12 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLParameters;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.JerseyClient;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.app.config.RestClientConfig;
 
-public class RestClientFactoryDiffblueTest {
+class RestClientFactoryDiffblueTest {
   /**
    * Test {@link RestClientFactory#buildClient(RestClientConfig)}.
    *
@@ -27,10 +27,11 @@ public class RestClientFactoryDiffblueTest {
    * <p>Method under test: {@link RestClientFactory#buildClient(RestClientConfig)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test buildClient(RestClientConfig); then return SslContext Protocol is 'TLS'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Client RestClientFactory.buildClient(RestClientConfig)"})
-  public void testBuildClient_thenReturnSslContextProtocolIsTls() {
+  void testBuildClient_thenReturnSslContextProtocolIsTls() {
     // Arrange and Act
     Client actualBuildClientResult = RestClientFactory.buildClient(new RestClientConfig(true));
 
@@ -58,10 +59,12 @@ public class RestClientFactoryDiffblueTest {
    * <p>Method under test: {@link RestClientFactory#buildClient(RestClientConfig)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test buildClient(RestClientConfig); when RestClientConfig(); then return SslContext Protocol is 'TLSv1.2'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Client RestClientFactory.buildClient(RestClientConfig)"})
-  public void testBuildClient_whenRestClientConfig_thenReturnSslContextProtocolIsTLSv12() {
+  void testBuildClient_whenRestClientConfig_thenReturnSslContextProtocolIsTLSv12() {
     // Arrange and Act
     Client actualBuildClientResult = RestClientFactory.buildClient(new RestClientConfig());
 

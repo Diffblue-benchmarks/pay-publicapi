@@ -1,15 +1,14 @@
 package uk.gov.pay.api.model.search.card;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.net.URI;
@@ -18,8 +17,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.Address;
 import uk.gov.pay.api.model.AuthorisationSummary;
 import uk.gov.pay.api.model.CardDetails;
@@ -40,7 +40,7 @@ import uk.gov.service.payments.commons.model.AuthorisationMode;
 import uk.gov.service.payments.commons.model.SupportedLanguage;
 import uk.gov.service.payments.commons.model.charge.ExternalMetadata;
 
-public class PaymentForSearchResultDiffblueTest {
+class PaymentForSearchResultDiffblueTest {
   /**
    * Test {@link PaymentForSearchResult#PaymentForSearchResult(String, long, PaymentState, String,
    * String, String, String, String, String, SupportedLanguage, boolean, boolean, RefundSummary,
@@ -55,12 +55,14 @@ public class PaymentForSearchResultDiffblueTest {
    * AgreementPaymentType, Exemption)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test new PaymentForSearchResult(String, long, PaymentState, String, String, String, String, String, String, SupportedLanguage, boolean, boolean, RefundSummary, PaymentSettlementSummary, CardDetails, List, URI, URI, URI, URI, URI, Long, Long, String, ExternalMetadata, Long, Long, AuthorisationSummary, AuthorisationMode, AgreementPaymentType, Exemption)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentForSearchResult.<init>(String, long, PaymentState, String, String, String, String, String, String, SupportedLanguage, boolean, boolean, RefundSummary, PaymentSettlementSummary, CardDetails, List, URI, URI, URI, URI, URI, Long, Long, String, ExternalMetadata, Long, Long, AuthorisationSummary, AuthorisationMode, AgreementPaymentType, Exemption)"
   })
-  public void testNewPaymentForSearchResult() {
+  void testNewPaymentForSearchResult() {
     // Arrange
     PaymentState state = new PaymentState("Status", true);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -143,12 +145,14 @@ public class PaymentForSearchResultDiffblueTest {
    * AgreementPaymentType, Exemption)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test new PaymentForSearchResult(String, long, PaymentState, String, String, String, String, String, String, SupportedLanguage, boolean, boolean, RefundSummary, PaymentSettlementSummary, CardDetails, List, URI, URI, URI, URI, URI, Long, Long, String, ExternalMetadata, Long, Long, AuthorisationSummary, AuthorisationMode, AgreementPaymentType, Exemption); then Links Capture return PostLink")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentForSearchResult.<init>(String, long, PaymentState, String, String, String, String, String, String, SupportedLanguage, boolean, boolean, RefundSummary, PaymentSettlementSummary, CardDetails, List, URI, URI, URI, URI, URI, Long, Long, String, ExternalMetadata, Long, Long, AuthorisationSummary, AuthorisationMode, AgreementPaymentType, Exemption)"
   })
-  public void testNewPaymentForSearchResult_thenLinksCaptureReturnPostLink() {
+  void testNewPaymentForSearchResult_thenLinksCaptureReturnPostLink() {
     // Arrange
     PaymentState state = new PaymentState("Status", false);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -243,12 +247,14 @@ public class PaymentForSearchResultDiffblueTest {
    * AgreementPaymentType, Exemption)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test new PaymentForSearchResult(String, long, PaymentState, String, String, String, String, String, String, SupportedLanguage, boolean, boolean, RefundSummary, PaymentSettlementSummary, CardDetails, List, URI, URI, URI, URI, URI, Long, Long, String, ExternalMetadata, Long, Long, AuthorisationSummary, AuthorisationMode, AgreementPaymentType, Exemption); then return Links Cancel Method is 'POST'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentForSearchResult.<init>(String, long, PaymentState, String, String, String, String, String, String, SupportedLanguage, boolean, boolean, RefundSummary, PaymentSettlementSummary, CardDetails, List, URI, URI, URI, URI, URI, Long, Long, String, ExternalMetadata, Long, Long, AuthorisationSummary, AuthorisationMode, AgreementPaymentType, Exemption)"
   })
-  public void testNewPaymentForSearchResult_thenReturnLinksCancelMethodIsPost() {
+  void testNewPaymentForSearchResult_thenReturnLinksCancelMethodIsPost() {
     // Arrange
     PaymentState state = new PaymentState("Status", false);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -337,12 +343,14 @@ public class PaymentForSearchResultDiffblueTest {
    * AgreementPaymentType, Exemption)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test new PaymentForSearchResult(String, long, PaymentState, String, String, String, String, String, String, SupportedLanguage, boolean, boolean, RefundSummary, PaymentSettlementSummary, CardDetails, List, URI, URI, URI, URI, URI, Long, Long, String, ExternalMetadata, Long, Long, AuthorisationSummary, AuthorisationMode, AgreementPaymentType, Exemption); then return Metadata Metadata Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentForSearchResult.<init>(String, long, PaymentState, String, String, String, String, String, String, SupportedLanguage, boolean, boolean, RefundSummary, PaymentSettlementSummary, CardDetails, List, URI, URI, URI, URI, URI, Long, Long, String, ExternalMetadata, Long, Long, AuthorisationSummary, AuthorisationMode, AgreementPaymentType, Exemption)"
   })
-  public void testNewPaymentForSearchResult_thenReturnMetadataMetadataEmpty() {
+  void testNewPaymentForSearchResult_thenReturnMetadataMetadataEmpty() {
     // Arrange
     PaymentState state = new PaymentState("Status", true);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -430,12 +438,14 @@ public class PaymentForSearchResultDiffblueTest {
    * AgreementPaymentType, Exemption)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test new PaymentForSearchResult(String, long, PaymentState, String, String, String, String, String, String, SupportedLanguage, boolean, boolean, RefundSummary, PaymentSettlementSummary, CardDetails, List, URI, URI, URI, URI, URI, Long, Long, String, ExternalMetadata, Long, Long, AuthorisationSummary, AuthorisationMode, AgreementPaymentType, Exemption); then return Metadata Metadata Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentForSearchResult.<init>(String, long, PaymentState, String, String, String, String, String, String, SupportedLanguage, boolean, boolean, RefundSummary, PaymentSettlementSummary, CardDetails, List, URI, URI, URI, URI, URI, Long, Long, String, ExternalMetadata, Long, Long, AuthorisationSummary, AuthorisationMode, AgreementPaymentType, Exemption)"
   })
-  public void testNewPaymentForSearchResult_thenReturnMetadataMetadataEmpty2() {
+  void testNewPaymentForSearchResult_thenReturnMetadataMetadataEmpty2() {
     // Arrange
     PaymentState state = new PaymentState("Status", true);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -515,12 +525,13 @@ public class PaymentForSearchResultDiffblueTest {
    * URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test valueOf(TransactionResponse, URI, URI, URI, URI, URI)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentForSearchResult PaymentForSearchResult.valueOf(TransactionResponse, URI, URI, URI, URI, URI)"
   })
-  public void testValueOf() {
+  void testValueOf() {
     // Arrange
     ArrayList<PaymentConnectorResponseLink> paymentConnectorResponseLinkList = new ArrayList<>();
     PaymentConnectorResponseLink paymentConnectorResponseLink =
@@ -622,12 +633,13 @@ public class PaymentForSearchResultDiffblueTest {
    * URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test valueOf(TransactionResponse, URI, URI, URI, URI, URI)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentForSearchResult PaymentForSearchResult.valueOf(TransactionResponse, URI, URI, URI, URI, URI)"
   })
-  public void testValueOf2() {
+  void testValueOf2() {
     // Arrange
     ArrayList<PaymentConnectorResponseLink> paymentConnectorResponseLinkList = new ArrayList<>();
     PaymentConnectorResponseLink paymentConnectorResponseLink =
@@ -747,12 +759,14 @@ public class PaymentForSearchResultDiffblueTest {
    * URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test valueOf(TransactionResponse, URI, URI, URI, URI, URI); given 'AGREEMENT'; then return Links Capture Method is 'POST'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentForSearchResult PaymentForSearchResult.valueOf(TransactionResponse, URI, URI, URI, URI, URI)"
   })
-  public void testValueOf_givenAgreement_thenReturnLinksCaptureMethodIsPost() {
+  void testValueOf_givenAgreement_thenReturnLinksCaptureMethodIsPost() {
     // Arrange
     ArrayList<PaymentConnectorResponseLink> paymentConnectorResponseLinkList = new ArrayList<>();
     PaymentConnectorResponseLink paymentConnectorResponseLink =
@@ -864,12 +878,14 @@ public class PaymentForSearchResultDiffblueTest {
    * URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test valueOf(TransactionResponse, URI, URI, URI, URI, URI); given ArrayList(); then return Links Capture is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentForSearchResult PaymentForSearchResult.valueOf(TransactionResponse, URI, URI, URI, URI, URI)"
   })
-  public void testValueOf_givenArrayList_thenReturnLinksCaptureIsNull() {
+  void testValueOf_givenArrayList_thenReturnLinksCaptureIsNull() {
     // Arrange
     TransactionResponse paymentResult = mock(TransactionResponse.class);
     when(paymentResult.getDelayedCapture()).thenReturn(true);
@@ -973,12 +989,14 @@ public class PaymentForSearchResultDiffblueTest {
    * URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test valueOf(TransactionResponse, URI, URI, URI, URI, URI); given AuthorisationSummary(ThreeDSecure) with threeDSecure is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentForSearchResult PaymentForSearchResult.valueOf(TransactionResponse, URI, URI, URI, URI, URI)"
   })
-  public void testValueOf_givenAuthorisationSummaryWithThreeDSecureIsNull() {
+  void testValueOf_givenAuthorisationSummaryWithThreeDSecureIsNull() {
     // Arrange
     ArrayList<PaymentConnectorResponseLink> paymentConnectorResponseLinkList = new ArrayList<>();
     PaymentConnectorResponseLink paymentConnectorResponseLink =
@@ -1094,12 +1112,14 @@ public class PaymentForSearchResultDiffblueTest {
    * URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test valueOf(TransactionResponse, URI, URI, URI, URI, URI); given empty; then return not CardDetails WalletType Present")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentForSearchResult PaymentForSearchResult.valueOf(TransactionResponse, URI, URI, URI, URI, URI)"
   })
-  public void testValueOf_givenEmpty_thenReturnNotCardDetailsWalletTypePresent() {
+  void testValueOf_givenEmpty_thenReturnNotCardDetailsWalletTypePresent() {
     // Arrange
     ArrayList<PaymentConnectorResponseLink> paymentConnectorResponseLinkList = new ArrayList<>();
     PaymentConnectorResponseLink paymentConnectorResponseLink =
@@ -1215,12 +1235,14 @@ public class PaymentForSearchResultDiffblueTest {
    * URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test valueOf(TransactionResponse, URI, URI, URI, URI, URI); given 'null'; when TransactionResponse getAuthorisationSummary() return 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentForSearchResult PaymentForSearchResult.valueOf(TransactionResponse, URI, URI, URI, URI, URI)"
   })
-  public void testValueOf_givenNull_whenTransactionResponseGetAuthorisationSummaryReturnNull() {
+  void testValueOf_givenNull_whenTransactionResponseGetAuthorisationSummaryReturnNull() {
     // Arrange
     ArrayList<PaymentConnectorResponseLink> paymentConnectorResponseLinkList = new ArrayList<>();
     PaymentConnectorResponseLink paymentConnectorResponseLink =
@@ -1335,12 +1357,14 @@ public class PaymentForSearchResultDiffblueTest {
    * URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test valueOf(TransactionResponse, URI, URI, URI, URI, URI); then return CardBrand is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentForSearchResult PaymentForSearchResult.valueOf(TransactionResponse, URI, URI, URI, URI, URI)"
   })
-  public void testValueOf_thenReturnCardBrandIsNull() {
+  void testValueOf_thenReturnCardBrandIsNull() {
     // Arrange
     ArrayList<PaymentConnectorResponseLink> paymentConnectorResponseLinkList = new ArrayList<>();
     PaymentConnectorResponseLink paymentConnectorResponseLink =
@@ -1445,12 +1469,14 @@ public class PaymentForSearchResultDiffblueTest {
    * URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test valueOf(TransactionResponse, URI, URI, URI, URI, URI); then return CardDetails WalletType is 'Apple Pay'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentForSearchResult PaymentForSearchResult.valueOf(TransactionResponse, URI, URI, URI, URI, URI)"
   })
-  public void testValueOf_thenReturnCardDetailsWalletTypeIsApplePay() {
+  void testValueOf_thenReturnCardDetailsWalletTypeIsApplePay() {
     // Arrange
     ArrayList<PaymentConnectorResponseLink> paymentConnectorResponseLinkList = new ArrayList<>();
     PaymentConnectorResponseLink paymentConnectorResponseLink =

@@ -1,34 +1,35 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Optional;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.service.payments.commons.model.AgreementPaymentType;
 import uk.gov.service.payments.commons.model.AuthorisationMode;
 import uk.gov.service.payments.commons.model.Source;
 import uk.gov.service.payments.commons.model.SupportedLanguage;
 import uk.gov.service.payments.commons.model.charge.ExternalMetadata;
 
-public class CreateCardPaymentRequestBuilderDiffblueTest {
+class CreateCardPaymentRequestBuilderDiffblueTest {
   /**
    * Test {@link CreateCardPaymentRequestBuilder#builder()}.
    *
    * <p>Method under test: {@link CreateCardPaymentRequestBuilder#builder()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test builder()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"CreateCardPaymentRequestBuilder CreateCardPaymentRequestBuilder.builder()"})
-  public void testBuilder() {
+  void testBuilder() {
     // Arrange and Act
     CreateCardPaymentRequestBuilder actualBuilderResult = CreateCardPaymentRequestBuilder.builder();
 
@@ -67,12 +68,13 @@ public class CreateCardPaymentRequestBuilderDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequestBuilder#getPrefilledCardholderDetails()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPrefilledCardholderDetails(); given builder; then return 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PrefilledCardholderDetails CreateCardPaymentRequestBuilder.getPrefilledCardholderDetails()"
   })
-  public void testGetPrefilledCardholderDetails_givenBuilder_thenReturnNull() {
+  void testGetPrefilledCardholderDetails_givenBuilder_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(CreateCardPaymentRequestBuilder.builder().getPrefilledCardholderDetails());
   }
@@ -87,12 +89,13 @@ public class CreateCardPaymentRequestBuilderDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequestBuilder#getPrefilledCardholderDetails()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPrefilledCardholderDetails(); then return BillingAddress City is 'Oxford'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PrefilledCardholderDetails CreateCardPaymentRequestBuilder.getPrefilledCardholderDetails()"
   })
-  public void testGetPrefilledCardholderDetails_thenReturnBillingAddressCityIsOxford() {
+  void testGetPrefilledCardholderDetails_thenReturnBillingAddressCityIsOxford() {
     // Arrange
     CreateCardPaymentRequestBuilder builderResult = CreateCardPaymentRequestBuilder.builder();
     builderResult.city("Oxford");
@@ -121,12 +124,13 @@ public class CreateCardPaymentRequestBuilderDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequestBuilder#getPrefilledCardholderDetails()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPrefilledCardholderDetails(); then return BillingAddress Country is 'GB'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PrefilledCardholderDetails CreateCardPaymentRequestBuilder.getPrefilledCardholderDetails()"
   })
-  public void testGetPrefilledCardholderDetails_thenReturnBillingAddressCountryIsGb() {
+  void testGetPrefilledCardholderDetails_thenReturnBillingAddressCountryIsGb() {
     // Arrange
     CreateCardPaymentRequestBuilder builderResult = CreateCardPaymentRequestBuilder.builder();
     builderResult.country("GB");
@@ -155,12 +159,14 @@ public class CreateCardPaymentRequestBuilderDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequestBuilder#getPrefilledCardholderDetails()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getPrefilledCardholderDetails(); then return BillingAddress Line1 is '42 Main St'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PrefilledCardholderDetails CreateCardPaymentRequestBuilder.getPrefilledCardholderDetails()"
   })
-  public void testGetPrefilledCardholderDetails_thenReturnBillingAddressLine1Is42MainSt() {
+  void testGetPrefilledCardholderDetails_thenReturnBillingAddressLine1Is42MainSt() {
     // Arrange
     CreateCardPaymentRequestBuilder builderResult = CreateCardPaymentRequestBuilder.builder();
     builderResult.addressLine1("42 Main St");
@@ -189,12 +195,14 @@ public class CreateCardPaymentRequestBuilderDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequestBuilder#getPrefilledCardholderDetails()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getPrefilledCardholderDetails(); then return BillingAddress Line2 is '42 Main St'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PrefilledCardholderDetails CreateCardPaymentRequestBuilder.getPrefilledCardholderDetails()"
   })
-  public void testGetPrefilledCardholderDetails_thenReturnBillingAddressLine2Is42MainSt() {
+  void testGetPrefilledCardholderDetails_thenReturnBillingAddressLine2Is42MainSt() {
     // Arrange
     CreateCardPaymentRequestBuilder builderResult = CreateCardPaymentRequestBuilder.builder();
     builderResult.addressLine2("42 Main St");
@@ -223,12 +231,14 @@ public class CreateCardPaymentRequestBuilderDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequestBuilder#getPrefilledCardholderDetails()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getPrefilledCardholderDetails(); then return BillingAddress Postcode is 'OX1 1PT'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PrefilledCardholderDetails CreateCardPaymentRequestBuilder.getPrefilledCardholderDetails()"
   })
-  public void testGetPrefilledCardholderDetails_thenReturnBillingAddressPostcodeIsOx11pt() {
+  void testGetPrefilledCardholderDetails_thenReturnBillingAddressPostcodeIsOx11pt() {
     // Arrange
     CreateCardPaymentRequestBuilder builderResult = CreateCardPaymentRequestBuilder.builder();
     builderResult.postcode("OX1 1PT");
@@ -257,12 +267,13 @@ public class CreateCardPaymentRequestBuilderDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequestBuilder#getPrefilledCardholderDetails()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPrefilledCardholderDetails(); then return 'Card Holder Name'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PrefilledCardholderDetails CreateCardPaymentRequestBuilder.getPrefilledCardholderDetails()"
   })
-  public void testGetPrefilledCardholderDetails_thenReturnCardHolderName() {
+  void testGetPrefilledCardholderDetails_thenReturnCardHolderName() {
     // Arrange
     CreateCardPaymentRequestBuilder builderResult = CreateCardPaymentRequestBuilder.builder();
     builderResult.cardholderName("Card Holder Name");
@@ -295,10 +306,12 @@ public class CreateCardPaymentRequestBuilderDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequestBuilder#getInternal()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getInternal(); given builder source 'CARD_API'; then return Source is 'CARD_API'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Internal CreateCardPaymentRequestBuilder.getInternal()"})
-  public void testGetInternal_givenBuilderSourceCardApi_thenReturnSourceIsCardApi() {
+  void testGetInternal_givenBuilderSourceCardApi_thenReturnSourceIsCardApi() {
     // Arrange
     CreateCardPaymentRequestBuilder builderResult = CreateCardPaymentRequestBuilder.builder();
     builderResult.source(Source.CARD_API);
@@ -320,10 +333,11 @@ public class CreateCardPaymentRequestBuilderDiffblueTest {
    * <p>Method under test: {@link CreateCardPaymentRequestBuilder#getInternal()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getInternal(); given builder; then return 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Internal CreateCardPaymentRequestBuilder.getInternal()"})
-  public void testGetInternal_givenBuilder_thenReturnNull() {
+  void testGetInternal_givenBuilder_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(CreateCardPaymentRequestBuilder.builder().getInternal());
   }
@@ -374,7 +388,8 @@ public class CreateCardPaymentRequestBuilderDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test build()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void CreateCardPaymentRequestBuilder.<init>()",
@@ -419,7 +434,7 @@ public class CreateCardPaymentRequestBuilderDiffblueTest {
     "void CreateCardPaymentRequestBuilder.setUpAgreement(String)",
     "CreateCardPaymentRequestBuilder CreateCardPaymentRequestBuilder.source(Source)"
   })
-  public void testBuild() {
+  void testBuild() {
     // Arrange and Act
     CreateCardPaymentRequestBuilder actualBuilderResult = CreateCardPaymentRequestBuilder.builder();
     CreateCardPaymentRequestBuilder actualAgreementIdResult = actualBuilderResult.agreementId("42");

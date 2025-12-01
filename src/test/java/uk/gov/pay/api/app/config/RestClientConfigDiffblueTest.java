@@ -1,26 +1,27 @@
 package uk.gov.pay.api.app.config;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.core.server.DefaultServerFactory;
 import io.dropwizard.logging.common.DefaultLoggingFactory;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class RestClientConfigDiffblueTest {
+class RestClientConfigDiffblueTest {
   /**
    * Test {@link RestClientConfig#RestClientConfig()}.
    *
    * <p>Method under test: {@link RestClientConfig#RestClientConfig()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new RestClientConfig()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RestClientConfig.<init>()"})
-  public void testNewRestClientConfig() {
+  void testNewRestClientConfig() {
     // Arrange and Act
     RestClientConfig actualRestClientConfig = new RestClientConfig();
 
@@ -36,10 +37,11 @@ public class RestClientConfigDiffblueTest {
    * <p>Method under test: {@link RestClientConfig#RestClientConfig(boolean)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new RestClientConfig(boolean)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RestClientConfig.<init>(boolean)"})
-  public void testNewRestClientConfig2() {
+  void testNewRestClientConfig2() {
     // Arrange and Act
     RestClientConfig actualRestClientConfig = new RestClientConfig(true);
 
@@ -60,10 +62,11 @@ public class RestClientConfigDiffblueTest {
    * <p>Method under test: {@link RestClientConfig#isDisabledSecureConnection()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test isDisabledSecureConnection(); given RestClientConfig(); then return 'false'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"java.lang.Boolean RestClientConfig.isDisabledSecureConnection()"})
-  public void testIsDisabledSecureConnection_givenRestClientConfig_thenReturnFalse() {
+  void testIsDisabledSecureConnection_givenRestClientConfig_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(new RestClientConfig().isDisabledSecureConnection());
   }
@@ -78,10 +81,11 @@ public class RestClientConfigDiffblueTest {
    * <p>Method under test: {@link RestClientConfig#isDisabledSecureConnection()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test isDisabledSecureConnection(); then return 'true'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"java.lang.Boolean RestClientConfig.isDisabledSecureConnection()"})
-  public void testIsDisabledSecureConnection_thenReturnTrue() {
+  void testIsDisabledSecureConnection_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue(new RestClientConfig(true).isDisabledSecureConnection());
   }

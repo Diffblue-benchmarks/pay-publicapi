@@ -1,19 +1,19 @@
 package uk.gov.pay.api.model.links;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class PostLinkDiffblueTest {
+class PostLinkDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -27,7 +27,8 @@ public class PostLinkDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PostLink.<init>(String, String)",
@@ -36,7 +37,7 @@ public class PostLinkDiffblueTest {
     "String PostLink.getType()",
     "String PostLink.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     PostLink actualPostLink = new PostLink("Href", "Method");
     String actualToStringResult = actualPostLink.toString();
@@ -69,7 +70,9 @@ public class PostLinkDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getters and setters; then return toString is 'Link{href='Href', method='Method', type='Type', params={}}'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PostLink.<init>(String, String)",
@@ -78,7 +81,7 @@ public class PostLinkDiffblueTest {
     "String PostLink.getType()",
     "String PostLink.toString()"
   })
-  public void testGettersAndSetters_thenReturnToStringIsLinkHrefHrefMethodMethodTypeTypeParams() {
+  void testGettersAndSetters_thenReturnToStringIsLinkHrefHrefMethodMethodTypeTypeParams() {
     // Arrange
     HashMap<String, Object> params = new HashMap<>();
 
@@ -103,10 +106,11 @@ public class PostLinkDiffblueTest {
    * <p>Method under test: {@link PostLink#getMethod()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getMethod()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String PostLink.getMethod()"})
-  public void testGetMethod() {
+  void testGetMethod() {
     // Arrange, Act and Assert
     assertEquals("Method", new PostLink("Href", "Method").getMethod());
   }
@@ -127,10 +131,11 @@ public class PostLinkDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean PostLink.equals(Object)", "int PostLink.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     PostLink postLink = new PostLink("Href", "Method");
     PostLink postLink2 = new PostLink("Href", "Method");
@@ -156,10 +161,11 @@ public class PostLinkDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean PostLink.equals(Object)", "int PostLink.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     PostLink postLink = new PostLink("Href", "Method");
 
@@ -180,10 +186,11 @@ public class PostLinkDiffblueTest {
    * <p>Method under test: {@link PostLink#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean PostLink.equals(Object)", "int PostLink.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     PostLink postLink = new PostLink(null, "Method");
 
@@ -202,10 +209,11 @@ public class PostLinkDiffblueTest {
    * <p>Method under test: {@link PostLink#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean PostLink.equals(Object)", "int PostLink.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     PostLink postLink = new PostLink("Href", "Method", "Type", new HashMap<>());
 
@@ -224,10 +232,11 @@ public class PostLinkDiffblueTest {
    * <p>Method under test: {@link PostLink#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean PostLink.equals(Object)", "int PostLink.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     PostLink postLink = new PostLink("Href", "Method", null, new HashMap<>());
 
@@ -246,10 +255,11 @@ public class PostLinkDiffblueTest {
    * <p>Method under test: {@link PostLink#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean PostLink.equals(Object)", "int PostLink.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new PostLink("Href", "Method"), null);
   }
@@ -265,10 +275,11 @@ public class PostLinkDiffblueTest {
    * <p>Method under test: {@link PostLink#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean PostLink.equals(Object)", "int PostLink.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new PostLink("Href", "Method"), "Different type to PostLink");
   }

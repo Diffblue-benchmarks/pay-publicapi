@@ -1,9 +1,8 @@
 package uk.gov.pay.api.model.links;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.net.URI;
@@ -11,11 +10,12 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.PaymentConnectorResponseLink;
 
-public class PaymentLinksDiffblueTest {
+class PaymentLinksDiffblueTest {
   /**
    * Test {@link PaymentLinks#addKnownLinksValueOf(List, URI)}.
    *
@@ -26,10 +26,12 @@ public class PaymentLinksDiffblueTest {
    * <p>Method under test: {@link PaymentLinks#addKnownLinksValueOf(List, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test addKnownLinksValueOf(List, URI); then PaymentLinks (default constructor) AuthUrlPost Method is 'Method'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentLinks.addKnownLinksValueOf(List, URI)"})
-  public void testAddKnownLinksValueOf_thenPaymentLinksAuthUrlPostMethodIsMethod() {
+  void testAddKnownLinksValueOf_thenPaymentLinksAuthUrlPostMethodIsMethod() {
     // Arrange
     PaymentLinks paymentLinks = new PaymentLinks();
 
@@ -63,10 +65,12 @@ public class PaymentLinksDiffblueTest {
    * <p>Method under test: {@link PaymentLinks#addKnownLinksValueOf(List, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test addKnownLinksValueOf(List, URI); then PaymentLinks (default constructor) Capture Href is 'Href'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentLinks.addKnownLinksValueOf(List, URI)"})
-  public void testAddKnownLinksValueOf_thenPaymentLinksCaptureHrefIsHref() {
+  void testAddKnownLinksValueOf_thenPaymentLinksCaptureHrefIsHref() {
     // Arrange
     PaymentLinks paymentLinks = new PaymentLinks();
 
@@ -97,10 +101,12 @@ public class PaymentLinksDiffblueTest {
    * <p>Method under test: {@link PaymentLinks#addKnownLinksValueOf(List, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test addKnownLinksValueOf(List, URI); then PaymentLinks (default constructor) NextUrl Href is 'Href'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentLinks.addKnownLinksValueOf(List, URI)"})
-  public void testAddKnownLinksValueOf_thenPaymentLinksNextUrlHrefIsHref() {
+  void testAddKnownLinksValueOf_thenPaymentLinksNextUrlHrefIsHref() {
     // Arrange
     PaymentLinks paymentLinks = new PaymentLinks();
 
@@ -129,10 +135,12 @@ public class PaymentLinksDiffblueTest {
    * <p>Method under test: {@link PaymentLinks#addKnownLinksValueOf(List, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test addKnownLinksValueOf(List, URI); then PaymentLinks (default constructor) NextUrlPost Href is 'Href'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentLinks.addKnownLinksValueOf(List, URI)"})
-  public void testAddKnownLinksValueOf_thenPaymentLinksNextUrlPostHrefIsHref() {
+  void testAddKnownLinksValueOf_thenPaymentLinksNextUrlPostHrefIsHref() {
     // Arrange
     PaymentLinks paymentLinks = new PaymentLinks();
 
@@ -160,10 +168,11 @@ public class PaymentLinksDiffblueTest {
    * <p>Method under test: {@link PaymentLinks#addSelf(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test addSelf(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentLinks.addSelf(String)"})
-  public void testAddSelf() {
+  void testAddSelf() {
     // Arrange
     PaymentLinks paymentLinks = new PaymentLinks();
 
@@ -182,10 +191,11 @@ public class PaymentLinksDiffblueTest {
    * <p>Method under test: {@link PaymentLinks#addEvents(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test addEvents(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentLinks.addEvents(String)"})
-  public void testAddEvents() {
+  void testAddEvents() {
     // Arrange
     PaymentLinks paymentLinks = new PaymentLinks();
 
@@ -204,10 +214,11 @@ public class PaymentLinksDiffblueTest {
    * <p>Method under test: {@link PaymentLinks#addRefunds(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test addRefunds(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentLinks.addRefunds(String)"})
-  public void testAddRefunds() {
+  void testAddRefunds() {
     // Arrange
     PaymentLinks paymentLinks = new PaymentLinks();
 
@@ -226,10 +237,11 @@ public class PaymentLinksDiffblueTest {
    * <p>Method under test: {@link PaymentLinks#addCancel(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test addCancel(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentLinks.addCancel(String)"})
-  public void testAddCancel() {
+  void testAddCancel() {
     // Arrange
     PaymentLinks paymentLinks = new PaymentLinks();
 
@@ -250,10 +262,11 @@ public class PaymentLinksDiffblueTest {
    * <p>Method under test: {@link PaymentLinks#addCapture(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test addCapture(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentLinks.addCapture(String)"})
-  public void testAddCapture() {
+  void testAddCapture() {
     // Arrange
     PaymentLinks paymentLinks = new PaymentLinks();
 
@@ -286,7 +299,8 @@ public class PaymentLinksDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentLinks.<init>()",
@@ -299,7 +313,7 @@ public class PaymentLinksDiffblueTest {
     "Link PaymentLinks.getRefunds()",
     "Link PaymentLinks.getSelf()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     PaymentLinks actualPaymentLinks = new PaymentLinks();
     PostLink actualAuthUrlPost = actualPaymentLinks.getAuthUrlPost();

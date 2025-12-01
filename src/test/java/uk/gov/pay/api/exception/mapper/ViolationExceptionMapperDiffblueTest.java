@@ -1,11 +1,10 @@
 package uk.gov.pay.api.exception.mapper;
 
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.jersey.validation.JerseyViolationException;
@@ -14,10 +13,11 @@ import jakarta.validation.metadata.ConstraintDescriptor;
 import java.util.HashSet;
 import org.glassfish.jersey.server.model.Invocable;
 import org.hibernate.validator.internal.engine.path.PathImpl;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class ViolationExceptionMapperDiffblueTest {
+class ViolationExceptionMapperDiffblueTest {
   /**
    * Test {@link ViolationExceptionMapper#toResponse(JerseyViolationException)} with {@code
    * exception}.
@@ -29,12 +29,14 @@ public class ViolationExceptionMapperDiffblueTest {
    * <p>Method under test: {@link ViolationExceptionMapper#toResponse(JerseyViolationException)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test toResponse(JerseyViolationException) with 'exception'; then throw JerseyViolationException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "jakarta.ws.rs.core.Response ViolationExceptionMapper.toResponse(JerseyViolationException)"
   })
-  public void testToResponseWithException_thenThrowJerseyViolationException() {
+  void testToResponseWithException_thenThrowJerseyViolationException() {
     // Arrange
     ViolationExceptionMapper violationExceptionMapper = new ViolationExceptionMapper();
 

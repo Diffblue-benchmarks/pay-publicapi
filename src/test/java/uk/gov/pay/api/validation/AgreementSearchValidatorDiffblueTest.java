@@ -1,15 +1,16 @@
 package uk.gov.pay.api.validation;
 
-import static org.junit.Assert.assertThrows;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.exception.AgreementValidationException;
 import uk.gov.pay.api.ledger.model.AgreementSearchParams;
 
-public class AgreementSearchValidatorDiffblueTest {
+class AgreementSearchValidatorDiffblueTest {
   /**
    * Test {@link AgreementSearchValidator#validateSearchParameters(AgreementSearchParams)}.
    *
@@ -17,12 +18,13 @@ public class AgreementSearchValidatorDiffblueTest {
    * AgreementSearchValidator#validateSearchParameters(AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(AgreementSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AgreementSearchValidator.validateSearchParameters(AgreementSearchParams)"
   })
-  public void testValidateSearchParameters() {
+  void testValidateSearchParameters() {
     // Arrange
     AgreementSearchParams searchParams =
         new AgreementSearchParams("Reference", "Status", "42", "Display Size");
@@ -40,12 +42,13 @@ public class AgreementSearchValidatorDiffblueTest {
    * AgreementSearchValidator#validateSearchParameters(AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(AgreementSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AgreementSearchValidator.validateSearchParameters(AgreementSearchParams)"
   })
-  public void testValidateSearchParameters2() {
+  void testValidateSearchParameters2() {
     // Arrange
     AgreementSearchParams searchParams =
         new AgreementSearchParams("not blank", " ", "not blank", "not blank");
@@ -63,12 +66,13 @@ public class AgreementSearchValidatorDiffblueTest {
    * AgreementSearchValidator#validateSearchParameters(AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(AgreementSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AgreementSearchValidator.validateSearchParameters(AgreementSearchParams)"
   })
-  public void testValidateSearchParameters3() {
+  void testValidateSearchParameters3() {
     // Arrange
     AgreementSearchParams searchParams =
         new AgreementSearchParams("not blank", " ", "not blank", "1");
@@ -86,12 +90,13 @@ public class AgreementSearchValidatorDiffblueTest {
    * AgreementSearchValidator#validateSearchParameters(AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(AgreementSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AgreementSearchValidator.validateSearchParameters(AgreementSearchParams)"
   })
-  public void testValidateSearchParameters4() {
+  void testValidateSearchParameters4() {
     // Arrange
     AgreementSearchParams searchParams =
         new AgreementSearchParams("not blank", " ", "not blank", "0");
@@ -109,12 +114,13 @@ public class AgreementSearchValidatorDiffblueTest {
    * AgreementSearchValidator#validateSearchParameters(AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(AgreementSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AgreementSearchValidator.validateSearchParameters(AgreementSearchParams)"
   })
-  public void testValidateSearchParameters5() {
+  void testValidateSearchParameters5() {
     // Arrange
     AgreementSearchParams searchParams =
         new AgreementSearchParams("not blank", " ", "not blank", null);
@@ -132,17 +138,18 @@ public class AgreementSearchValidatorDiffblueTest {
    * AgreementSearchValidator#validateSearchParameters(AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(AgreementSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AgreementSearchValidator.validateSearchParameters(AgreementSearchParams)"
   })
-  public void testValidateSearchParameters6() {
+  void testValidateSearchParameters6() {
     // Arrange
     AgreementSearchParams searchParams = new AgreementSearchParams("not blank", " ", "1", "1");
 
     // Act and Assert
-    AgreementSearchValidator.validateSearchParameters(searchParams);
+    assertDoesNotThrow(() -> AgreementSearchValidator.validateSearchParameters(searchParams));
   }
 
   /**
@@ -152,12 +159,13 @@ public class AgreementSearchValidatorDiffblueTest {
    * AgreementSearchValidator#validateSearchParameters(AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(AgreementSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AgreementSearchValidator.validateSearchParameters(AgreementSearchParams)"
   })
-  public void testValidateSearchParameters7() {
+  void testValidateSearchParameters7() {
     // Arrange
     AgreementSearchParams searchParams =
         new AgreementSearchParams("not blank", " ", "0", "not blank");
@@ -175,12 +183,13 @@ public class AgreementSearchValidatorDiffblueTest {
    * AgreementSearchValidator#validateSearchParameters(AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(AgreementSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AgreementSearchValidator.validateSearchParameters(AgreementSearchParams)"
   })
-  public void testValidateSearchParameters8() {
+  void testValidateSearchParameters8() {
     // Arrange
     AgreementSearchParams searchParams =
         new AgreementSearchParams("not blank", " ", null, "not blank");
@@ -198,12 +207,13 @@ public class AgreementSearchValidatorDiffblueTest {
    * AgreementSearchValidator#validateSearchParameters(AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(AgreementSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AgreementSearchValidator.validateSearchParameters(AgreementSearchParams)"
   })
-  public void testValidateSearchParameters9() {
+  void testValidateSearchParameters9() {
     // Arrange
     AgreementSearchParams searchParams =
         new AgreementSearchParams("not blank", null, "not blank", "not blank");
@@ -221,12 +231,13 @@ public class AgreementSearchValidatorDiffblueTest {
    * AgreementSearchValidator#validateSearchParameters(AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(AgreementSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AgreementSearchValidator.validateSearchParameters(AgreementSearchParams)"
   })
-  public void testValidateSearchParameters10() {
+  void testValidateSearchParameters10() {
     // Arrange
     AgreementSearchParams searchParams =
         new AgreementSearchParams("", "Status", "42", "Display Size");
@@ -244,12 +255,13 @@ public class AgreementSearchValidatorDiffblueTest {
    * AgreementSearchValidator#validateSearchParameters(AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(AgreementSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AgreementSearchValidator.validateSearchParameters(AgreementSearchParams)"
   })
-  public void testValidateSearchParameters11() {
+  void testValidateSearchParameters11() {
     // Arrange
     AgreementSearchParams searchParams =
         new AgreementSearchParams("Reference", "created", "42", "Display Size");
@@ -267,12 +279,13 @@ public class AgreementSearchValidatorDiffblueTest {
    * AgreementSearchValidator#validateSearchParameters(AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(AgreementSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AgreementSearchValidator.validateSearchParameters(AgreementSearchParams)"
   })
-  public void testValidateSearchParameters12() {
+  void testValidateSearchParameters12() {
     // Arrange
     AgreementSearchParams searchParams =
         new AgreementSearchParams("Reference", "Status", "", "Display Size");
@@ -295,14 +308,17 @@ public class AgreementSearchValidatorDiffblueTest {
    * AgreementSearchValidator#validateSearchParameters(AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateSearchParameters(AgreementSearchParams); when AgreementSearchParams(); then does not throw")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AgreementSearchValidator.validateSearchParameters(AgreementSearchParams)"
   })
-  public void testValidateSearchParameters_whenAgreementSearchParams_thenDoesNotThrow() {
+  void testValidateSearchParameters_whenAgreementSearchParams_thenDoesNotThrow() {
     // Arrange, Act and Assert
-    AgreementSearchValidator.validateSearchParameters(new AgreementSearchParams());
+    assertDoesNotThrow(
+        () -> AgreementSearchValidator.validateSearchParameters(new AgreementSearchParams()));
   }
 
   /**
@@ -317,12 +333,14 @@ public class AgreementSearchValidatorDiffblueTest {
    * AgreementSearchValidator#validateSearchParameters(AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateSearchParameters(AgreementSearchParams); when 'null'; then throw AgreementValidationException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AgreementSearchValidator.validateSearchParameters(AgreementSearchParams)"
   })
-  public void testValidateSearchParameters_whenNull_thenThrowAgreementValidationException() {
+  void testValidateSearchParameters_whenNull_thenThrowAgreementValidationException() {
     // Arrange, Act and Assert
     assertThrows(
         AgreementValidationException.class,

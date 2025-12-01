@@ -1,14 +1,14 @@
 package uk.gov.pay.api.validation;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class URLValidatorDiffblueTest {
+class URLValidatorDiffblueTest {
   /**
    * Test {@link URLValidator#urlValidatorValueOf(boolean)}.
    *
@@ -19,10 +19,11 @@ public class URLValidatorDiffblueTest {
    * <p>Method under test: {@link URLValidator#urlValidatorValueOf(boolean)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test urlValidatorValueOf(boolean); when 'false'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"URLValidator URLValidator.urlValidatorValueOf(boolean)"})
-  public void testUrlValidatorValueOf_whenFalse() {
+  void testUrlValidatorValueOf_whenFalse() {
     // Arrange and Act
     URLValidator actualUrlValidatorValueOfResult = URLValidator.urlValidatorValueOf(false);
 
@@ -40,10 +41,11 @@ public class URLValidatorDiffblueTest {
    * <p>Method under test: {@link URLValidator#urlValidatorValueOf(boolean)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test urlValidatorValueOf(boolean); when 'true'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"URLValidator URLValidator.urlValidatorValueOf(boolean)"})
-  public void testUrlValidatorValueOf_whenTrue() {
+  void testUrlValidatorValueOf_whenTrue() {
     // Arrange and Act
     URLValidator actualUrlValidatorValueOfResult = URLValidator.urlValidatorValueOf(true);
 
@@ -62,10 +64,11 @@ public class URLValidatorDiffblueTest {
    * <p>Method under test: {@link URLValidator#isValid(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test isValid(String); when '42'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean URLValidator.isValid(String)"})
-  public void testIsValid_when42_thenReturnFalse() {
+  void testIsValid_when42_thenReturnFalse() {
     // Arrange
     URLValidator urlValidatorValueOfResult = URLValidator.urlValidatorValueOf(true);
 
@@ -84,10 +87,11 @@ public class URLValidatorDiffblueTest {
    * <p>Method under test: {@link URLValidator#isValid(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test isValid(String); when '[::FFFF:999.999.999.999]:9U'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean URLValidator.isValid(String)"})
-  public void testIsValid_whenFfff9999999999999u_thenReturnFalse() {
+  void testIsValid_whenFfff9999999999999u_thenReturnFalse() {
     // Arrange
     URLValidator urlValidatorValueOfResult = URLValidator.urlValidatorValueOf(true);
 
@@ -106,10 +110,11 @@ public class URLValidatorDiffblueTest {
    * <p>Method under test: {@link URLValidator#isValid(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test isValid(String); when 'https://example.org/example'; then return 'true'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean URLValidator.isValid(String)"})
-  public void testIsValid_whenHttpsExampleOrgExample_thenReturnTrue() {
+  void testIsValid_whenHttpsExampleOrgExample_thenReturnTrue() {
     // Arrange
     URLValidator urlValidatorValueOfResult = URLValidator.urlValidatorValueOf(true);
 
@@ -128,10 +133,12 @@ public class URLValidatorDiffblueTest {
    * <p>Method under test: {@link URLValidator#isValid(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test isValid(String); when 'https://example.org/examplehttps://example.org/example'; then return 'true'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean URLValidator.isValid(String)"})
-  public void testIsValid_whenHttpsExampleOrgExamplehttpsExampleOrgExample_thenReturnTrue() {
+  void testIsValid_whenHttpsExampleOrgExamplehttpsExampleOrgExample_thenReturnTrue() {
     // Arrange
     URLValidator urlValidatorValueOfResult = URLValidator.urlValidatorValueOf(true);
 
@@ -152,10 +159,11 @@ public class URLValidatorDiffblueTest {
    * <p>Method under test: {@link URLValidator#isValid(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test isValid(String); when 'UUhttps://example.org/example'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean URLValidator.isValid(String)"})
-  public void testIsValid_whenUUhttpsExampleOrgExample_thenReturnFalse() {
+  void testIsValid_whenUUhttpsExampleOrgExample_thenReturnFalse() {
     // Arrange
     URLValidator urlValidatorValueOfResult = URLValidator.urlValidatorValueOf(true);
 

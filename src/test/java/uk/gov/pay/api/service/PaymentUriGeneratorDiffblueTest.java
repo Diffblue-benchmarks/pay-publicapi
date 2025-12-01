@@ -1,23 +1,24 @@
 package uk.gov.pay.api.service;
 
-import static org.junit.Assert.assertEquals;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class PaymentUriGeneratorDiffblueTest {
+class PaymentUriGeneratorDiffblueTest {
   /**
    * Test {@link PaymentUriGenerator#getPaymentURI(String, String)}.
    *
    * <p>Method under test: {@link PaymentUriGenerator#getPaymentURI(String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentURI(String, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"java.net.URI PaymentUriGenerator.getPaymentURI(String, String)"})
-  public void testGetPaymentURI() {
+  void testGetPaymentURI() {
     // Arrange, Act and Assert
     assertEquals(
         "https://example.org/example/v1/payments/42",
@@ -30,10 +31,11 @@ public class PaymentUriGeneratorDiffblueTest {
    * <p>Method under test: {@link PaymentUriGenerator#getPaymentEventsURI(String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentEventsURI(String, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"java.net.URI PaymentUriGenerator.getPaymentEventsURI(String, String)"})
-  public void testGetPaymentEventsURI() {
+  void testGetPaymentEventsURI() {
     // Arrange, Act and Assert
     assertEquals(
         "https://example.org/example/v1/payments/42/events",
@@ -48,10 +50,11 @@ public class PaymentUriGeneratorDiffblueTest {
    * <p>Method under test: {@link PaymentUriGenerator#getPaymentCancelURI(String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentCancelURI(String, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"java.net.URI PaymentUriGenerator.getPaymentCancelURI(String, String)"})
-  public void testGetPaymentCancelURI() {
+  void testGetPaymentCancelURI() {
     // Arrange, Act and Assert
     assertEquals(
         "https://example.org/example/v1/payments/42/cancel",
@@ -66,10 +69,11 @@ public class PaymentUriGeneratorDiffblueTest {
    * <p>Method under test: {@link PaymentUriGenerator#getPaymentRefundsURI(String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentRefundsURI(String, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"java.net.URI PaymentUriGenerator.getPaymentRefundsURI(String, String)"})
-  public void testGetPaymentRefundsURI() {
+  void testGetPaymentRefundsURI() {
     // Arrange, Act and Assert
     assertEquals(
         "https://example.org/example/v1/payments/42/refunds",
@@ -84,10 +88,11 @@ public class PaymentUriGeneratorDiffblueTest {
    * <p>Method under test: {@link PaymentUriGenerator#getPaymentCaptureURI(String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentCaptureURI(String, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"java.net.URI PaymentUriGenerator.getPaymentCaptureURI(String, String)"})
-  public void testGetPaymentCaptureURI() {
+  void testGetPaymentCaptureURI() {
     // Arrange, Act and Assert
     assertEquals(
         "https://example.org/example/v1/payments/42/capture",

@@ -1,32 +1,33 @@
 package uk.gov.pay.api.exception;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
 import org.glassfish.jersey.message.internal.OutboundMessageContext;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.service.payments.commons.model.ErrorIdentifier;
 
-public class GetRefundExceptionDiffblueTest {
+class GetRefundExceptionDiffblueTest {
   /**
    * Test {@link GetRefundException#GetRefundException(Response)}.
    *
    * <p>Method under test: {@link GetRefundException#GetRefundException(Response)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new GetRefundException(Response)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void GetRefundException.<init>(Response)"})
-  public void testNewGetRefundException() {
+  void testNewGetRefundException() {
     // Arrange and Act
     GetRefundException actualGetRefundException =
         new GetRefundException(new OutboundJaxrsResponse(Status.OK, new OutboundMessageContext()));
@@ -56,10 +57,12 @@ public class GetRefundExceptionDiffblueTest {
    * <p>Method under test: {@link GetRefundException#GetRefundException(GetTransactionException)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test new GetRefundException(GetTransactionException); then Cause return GetTransactionException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void GetRefundException.<init>(GetTransactionException)"})
-  public void testNewGetRefundException_thenCauseReturnGetTransactionException() {
+  void testNewGetRefundException_thenCauseReturnGetTransactionException() {
     // Arrange
     GetTransactionException exception =
         new GetTransactionException(

@@ -1,16 +1,16 @@
 package uk.gov.pay.api.agreement.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.CreateAgreementRequestBuilder;
 
-public class CreateAgreementRequestDiffblueTest {
+class CreateAgreementRequestDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -24,7 +24,8 @@ public class CreateAgreementRequestDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void CreateAgreementRequest.<init>()",
@@ -32,7 +33,7 @@ public class CreateAgreementRequestDiffblueTest {
     "String CreateAgreementRequest.getReference()",
     "String CreateAgreementRequest.getUserIdentifier()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     CreateAgreementRequest actualCreateAgreementRequest = new CreateAgreementRequest();
     String actualDescription = actualCreateAgreementRequest.getDescription();
@@ -56,10 +57,12 @@ public class CreateAgreementRequestDiffblueTest {
    * CreateAgreementRequest#CreateAgreementRequest(CreateAgreementRequestBuilder)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test new CreateAgreementRequest(CreateAgreementRequestBuilder); when builder; then return Description is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void CreateAgreementRequest.<init>(CreateAgreementRequestBuilder)"})
-  public void testNewCreateAgreementRequest_whenBuilder_thenReturnDescriptionIsNull() {
+  void testNewCreateAgreementRequest_whenBuilder_thenReturnDescriptionIsNull() {
     // Arrange and Act
     CreateAgreementRequest actualCreateAgreementRequest =
         new CreateAgreementRequest(CreateAgreementRequestBuilder.builder());
@@ -81,10 +84,12 @@ public class CreateAgreementRequestDiffblueTest {
    * <p>Method under test: {@link CreateAgreementRequest#toConnectorPayload()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test toConnectorPayload(); given builder userIdentifier '42'; then return '{ \"user_identifier\" : \"42\" }'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CreateAgreementRequest.toConnectorPayload()"})
-  public void testToConnectorPayload_givenBuilderUserIdentifier42_thenReturnUserIdentifier42() {
+  void testToConnectorPayload_givenBuilderUserIdentifier42_thenReturnUserIdentifier42() {
     // Arrange
     CreateAgreementRequestBuilder builder = CreateAgreementRequestBuilder.builder();
     builder.userIdentifier("42");
@@ -105,10 +110,11 @@ public class CreateAgreementRequestDiffblueTest {
    * <p>Method under test: {@link CreateAgreementRequest#toConnectorPayload()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test toConnectorPayload(); given CreateAgreementRequest()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CreateAgreementRequest.toConnectorPayload()"})
-  public void testToConnectorPayload_givenCreateAgreementRequest() {
+  void testToConnectorPayload_givenCreateAgreementRequest() {
     // Arrange, Act and Assert
     assertEquals("{ }", new CreateAgreementRequest().toConnectorPayload());
   }
@@ -123,10 +129,11 @@ public class CreateAgreementRequestDiffblueTest {
    * <p>Method under test: {@link CreateAgreementRequest#toConnectorPayload()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test toConnectorPayload(); then return '{ }'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CreateAgreementRequest.toConnectorPayload()"})
-  public void testToConnectorPayload_thenReturnLeftCurlyBracketSpaceRightCurlyBracket() {
+  void testToConnectorPayload_thenReturnLeftCurlyBracketSpaceRightCurlyBracket() {
     // Arrange, Act and Assert
     assertEquals(
         "{ }",
@@ -143,10 +150,11 @@ public class CreateAgreementRequestDiffblueTest {
    * <p>Method under test: {@link CreateAgreementRequest#toConnectorPayload()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test toConnectorPayload(); then return '{ \"reference\" : \"reference\" }'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String CreateAgreementRequest.toConnectorPayload()"})
-  public void testToConnectorPayload_thenReturnReferenceReference() {
+  void testToConnectorPayload_thenReturnReferenceReference() {
     // Arrange
     CreateAgreementRequestBuilder builder = CreateAgreementRequestBuilder.builder();
     builder.reference("reference");
@@ -174,13 +182,14 @@ public class CreateAgreementRequestDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean CreateAgreementRequest.equals(Object)",
     "int CreateAgreementRequest.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     CreateAgreementRequest createAgreementRequest = new CreateAgreementRequest();
     CreateAgreementRequest createAgreementRequest2 = new CreateAgreementRequest();
@@ -207,13 +216,14 @@ public class CreateAgreementRequestDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean CreateAgreementRequest.equals(Object)",
     "int CreateAgreementRequest.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     CreateAgreementRequest createAgreementRequest = new CreateAgreementRequest();
 
@@ -234,13 +244,14 @@ public class CreateAgreementRequestDiffblueTest {
    * <p>Method under test: {@link CreateAgreementRequest#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean CreateAgreementRequest.equals(Object)",
     "int CreateAgreementRequest.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new CreateAgreementRequest(), 1);
   }
@@ -256,13 +267,14 @@ public class CreateAgreementRequestDiffblueTest {
    * <p>Method under test: {@link CreateAgreementRequest#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean CreateAgreementRequest.equals(Object)",
     "int CreateAgreementRequest.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     CreateAgreementRequestBuilder builder = CreateAgreementRequestBuilder.builder();
     builder.reference("Reference");
@@ -283,13 +295,14 @@ public class CreateAgreementRequestDiffblueTest {
    * <p>Method under test: {@link CreateAgreementRequest#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean CreateAgreementRequest.equals(Object)",
     "int CreateAgreementRequest.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     CreateAgreementRequestBuilder builder = CreateAgreementRequestBuilder.builder();
     builder.description("The characteristics of someone or something");
@@ -310,13 +323,14 @@ public class CreateAgreementRequestDiffblueTest {
    * <p>Method under test: {@link CreateAgreementRequest#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean CreateAgreementRequest.equals(Object)",
     "int CreateAgreementRequest.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     CreateAgreementRequestBuilder builder = CreateAgreementRequestBuilder.builder();
     builder.userIdentifier("42");
@@ -337,13 +351,14 @@ public class CreateAgreementRequestDiffblueTest {
    * <p>Method under test: {@link CreateAgreementRequest#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean CreateAgreementRequest.equals(Object)",
     "int CreateAgreementRequest.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new CreateAgreementRequest(), null);
   }
@@ -359,13 +374,14 @@ public class CreateAgreementRequestDiffblueTest {
    * <p>Method under test: {@link CreateAgreementRequest#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean CreateAgreementRequest.equals(Object)",
     "int CreateAgreementRequest.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new CreateAgreementRequest(), "Different type to CreateAgreementRequest");
   }

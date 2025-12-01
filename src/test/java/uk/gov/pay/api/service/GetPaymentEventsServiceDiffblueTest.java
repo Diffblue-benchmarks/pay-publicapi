@@ -1,15 +1,14 @@
 package uk.gov.pay.api.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.core.server.DefaultServerFactory;
@@ -21,8 +20,9 @@ import jakarta.ws.rs.client.Client;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.app.config.PublicApiConfig;
 import uk.gov.pay.api.auth.Account;
@@ -36,7 +36,7 @@ import uk.gov.pay.api.model.TransactionEvent;
 import uk.gov.pay.api.model.TransactionEvents;
 import uk.gov.pay.api.model.links.Link;
 
-public class GetPaymentEventsServiceDiffblueTest {
+class GetPaymentEventsServiceDiffblueTest {
   /**
    * Test {@link GetPaymentEventsService#getPaymentEventsFromConnector(Account, String)}.
    *
@@ -48,12 +48,14 @@ public class GetPaymentEventsServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getPaymentEventsFromConnector(Account, String); then return Events size is one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentEventsResponse GetPaymentEventsService.getPaymentEventsFromConnector(Account, String)"
   })
-  public void testGetPaymentEventsFromConnector_thenReturnEventsSizeIsOne() {
+  void testGetPaymentEventsFromConnector_thenReturnEventsSizeIsOne() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentEventsURI(Mockito.<String>any()))
@@ -114,12 +116,14 @@ public class GetPaymentEventsServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getPaymentEventsFromConnector(Account, String); then return Events size is two")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentEventsResponse GetPaymentEventsService.getPaymentEventsFromConnector(Account, String)"
   })
-  public void testGetPaymentEventsFromConnector_thenReturnEventsSizeIsTwo() {
+  void testGetPaymentEventsFromConnector_thenReturnEventsSizeIsTwo() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentEventsURI(Mockito.<String>any()))
@@ -181,12 +185,13 @@ public class GetPaymentEventsServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentEventsFromConnector(Account, String); then return PaymentId is '42'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentEventsResponse GetPaymentEventsService.getPaymentEventsFromConnector(Account, String)"
   })
-  public void testGetPaymentEventsFromConnector_thenReturnPaymentIdIs42() {
+  void testGetPaymentEventsFromConnector_thenReturnPaymentIdIs42() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentEventsURI(Mockito.<String>any()))
@@ -245,12 +250,13 @@ public class GetPaymentEventsServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentEventsFromLedger(Account, String); then return Events size is one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentEventsResponse GetPaymentEventsService.getPaymentEventsFromLedger(Account, String)"
   })
-  public void testGetPaymentEventsFromLedger_thenReturnEventsSizeIsOne() {
+  void testGetPaymentEventsFromLedger_thenReturnEventsSizeIsOne() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentEventsURI(Mockito.<String>any()))
@@ -311,12 +317,13 @@ public class GetPaymentEventsServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentEventsFromLedger(Account, String); then return Events size is two")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentEventsResponse GetPaymentEventsService.getPaymentEventsFromLedger(Account, String)"
   })
-  public void testGetPaymentEventsFromLedger_thenReturnEventsSizeIsTwo() {
+  void testGetPaymentEventsFromLedger_thenReturnEventsSizeIsTwo() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentEventsURI(Mockito.<String>any()))
@@ -378,12 +385,13 @@ public class GetPaymentEventsServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentEventsFromLedger(Account, String); then return PaymentId is '42'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentEventsResponse GetPaymentEventsService.getPaymentEventsFromLedger(Account, String)"
   })
-  public void testGetPaymentEventsFromLedger_thenReturnPaymentIdIs42() {
+  void testGetPaymentEventsFromLedger_thenReturnPaymentIdIs42() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentEventsURI(Mockito.<String>any()))
@@ -442,12 +450,14 @@ public class GetPaymentEventsServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentEventsService#getPaymentEvents(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getPaymentEvents(Account, String); given ArrayList() add PaymentEvent (default constructor); then return Events size is one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentEventsResponse GetPaymentEventsService.getPaymentEvents(Account, String)"
   })
-  public void testGetPaymentEvents_givenArrayListAddPaymentEvent_thenReturnEventsSizeIsOne() {
+  void testGetPaymentEvents_givenArrayListAddPaymentEvent_thenReturnEventsSizeIsOne() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentEventsURI(Mockito.<String>any()))
@@ -508,12 +518,14 @@ public class GetPaymentEventsServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentEventsService#getPaymentEvents(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getPaymentEvents(Account, String); given ArrayList() add PaymentEvent (default constructor); then return Events size is two")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentEventsResponse GetPaymentEventsService.getPaymentEvents(Account, String)"
   })
-  public void testGetPaymentEvents_givenArrayListAddPaymentEvent_thenReturnEventsSizeIsTwo() {
+  void testGetPaymentEvents_givenArrayListAddPaymentEvent_thenReturnEventsSizeIsTwo() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentEventsURI(Mockito.<String>any()))
@@ -574,12 +586,13 @@ public class GetPaymentEventsServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentEventsService#getPaymentEvents(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentEvents(Account, String); then return PaymentId is '42'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentEventsResponse GetPaymentEventsService.getPaymentEvents(Account, String)"
   })
-  public void testGetPaymentEvents_thenReturnPaymentIdIs42() {
+  void testGetPaymentEvents_thenReturnPaymentIdIs42() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentEventsURI(Mockito.<String>any()))

@@ -1,12 +1,11 @@
 package uk.gov.pay.api.filter;
 
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.servlet.FilterChain;
@@ -14,11 +13,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import java.io.IOException;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-public class ClearMdcValuesFilterDiffblueTest {
+class ClearMdcValuesFilterDiffblueTest {
   /**
    * Test {@link ClearMdcValuesFilter#doFilter(ServletRequest, ServletResponse, FilterChain)}.
    *
@@ -31,13 +31,14 @@ public class ClearMdcValuesFilterDiffblueTest {
    * FilterChain)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test doFilter(ServletRequest, ServletResponse, FilterChain); given IOException(); then throw IOException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void ClearMdcValuesFilter.doFilter(ServletRequest, ServletResponse, FilterChain)"
   })
-  public void testDoFilter_givenIOException_thenThrowIOException()
-      throws ServletException, IOException {
+  void testDoFilter_givenIOException_thenThrowIOException() throws ServletException, IOException {
     // Arrange
     ClearMdcValuesFilter clearMdcValuesFilter = new ClearMdcValuesFilter();
     ServletRequest request = mock(ServletRequest.class);
@@ -65,13 +66,14 @@ public class ClearMdcValuesFilterDiffblueTest {
    * FilterChain)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test doFilter(ServletRequest, ServletResponse, FilterChain); when FilterChain doFilter(ServletRequest, ServletResponse) does nothing")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void ClearMdcValuesFilter.doFilter(ServletRequest, ServletResponse, FilterChain)"
   })
-  public void testDoFilter_whenFilterChainDoFilterDoesNothing()
-      throws ServletException, IOException {
+  void testDoFilter_whenFilterChainDoFilterDoesNothing() throws ServletException, IOException {
     // Arrange
     ClearMdcValuesFilter clearMdcValuesFilter = new ClearMdcValuesFilter();
     ServletRequest request = mock(ServletRequest.class);

@@ -1,29 +1,30 @@
 package uk.gov.pay.api.app.config;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.core.server.DefaultServerFactory;
 import io.dropwizard.logging.common.DefaultLoggingFactory;
 import java.util.List;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class RateLimiterConfigDiffblueTest {
+class RateLimiterConfigDiffblueTest {
   /**
    * Test {@link RateLimiterConfig#getElevatedAccounts()}.
    *
    * <p>Method under test: {@link RateLimiterConfig#getElevatedAccounts()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getElevatedAccounts()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"List RateLimiterConfig.getElevatedAccounts()"})
-  public void testGetElevatedAccounts() {
+  void testGetElevatedAccounts() {
     // Arrange, Act and Assert
     assertTrue(new RateLimiterConfig().getElevatedAccounts().isEmpty());
   }
@@ -34,10 +35,11 @@ public class RateLimiterConfigDiffblueTest {
    * <p>Method under test: {@link RateLimiterConfig#getLowTrafficAccounts()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getLowTrafficAccounts()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"List RateLimiterConfig.getLowTrafficAccounts()"})
-  public void testGetLowTrafficAccounts() {
+  void testGetLowTrafficAccounts() {
     // Arrange, Act and Assert
     assertTrue(new RateLimiterConfig().getLowTrafficAccounts().isEmpty());
   }
@@ -61,7 +63,8 @@ public class RateLimiterConfigDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "int RateLimiterConfig.getIntervalInMillisForLowTrafficAccounts()",
@@ -75,7 +78,7 @@ public class RateLimiterConfigDiffblueTest {
     "int RateLimiterConfig.getNoOfReqPerNode()",
     "int RateLimiterConfig.getPerMillis()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     RateLimiterConfig rateLimiterConfig = new RateLimiterConfig();
 
@@ -112,10 +115,11 @@ public class RateLimiterConfigDiffblueTest {
    * <p>Method under test: default or parameterless constructor of {@link RateLimiterConfig}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new RateLimiterConfig (default constructor)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RateLimiterConfig.<init>()"})
-  public void testNewRateLimiterConfig() {
+  void testNewRateLimiterConfig() {
     // Arrange and Act
     RateLimiterConfig actualRateLimiterConfig = new RateLimiterConfig();
 

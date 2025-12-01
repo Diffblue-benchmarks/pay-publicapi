@@ -1,27 +1,28 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Optional;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.service.payments.commons.model.Source;
 
-public class InternalDiffblueTest {
+class InternalDiffblueTest {
   /**
    * Test {@link Internal#getSource()}.
    *
    * <p>Method under test: {@link Internal#getSource()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getSource()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional Internal.getSource()"})
-  public void testGetSource() {
+  void testGetSource() {
     // Arrange, Act and Assert
     assertFalse(new Internal().getSource().isPresent());
   }
@@ -37,10 +38,11 @@ public class InternalDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void Internal.<init>()", "void Internal.setSource(Source)"})
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     Internal actualInternal = new Internal();
     actualInternal.setSource(Source.CARD_API);

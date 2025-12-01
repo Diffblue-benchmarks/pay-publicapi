@@ -1,9 +1,8 @@
 package uk.gov.pay.api.validation;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.validation.ClockProvider;
@@ -12,10 +11,11 @@ import jakarta.validation.metadata.ConstraintDescriptor;
 import org.hibernate.validator.internal.engine.constraintvalidation.ConstraintValidatorContextImpl;
 import org.hibernate.validator.internal.engine.path.PathImpl;
 import org.hibernate.validator.messageinterpolation.ExpressionLanguageFeatureLevel;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class ZoneDateTimeValidatorDiffblueTest {
+class ZoneDateTimeValidatorDiffblueTest {
   /**
    * Test {@link ZoneDateTimeValidator#isValid(String, ConstraintValidatorContext)} with {@code
    * date}, {@code context}.
@@ -28,10 +28,12 @@ public class ZoneDateTimeValidatorDiffblueTest {
    * <p>Method under test: {@link ZoneDateTimeValidator#isValid(String, ConstraintValidatorContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test isValid(String, ConstraintValidatorContext) with 'date', 'context'; when '2020-03-01'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean ZoneDateTimeValidator.isValid(String, ConstraintValidatorContext)"})
-  public void testIsValidWithDateContext_when20200301_thenReturnFalse() {
+  void testIsValidWithDateContext_when20200301_thenReturnFalse() {
     // Arrange
     ZoneDateTimeValidator zoneDateTimeValidator = new ZoneDateTimeValidator();
     ClockProvider clockProvider = mock(ClockProvider.class);
@@ -60,10 +62,12 @@ public class ZoneDateTimeValidatorDiffblueTest {
    * <p>Method under test: {@link ZoneDateTimeValidator#isValid(String, ConstraintValidatorContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test isValid(String, ConstraintValidatorContext) with 'date', 'context'; when 'null'; then return 'true'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean ZoneDateTimeValidator.isValid(String, ConstraintValidatorContext)"})
-  public void testIsValidWithDateContext_whenNull_thenReturnTrue() {
+  void testIsValidWithDateContext_whenNull_thenReturnTrue() {
     // Arrange
     ZoneDateTimeValidator zoneDateTimeValidator = new ZoneDateTimeValidator();
     ClockProvider clockProvider = mock(ClockProvider.class);

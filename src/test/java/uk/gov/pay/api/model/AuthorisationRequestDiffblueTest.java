@@ -1,14 +1,14 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class AuthorisationRequestDiffblueTest {
+class AuthorisationRequestDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -28,7 +28,8 @@ public class AuthorisationRequestDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; then return CardNumber is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AuthorisationRequest.<init>()",
@@ -39,7 +40,7 @@ public class AuthorisationRequestDiffblueTest {
     "String AuthorisationRequest.getExpiryDate()",
     "String AuthorisationRequest.getOneTimeToken()"
   })
-  public void testGettersAndSetters_thenReturnCardNumberIsNull() {
+  void testGettersAndSetters_thenReturnCardNumberIsNull() {
     // Arrange and Act
     AuthorisationRequest actualAuthorisationRequest = new AuthorisationRequest();
     String actualCardNumber = actualAuthorisationRequest.getCardNumber();
@@ -75,7 +76,8 @@ public class AuthorisationRequestDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; when 'ABC123'; then return ExpiryDate is '2020-03-01'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AuthorisationRequest.<init>()",
@@ -86,7 +88,7 @@ public class AuthorisationRequestDiffblueTest {
     "String AuthorisationRequest.getExpiryDate()",
     "String AuthorisationRequest.getOneTimeToken()"
   })
-  public void testGettersAndSetters_whenAbc123_thenReturnExpiryDateIs20200301() {
+  void testGettersAndSetters_whenAbc123_thenReturnExpiryDateIs20200301() {
     // Arrange and Act
     AuthorisationRequest actualAuthorisationRequest =
         new AuthorisationRequest("ABC123", "42", "Cvc", "2020-03-01", "Cardholder Name");

@@ -1,16 +1,16 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.links.Link;
 import uk.gov.pay.api.model.links.PaymentEventLink;
 
-public class PaymentEventResponseDiffblueTest {
+class PaymentEventResponseDiffblueTest {
   /**
    * Test {@link PaymentEventResponse#from(TransactionEvent, String, String)} with {@code event},
    * {@code paymentId}, {@code paymentLink}.
@@ -22,12 +22,14 @@ public class PaymentEventResponseDiffblueTest {
    * <p>Method under test: {@link PaymentEventResponse#from(TransactionEvent, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test from(TransactionEvent, String, String) with 'event', 'paymentId', 'paymentLink'; then return PaymentId is '42'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentEventResponse PaymentEventResponse.from(TransactionEvent, String, String)"
   })
-  public void testFromWithEventPaymentIdPaymentLink_thenReturnPaymentIdIs42() {
+  void testFromWithEventPaymentIdPaymentLink_thenReturnPaymentIdIs42() {
     // Arrange and Act
     PaymentEventResponse actualFromResult =
         PaymentEventResponse.from(new TransactionEvent(), "42", "Payment Link");
@@ -52,12 +54,14 @@ public class PaymentEventResponseDiffblueTest {
    * <p>Method under test: {@link PaymentEventResponse#from(PaymentEvent, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test from(PaymentEvent, String, String) with 'paymentEvent', 'paymentId', 'paymentLink'; then return PaymentId is '42'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentEventResponse PaymentEventResponse.from(PaymentEvent, String, String)"
   })
-  public void testFromWithPaymentEventPaymentIdPaymentLink_thenReturnPaymentIdIs42() {
+  void testFromWithPaymentEventPaymentIdPaymentLink_thenReturnPaymentIdIs42() {
     // Arrange and Act
     PaymentEventResponse actualFromResult =
         PaymentEventResponse.from(new PaymentEvent(), "42", "Payment Link");
@@ -85,7 +89,8 @@ public class PaymentEventResponseDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "String PaymentEventResponse.getPaymentId()",
@@ -94,7 +99,7 @@ public class PaymentEventResponseDiffblueTest {
     "String PaymentEventResponse.getUpdated()",
     "String PaymentEventResponse.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     PaymentEventResponse fromResult =
         PaymentEventResponse.from(new PaymentEvent(), "42", "Payment Link");

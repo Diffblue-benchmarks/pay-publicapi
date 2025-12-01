@@ -1,13 +1,13 @@
 package uk.gov.pay.api.utils;
 
-import static org.junit.Assert.assertEquals;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class PathHelperDiffblueTest {
+class PathHelperDiffblueTest {
   /**
    * Test {@link PathHelper#getPathType(String, String)}.
    *
@@ -19,10 +19,11 @@ public class PathHelperDiffblueTest {
    * <p>Method under test: {@link PathHelper#getPathType(String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPathType(String, String); when '42'; then return empty string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String PathHelper.getPathType(String, String)"})
-  public void testGetPathType_when42_thenReturnEmptyString() {
+  void testGetPathType_when42_thenReturnEmptyString() {
     // Arrange, Act and Assert
     assertEquals("", PathHelper.getPathType("42", "Method"));
   }
@@ -38,10 +39,11 @@ public class PathHelperDiffblueTest {
    * <p>Method under test: {@link PathHelper#getPathType(String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPathType(String, String); when '/capture'; then return 'capture_payment'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String PathHelper.getPathType(String, String)"})
-  public void testGetPathType_whenCapture_thenReturnCapturePayment() {
+  void testGetPathType_whenCapture_thenReturnCapturePayment() {
     // Arrange, Act and Assert
     assertEquals("capture_payment", PathHelper.getPathType("/capture", "Method"));
   }
@@ -57,10 +59,11 @@ public class PathHelperDiffblueTest {
    * <p>Method under test: {@link PathHelper#getPathType(String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPathType(String, String); when empty string; then return empty string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String PathHelper.getPathType(String, String)"})
-  public void testGetPathType_whenEmptyString_thenReturnEmptyString() {
+  void testGetPathType_whenEmptyString_thenReturnEmptyString() {
     // Arrange, Act and Assert
     assertEquals("", PathHelper.getPathType("", "Method"));
   }
@@ -76,10 +79,11 @@ public class PathHelperDiffblueTest {
    * <p>Method under test: {@link PathHelper#getPathType(String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPathType(String, String); when '/payments'; then return empty string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String PathHelper.getPathType(String, String)"})
-  public void testGetPathType_whenPayments_thenReturnEmptyString() {
+  void testGetPathType_whenPayments_thenReturnEmptyString() {
     // Arrange, Act and Assert
     assertEquals("", PathHelper.getPathType("/payments", "Method"));
   }
@@ -95,10 +99,11 @@ public class PathHelperDiffblueTest {
    * <p>Method under test: {@link PathHelper#getPathType(String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPathType(String, String); when 'POST'; then return 'create_payment'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String PathHelper.getPathType(String, String)"})
-  public void testGetPathType_whenPost_thenReturnCreatePayment() {
+  void testGetPathType_whenPost_thenReturnCreatePayment() {
     // Arrange, Act and Assert
     assertEquals("create_payment", PathHelper.getPathType("/payments", "POST"));
   }
@@ -114,10 +119,11 @@ public class PathHelperDiffblueTest {
    * <p>Method under test: {@link PathHelper#getPathType(String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPathType(String, String); when '/'; then return empty string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String PathHelper.getPathType(String, String)"})
-  public void testGetPathType_whenSlash_thenReturnEmptyString() {
+  void testGetPathType_whenSlash_thenReturnEmptyString() {
     // Arrange, Act and Assert
     assertEquals("", PathHelper.getPathType("/", "Method"));
   }

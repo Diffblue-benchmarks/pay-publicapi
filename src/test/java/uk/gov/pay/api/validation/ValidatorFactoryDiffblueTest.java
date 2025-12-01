@@ -1,16 +1,16 @@
 package uk.gov.pay.api.validation;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.inject.Injector;
 import org.hibernate.validator.internal.engine.ValidatorImpl;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class ValidatorFactoryDiffblueTest {
+class ValidatorFactoryDiffblueTest {
   /**
    * Test {@link ValidatorFactory#provide()}.
    *
@@ -23,10 +23,11 @@ public class ValidatorFactoryDiffblueTest {
    * <p>Method under test: {@link ValidatorFactory#provide()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test provide(); given InjectingConstraintValidatorFactory(Injector) with Injector")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"jakarta.validation.Validator ValidatorFactory.provide()"})
-  public void testProvide_givenInjectingConstraintValidatorFactoryWithInjector() {
+  void testProvide_givenInjectingConstraintValidatorFactoryWithInjector() {
     // Arrange
     InjectingConstraintValidatorFactory constraintValidatorFactory =
         new InjectingConstraintValidatorFactory(mock(Injector.class));
@@ -46,10 +47,12 @@ public class ValidatorFactoryDiffblueTest {
    * <p>Method under test: {@link ValidatorFactory#provide()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test provide(); given ValidatorFactory(ConstraintValidatorFactory) with constraintValidatorFactory is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"jakarta.validation.Validator ValidatorFactory.provide()"})
-  public void testProvide_givenValidatorFactoryWithConstraintValidatorFactoryIsNull() {
+  void testProvide_givenValidatorFactoryWithConstraintValidatorFactoryIsNull() {
     // Arrange, Act and Assert
     assertTrue(new ValidatorFactory(null).provide() instanceof ValidatorImpl);
   }

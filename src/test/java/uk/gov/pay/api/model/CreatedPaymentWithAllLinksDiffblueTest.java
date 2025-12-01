@@ -1,19 +1,19 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Optional;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.CreatedPaymentWithAllLinks.WhenCreated;
 import uk.gov.pay.api.model.links.Link;
 import uk.gov.pay.api.model.links.PaymentLinks;
@@ -24,19 +24,20 @@ import uk.gov.service.payments.commons.model.AuthorisationMode;
 import uk.gov.service.payments.commons.model.SupportedLanguage;
 import uk.gov.service.payments.commons.model.charge.ExternalMetadata;
 
-public class CreatedPaymentWithAllLinksDiffblueTest {
+class CreatedPaymentWithAllLinksDiffblueTest {
   /**
    * Test {@link CreatedPaymentWithAllLinks#of(PaymentWithAllLinks, WhenCreated)}.
    *
    * <p>Method under test: {@link CreatedPaymentWithAllLinks#of(PaymentWithAllLinks, WhenCreated)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test of(PaymentWithAllLinks, WhenCreated)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreatedPaymentWithAllLinks CreatedPaymentWithAllLinks.of(PaymentWithAllLinks, WhenCreated)"
   })
-  public void testOf() {
+  void testOf() {
     // Arrange
     PaymentWithAllLinks payment = mock(PaymentWithAllLinks.class);
 
@@ -60,13 +61,14 @@ public class CreatedPaymentWithAllLinksDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentWithAllLinks CreatedPaymentWithAllLinks.getPayment()",
     "WhenCreated CreatedPaymentWithAllLinks.getWhenCreated()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     PaymentWithAllLinksBuilder withAuthorisationModeResult =
         new PaymentWithAllLinksBuilder()

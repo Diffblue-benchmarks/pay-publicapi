@@ -1,15 +1,15 @@
 package uk.gov.pay.api.ledger.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Map;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class AgreementSearchParamsDiffblueTest {
+class AgreementSearchParamsDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -28,7 +28,8 @@ public class AgreementSearchParamsDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AgreementSearchParams.<init>()",
@@ -42,7 +43,7 @@ public class AgreementSearchParamsDiffblueTest {
     "void AgreementSearchParams.setReference(String)",
     "void AgreementSearchParams.setStatus(String)"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     AgreementSearchParams actualAgreementSearchParams = new AgreementSearchParams();
     actualAgreementSearchParams.setDisplaySize("Display Size");
@@ -82,7 +83,8 @@ public class AgreementSearchParamsDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; when 'Reference'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AgreementSearchParams.<init>()",
@@ -96,7 +98,7 @@ public class AgreementSearchParamsDiffblueTest {
     "void AgreementSearchParams.setReference(String)",
     "void AgreementSearchParams.setStatus(String)"
   })
-  public void testGettersAndSetters_whenReference() {
+  void testGettersAndSetters_whenReference() {
     // Arrange and Act
     AgreementSearchParams actualAgreementSearchParams =
         new AgreementSearchParams("Reference", "Status", "42", "Display Size");
@@ -126,10 +128,11 @@ public class AgreementSearchParamsDiffblueTest {
    * <p>Method under test: {@link AgreementSearchParams#getQueryMap()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getQueryMap(); given AgreementSearchParams(); then return Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Map AgreementSearchParams.getQueryMap()"})
-  public void testGetQueryMap_givenAgreementSearchParams_thenReturnEmpty() {
+  void testGetQueryMap_givenAgreementSearchParams_thenReturnEmpty() {
     // Arrange, Act and Assert
     assertTrue(new AgreementSearchParams().getQueryMap().isEmpty());
   }
@@ -144,10 +147,11 @@ public class AgreementSearchParamsDiffblueTest {
    * <p>Method under test: {@link AgreementSearchParams#getQueryMap()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getQueryMap(); then return size is four")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Map AgreementSearchParams.getQueryMap()"})
-  public void testGetQueryMap_thenReturnSizeIsFour() {
+  void testGetQueryMap_thenReturnSizeIsFour() {
     // Arrange
     AgreementSearchParams agreementSearchParams =
         new AgreementSearchParams("Reference", "Status", "42", "Display Size");

@@ -1,14 +1,14 @@
 package uk.gov.pay.api.model.ledger;
 
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.RefundSettlementSummary;
 
-public class RefundTransactionFromLedgerDiffblueTest {
+class RefundTransactionFromLedgerDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -28,7 +28,8 @@ public class RefundTransactionFromLedgerDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void RefundTransactionFromLedger.<init>()",
@@ -42,7 +43,7 @@ public class RefundTransactionFromLedgerDiffblueTest {
     "TransactionState RefundTransactionFromLedger.getState()",
     "String RefundTransactionFromLedger.getTransactionId()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     RefundTransactionFromLedger actualRefundTransactionFromLedger =
         new RefundTransactionFromLedger();

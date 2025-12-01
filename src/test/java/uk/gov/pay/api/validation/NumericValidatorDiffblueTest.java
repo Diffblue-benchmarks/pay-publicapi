@@ -1,14 +1,14 @@
 package uk.gov.pay.api.validation;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class NumericValidatorDiffblueTest {
+class NumericValidatorDiffblueTest {
   /**
    * Test {@link NumericValidator#isValidOrNull(String)}.
    *
@@ -20,10 +20,11 @@ public class NumericValidatorDiffblueTest {
    * <p>Method under test: {@link NumericValidator#isValidOrNull(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test isValidOrNull(String); when '42'; then return 'true'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean NumericValidator.isValidOrNull(String)"})
-  public void testIsValidOrNull_when42_thenReturnTrue() {
+  void testIsValidOrNull_when42_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue(NumericValidator.isValidOrNull("42"));
   }
@@ -39,10 +40,11 @@ public class NumericValidatorDiffblueTest {
    * <p>Method under test: {@link NumericValidator#isValidOrNull(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test isValidOrNull(String); when 'null'; then return 'true'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean NumericValidator.isValidOrNull(String)"})
-  public void testIsValidOrNull_whenNull_thenReturnTrue() {
+  void testIsValidOrNull_whenNull_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue(NumericValidator.isValidOrNull(null));
   }
@@ -58,10 +60,11 @@ public class NumericValidatorDiffblueTest {
    * <p>Method under test: {@link NumericValidator#isValidOrNull(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test isValidOrNull(String); when space; then return 'true'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean NumericValidator.isValidOrNull(String)"})
-  public void testIsValidOrNull_whenSpace_thenReturnTrue() {
+  void testIsValidOrNull_whenSpace_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue(NumericValidator.isValidOrNull(" "));
   }
@@ -77,10 +80,11 @@ public class NumericValidatorDiffblueTest {
    * <p>Method under test: {@link NumericValidator#isValidOrNull(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test isValidOrNull(String); when 'Value'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean NumericValidator.isValidOrNull(String)"})
-  public void testIsValidOrNull_whenValue_thenReturnFalse() {
+  void testIsValidOrNull_whenValue_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(NumericValidator.isValidOrNull("Value"));
   }
@@ -96,10 +100,11 @@ public class NumericValidatorDiffblueTest {
    * <p>Method under test: {@link NumericValidator#isValid(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test isValid(String); when '42'; then return 'true'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean NumericValidator.isValid(String)"})
-  public void testIsValid_when42_thenReturnTrue() {
+  void testIsValid_when42_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue(NumericValidator.isValid("42"));
   }
@@ -115,10 +120,11 @@ public class NumericValidatorDiffblueTest {
    * <p>Method under test: {@link NumericValidator#isValid(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test isValid(String); when 'Value'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean NumericValidator.isValid(String)"})
-  public void testIsValid_whenValue_thenReturnFalse() {
+  void testIsValid_whenValue_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(NumericValidator.isValid("Value"));
   }

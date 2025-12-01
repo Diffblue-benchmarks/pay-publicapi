@@ -1,6 +1,6 @@
 package uk.gov.pay.api.filter;
 
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.doNothing;
@@ -8,14 +8,10 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectMapper.DefaultTypeResolverBuilder;
-import com.fasterxml.jackson.databind.ObjectMapper.DefaultTyping;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper.Builder;
 import io.dropwizard.core.server.DefaultServerFactory;
@@ -33,8 +29,9 @@ import java.net.URI;
 import java.nio.file.Paths;
 import org.glassfish.jersey.internal.MapPropertiesDelegate;
 import org.glassfish.jersey.server.ContainerRequest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.app.config.RateLimiterConfig;
 import uk.gov.pay.api.auth.Account;
@@ -45,17 +42,18 @@ import uk.gov.pay.api.filter.ratelimit.RedisRateLimiter;
 import uk.gov.pay.api.managed.RedisClientManager;
 import uk.gov.pay.api.model.TokenPaymentType;
 
-public class RateLimiterFilterDiffblueTest {
+class RateLimiterFilterDiffblueTest {
   /**
    * Test {@link RateLimiterFilter#filter(ContainerRequestContext)}.
    *
    * <p>Method under test: {@link RateLimiterFilter#filter(ContainerRequestContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test filter(ContainerRequestContext)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RateLimiterFilter.filter(ContainerRequestContext)"})
-  public void testFilter() throws IOException {
+  void testFilter() throws IOException {
     // Arrange
     RateLimiterConfig rateLimiterConfig = new RateLimiterConfig();
     rateLimiterConfig.setAdminFactory(new AdminFactory());
@@ -96,58 +94,17 @@ public class RateLimiterFilterDiffblueTest {
    * <p>Method under test: {@link RateLimiterFilter#filter(ContainerRequestContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test filter(ContainerRequestContext)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RateLimiterFilter.filter(ContainerRequestContext)"})
-  public void testFilter2() throws IOException, RateLimitException {
+  void testFilter2() throws IOException, RateLimitException {
     // Arrange
     RateLimiter rateLimiter = mock(RateLimiter.class);
     doThrow(new RateLimitException())
         .when(rateLimiter)
         .checkRateOf(Mockito.<String>any(), Mockito.<RateLimiterKey>any());
     JsonMapper objectMapper = JsonMapper.builder().findAndAddModules().build();
-
-    RateLimiterFilter rateLimiterFilter = new RateLimiterFilter(rateLimiter, objectMapper);
-
-    SecurityContext securityContext = mock(SecurityContext.class);
-    when(securityContext.getUserPrincipal())
-        .thenReturn(new Account("42", TokenPaymentType.CARD, "ABC123"));
-    URI baseUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
-    URI requestUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
-
-    ContainerRequest requestContext =
-        new ContainerRequest(
-            baseUri,
-            requestUri,
-            "https://example.org/example",
-            securityContext,
-            new MapPropertiesDelegate());
-
-    // Act and Assert
-    assertThrows(WebApplicationException.class, () -> rateLimiterFilter.filter(requestContext));
-    verify(securityContext).getUserPrincipal();
-    verify(rateLimiter).checkRateOf(eq("42"), isA(RateLimiterKey.class));
-  }
-
-  /**
-   * Test {@link RateLimiterFilter#filter(ContainerRequestContext)}.
-   *
-   * <p>Method under test: {@link RateLimiterFilter#filter(ContainerRequestContext)}
-   */
-  @Test
-  @Category(ContributionFromDiffblue.class)
-  @ManagedByDiffblue
-  @MethodsUnderTest({"void RateLimiterFilter.filter(ContainerRequestContext)"})
-  public void testFilter3() throws IOException, RateLimitException {
-    // Arrange
-    RateLimiter rateLimiter = mock(RateLimiter.class);
-    doThrow(new RateLimitException())
-        .when(rateLimiter)
-        .checkRateOf(Mockito.<String>any(), Mockito.<RateLimiterKey>any());
-
-    Builder builderResult = JsonMapper.builder();
-    builderResult.setDefaultTyping(new DefaultTypeResolverBuilder(DefaultTyping.JAVA_LANG_OBJECT));
-    JsonMapper objectMapper = builderResult.findAndAddModules().build();
 
     RateLimiterFilter rateLimiterFilter = new RateLimiterFilter(rateLimiter, objectMapper);
 
@@ -182,10 +139,12 @@ public class RateLimiterFilterDiffblueTest {
    * <p>Method under test: {@link RateLimiterFilter#filter(ContainerRequestContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test filter(ContainerRequestContext); given Account(String, TokenPaymentType, String) with accountId is '3' and paymentType is 'CARD' and tokenLink is 'ABC123'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RateLimiterFilter.filter(ContainerRequestContext)"})
-  public void testFilter_givenAccountWithAccountIdIs3AndPaymentTypeIsCardAndTokenLinkIsAbc123()
+  void testFilter_givenAccountWithAccountIdIs3AndPaymentTypeIsCardAndTokenLinkIsAbc123()
       throws IOException, RateLimitException {
     // Arrange
     RateLimiter rateLimiter = mock(RateLimiter.class);
@@ -220,6 +179,59 @@ public class RateLimiterFilterDiffblueTest {
    * Test {@link RateLimiterFilter#filter(ContainerRequestContext)}.
    *
    * <ul>
+   *   <li>Given builder addMixIn {@link Object} and {@link Object}.
+   *   <li>Then throw {@link WebApplicationException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link RateLimiterFilter#filter(ContainerRequestContext)}
+   */
+  @Test
+  @DisplayName(
+      "Test filter(ContainerRequestContext); given builder addMixIn Object and Object; then throw WebApplicationException")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void RateLimiterFilter.filter(ContainerRequestContext)"})
+  void testFilter_givenBuilderAddMixInObjectAndObject_thenThrowWebApplicationException()
+      throws IOException, RateLimitException {
+    // Arrange
+    RateLimiter rateLimiter = mock(RateLimiter.class);
+    doThrow(new RateLimitException())
+        .when(rateLimiter)
+        .checkRateOf(Mockito.<String>any(), Mockito.<RateLimiterKey>any());
+
+    Builder builderResult = JsonMapper.builder();
+    Class<Object> target = Object.class;
+    Class<Object> mixinSource = Object.class;
+
+    builderResult.addMixIn(target, mixinSource);
+    JsonMapper objectMapper = builderResult.findAndAddModules().build();
+
+    RateLimiterFilter rateLimiterFilter = new RateLimiterFilter(rateLimiter, objectMapper);
+
+    SecurityContext securityContext = mock(SecurityContext.class);
+    when(securityContext.getUserPrincipal())
+        .thenReturn(new Account("42", TokenPaymentType.CARD, "ABC123"));
+    URI baseUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
+    URI requestUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
+
+    ContainerRequest requestContext =
+        new ContainerRequest(
+            baseUri,
+            requestUri,
+            "https://example.org/example",
+            securityContext,
+            new MapPropertiesDelegate());
+
+    // Act and Assert
+    assertThrows(WebApplicationException.class, () -> rateLimiterFilter.filter(requestContext));
+    verify(securityContext).getUserPrincipal();
+    verify(rateLimiter).checkRateOf(eq("42"), isA(RateLimiterKey.class));
+  }
+
+  /**
+   * Test {@link RateLimiterFilter#filter(ContainerRequestContext)}.
+   *
+   * <ul>
    *   <li>Given builder defaultLeniency {@code true}.
    *   <li>Then throw {@link WebApplicationException}.
    * </ul>
@@ -227,10 +239,12 @@ public class RateLimiterFilterDiffblueTest {
    * <p>Method under test: {@link RateLimiterFilter#filter(ContainerRequestContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test filter(ContainerRequestContext); given builder defaultLeniency 'true'; then throw WebApplicationException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RateLimiterFilter.filter(ContainerRequestContext)"})
-  public void testFilter_givenBuilderDefaultLeniencyTrue_thenThrowWebApplicationException()
+  void testFilter_givenBuilderDefaultLeniencyTrue_thenThrowWebApplicationException()
       throws IOException, RateLimitException {
     // Arrange
     RateLimiter rateLimiter = mock(RateLimiter.class);
@@ -275,10 +289,12 @@ public class RateLimiterFilterDiffblueTest {
    * <p>Method under test: {@link RateLimiterFilter#filter(ContainerRequestContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test filter(ContainerRequestContext); given Builder findAndAddModules() return builder; then calls findAndAddModules()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RateLimiterFilter.filter(ContainerRequestContext)"})
-  public void testFilter_givenBuilderFindAndAddModulesReturnBuilder_thenCallsFindAndAddModules()
+  void testFilter_givenBuilderFindAndAddModulesReturnBuilder_thenCallsFindAndAddModules()
       throws IOException, RateLimitException {
     // Arrange
     RateLimiter rateLimiter = mock(RateLimiter.class);
@@ -323,10 +339,12 @@ public class RateLimiterFilterDiffblueTest {
    * <p>Method under test: {@link RateLimiterFilter#filter(ContainerRequestContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test filter(ContainerRequestContext); given builder serializationInclusion 'ALWAYS'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RateLimiterFilter.filter(ContainerRequestContext)"})
-  public void testFilter_givenBuilderSerializationInclusionAlways()
+  void testFilter_givenBuilderSerializationInclusionAlways()
       throws IOException, RateLimitException {
     // Arrange
     RateLimiter rateLimiter = mock(RateLimiter.class);
@@ -364,57 +382,6 @@ public class RateLimiterFilterDiffblueTest {
    * Test {@link RateLimiterFilter#filter(ContainerRequestContext)}.
    *
    * <ul>
-   *   <li>Given {@code Object}.
-   *   <li>Then throw {@link WebApplicationException}.
-   * </ul>
-   *
-   * <p>Method under test: {@link RateLimiterFilter#filter(ContainerRequestContext)}
-   */
-  @Test
-  @Category(ContributionFromDiffblue.class)
-  @ManagedByDiffblue
-  @MethodsUnderTest({"void RateLimiterFilter.filter(ContainerRequestContext)"})
-  public void testFilter_givenJavaLangObject_thenThrowWebApplicationException()
-      throws IOException, RateLimitException {
-    // Arrange
-    RateLimiter rateLimiter = mock(RateLimiter.class);
-    doThrow(new RateLimitException())
-        .when(rateLimiter)
-        .checkRateOf(Mockito.<String>any(), Mockito.<RateLimiterKey>any());
-
-    Builder builderResult = JsonMapper.builder();
-    Class<Object> target = Object.class;
-    Class<Object> mixinSource = Object.class;
-
-    builderResult.addMixIn(target, mixinSource);
-    JsonMapper objectMapper = builderResult.findAndAddModules().build();
-
-    RateLimiterFilter rateLimiterFilter = new RateLimiterFilter(rateLimiter, objectMapper);
-
-    SecurityContext securityContext = mock(SecurityContext.class);
-    when(securityContext.getUserPrincipal())
-        .thenReturn(new Account("42", TokenPaymentType.CARD, "ABC123"));
-    URI baseUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
-    URI requestUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
-
-    ContainerRequest requestContext =
-        new ContainerRequest(
-            baseUri,
-            requestUri,
-            "https://example.org/example",
-            securityContext,
-            new MapPropertiesDelegate());
-
-    // Act and Assert
-    assertThrows(WebApplicationException.class, () -> rateLimiterFilter.filter(requestContext));
-    verify(securityContext).getUserPrincipal();
-    verify(rateLimiter).checkRateOf(eq("42"), isA(RateLimiterKey.class));
-  }
-
-  /**
-   * Test {@link RateLimiterFilter#filter(ContainerRequestContext)}.
-   *
-   * <ul>
    *   <li>Given {@link RateLimiter} {@link RateLimiter#checkRateOf(String, RateLimiterKey)} does
    *       nothing.
    *   <li>Then calls {@link RateLimiter#checkRateOf(String, RateLimiterKey)}.
@@ -423,10 +390,12 @@ public class RateLimiterFilterDiffblueTest {
    * <p>Method under test: {@link RateLimiterFilter#filter(ContainerRequestContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test filter(ContainerRequestContext); given RateLimiter checkRateOf(String, RateLimiterKey) does nothing; then calls checkRateOf(String, RateLimiterKey)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RateLimiterFilter.filter(ContainerRequestContext)"})
-  public void testFilter_givenRateLimiterCheckRateOfDoesNothing_thenCallsCheckRateOf()
+  void testFilter_givenRateLimiterCheckRateOfDoesNothing_thenCallsCheckRateOf()
       throws IOException, RateLimitException {
     // Arrange
     RateLimiter rateLimiter = mock(RateLimiter.class);
@@ -467,10 +436,11 @@ public class RateLimiterFilterDiffblueTest {
    * <p>Method under test: {@link RateLimiterFilter#filter(ContainerRequestContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test filter(ContainerRequestContext); given WebApplicationException()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RateLimiterFilter.filter(ContainerRequestContext)"})
-  public void testFilter_givenWebApplicationException() throws IOException {
+  void testFilter_givenWebApplicationException() throws IOException {
     // Arrange
     RateLimiterConfig rateLimiterConfig = new RateLimiterConfig();
     rateLimiterConfig.setAdminFactory(new AdminFactory());

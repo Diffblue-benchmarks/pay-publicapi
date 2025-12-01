@@ -1,14 +1,14 @@
 package uk.gov.pay.api.utils;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class CustomSupportedLanguageDeserializerDiffblueTest {
+class CustomSupportedLanguageDeserializerDiffblueTest {
   /**
    * Test {@link CustomSupportedLanguageDeserializer#CustomSupportedLanguageDeserializer()}.
    *
@@ -20,13 +20,14 @@ public class CustomSupportedLanguageDeserializerDiffblueTest {
    * CustomSupportedLanguageDeserializer#CustomSupportedLanguageDeserializer()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new CustomSupportedLanguageDeserializer(); then return ValueClass is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void CustomSupportedLanguageDeserializer.<init>()",
     "void CustomSupportedLanguageDeserializer.<init>(Class)"
   })
-  public void testNewCustomSupportedLanguageDeserializer_thenReturnValueClassIsNull() {
+  void testNewCustomSupportedLanguageDeserializer_thenReturnValueClassIsNull() {
     // Arrange and Act
     CustomSupportedLanguageDeserializer actualCustomSupportedLanguageDeserializer =
         new CustomSupportedLanguageDeserializer();
@@ -47,13 +48,15 @@ public class CustomSupportedLanguageDeserializerDiffblueTest {
    * CustomSupportedLanguageDeserializer#CustomSupportedLanguageDeserializer(Class)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test new CustomSupportedLanguageDeserializer(Class); then return ValueClass is Object")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void CustomSupportedLanguageDeserializer.<init>()",
     "void CustomSupportedLanguageDeserializer.<init>(Class)"
   })
-  public void testNewCustomSupportedLanguageDeserializer_thenReturnValueClassIsObject() {
+  void testNewCustomSupportedLanguageDeserializer_thenReturnValueClassIsObject() {
     // Arrange
     Class<Object> vc = Object.class;
 

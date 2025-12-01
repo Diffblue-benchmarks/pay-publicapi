@@ -1,18 +1,18 @@
 package uk.gov.pay.api.utils;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.Exemption;
 import uk.gov.pay.api.model.ExemptionOutcome;
 
-public class InternalExemptionToPublicApiExemptionConverterDiffblueTest {
+class InternalExemptionToPublicApiExemptionConverterDiffblueTest {
   /**
    * Test {@link InternalExemptionToPublicApiExemptionConverter#convertExemption(Exemption)}.
    *
@@ -20,12 +20,13 @@ public class InternalExemptionToPublicApiExemptionConverterDiffblueTest {
    * InternalExemptionToPublicApiExemptionConverter#convertExemption(Exemption)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test convertExemption(Exemption)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Exemption InternalExemptionToPublicApiExemptionConverter.convertExemption(Exemption)"
   })
-  public void testConvertExemption() {
+  void testConvertExemption() {
     // Arrange
     Exemption maybeExemption = new Exemption(true, "Type", new ExemptionOutcome("Result"));
 
@@ -40,12 +41,13 @@ public class InternalExemptionToPublicApiExemptionConverterDiffblueTest {
    * InternalExemptionToPublicApiExemptionConverter#convertExemption(Exemption)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test convertExemption(Exemption)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Exemption InternalExemptionToPublicApiExemptionConverter.convertExemption(Exemption)"
   })
-  public void testConvertExemption2() {
+  void testConvertExemption2() {
     // Arrange
     Exemption maybeExemption = new Exemption(true, "corporate", null);
 
@@ -64,12 +66,13 @@ public class InternalExemptionToPublicApiExemptionConverterDiffblueTest {
    * InternalExemptionToPublicApiExemptionConverter#convertExemption(Exemption)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test convertExemption(Exemption); then return Outcome Result is 'Result'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Exemption InternalExemptionToPublicApiExemptionConverter.convertExemption(Exemption)"
   })
-  public void testConvertExemption_thenReturnOutcomeResultIsResult() {
+  void testConvertExemption_thenReturnOutcomeResultIsResult() {
     // Arrange
     ExemptionOutcome outcome = new ExemptionOutcome("Result");
     Exemption maybeExemption = new Exemption(true, "corporate", outcome);
@@ -98,12 +101,13 @@ public class InternalExemptionToPublicApiExemptionConverterDiffblueTest {
    * InternalExemptionToPublicApiExemptionConverter#convertExemption(Exemption)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test convertExemption(Exemption); when Exemption(); then return 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Exemption InternalExemptionToPublicApiExemptionConverter.convertExemption(Exemption)"
   })
-  public void testConvertExemption_whenExemption_thenReturnNull() {
+  void testConvertExemption_whenExemption_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(InternalExemptionToPublicApiExemptionConverter.convertExemption(new Exemption()));
   }
@@ -120,12 +124,13 @@ public class InternalExemptionToPublicApiExemptionConverterDiffblueTest {
    * InternalExemptionToPublicApiExemptionConverter#convertExemption(Exemption)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test convertExemption(Exemption); when 'null'; then return 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Exemption InternalExemptionToPublicApiExemptionConverter.convertExemption(Exemption)"
   })
-  public void testConvertExemption_whenNull_thenReturnNull() {
+  void testConvertExemption_whenNull_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(InternalExemptionToPublicApiExemptionConverter.convertExemption(null));
   }

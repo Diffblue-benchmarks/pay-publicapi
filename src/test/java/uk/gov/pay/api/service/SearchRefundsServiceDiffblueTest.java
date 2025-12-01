@@ -1,13 +1,12 @@
 package uk.gov.pay.api.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.core.server.DefaultServerFactory;
@@ -19,8 +18,9 @@ import io.dropwizard.metrics.common.MetricsFactory;
 import io.dropwizard.servlets.tasks.TaskConfiguration;
 import java.util.ArrayList;
 import java.util.Map;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.app.config.PublicApiConfig;
 import uk.gov.pay.api.auth.Account;
@@ -31,7 +31,7 @@ import uk.gov.pay.api.model.links.SearchNavigationLinks;
 import uk.gov.pay.api.model.search.PaginationDecorator;
 import uk.gov.pay.api.model.search.card.SearchRefundsResults;
 
-public class SearchRefundsServiceDiffblueTest {
+class SearchRefundsServiceDiffblueTest {
   /**
    * Test {@link SearchRefundsService#searchLedgerRefunds(Account, RefundsParams)}.
    *
@@ -42,12 +42,14 @@ public class SearchRefundsServiceDiffblueTest {
    * <p>Method under test: {@link SearchRefundsService#searchLedgerRefunds(Account, RefundsParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test searchLedgerRefunds(Account, RefundsParams); then return Links FirstPage Href is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "SearchRefundsResults SearchRefundsService.searchLedgerRefunds(Account, RefundsParams)"
   })
-  public void testSearchLedgerRefunds_thenReturnLinksFirstPageHrefIsNull() {
+  void testSearchLedgerRefunds_thenReturnLinksFirstPageHrefIsNull() {
     // Arrange
     SearchRefundsResponseFromLedger searchRefundsResponseFromLedger =
         mock(SearchRefundsResponseFromLedger.class);
@@ -123,12 +125,14 @@ public class SearchRefundsServiceDiffblueTest {
    * <p>Method under test: {@link SearchRefundsService#searchLedgerRefunds(Account, RefundsParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test searchLedgerRefunds(Account, RefundsParams); then return Links FirstPage is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "SearchRefundsResults SearchRefundsService.searchLedgerRefunds(Account, RefundsParams)"
   })
-  public void testSearchLedgerRefunds_thenReturnLinksFirstPageIsNull() {
+  void testSearchLedgerRefunds_thenReturnLinksFirstPageIsNull() {
     // Arrange
     SearchRefundsResponseFromLedger searchRefundsResponseFromLedger =
         mock(SearchRefundsResponseFromLedger.class);

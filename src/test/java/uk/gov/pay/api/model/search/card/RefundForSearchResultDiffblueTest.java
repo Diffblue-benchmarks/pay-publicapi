@@ -1,15 +1,15 @@
 package uk.gov.pay.api.model.search.card;
 
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.links.RefundLinksForSearch;
 import uk.gov.pay.api.model.search.card.RefundForSearchResult.Embedded;
 
-public class RefundForSearchResultDiffblueTest {
+class RefundForSearchResultDiffblueTest {
   /**
    * Test Embedded getters and setters.
    *
@@ -21,13 +21,14 @@ public class RefundForSearchResultDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test Embedded getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void Embedded.<init>(RefundForSearchResult)",
     "java.util.List Embedded.getRefunds()"
   })
-  public void testEmbeddedGettersAndSetters() {
+  void testEmbeddedGettersAndSetters() {
     // Arrange, Act and Assert
     assertNull(new RefundForSearchResult().new Embedded().getRefunds());
   }
@@ -45,7 +46,8 @@ public class RefundForSearchResultDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void RefundForSearchResult.<init>()",
@@ -53,7 +55,7 @@ public class RefundForSearchResultDiffblueTest {
     "RefundLinksForSearch RefundForSearchResult.getLinks()",
     "java.lang.String RefundForSearchResult.getPaymentId()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     RefundForSearchResult actualRefundForSearchResult = new RefundForSearchResult();
     Embedded actualEmbedded = actualRefundForSearchResult.getEmbedded();

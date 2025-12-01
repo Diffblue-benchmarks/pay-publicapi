@@ -1,16 +1,17 @@
 package uk.gov.pay.api.validation;
 
-import static org.junit.Assert.assertThrows;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.exception.PaymentValidationException;
 import uk.gov.pay.api.service.PaymentSearchParams;
 import uk.gov.pay.api.service.PaymentSearchParams.Builder;
 
-public class PaymentSearchValidatorDiffblueTest {
+class PaymentSearchValidatorDiffblueTest {
   /**
    * Test {@link PaymentSearchValidator#validateSearchParameters(PaymentSearchParams)} with {@code
    * searchParams}.
@@ -19,10 +20,11 @@ public class PaymentSearchValidatorDiffblueTest {
    * PaymentSearchValidator#validateSearchParameters(PaymentSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(PaymentSearchParams) with 'searchParams'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentSearchValidator.validateSearchParameters(PaymentSearchParams)"})
-  public void testValidateSearchParametersWithSearchParams() {
+  void testValidateSearchParametersWithSearchParams() {
     // Arrange
     PaymentSearchParams searchParams =
         new Builder()
@@ -56,10 +58,11 @@ public class PaymentSearchValidatorDiffblueTest {
    * PaymentSearchValidator#validateSearchParameters(PaymentSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(PaymentSearchParams) with 'searchParams'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentSearchValidator.validateSearchParameters(PaymentSearchParams)"})
-  public void testValidateSearchParametersWithSearchParams2() {
+  void testValidateSearchParametersWithSearchParams2() {
     // Arrange
     PaymentSearchParams searchParams =
         new Builder()
@@ -93,10 +96,11 @@ public class PaymentSearchValidatorDiffblueTest {
    * PaymentSearchValidator#validateSearchParameters(PaymentSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(PaymentSearchParams) with 'searchParams'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentSearchValidator.validateSearchParameters(PaymentSearchParams)"})
-  public void testValidateSearchParametersWithSearchParams3() {
+  void testValidateSearchParametersWithSearchParams3() {
     // Arrange
     PaymentSearchParams searchParams =
         new Builder()
@@ -130,10 +134,11 @@ public class PaymentSearchValidatorDiffblueTest {
    * PaymentSearchValidator#validateSearchParameters(PaymentSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(PaymentSearchParams) with 'searchParams'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentSearchValidator.validateSearchParameters(PaymentSearchParams)"})
-  public void testValidateSearchParametersWithSearchParams4() {
+  void testValidateSearchParametersWithSearchParams4() {
     // Arrange
     PaymentSearchParams searchParams =
         new Builder()
@@ -167,10 +172,11 @@ public class PaymentSearchValidatorDiffblueTest {
    * PaymentSearchValidator#validateSearchParameters(PaymentSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(PaymentSearchParams) with 'searchParams'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentSearchValidator.validateSearchParameters(PaymentSearchParams)"})
-  public void testValidateSearchParametersWithSearchParams5() {
+  void testValidateSearchParametersWithSearchParams5() {
     // Arrange
     PaymentSearchParams searchParams =
         new Builder()
@@ -204,10 +210,11 @@ public class PaymentSearchValidatorDiffblueTest {
    * PaymentSearchValidator#validateSearchParameters(PaymentSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(PaymentSearchParams) with 'searchParams'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentSearchValidator.validateSearchParameters(PaymentSearchParams)"})
-  public void testValidateSearchParametersWithSearchParams6() {
+  void testValidateSearchParametersWithSearchParams6() {
     // Arrange
     PaymentSearchParams searchParams =
         new Builder()
@@ -241,10 +248,11 @@ public class PaymentSearchValidatorDiffblueTest {
    * PaymentSearchValidator#validateSearchParameters(PaymentSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(PaymentSearchParams) with 'searchParams'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentSearchValidator.validateSearchParameters(PaymentSearchParams)"})
-  public void testValidateSearchParametersWithSearchParams7() {
+  void testValidateSearchParametersWithSearchParams7() {
     // Arrange
     PaymentSearchParams searchParams =
         new Builder()
@@ -278,10 +286,11 @@ public class PaymentSearchValidatorDiffblueTest {
    * PaymentSearchValidator#validateSearchParameters(PaymentSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateSearchParameters(PaymentSearchParams) with 'searchParams'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentSearchValidator.validateSearchParameters(PaymentSearchParams)"})
-  public void testValidateSearchParametersWithSearchParams8() {
+  void testValidateSearchParametersWithSearchParams8() {
     // Arrange
     PaymentSearchParams searchParams =
         new Builder()
@@ -319,12 +328,17 @@ public class PaymentSearchValidatorDiffblueTest {
    * PaymentSearchValidator#validateSearchParameters(PaymentSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateSearchParameters(PaymentSearchParams) with 'searchParams'; then does not throw")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentSearchValidator.validateSearchParameters(PaymentSearchParams)"})
-  public void testValidateSearchParametersWithSearchParams_thenDoesNotThrow() {
+  void testValidateSearchParametersWithSearchParams_thenDoesNotThrow() {
     // Arrange, Act and Assert
-    PaymentSearchValidator.validateSearchParameters(new PaymentSearchParams(new Builder()));
+    assertDoesNotThrow(
+        () ->
+            PaymentSearchValidator.validateSearchParameters(
+                new PaymentSearchParams(new Builder())));
   }
 
   /**
@@ -338,12 +352,14 @@ public class PaymentSearchValidatorDiffblueTest {
    * String, String, String, String, String, String, String, String, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String) with 'state', 'reference', 'email', 'cardBrand', 'fromDate', 'toDate', 'pageNumber', 'displaySize', 'firstDigitsCardNumber', 'lastDigitsCardNumber', 'fromSettledDate', 'toSettledDate'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentSearchValidator.validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String)"
   })
-  public void
+  void
       testValidateSearchParametersWithStateReferenceEmailCardBrandFromDateToDatePageNumberDisplaySizeFirstDigitsCardNumberLastDigitsCardNumberFromSettledDateToSettledDate() {
     // Arrange, Act and Assert
     assertThrows(
@@ -375,12 +391,14 @@ public class PaymentSearchValidatorDiffblueTest {
    * String, String, String, String, String, String, String, String, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String) with 'state', 'reference', 'email', 'cardBrand', 'fromDate', 'toDate', 'pageNumber', 'displaySize', 'firstDigitsCardNumber', 'lastDigitsCardNumber', 'fromSettledDate', 'toSettledDate'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentSearchValidator.validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String)"
   })
-  public void
+  void
       testValidateSearchParametersWithStateReferenceEmailCardBrandFromDateToDatePageNumberDisplaySizeFirstDigitsCardNumberLastDigitsCardNumberFromSettledDateToSettledDate2() {
     // Arrange, Act and Assert
     assertThrows(
@@ -412,12 +430,14 @@ public class PaymentSearchValidatorDiffblueTest {
    * String, String, String, String, String, String, String, String, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String) with 'state', 'reference', 'email', 'cardBrand', 'fromDate', 'toDate', 'pageNumber', 'displaySize', 'firstDigitsCardNumber', 'lastDigitsCardNumber', 'fromSettledDate', 'toSettledDate'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentSearchValidator.validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String)"
   })
-  public void
+  void
       testValidateSearchParametersWithStateReferenceEmailCardBrandFromDateToDatePageNumberDisplaySizeFirstDigitsCardNumberLastDigitsCardNumberFromSettledDateToSettledDate3() {
     // Arrange, Act and Assert
     assertThrows(
@@ -449,12 +469,14 @@ public class PaymentSearchValidatorDiffblueTest {
    * String, String, String, String, String, String, String, String, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String) with 'state', 'reference', 'email', 'cardBrand', 'fromDate', 'toDate', 'pageNumber', 'displaySize', 'firstDigitsCardNumber', 'lastDigitsCardNumber', 'fromSettledDate', 'toSettledDate'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentSearchValidator.validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String)"
   })
-  public void
+  void
       testValidateSearchParametersWithStateReferenceEmailCardBrandFromDateToDatePageNumberDisplaySizeFirstDigitsCardNumberLastDigitsCardNumberFromSettledDateToSettledDate4() {
     // Arrange, Act and Assert
     assertThrows(
@@ -486,12 +508,14 @@ public class PaymentSearchValidatorDiffblueTest {
    * String, String, String, String, String, String, String, String, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String) with 'state', 'reference', 'email', 'cardBrand', 'fromDate', 'toDate', 'pageNumber', 'displaySize', 'firstDigitsCardNumber', 'lastDigitsCardNumber', 'fromSettledDate', 'toSettledDate'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentSearchValidator.validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String)"
   })
-  public void
+  void
       testValidateSearchParametersWithStateReferenceEmailCardBrandFromDateToDatePageNumberDisplaySizeFirstDigitsCardNumberLastDigitsCardNumberFromSettledDateToSettledDate5() {
     // Arrange, Act and Assert
     assertThrows(
@@ -523,12 +547,14 @@ public class PaymentSearchValidatorDiffblueTest {
    * String, String, String, String, String, String, String, String, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String) with 'state', 'reference', 'email', 'cardBrand', 'fromDate', 'toDate', 'pageNumber', 'displaySize', 'firstDigitsCardNumber', 'lastDigitsCardNumber', 'fromSettledDate', 'toSettledDate'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentSearchValidator.validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String)"
   })
-  public void
+  void
       testValidateSearchParametersWithStateReferenceEmailCardBrandFromDateToDatePageNumberDisplaySizeFirstDigitsCardNumberLastDigitsCardNumberFromSettledDateToSettledDate6() {
     // Arrange, Act and Assert
     assertThrows(
@@ -560,12 +586,14 @@ public class PaymentSearchValidatorDiffblueTest {
    * String, String, String, String, String, String, String, String, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String) with 'state', 'reference', 'email', 'cardBrand', 'fromDate', 'toDate', 'pageNumber', 'displaySize', 'firstDigitsCardNumber', 'lastDigitsCardNumber', 'fromSettledDate', 'toSettledDate'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentSearchValidator.validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String)"
   })
-  public void
+  void
       testValidateSearchParametersWithStateReferenceEmailCardBrandFromDateToDatePageNumberDisplaySizeFirstDigitsCardNumberLastDigitsCardNumberFromSettledDateToSettledDate7() {
     // Arrange, Act and Assert
     assertThrows(
@@ -597,16 +625,31 @@ public class PaymentSearchValidatorDiffblueTest {
    * String, String, String, String, String, String, String, String, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String) with 'state', 'reference', 'email', 'cardBrand', 'fromDate', 'toDate', 'pageNumber', 'displaySize', 'firstDigitsCardNumber', 'lastDigitsCardNumber', 'fromSettledDate', 'toSettledDate'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentSearchValidator.validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String)"
   })
-  public void
+  void
       testValidateSearchParametersWithStateReferenceEmailCardBrandFromDateToDatePageNumberDisplaySizeFirstDigitsCardNumberLastDigitsCardNumberFromSettledDateToSettledDate8() {
     // Arrange, Act and Assert
-    PaymentSearchValidator.validateSearchParameters(
-        " ", "not blank", "not blank", "not blank", " ", " ", "1", "1", " ", " ", null, null);
+    assertDoesNotThrow(
+        () ->
+            PaymentSearchValidator.validateSearchParameters(
+                " ",
+                "not blank",
+                "not blank",
+                "not blank",
+                " ",
+                " ",
+                "1",
+                "1",
+                " ",
+                " ",
+                null,
+                null));
   }
 
   /**
@@ -620,12 +663,14 @@ public class PaymentSearchValidatorDiffblueTest {
    * String, String, String, String, String, String, String, String, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String) with 'state', 'reference', 'email', 'cardBrand', 'fromDate', 'toDate', 'pageNumber', 'displaySize', 'firstDigitsCardNumber', 'lastDigitsCardNumber', 'fromSettledDate', 'toSettledDate'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentSearchValidator.validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String)"
   })
-  public void
+  void
       testValidateSearchParametersWithStateReferenceEmailCardBrandFromDateToDatePageNumberDisplaySizeFirstDigitsCardNumberLastDigitsCardNumberFromSettledDateToSettledDate9() {
     // Arrange, Act and Assert
     assertThrows(
@@ -657,12 +702,14 @@ public class PaymentSearchValidatorDiffblueTest {
    * String, String, String, String, String, String, String, String, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String) with 'state', 'reference', 'email', 'cardBrand', 'fromDate', 'toDate', 'pageNumber', 'displaySize', 'firstDigitsCardNumber', 'lastDigitsCardNumber', 'fromSettledDate', 'toSettledDate'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentSearchValidator.validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String)"
   })
-  public void
+  void
       testValidateSearchParametersWithStateReferenceEmailCardBrandFromDateToDatePageNumberDisplaySizeFirstDigitsCardNumberLastDigitsCardNumberFromSettledDateToSettledDate10() {
     // Arrange, Act and Assert
     assertThrows(
@@ -694,12 +741,14 @@ public class PaymentSearchValidatorDiffblueTest {
    * String, String, String, String, String, String, String, String, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String) with 'state', 'reference', 'email', 'cardBrand', 'fromDate', 'toDate', 'pageNumber', 'displaySize', 'firstDigitsCardNumber', 'lastDigitsCardNumber', 'fromSettledDate', 'toSettledDate'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentSearchValidator.validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String)"
   })
-  public void
+  void
       testValidateSearchParametersWithStateReferenceEmailCardBrandFromDateToDatePageNumberDisplaySizeFirstDigitsCardNumberLastDigitsCardNumberFromSettledDateToSettledDate11() {
     // Arrange, Act and Assert
     assertThrows(
@@ -731,12 +780,14 @@ public class PaymentSearchValidatorDiffblueTest {
    * String, String, String, String, String, String, String, String, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String) with 'state', 'reference', 'email', 'cardBrand', 'fromDate', 'toDate', 'pageNumber', 'displaySize', 'firstDigitsCardNumber', 'lastDigitsCardNumber', 'fromSettledDate', 'toSettledDate'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentSearchValidator.validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String)"
   })
-  public void
+  void
       testValidateSearchParametersWithStateReferenceEmailCardBrandFromDateToDatePageNumberDisplaySizeFirstDigitsCardNumberLastDigitsCardNumberFromSettledDateToSettledDate12() {
     // Arrange, Act and Assert
     assertThrows(
@@ -768,12 +819,14 @@ public class PaymentSearchValidatorDiffblueTest {
    * String, String, String, String, String, String, String, String, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String) with 'state', 'reference', 'email', 'cardBrand', 'fromDate', 'toDate', 'pageNumber', 'displaySize', 'firstDigitsCardNumber', 'lastDigitsCardNumber', 'fromSettledDate', 'toSettledDate'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentSearchValidator.validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String)"
   })
-  public void
+  void
       testValidateSearchParametersWithStateReferenceEmailCardBrandFromDateToDatePageNumberDisplaySizeFirstDigitsCardNumberLastDigitsCardNumberFromSettledDateToSettledDate13() {
     // Arrange, Act and Assert
     assertThrows(
@@ -805,12 +858,14 @@ public class PaymentSearchValidatorDiffblueTest {
    * String, String, String, String, String, String, String, String, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String) with 'state', 'reference', 'email', 'cardBrand', 'fromDate', 'toDate', 'pageNumber', 'displaySize', 'firstDigitsCardNumber', 'lastDigitsCardNumber', 'fromSettledDate', 'toSettledDate'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentSearchValidator.validateSearchParameters(String, String, String, String, String, String, String, String, String, String, String, String)"
   })
-  public void
+  void
       testValidateSearchParametersWithStateReferenceEmailCardBrandFromDateToDatePageNumberDisplaySizeFirstDigitsCardNumberLastDigitsCardNumberFromSettledDateToSettledDate14() {
     // Arrange, Act and Assert
     assertThrows(

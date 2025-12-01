@@ -1,30 +1,31 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.List;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.service.payments.commons.model.AgreementPaymentType;
 import uk.gov.service.payments.commons.model.AuthorisationMode;
 import uk.gov.service.payments.commons.model.SupportedLanguage;
 
-public class TransactionResponseDiffblueTest {
+class TransactionResponseDiffblueTest {
   /**
    * Test {@link TransactionResponse#getMetadata()}.
    *
    * <p>Method under test: {@link TransactionResponse#getMetadata()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getMetadata()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"java.util.Optional TransactionResponse.getMetadata()"})
-  public void testGetMetadata() {
+  void testGetMetadata() {
     // Arrange, Act and Assert
     assertFalse(new TransactionResponse().getMetadata().isPresent());
   }
@@ -35,10 +36,11 @@ public class TransactionResponseDiffblueTest {
    * <p>Method under test: {@link TransactionResponse#getCardBrand()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getCardBrand()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String TransactionResponse.getCardBrand()"})
-  public void testGetCardBrand() {
+  void testGetCardBrand() {
     // Arrange, Act and Assert
     assertEquals("", new TransactionResponse().getCardBrand());
   }
@@ -49,10 +51,11 @@ public class TransactionResponseDiffblueTest {
    * <p>Method under test: {@link TransactionResponse#getWalletType()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getWalletType()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"java.util.Optional TransactionResponse.getWalletType()"})
-  public void testGetWalletType() {
+  void testGetWalletType() {
     // Arrange, Act and Assert
     assertFalse(new TransactionResponse().getWalletType().isPresent());
   }
@@ -92,7 +95,8 @@ public class TransactionResponseDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void TransactionResponse.<init>()",
@@ -122,7 +126,7 @@ public class TransactionResponseDiffblueTest {
     "String TransactionResponse.getTransactionId()",
     "boolean TransactionResponse.isMoto()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     TransactionResponse actualTransactionResponse = new TransactionResponse();
     AgreementPaymentType actualAgreementPaymentType =

@@ -1,21 +1,21 @@
 package uk.gov.pay.api.validation;
 
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.exception.DisputesValidationException;
 import uk.gov.pay.api.model.RequestError;
 import uk.gov.pay.api.model.RequestError.Code;
 import uk.gov.pay.api.service.DisputesSearchParams;
 import uk.gov.pay.api.service.DisputesSearchParams.Builder;
 
-public class DisputeSearchValidatorDiffblueTest {
+class DisputeSearchValidatorDiffblueTest {
   /**
    * Test {@link DisputeSearchValidator#validateDisputeParameters(DisputesSearchParams)}.
    *
@@ -23,10 +23,11 @@ public class DisputeSearchValidatorDiffblueTest {
    * DisputeSearchValidator#validateDisputeParameters(DisputesSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateDisputeParameters(DisputesSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void DisputeSearchValidator.validateDisputeParameters(DisputesSearchParams)"})
-  public void testValidateDisputeParameters() {
+  void testValidateDisputeParameters() {
     // Arrange
     DisputesSearchParams params =
         new Builder()
@@ -52,10 +53,11 @@ public class DisputeSearchValidatorDiffblueTest {
    * DisputeSearchValidator#validateDisputeParameters(DisputesSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateDisputeParameters(DisputesSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void DisputeSearchValidator.validateDisputeParameters(DisputesSearchParams)"})
-  public void testValidateDisputeParameters2() {
+  void testValidateDisputeParameters2() {
     // Arrange
     DisputesSearchParams params = mock(DisputesSearchParams.class);
     when(params.getDisplaySize()).thenReturn("not blank");
@@ -86,10 +88,11 @@ public class DisputeSearchValidatorDiffblueTest {
    * DisputeSearchValidator#validateDisputeParameters(DisputesSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateDisputeParameters(DisputesSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void DisputeSearchValidator.validateDisputeParameters(DisputesSearchParams)"})
-  public void testValidateDisputeParameters3() {
+  void testValidateDisputeParameters3() {
     // Arrange
     DisputesSearchParams params = mock(DisputesSearchParams.class);
     when(params.getPage())
@@ -112,10 +115,11 @@ public class DisputeSearchValidatorDiffblueTest {
    * DisputeSearchValidator#validateDisputeParameters(DisputesSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateDisputeParameters(DisputesSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void DisputeSearchValidator.validateDisputeParameters(DisputesSearchParams)"})
-  public void testValidateDisputeParameters4() {
+  void testValidateDisputeParameters4() {
     // Arrange
     DisputesSearchParams params = mock(DisputesSearchParams.class);
     when(params.getDisplaySize()).thenReturn("");
@@ -146,10 +150,11 @@ public class DisputeSearchValidatorDiffblueTest {
    * DisputeSearchValidator#validateDisputeParameters(DisputesSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateDisputeParameters(DisputesSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void DisputeSearchValidator.validateDisputeParameters(DisputesSearchParams)"})
-  public void testValidateDisputeParameters5() {
+  void testValidateDisputeParameters5() {
     // Arrange
     DisputesSearchParams params = mock(DisputesSearchParams.class);
     when(params.getDisplaySize()).thenReturn("not blank");
@@ -180,10 +185,11 @@ public class DisputeSearchValidatorDiffblueTest {
    * DisputeSearchValidator#validateDisputeParameters(DisputesSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateDisputeParameters(DisputesSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void DisputeSearchValidator.validateDisputeParameters(DisputesSearchParams)"})
-  public void testValidateDisputeParameters6() {
+  void testValidateDisputeParameters6() {
     // Arrange
     DisputesSearchParams params = mock(DisputesSearchParams.class);
     when(params.getDisplaySize()).thenReturn("not blank");
@@ -214,10 +220,11 @@ public class DisputeSearchValidatorDiffblueTest {
    * DisputeSearchValidator#validateDisputeParameters(DisputesSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test validateDisputeParameters(DisputesSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void DisputeSearchValidator.validateDisputeParameters(DisputesSearchParams)"})
-  public void testValidateDisputeParameters7() {
+  void testValidateDisputeParameters7() {
     // Arrange
     DisputesSearchParams params = mock(DisputesSearchParams.class);
     when(params.getDisplaySize()).thenReturn("not blank");
@@ -254,10 +261,12 @@ public class DisputeSearchValidatorDiffblueTest {
    * DisputeSearchValidator#validateDisputeParameters(DisputesSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateDisputeParameters(DisputesSearchParams); given '9'; when DisputesSearchParams getPage() return '9'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void DisputeSearchValidator.validateDisputeParameters(DisputesSearchParams)"})
-  public void testValidateDisputeParameters_given9_whenDisputesSearchParamsGetPageReturn9() {
+  void testValidateDisputeParameters_given9_whenDisputesSearchParamsGetPageReturn9() {
     // Arrange
     DisputesSearchParams params = mock(DisputesSearchParams.class);
     when(params.getDisplaySize()).thenReturn("not blank");
@@ -293,10 +302,12 @@ public class DisputeSearchValidatorDiffblueTest {
    * DisputeSearchValidator#validateDisputeParameters(DisputesSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateDisputeParameters(DisputesSearchParams); when DisputesSearchParams getDisplaySize() return '9'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void DisputeSearchValidator.validateDisputeParameters(DisputesSearchParams)"})
-  public void testValidateDisputeParameters_whenDisputesSearchParamsGetDisplaySizeReturn9() {
+  void testValidateDisputeParameters_whenDisputesSearchParamsGetDisplaySizeReturn9() {
     // Arrange
     DisputesSearchParams params = mock(DisputesSearchParams.class);
     when(params.getDisplaySize()).thenReturn("9");
@@ -332,10 +343,12 @@ public class DisputeSearchValidatorDiffblueTest {
    * DisputeSearchValidator#validateDisputeParameters(DisputesSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateDisputeParameters(DisputesSearchParams); when DisputesSearchParams getPage() return empty string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void DisputeSearchValidator.validateDisputeParameters(DisputesSearchParams)"})
-  public void testValidateDisputeParameters_whenDisputesSearchParamsGetPageReturnEmptyString() {
+  void testValidateDisputeParameters_whenDisputesSearchParamsGetPageReturnEmptyString() {
     // Arrange
     DisputesSearchParams params = mock(DisputesSearchParams.class);
     when(params.getDisplaySize()).thenReturn("not blank");
@@ -371,10 +384,12 @@ public class DisputeSearchValidatorDiffblueTest {
    * DisputeSearchValidator#validateDisputeParameters(DisputesSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateDisputeParameters(DisputesSearchParams); when DisputesSearchParams getState() return empty string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void DisputeSearchValidator.validateDisputeParameters(DisputesSearchParams)"})
-  public void testValidateDisputeParameters_whenDisputesSearchParamsGetStateReturnEmptyString() {
+  void testValidateDisputeParameters_whenDisputesSearchParamsGetStateReturnEmptyString() {
     // Arrange
     DisputesSearchParams params = mock(DisputesSearchParams.class);
     when(params.getDisplaySize()).thenReturn("not blank");
@@ -410,10 +425,12 @@ public class DisputeSearchValidatorDiffblueTest {
    * DisputeSearchValidator#validateDisputeParameters(DisputesSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test validateDisputeParameters(DisputesSearchParams); when DisputesSearchParams getToDate() return empty string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void DisputeSearchValidator.validateDisputeParameters(DisputesSearchParams)"})
-  public void testValidateDisputeParameters_whenDisputesSearchParamsGetToDateReturnEmptyString() {
+  void testValidateDisputeParameters_whenDisputesSearchParamsGetToDateReturnEmptyString() {
     // Arrange
     DisputesSearchParams params = mock(DisputesSearchParams.class);
     when(params.getDisplaySize()).thenReturn("not blank");

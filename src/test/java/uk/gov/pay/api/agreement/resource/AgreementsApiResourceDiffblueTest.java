@@ -1,9 +1,9 @@
 package uk.gov.pay.api.agreement.resource;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.ArgumentMatchers.isNull;
@@ -11,7 +11,6 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.core.server.DefaultServerFactory;
@@ -30,8 +29,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
 import org.glassfish.jersey.message.internal.OutboundMessageContext;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.agreement.model.Agreement;
 import uk.gov.pay.api.agreement.model.AgreementCreatedResponse;
@@ -52,7 +52,7 @@ import uk.gov.pay.api.service.ConnectorService;
 import uk.gov.pay.api.service.ConnectorUriGenerator;
 import uk.gov.pay.api.service.LedgerService;
 
-public class AgreementsApiResourceDiffblueTest {
+class AgreementsApiResourceDiffblueTest {
   /**
    * Test {@link AgreementsApiResource#createAgreement(Account, CreateAgreementRequest)}.
    *
@@ -64,12 +64,14 @@ public class AgreementsApiResourceDiffblueTest {
    * CreateAgreementRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test createAgreement(Account, CreateAgreementRequest); then calls createAgreement(Account, CreateAgreementRequest)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response AgreementsApiResource.createAgreement(Account, CreateAgreementRequest)"
   })
-  public void testCreateAgreement_thenCallsCreateAgreement() {
+  void testCreateAgreement_thenCallsCreateAgreement() {
     // Arrange
     ConnectorService connectorService = mock(ConnectorService.class);
     when(connectorService.createAgreement(
@@ -116,12 +118,14 @@ public class AgreementsApiResourceDiffblueTest {
    * CreateAgreementRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test createAgreement(Account, CreateAgreementRequest); then calls createAgreement(Account, CreateAgreementRequest)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response AgreementsApiResource.createAgreement(Account, CreateAgreementRequest)"
   })
-  public void testCreateAgreement_thenCallsCreateAgreement2() {
+  void testCreateAgreement_thenCallsCreateAgreement2() {
     // Arrange
     AgreementLedgerResponse agreementLedgerResponse = new AgreementLedgerResponse();
     agreementLedgerResponse.setExternalId("42");
@@ -156,10 +160,11 @@ public class AgreementsApiResourceDiffblueTest {
    * <p>Method under test: {@link AgreementsApiResource#getAgreement(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getAgreement(Account, String); then calls getAgreement(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Agreement AgreementsApiResource.getAgreement(Account, String)"})
-  public void testGetAgreement_thenCallsGetAgreement() {
+  void testGetAgreement_thenCallsGetAgreement() {
     // Arrange
     AgreementLedgerResponse agreementLedgerResponse = new AgreementLedgerResponse();
     agreementLedgerResponse.setExternalId("42");
@@ -210,10 +215,11 @@ public class AgreementsApiResourceDiffblueTest {
    * <p>Method under test: {@link AgreementsApiResource#getAgreement(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getAgreement(Account, String); then calls getAgreement(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Agreement AgreementsApiResource.getAgreement(Account, String)"})
-  public void testGetAgreement_thenCallsGetAgreement2() {
+  void testGetAgreement_thenCallsGetAgreement2() {
     // Arrange
     AgreementLedgerResponse agreementLedgerResponse = new AgreementLedgerResponse();
     agreementLedgerResponse.setExternalId("42");
@@ -247,12 +253,13 @@ public class AgreementsApiResourceDiffblueTest {
    * AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getAgreements(Account, AgreementSearchParams)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "AgreementSearchResults AgreementsApiResource.getAgreements(Account, AgreementSearchParams)"
   })
-  public void testGetAgreements() {
+  void testGetAgreements() {
     // Arrange
     AgreementsService agreementsService = mock(AgreementsService.class);
     ArrayList<Agreement> results = new ArrayList<>();
@@ -287,12 +294,14 @@ public class AgreementsApiResourceDiffblueTest {
    * AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getAgreements(Account, AgreementSearchParams); then return Links FirstPage Href is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "AgreementSearchResults AgreementsApiResource.getAgreements(Account, AgreementSearchParams)"
   })
-  public void testGetAgreements_thenReturnLinksFirstPageHrefIsNull() {
+  void testGetAgreements_thenReturnLinksFirstPageHrefIsNull() {
     // Arrange
     LedgerService ledgerService = mock(LedgerService.class);
     ArrayList<AgreementLedgerResponse> results = new ArrayList<>();
@@ -346,12 +355,14 @@ public class AgreementsApiResourceDiffblueTest {
    * AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getAgreements(Account, AgreementSearchParams); then return Links FirstPage is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "AgreementSearchResults AgreementsApiResource.getAgreements(Account, AgreementSearchParams)"
   })
-  public void testGetAgreements_thenReturnLinksFirstPageIsNull() {
+  void testGetAgreements_thenReturnLinksFirstPageIsNull() {
     // Arrange
     SearchResults<AgreementLedgerResponse> searchResults = mock(SearchResults.class);
     when(searchResults.getCount()).thenReturn(3);
@@ -412,12 +423,14 @@ public class AgreementsApiResourceDiffblueTest {
    * AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getAgreements(Account, AgreementSearchParams); then return Results size is one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "AgreementSearchResults AgreementsApiResource.getAgreements(Account, AgreementSearchParams)"
   })
-  public void testGetAgreements_thenReturnResultsSizeIsOne() {
+  void testGetAgreements_thenReturnResultsSizeIsOne() {
     // Arrange
     AgreementLedgerResponse agreementLedgerResponse = new AgreementLedgerResponse();
     agreementLedgerResponse.setExternalId("42");
@@ -490,12 +503,14 @@ public class AgreementsApiResourceDiffblueTest {
    * AgreementSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getAgreements(Account, AgreementSearchParams); then return Results size is two")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "AgreementSearchResults AgreementsApiResource.getAgreements(Account, AgreementSearchParams)"
   })
-  public void testGetAgreements_thenReturnResultsSizeIsTwo() {
+  void testGetAgreements_thenReturnResultsSizeIsTwo() {
     // Arrange
     AgreementLedgerResponse agreementLedgerResponse = new AgreementLedgerResponse();
     agreementLedgerResponse.setExternalId("42");
@@ -572,10 +587,11 @@ public class AgreementsApiResourceDiffblueTest {
    * <p>Method under test: {@link AgreementsApiResource#cancelAgreement(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test cancelAgreement(Account, String); then calls cancelAgreement(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response AgreementsApiResource.cancelAgreement(Account, String)"})
-  public void testCancelAgreement_thenCallsCancelAgreement() {
+  void testCancelAgreement_thenCallsCancelAgreement() {
     // Arrange
     ConnectorService connectorService = mock(ConnectorService.class);
     doNothing()
@@ -617,10 +633,11 @@ public class AgreementsApiResourceDiffblueTest {
    * <p>Method under test: {@link AgreementsApiResource#cancelAgreement(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test cancelAgreement(Account, String); then calls cancelAgreement(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response AgreementsApiResource.cancelAgreement(Account, String)"})
-  public void testCancelAgreement_thenCallsCancelAgreement2() {
+  void testCancelAgreement_thenCallsCancelAgreement2() {
     // Arrange
     AgreementsService agreementsService = mock(AgreementsService.class);
     OutboundJaxrsResponse outboundJaxrsResponse =
@@ -649,10 +666,11 @@ public class AgreementsApiResourceDiffblueTest {
    * <p>Method under test: {@link AgreementsApiResource#cancelAgreement(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test cancelAgreement(Account, String); then calls target(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response AgreementsApiResource.cancelAgreement(Account, String)"})
-  public void testCancelAgreement_thenCallsTarget() {
+  void testCancelAgreement_thenCallsTarget() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.post(Mockito.<Entity<?>>any()))

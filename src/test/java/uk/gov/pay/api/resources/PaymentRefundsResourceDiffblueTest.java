@@ -1,15 +1,14 @@
 package uk.gov.pay.api.resources;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.core.server.DefaultServerFactory;
@@ -29,8 +28,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.app.config.PublicApiConfig;
 import uk.gov.pay.api.auth.Account;
@@ -64,17 +64,18 @@ import uk.gov.service.payments.commons.model.AuthorisationMode;
 import uk.gov.service.payments.commons.model.SupportedLanguage;
 import uk.gov.service.payments.commons.model.charge.ExternalMetadata;
 
-public class PaymentRefundsResourceDiffblueTest {
+class PaymentRefundsResourceDiffblueTest {
   /**
    * Test {@link PaymentRefundsResource#getRefunds(Account, String)}.
    *
    * <p>Method under test: {@link PaymentRefundsResource#getRefunds(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getRefunds(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RefundsResponse PaymentRefundsResource.getRefunds(Account, String)"})
-  public void testGetRefunds() {
+  void testGetRefunds() {
     // Arrange
     HealthCheckConfiguration healthChecks = new HealthCheckConfiguration();
     healthChecks.setMaxThreads(3);
@@ -196,12 +197,14 @@ public class PaymentRefundsResourceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getRefundById(Account, String, String, String); then calls getConnectorPaymentRefund(Account, String, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "RefundResponse PaymentRefundsResource.getRefundById(Account, String, String, String)"
   })
-  public void testGetRefundById_thenCallsGetConnectorPaymentRefund() {
+  void testGetRefundById_thenCallsGetConnectorPaymentRefund() {
     // Arrange
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
@@ -323,12 +326,14 @@ public class PaymentRefundsResourceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getRefundById(Account, String, String, String); then calls getLedgerPaymentRefund(Account, String, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "RefundResponse PaymentRefundsResource.getRefundById(Account, String, String, String)"
   })
-  public void testGetRefundById_thenCallsGetLedgerPaymentRefund() {
+  void testGetRefundById_thenCallsGetLedgerPaymentRefund() {
     // Arrange
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
@@ -448,12 +453,14 @@ public class PaymentRefundsResourceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getRefundById(Account, String, String, String); then calls getPaymentRefund(Account, String, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "RefundResponse PaymentRefundsResource.getRefundById(Account, String, String, String)"
   })
-  public void testGetRefundById_thenCallsGetPaymentRefund() {
+  void testGetRefundById_thenCallsGetPaymentRefund() {
     // Arrange
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
@@ -573,12 +580,14 @@ public class PaymentRefundsResourceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getRefundById(Account, String, String, String); then return Links Payment Method is 'GET'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "RefundResponse PaymentRefundsResource.getRefundById(Account, String, String, String)"
   })
-  public void testGetRefundById_thenReturnLinksPaymentMethodIsGet() {
+  void testGetRefundById_thenReturnLinksPaymentMethodIsGet() {
     // Arrange
     HealthCheckConfiguration healthChecks = new HealthCheckConfiguration();
     healthChecks.setMaxThreads(3);
@@ -721,12 +730,14 @@ public class PaymentRefundsResourceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getRefundById(Account, String, String, String); when empty string; then calls getPaymentRefund(Account, String, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "RefundResponse PaymentRefundsResource.getRefundById(Account, String, String, String)"
   })
-  public void testGetRefundById_whenEmptyString_thenCallsGetPaymentRefund() {
+  void testGetRefundById_whenEmptyString_thenCallsGetPaymentRefund() {
     // Arrange
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
@@ -846,12 +857,14 @@ public class PaymentRefundsResourceDiffblueTest {
    * CreatePaymentRefundRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test submitRefund(Account, String, CreatePaymentRefundRequest); then StatusInfo return Status")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response PaymentRefundsResource.submitRefund(Account, String, CreatePaymentRefundRequest)"
   })
-  public void testSubmitRefund_thenStatusInfoReturnStatus() {
+  void testSubmitRefund_thenStatusInfoReturnStatus() {
     // Arrange
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();

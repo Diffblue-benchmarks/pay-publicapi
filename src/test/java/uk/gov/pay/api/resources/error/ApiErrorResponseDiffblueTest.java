@@ -1,24 +1,25 @@
 package uk.gov.pay.api.resources.error;
 
-import static org.junit.Assert.assertEquals;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.resources.error.ApiErrorResponse.Code;
 
-public class ApiErrorResponseDiffblueTest {
+class ApiErrorResponseDiffblueTest {
   /**
    * Test {@link ApiErrorResponse#anApiErrorResponse(Code, Object[])}.
    *
    * <p>Method under test: {@link ApiErrorResponse#anApiErrorResponse(Code, Object[])}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test anApiErrorResponse(Code, Object[])")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"ApiErrorResponse ApiErrorResponse.anApiErrorResponse(Code, Object[])"})
-  public void testAnApiErrorResponse() {
+  void testAnApiErrorResponse() {
     // Arrange and Act
     ApiErrorResponse actualAnApiErrorResponseResult =
         ApiErrorResponse.anApiErrorResponse(Code.TOO_MANY_REQUESTS_ERROR, "Parameters");
@@ -39,10 +40,11 @@ public class ApiErrorResponseDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test Code getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String Code.getFormat()", "String Code.value()"})
-  public void testCodeGettersAndSetters() {
+  void testCodeGettersAndSetters() {
     // Arrange
     Code valueOfResult = Code.valueOf("TOO_MANY_REQUESTS_ERROR");
 
@@ -60,10 +62,11 @@ public class ApiErrorResponseDiffblueTest {
    * <p>Method under test: {@link ApiErrorResponse#getCode()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getCode()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String ApiErrorResponse.getCode()"})
-  public void testGetCode() {
+  void testGetCode() {
     // Arrange, Act and Assert
     assertEquals(
         "P0900",
@@ -81,13 +84,14 @@ public class ApiErrorResponseDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "String ApiErrorResponse.getDescription()",
     "String ApiErrorResponse.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     ApiErrorResponse anApiErrorResponseResult =
         ApiErrorResponse.anApiErrorResponse(Code.TOO_MANY_REQUESTS_ERROR, "Parameters");

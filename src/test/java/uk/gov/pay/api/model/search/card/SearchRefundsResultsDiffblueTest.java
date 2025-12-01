@@ -1,18 +1,18 @@
 package uk.gov.pay.api.model.search.card;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.links.SearchNavigationLinks;
 
-public class SearchRefundsResultsDiffblueTest {
+class SearchRefundsResultsDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -29,7 +29,8 @@ public class SearchRefundsResultsDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void SearchRefundsResults.<init>(int, int, int, List, SearchNavigationLinks)",
@@ -39,7 +40,7 @@ public class SearchRefundsResultsDiffblueTest {
     "List SearchRefundsResults.getResults()",
     "int SearchRefundsResults.getTotal()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     ArrayList<RefundForSearchRefundsResult> results = new ArrayList<>();
     SearchNavigationLinks links = new SearchNavigationLinks();

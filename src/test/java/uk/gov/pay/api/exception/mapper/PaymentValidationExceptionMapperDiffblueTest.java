@@ -1,23 +1,23 @@
 package uk.gov.pay.api.exception.mapper;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.core.MultivaluedMap;
 import jakarta.ws.rs.core.Response;
 import java.util.Set;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.exception.PaymentValidationException;
 import uk.gov.pay.api.model.RequestError;
 import uk.gov.pay.api.model.RequestError.Code;
 
-public class PaymentValidationExceptionMapperDiffblueTest {
+class PaymentValidationExceptionMapperDiffblueTest {
   /**
    * Test {@link PaymentValidationExceptionMapper#toResponse(PaymentValidationException)} with
    * {@code exception}.
@@ -30,12 +30,14 @@ public class PaymentValidationExceptionMapperDiffblueTest {
    * PaymentValidationExceptionMapper#toResponse(PaymentValidationException)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test toResponse(PaymentValidationException) with 'exception'; then return OutboundJaxrsResponse")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response PaymentValidationExceptionMapper.toResponse(PaymentValidationException)"
   })
-  public void testToResponseWithException_thenReturnOutboundJaxrsResponse() {
+  void testToResponseWithException_thenReturnOutboundJaxrsResponse() {
     // Arrange
     PaymentValidationExceptionMapper paymentValidationExceptionMapper =
         new PaymentValidationExceptionMapper();

@@ -1,14 +1,14 @@
 package uk.gov.pay.api.model.search.card;
 
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.links.RefundLinksForSearch;
 
-public class RefundResultDiffblueTest {
+class RefundResultDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -21,14 +21,15 @@ public class RefundResultDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void RefundResult.<init>()",
     "RefundLinksForSearch RefundResult.getLinks()",
     "uk.gov.pay.api.model.search.card.RefundForSearchRefundsResult RefundResult.getRefunds()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     RefundResult actualRefundResult = new RefundResult();
     RefundLinksForSearch actualLinks = actualRefundResult.getLinks();

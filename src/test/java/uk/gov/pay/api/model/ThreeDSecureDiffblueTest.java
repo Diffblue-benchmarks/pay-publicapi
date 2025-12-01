@@ -1,14 +1,14 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class ThreeDSecureDiffblueTest {
+class ThreeDSecureDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -24,14 +24,15 @@ public class ThreeDSecureDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; then return not Required")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void ThreeDSecure.<init>()",
     "void ThreeDSecure.<init>(boolean)",
     "boolean ThreeDSecure.isRequired()"
   })
-  public void testGettersAndSetters_thenReturnNotRequired() {
+  void testGettersAndSetters_thenReturnNotRequired() {
     // Arrange, Act and Assert
     assertFalse(new ThreeDSecure().isRequired());
   }
@@ -52,14 +53,15 @@ public class ThreeDSecureDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; when 'true'; then return Required")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void ThreeDSecure.<init>()",
     "void ThreeDSecure.<init>(boolean)",
     "boolean ThreeDSecure.isRequired()"
   })
-  public void testGettersAndSetters_whenTrue_thenReturnRequired() {
+  void testGettersAndSetters_whenTrue_thenReturnRequired() {
     // Arrange, Act and Assert
     assertTrue(new ThreeDSecure(true).isRequired());
   }

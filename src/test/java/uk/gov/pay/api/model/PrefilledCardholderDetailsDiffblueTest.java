@@ -1,27 +1,28 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Optional;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class PrefilledCardholderDetailsDiffblueTest {
+class PrefilledCardholderDetailsDiffblueTest {
   /**
    * Test {@link PrefilledCardholderDetails#getBillingAddress()}.
    *
    * <p>Method under test: {@link PrefilledCardholderDetails#getBillingAddress()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getBillingAddress()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional PrefilledCardholderDetails.getBillingAddress()"})
-  public void testGetBillingAddress() {
+  void testGetBillingAddress() {
     // Arrange, Act and Assert
     assertFalse(new PrefilledCardholderDetails().getBillingAddress().isPresent());
   }
@@ -32,10 +33,11 @@ public class PrefilledCardholderDetailsDiffblueTest {
    * <p>Method under test: {@link PrefilledCardholderDetails#getCardholderName()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getCardholderName()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional PrefilledCardholderDetails.getCardholderName()"})
-  public void testGetCardholderName() {
+  void testGetCardholderName() {
     // Arrange, Act and Assert
     assertFalse(new PrefilledCardholderDetails().getCardholderName().isPresent());
   }
@@ -47,12 +49,13 @@ public class PrefilledCardholderDetailsDiffblueTest {
    * String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test setAddress(String, String, String, String, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PrefilledCardholderDetails.setAddress(String, String, String, String, String)"
   })
-  public void testSetAddress() {
+  void testSetAddress() {
     // Arrange
     PrefilledCardholderDetails prefilledCardholderDetails = new PrefilledCardholderDetails();
 
@@ -88,13 +91,14 @@ public class PrefilledCardholderDetailsDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PrefilledCardholderDetails.equals(Object)",
     "int PrefilledCardholderDetails.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     PrefilledCardholderDetails prefilledCardholderDetails = new PrefilledCardholderDetails();
     prefilledCardholderDetails.setAddress("42 Main St", "42 Main St", "OX1 1PT", "Oxford", "GB");
@@ -126,13 +130,14 @@ public class PrefilledCardholderDetailsDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PrefilledCardholderDetails.equals(Object)",
     "int PrefilledCardholderDetails.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     PrefilledCardholderDetails prefilledCardholderDetails = new PrefilledCardholderDetails();
     prefilledCardholderDetails.setAddress("42 Main St", "42 Main St", "OX1 1PT", "Oxford", "GB");
@@ -155,13 +160,14 @@ public class PrefilledCardholderDetailsDiffblueTest {
    * <p>Method under test: {@link PrefilledCardholderDetails#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PrefilledCardholderDetails.equals(Object)",
     "int PrefilledCardholderDetails.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     PrefilledCardholderDetails prefilledCardholderDetails = new PrefilledCardholderDetails();
     prefilledCardholderDetails.setAddress("42 Main St", "42 Main St", "OX1 1PT", "Oxford", "GB");
@@ -186,13 +192,14 @@ public class PrefilledCardholderDetailsDiffblueTest {
    * <p>Method under test: {@link PrefilledCardholderDetails#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PrefilledCardholderDetails.equals(Object)",
     "int PrefilledCardholderDetails.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     PrefilledCardholderDetails prefilledCardholderDetails = new PrefilledCardholderDetails();
     prefilledCardholderDetails.setAddress("17 High St", "42 Main St", "OX1 1PT", "Oxford", "GB");
@@ -217,13 +224,14 @@ public class PrefilledCardholderDetailsDiffblueTest {
    * <p>Method under test: {@link PrefilledCardholderDetails#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PrefilledCardholderDetails.equals(Object)",
     "int PrefilledCardholderDetails.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     PrefilledCardholderDetails prefilledCardholderDetails = new PrefilledCardholderDetails();
     prefilledCardholderDetails.setAddress("42 Main St", "42 Main St", "OX1 1PT", "Oxford", "GB");
@@ -244,13 +252,14 @@ public class PrefilledCardholderDetailsDiffblueTest {
    * <p>Method under test: {@link PrefilledCardholderDetails#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PrefilledCardholderDetails.equals(Object)",
     "int PrefilledCardholderDetails.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     PrefilledCardholderDetails prefilledCardholderDetails = new PrefilledCardholderDetails();
     prefilledCardholderDetails.setAddress("42 Main St", "42 Main St", "OX1 1PT", "Oxford", "GB");
@@ -271,13 +280,14 @@ public class PrefilledCardholderDetailsDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PrefilledCardholderDetails.<init>()",
     "void PrefilledCardholderDetails.setCardholderName(String)"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     PrefilledCardholderDetails actualPrefilledCardholderDetails = new PrefilledCardholderDetails();
     actualPrefilledCardholderDetails.setCardholderName("Cardholder Name");

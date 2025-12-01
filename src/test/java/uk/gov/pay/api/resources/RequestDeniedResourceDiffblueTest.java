@@ -1,10 +1,9 @@
 package uk.gov.pay.api.resources;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.core.MultivaluedMap;
@@ -13,21 +12,23 @@ import jakarta.ws.rs.core.Response.Status;
 import jakarta.ws.rs.core.Response.StatusType;
 import java.util.Set;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.RequestError;
 
-public class RequestDeniedResourceDiffblueTest {
+class RequestDeniedResourceDiffblueTest {
   /**
    * Test {@link RequestDeniedResource#requestDeniedGet(String)}.
    *
    * <p>Method under test: {@link RequestDeniedResource#requestDeniedGet(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test requestDeniedGet(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response RequestDeniedResource.requestDeniedGet(String)"})
-  public void testRequestDeniedGet() {
+  void testRequestDeniedGet() {
     // Arrange and Act
     Response actualRequestDeniedGetResult =
         new RequestDeniedResource().requestDeniedGet("Naxsi Violated Rules");
@@ -62,10 +63,11 @@ public class RequestDeniedResourceDiffblueTest {
    * <p>Method under test: {@link RequestDeniedResource#requestDeniedPost(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test requestDeniedPost(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response RequestDeniedResource.requestDeniedPost(String)"})
-  public void testRequestDeniedPost() {
+  void testRequestDeniedPost() {
     // Arrange and Act
     Response actualRequestDeniedPostResult =
         new RequestDeniedResource().requestDeniedPost("Naxsi Violated Rules");
@@ -100,10 +102,11 @@ public class RequestDeniedResourceDiffblueTest {
    * <p>Method under test: {@link RequestDeniedResource#requestDeniedPut(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test requestDeniedPut(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response RequestDeniedResource.requestDeniedPut(String)"})
-  public void testRequestDeniedPut() {
+  void testRequestDeniedPut() {
     // Arrange and Act
     Response actualRequestDeniedPutResult =
         new RequestDeniedResource().requestDeniedPut("Naxsi Violated Rules");
@@ -138,10 +141,11 @@ public class RequestDeniedResourceDiffblueTest {
    * <p>Method under test: {@link RequestDeniedResource#requestDeniedDelete(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test requestDeniedDelete(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response RequestDeniedResource.requestDeniedDelete(String)"})
-  public void testRequestDeniedDelete() {
+  void testRequestDeniedDelete() {
     // Arrange and Act
     Response actualRequestDeniedDeleteResult =
         new RequestDeniedResource().requestDeniedDelete("Naxsi Violated Rules");

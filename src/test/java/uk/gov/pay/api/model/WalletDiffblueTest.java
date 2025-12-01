@@ -1,23 +1,24 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class WalletDiffblueTest {
+class WalletDiffblueTest {
   /**
    * Test {@link Wallet#getTitleCase()}.
    *
    * <p>Method under test: {@link Wallet#getTitleCase()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getTitleCase()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"java.lang.String Wallet.getTitleCase()"})
-  public void testGetTitleCase() {
+  void testGetTitleCase() {
     // Arrange, Act and Assert
     assertEquals("Apple Pay", Wallet.valueOf("APPLE_PAY").getTitleCase());
   }

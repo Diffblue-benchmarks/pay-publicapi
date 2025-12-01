@@ -1,10 +1,10 @@
 package uk.gov.pay.api.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.ArgumentMatchers.isNull;
@@ -13,7 +13,6 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.ProcessingException;
@@ -29,8 +28,9 @@ import jakarta.ws.rs.core.Response.StatusType;
 import java.util.Set;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
 import org.glassfish.jersey.message.internal.OutboundMessageContext;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.auth.Account;
 import uk.gov.pay.api.exception.CancelChargeException;
@@ -38,17 +38,18 @@ import uk.gov.pay.api.exception.ConnectorResponseErrorException;
 import uk.gov.pay.api.exception.ConnectorResponseErrorException.ConnectorErrorResponse;
 import uk.gov.pay.api.model.TokenPaymentType;
 
-public class CancelPaymentServiceDiffblueTest {
+class CancelPaymentServiceDiffblueTest {
   /**
    * Test {@link CancelPaymentService#cancel(Account, String)}.
    *
    * <p>Method under test: {@link CancelPaymentService#cancel(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test cancel(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response CancelPaymentService.cancel(Account, String)"})
-  public void testCancel() {
+  void testCancel() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.post(Mockito.<Entity<?>>any()))
@@ -89,10 +90,12 @@ public class CancelPaymentServiceDiffblueTest {
    * <p>Method under test: {@link CancelPaymentService#cancel(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test cancel(Account, String); given OutboundJaxrsResponse getStatus() return one; then calls close()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response CancelPaymentService.cancel(Account, String)"})
-  public void testCancel_givenOutboundJaxrsResponseGetStatusReturnOne_thenCallsClose()
+  void testCancel_givenOutboundJaxrsResponseGetStatusReturnOne_thenCallsClose()
       throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
@@ -141,10 +144,11 @@ public class CancelPaymentServiceDiffblueTest {
    * <p>Method under test: {@link CancelPaymentService#cancel(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test cancel(Account, String); then StatusInfo return Status")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Response CancelPaymentService.cancel(Account, String)"})
-  public void testCancel_thenStatusInfoReturnStatus() {
+  void testCancel_thenStatusInfoReturnStatus() {
     // Arrange
     Builder builder = mock(Builder.class);
     when(builder.post(Mockito.<Entity<?>>any()))

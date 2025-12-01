@@ -1,12 +1,11 @@
 package uk.gov.pay.api.json;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.core.JsonParser;
@@ -23,12 +22,13 @@ import com.fasterxml.jackson.databind.deser.DefaultDeserializationContext;
 import com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.Impl;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import java.io.StringReader;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.agreement.model.CreateAgreementRequest;
 import uk.gov.pay.api.exception.BadRequestException;
 
-public class CreateAgreementRequestDeserializerDiffblueTest {
+class CreateAgreementRequestDeserializerDiffblueTest {
   /**
    * Test new {@link CreateAgreementRequestDeserializer} (default constructor).
    *
@@ -36,10 +36,11 @@ public class CreateAgreementRequestDeserializerDiffblueTest {
    * CreateAgreementRequestDeserializer}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new CreateAgreementRequestDeserializer (default constructor)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void CreateAgreementRequestDeserializer.<init>()"})
-  public void testNewCreateAgreementRequestDeserializer() {
+  void testNewCreateAgreementRequestDeserializer() {
     // Arrange and Act
     CreateAgreementRequestDeserializer actualCreateAgreementRequestDeserializer =
         new CreateAgreementRequestDeserializer();
@@ -58,12 +59,13 @@ public class CreateAgreementRequestDeserializerDiffblueTest {
    * DeserializationContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test deserialize(JsonParser, DeserializationContext) with 'parser', 'context'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreateAgreementRequest CreateAgreementRequestDeserializer.deserialize(JsonParser, DeserializationContext)"
   })
-  public void testDeserializeWithParserContext() {
+  void testDeserializeWithParserContext() {
     // Arrange
     CreateAgreementRequestDeserializer createAgreementRequestDeserializer =
         new CreateAgreementRequestDeserializer();
@@ -94,12 +96,13 @@ public class CreateAgreementRequestDeserializerDiffblueTest {
    * DeserializationContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test deserialize(JsonParser, DeserializationContext) with 'parser', 'context'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreateAgreementRequest CreateAgreementRequestDeserializer.deserialize(JsonParser, DeserializationContext)"
   })
-  public void testDeserializeWithParserContext2() {
+  void testDeserializeWithParserContext2() {
     // Arrange
     CreateAgreementRequestDeserializer createAgreementRequestDeserializer =
         new CreateAgreementRequestDeserializer();
@@ -130,12 +133,13 @@ public class CreateAgreementRequestDeserializerDiffblueTest {
    * DeserializationContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test deserialize(JsonParser, DeserializationContext) with 'parser', 'context'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "CreateAgreementRequest CreateAgreementRequestDeserializer.deserialize(JsonParser, DeserializationContext)"
   })
-  public void testDeserializeWithParserContext3() {
+  void testDeserializeWithParserContext3() {
     // Arrange
     CreateAgreementRequestDeserializer createAgreementRequestDeserializer =
         new CreateAgreementRequestDeserializer();

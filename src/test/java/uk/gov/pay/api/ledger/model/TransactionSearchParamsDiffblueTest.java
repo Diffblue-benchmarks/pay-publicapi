@@ -1,25 +1,26 @@
 package uk.gov.pay.api.ledger.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Map;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class TransactionSearchParamsDiffblueTest {
+class TransactionSearchParamsDiffblueTest {
   /**
    * Test {@link TransactionSearchParams#getQueryMap()}.
    *
    * <p>Method under test: {@link TransactionSearchParams#getQueryMap()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getQueryMap()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Map TransactionSearchParams.getQueryMap()"})
-  public void testGetQueryMap() {
+  void testGetQueryMap() {
     // Arrange and Act
     Map<String, String> actualQueryMap = new TransactionSearchParams().getQueryMap();
 
@@ -62,7 +63,8 @@ public class TransactionSearchParamsDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void TransactionSearchParams.<init>()",
@@ -81,7 +83,7 @@ public class TransactionSearchParamsDiffblueTest {
     "String TransactionSearchParams.getToSettledDate()",
     "void TransactionSearchParams.setAccountId(String)"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     TransactionSearchParams actualTransactionSearchParams = new TransactionSearchParams();
     actualTransactionSearchParams.setAccountId("42");

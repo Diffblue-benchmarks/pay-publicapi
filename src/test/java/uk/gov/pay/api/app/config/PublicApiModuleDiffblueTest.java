@@ -1,11 +1,10 @@
 package uk.gov.pay.api.app.config;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.core.JsonFactory;
@@ -29,10 +28,11 @@ import io.dropwizard.jackson.DiscoverableSubtypeResolver;
 import io.dropwizard.logging.common.DefaultLoggingFactory;
 import io.dropwizard.metrics.common.MetricsFactory;
 import io.dropwizard.servlets.tasks.TaskConfiguration;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class PublicApiModuleDiffblueTest {
+class PublicApiModuleDiffblueTest {
   /**
    * Test {@link PublicApiModule#provideObjectMapper()}.
    *
@@ -43,10 +43,11 @@ public class PublicApiModuleDiffblueTest {
    * <p>Method under test: {@link PublicApiModule#provideObjectMapper()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test provideObjectMapper(); then Factory return MappingJsonFactory")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"ObjectMapper PublicApiModule.provideObjectMapper()"})
-  public void testProvideObjectMapper_thenFactoryReturnMappingJsonFactory() {
+  void testProvideObjectMapper_thenFactoryReturnMappingJsonFactory() {
     // Arrange
     HealthCheckConfiguration healthChecks = new HealthCheckConfiguration();
     healthChecks.setMaxThreads(3);
@@ -105,12 +106,13 @@ public class PublicApiModuleDiffblueTest {
    * <p>Method under test: {@link PublicApiModule#getRateLimiterConfig()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getRateLimiterConfig()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "uk.gov.pay.api.app.config.RateLimiterConfig PublicApiModule.getRateLimiterConfig()"
   })
-  public void testGetRateLimiterConfig() {
+  void testGetRateLimiterConfig() {
     // Arrange
     HealthCheckConfiguration healthChecks = new HealthCheckConfiguration();
     healthChecks.setMaxThreads(3);

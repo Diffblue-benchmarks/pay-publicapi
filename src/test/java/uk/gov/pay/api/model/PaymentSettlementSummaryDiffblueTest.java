@@ -1,14 +1,14 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class PaymentSettlementSummaryDiffblueTest {
+class PaymentSettlementSummaryDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -26,7 +26,8 @@ public class PaymentSettlementSummaryDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; then return CaptureSubmitTime is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentSettlementSummary.<init>()",
@@ -35,7 +36,7 @@ public class PaymentSettlementSummaryDiffblueTest {
     "String PaymentSettlementSummary.getCapturedDate()",
     "String PaymentSettlementSummary.getSettledDate()"
   })
-  public void testGettersAndSetters_thenReturnCaptureSubmitTimeIsNull() {
+  void testGettersAndSetters_thenReturnCaptureSubmitTimeIsNull() {
     // Arrange and Act
     PaymentSettlementSummary actualPaymentSettlementSummary = new PaymentSettlementSummary();
     String actualCaptureSubmitTime = actualPaymentSettlementSummary.getCaptureSubmitTime();
@@ -65,7 +66,9 @@ public class PaymentSettlementSummaryDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getters and setters; when 'Capture Submit Time'; then return CapturedDate is '2020-03-01'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentSettlementSummary.<init>()",
@@ -74,7 +77,7 @@ public class PaymentSettlementSummaryDiffblueTest {
     "String PaymentSettlementSummary.getCapturedDate()",
     "String PaymentSettlementSummary.getSettledDate()"
   })
-  public void testGettersAndSetters_whenCaptureSubmitTime_thenReturnCapturedDateIs20200301() {
+  void testGettersAndSetters_whenCaptureSubmitTime_thenReturnCapturedDateIs20200301() {
     // Arrange and Act
     PaymentSettlementSummary actualPaymentSettlementSummary =
         new PaymentSettlementSummary("Capture Submit Time", "2020-03-01", "2020-03-01");

@@ -1,14 +1,14 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class CreatePaymentRefundRequestDiffblueTest {
+class CreatePaymentRefundRequestDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -21,7 +21,8 @@ public class CreatePaymentRefundRequestDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void CreatePaymentRefundRequest.<init>()",
@@ -29,7 +30,7 @@ public class CreatePaymentRefundRequestDiffblueTest {
     "int CreatePaymentRefundRequest.getAmount()",
     "String CreatePaymentRefundRequest.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     CreatePaymentRefundRequest actualCreatePaymentRefundRequest = new CreatePaymentRefundRequest();
     String actualToStringResult = actualCreatePaymentRefundRequest.toString();
@@ -52,7 +53,8 @@ public class CreatePaymentRefundRequestDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void CreatePaymentRefundRequest.<init>()",
@@ -60,7 +62,7 @@ public class CreatePaymentRefundRequestDiffblueTest {
     "int CreatePaymentRefundRequest.getAmount()",
     "String CreatePaymentRefundRequest.toString()"
   })
-  public void testGettersAndSetters2() {
+  void testGettersAndSetters2() {
     // Arrange and Act
     CreatePaymentRefundRequest actualCreatePaymentRefundRequest =
         new CreatePaymentRefundRequest(10, 1);
@@ -78,10 +80,11 @@ public class CreatePaymentRefundRequestDiffblueTest {
    * <p>Method under test: {@link CreatePaymentRefundRequest#getRefundAmountAvailable()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getRefundAmountAvailable()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"java.util.Optional CreatePaymentRefundRequest.getRefundAmountAvailable()"})
-  public void testGetRefundAmountAvailable() {
+  void testGetRefundAmountAvailable() {
     // Arrange, Act and Assert
     assertFalse(new CreatePaymentRefundRequest().getRefundAmountAvailable().isPresent());
   }

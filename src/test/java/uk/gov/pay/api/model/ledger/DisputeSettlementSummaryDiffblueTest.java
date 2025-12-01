@@ -1,14 +1,14 @@
 package uk.gov.pay.api.model.ledger;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class DisputeSettlementSummaryDiffblueTest {
+class DisputeSettlementSummaryDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -24,14 +24,15 @@ public class DisputeSettlementSummaryDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; then return SettledDate is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void DisputeSettlementSummary.<init>()",
     "void DisputeSettlementSummary.<init>(String)",
     "String DisputeSettlementSummary.getSettledDate()"
   })
-  public void testGettersAndSetters_thenReturnSettledDateIsNull() {
+  void testGettersAndSetters_thenReturnSettledDateIsNull() {
     // Arrange, Act and Assert
     assertNull(new DisputeSettlementSummary().getSettledDate());
   }
@@ -52,14 +53,16 @@ public class DisputeSettlementSummaryDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getters and setters; when '2020-03-01'; then return SettledDate is '2020-03-01'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void DisputeSettlementSummary.<init>()",
     "void DisputeSettlementSummary.<init>(String)",
     "String DisputeSettlementSummary.getSettledDate()"
   })
-  public void testGettersAndSetters_when20200301_thenReturnSettledDateIs20200301() {
+  void testGettersAndSetters_when20200301_thenReturnSettledDateIs20200301() {
     // Arrange, Act and Assert
     assertEquals("2020-03-01", new DisputeSettlementSummary("2020-03-01").getSettledDate());
   }

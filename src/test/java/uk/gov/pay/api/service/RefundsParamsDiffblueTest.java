@@ -1,14 +1,14 @@
 package uk.gov.pay.api.service;
 
-import static org.junit.Assert.assertEquals;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Map;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class RefundsParamsDiffblueTest {
+class RefundsParamsDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -25,7 +25,8 @@ public class RefundsParamsDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void RefundsParams.<init>(String, String, String, String, String, String)",
@@ -36,7 +37,7 @@ public class RefundsParamsDiffblueTest {
     "String RefundsParams.getToDate()",
     "String RefundsParams.getToSettledDate()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     RefundsParams actualRefundsParams =
         new RefundsParams(
@@ -62,10 +63,11 @@ public class RefundsParamsDiffblueTest {
    * <p>Method under test: {@link RefundsParams#getParamsAsMap()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getParamsAsMap()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Map RefundsParams.getParamsAsMap()"})
-  public void testGetParamsAsMap() {
+  void testGetParamsAsMap() {
     // Arrange
     RefundsParams refundsParams =
         new RefundsParams(

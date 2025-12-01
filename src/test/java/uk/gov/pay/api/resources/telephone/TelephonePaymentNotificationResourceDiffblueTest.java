@@ -1,14 +1,13 @@
 package uk.gov.pay.api.resources.telephone;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.core.MultivaluedMap;
@@ -17,8 +16,9 @@ import java.util.Set;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.auth.Account;
 import uk.gov.pay.api.model.PaymentState;
@@ -29,7 +29,7 @@ import uk.gov.pay.api.model.telephone.TelephonePaymentResponse;
 import uk.gov.pay.api.model.telephone.TelephonePaymentResponse.Builder;
 import uk.gov.pay.api.service.telephone.CreateTelephonePaymentService;
 
-public class TelephonePaymentNotificationResourceDiffblueTest {
+class TelephonePaymentNotificationResourceDiffblueTest {
   /**
    * Test {@link TelephonePaymentNotificationResource#newPayment(Account,
    * CreateTelephonePaymentRequest)}.
@@ -38,12 +38,13 @@ public class TelephonePaymentNotificationResourceDiffblueTest {
    * CreateTelephonePaymentRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test newPayment(Account, CreateTelephonePaymentRequest)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response TelephonePaymentNotificationResource.newPayment(Account, CreateTelephonePaymentRequest)"
   })
-  public void testNewPayment() {
+  void testNewPayment() {
     // Arrange
     CreateTelephonePaymentService createTelephonePaymentService =
         mock(CreateTelephonePaymentService.class);
@@ -121,12 +122,13 @@ public class TelephonePaymentNotificationResourceDiffblueTest {
    * CreateTelephonePaymentRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test newPayment(Account, CreateTelephonePaymentRequest); then calls getLeft()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Response TelephonePaymentNotificationResource.newPayment(Account, CreateTelephonePaymentRequest)"
   })
-  public void testNewPayment_thenCallsGetLeft() {
+  void testNewPayment_thenCallsGetLeft() {
     // Arrange
     Pair<TelephonePaymentResponse, Integer> pair = mock(Pair.class);
 

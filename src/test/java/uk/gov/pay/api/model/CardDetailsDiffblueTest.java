@@ -1,17 +1,17 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Optional;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class CardDetailsDiffblueTest {
+class CardDetailsDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -30,7 +30,8 @@ public class CardDetailsDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void CardDetails.<init>(String, String, String, String, Address, String, String, String)",
@@ -42,7 +43,7 @@ public class CardDetailsDiffblueTest {
     "String CardDetails.getLastDigitsCardNumber()",
     "void CardDetails.setWalletType(String)"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     Address billingAddress = new Address("Line1", "Line2", "OX1 1PT", "Oxford", "GB");
 
@@ -83,10 +84,11 @@ public class CardDetailsDiffblueTest {
    * <p>Method under test: {@link CardDetails#from(CardDetailsFromResponse, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test from(CardDetailsFromResponse, String); then return ExpiryDate is '2020-03-01'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"CardDetails CardDetails.from(CardDetailsFromResponse, String)"})
-  public void testFrom_thenReturnExpiryDateIs20200301() {
+  void testFrom_thenReturnExpiryDateIs20200301() {
     // Arrange
     Address billingAddress = new Address("Line1", "Line2", "OX1 1PT", "Oxford", "GB");
     CardDetailsFromResponse cardDetailsFromResponse =
@@ -128,10 +130,11 @@ public class CardDetailsDiffblueTest {
    * <p>Method under test: {@link CardDetails#from(CardDetailsFromResponse, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test from(CardDetailsFromResponse, String); when 'null'; then return 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"CardDetails CardDetails.from(CardDetailsFromResponse, String)"})
-  public void testFrom_whenNull_thenReturnNull() {
+  void testFrom_whenNull_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(CardDetails.from(null, "Wallet Type"));
   }
@@ -142,10 +145,11 @@ public class CardDetailsDiffblueTest {
    * <p>Method under test: {@link CardDetails#getBillingAddress()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getBillingAddress()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CardDetails.getBillingAddress()"})
-  public void testGetBillingAddress() {
+  void testGetBillingAddress() {
     // Arrange
     Address billingAddress = new Address("Line1", "Line2", "OX1 1PT", "Oxford", "GB");
     CardDetails cardDetails =
@@ -173,10 +177,11 @@ public class CardDetailsDiffblueTest {
    * <p>Method under test: {@link CardDetails#getWalletType()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getWalletType()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CardDetails.getWalletType()"})
-  public void testGetWalletType() {
+  void testGetWalletType() {
     // Arrange
     Address billingAddress = new Address("Line1", "Line2", "OX1 1PT", "Oxford", "GB");
     CardDetails cardDetails =

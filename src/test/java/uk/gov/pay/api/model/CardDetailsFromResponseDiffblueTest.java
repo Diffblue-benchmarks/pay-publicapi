@@ -1,16 +1,16 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Optional;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class CardDetailsFromResponseDiffblueTest {
+class CardDetailsFromResponseDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -28,7 +28,8 @@ public class CardDetailsFromResponseDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void CardDetailsFromResponse.<init>(String, String, String, String, Address, String, String)",
@@ -39,7 +40,7 @@ public class CardDetailsFromResponseDiffblueTest {
     "String CardDetailsFromResponse.getFirstDigitsCardNumber()",
     "String CardDetailsFromResponse.getLastDigitsCardNumber()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     Address billingAddress = new Address("Line1", "Line2", "OX1 1PT", "Oxford", "GB");
 
@@ -74,10 +75,11 @@ public class CardDetailsFromResponseDiffblueTest {
    * <p>Method under test: {@link CardDetailsFromResponse#getBillingAddress()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getBillingAddress()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional CardDetailsFromResponse.getBillingAddress()"})
-  public void testGetBillingAddress() {
+  void testGetBillingAddress() {
     // Arrange
     Address billingAddress = new Address("Line1", "Line2", "OX1 1PT", "Oxford", "GB");
     CardDetailsFromResponse cardDetailsFromResponse =

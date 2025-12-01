@@ -1,16 +1,16 @@
 package uk.gov.pay.api.model.ledger;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class TransactionStateDiffblueTest {
+class TransactionStateDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -29,7 +29,8 @@ public class TransactionStateDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; then return Status is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void TransactionState.<init>()",
@@ -39,7 +40,7 @@ public class TransactionStateDiffblueTest {
     "String TransactionState.getStatus()",
     "boolean TransactionState.isFinished()"
   })
-  public void testGettersAndSetters_thenReturnStatusIsNull() {
+  void testGettersAndSetters_thenReturnStatusIsNull() {
     // Arrange and Act
     TransactionState actualTransactionState = new TransactionState();
     String actualCode = actualTransactionState.getCode();
@@ -72,7 +73,8 @@ public class TransactionStateDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; when 'Status'; then return 'Status'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void TransactionState.<init>()",
@@ -82,7 +84,7 @@ public class TransactionStateDiffblueTest {
     "String TransactionState.getStatus()",
     "boolean TransactionState.isFinished()"
   })
-  public void testGettersAndSetters_whenStatus_thenReturnStatus() {
+  void testGettersAndSetters_whenStatus_thenReturnStatus() {
     // Arrange and Act
     TransactionState actualTransactionState = new TransactionState("Status", true);
     String actualCode = actualTransactionState.getCode();

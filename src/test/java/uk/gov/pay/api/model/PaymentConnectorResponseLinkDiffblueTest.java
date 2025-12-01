@@ -1,18 +1,18 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class PaymentConnectorResponseLinkDiffblueTest {
+class PaymentConnectorResponseLinkDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -29,7 +29,8 @@ public class PaymentConnectorResponseLinkDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentConnectorResponseLink.<init>(String, String, String, String, Map)",
@@ -39,7 +40,7 @@ public class PaymentConnectorResponseLinkDiffblueTest {
     "String PaymentConnectorResponseLink.getRel()",
     "String PaymentConnectorResponseLink.getType()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     HashMap<String, Object> params = new HashMap<>();
 
@@ -77,13 +78,14 @@ public class PaymentConnectorResponseLinkDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PaymentConnectorResponseLink.equals(Object)",
     "int PaymentConnectorResponseLink.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     PaymentConnectorResponseLink paymentConnectorResponseLink =
         new PaymentConnectorResponseLink("Rel", "Href", "Method", "Type", new HashMap<>());
@@ -112,13 +114,14 @@ public class PaymentConnectorResponseLinkDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PaymentConnectorResponseLink.equals(Object)",
     "int PaymentConnectorResponseLink.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     PaymentConnectorResponseLink paymentConnectorResponseLink =
         new PaymentConnectorResponseLink("Rel", "Href", "Method", "Type", new HashMap<>());
@@ -140,13 +143,14 @@ public class PaymentConnectorResponseLinkDiffblueTest {
    * <p>Method under test: {@link PaymentConnectorResponseLink#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PaymentConnectorResponseLink.equals(Object)",
     "int PaymentConnectorResponseLink.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     PaymentConnectorResponseLink paymentConnectorResponseLink =
         new PaymentConnectorResponseLink(null, "Href", "Method", "Type", new HashMap<>());
@@ -168,13 +172,14 @@ public class PaymentConnectorResponseLinkDiffblueTest {
    * <p>Method under test: {@link PaymentConnectorResponseLink#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PaymentConnectorResponseLink.equals(Object)",
     "int PaymentConnectorResponseLink.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     PaymentConnectorResponseLink paymentConnectorResponseLink =
         new PaymentConnectorResponseLink("Rel", null, "Method", "Type", new HashMap<>());
@@ -196,13 +201,14 @@ public class PaymentConnectorResponseLinkDiffblueTest {
    * <p>Method under test: {@link PaymentConnectorResponseLink#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PaymentConnectorResponseLink.equals(Object)",
     "int PaymentConnectorResponseLink.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     PaymentConnectorResponseLink paymentConnectorResponseLink =
         new PaymentConnectorResponseLink("Rel", "Href", null, "Type", new HashMap<>());
@@ -224,13 +230,14 @@ public class PaymentConnectorResponseLinkDiffblueTest {
    * <p>Method under test: {@link PaymentConnectorResponseLink#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PaymentConnectorResponseLink.equals(Object)",
     "int PaymentConnectorResponseLink.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     PaymentConnectorResponseLink paymentConnectorResponseLink =
         new PaymentConnectorResponseLink("Rel", "Href", "Method", null, new HashMap<>());
@@ -252,13 +259,14 @@ public class PaymentConnectorResponseLinkDiffblueTest {
    * <p>Method under test: {@link PaymentConnectorResponseLink#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PaymentConnectorResponseLink.equals(Object)",
     "int PaymentConnectorResponseLink.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     HashMap<String, Object> params = new HashMap<>();
     params.put("Key", "Value");
@@ -282,13 +290,14 @@ public class PaymentConnectorResponseLinkDiffblueTest {
    * <p>Method under test: {@link PaymentConnectorResponseLink#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PaymentConnectorResponseLink.equals(Object)",
     "int PaymentConnectorResponseLink.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(
         new PaymentConnectorResponseLink("Rel", "Href", "Method", "Type", new HashMap<>()), null);
@@ -305,13 +314,14 @@ public class PaymentConnectorResponseLinkDiffblueTest {
    * <p>Method under test: {@link PaymentConnectorResponseLink#equals(Object)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "boolean PaymentConnectorResponseLink.equals(Object)",
     "int PaymentConnectorResponseLink.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(
         new PaymentConnectorResponseLink("Rel", "Href", "Method", "Type", new HashMap<>()),

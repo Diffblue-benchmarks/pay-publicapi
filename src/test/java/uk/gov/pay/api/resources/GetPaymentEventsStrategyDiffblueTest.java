@@ -1,23 +1,23 @@
 package uk.gov.pay.api.resources;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.client.Client;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.app.config.PublicApiConfig;
 import uk.gov.pay.api.auth.Account;
@@ -36,7 +36,7 @@ import uk.gov.pay.api.service.GetPaymentEventsService;
 import uk.gov.pay.api.service.LedgerService;
 import uk.gov.pay.api.service.PublicApiUriGenerator;
 
-public class GetPaymentEventsStrategyDiffblueTest {
+class GetPaymentEventsStrategyDiffblueTest {
   /**
    * Test {@link GetPaymentEventsStrategy#executeLedgerOnlyStrategy()}.
    *
@@ -47,10 +47,11 @@ public class GetPaymentEventsStrategyDiffblueTest {
    * <p>Method under test: {@link GetPaymentEventsStrategy#executeLedgerOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeLedgerOnlyStrategy(); then return Events size is one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentEventsResponse GetPaymentEventsStrategy.executeLedgerOnlyStrategy()"})
-  public void testExecuteLedgerOnlyStrategy_thenReturnEventsSizeIsOne() {
+  void testExecuteLedgerOnlyStrategy_thenReturnEventsSizeIsOne() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentEventsURI(Mockito.<String>any()))
@@ -109,10 +110,11 @@ public class GetPaymentEventsStrategyDiffblueTest {
    * <p>Method under test: {@link GetPaymentEventsStrategy#executeLedgerOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeLedgerOnlyStrategy(); then return Events size is two")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentEventsResponse GetPaymentEventsStrategy.executeLedgerOnlyStrategy()"})
-  public void testExecuteLedgerOnlyStrategy_thenReturnEventsSizeIsTwo() {
+  void testExecuteLedgerOnlyStrategy_thenReturnEventsSizeIsTwo() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentEventsURI(Mockito.<String>any()))
@@ -172,10 +174,11 @@ public class GetPaymentEventsStrategyDiffblueTest {
    * <p>Method under test: {@link GetPaymentEventsStrategy#executeLedgerOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeLedgerOnlyStrategy(); then return 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentEventsResponse GetPaymentEventsStrategy.executeLedgerOnlyStrategy()"})
-  public void testExecuteLedgerOnlyStrategy_thenReturnNull() {
+  void testExecuteLedgerOnlyStrategy_thenReturnNull() {
     // Arrange
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
@@ -210,10 +213,11 @@ public class GetPaymentEventsStrategyDiffblueTest {
    * <p>Method under test: {@link GetPaymentEventsStrategy#executeLedgerOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeLedgerOnlyStrategy(); then return PaymentId is '42'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentEventsResponse GetPaymentEventsStrategy.executeLedgerOnlyStrategy()"})
-  public void testExecuteLedgerOnlyStrategy_thenReturnPaymentIdIs42() {
+  void testExecuteLedgerOnlyStrategy_thenReturnPaymentIdIs42() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentEventsURI(Mockito.<String>any()))
@@ -270,10 +274,11 @@ public class GetPaymentEventsStrategyDiffblueTest {
    * <p>Method under test: {@link GetPaymentEventsStrategy#executeDefaultStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeDefaultStrategy(); then return Events size is one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentEventsResponse GetPaymentEventsStrategy.executeDefaultStrategy()"})
-  public void testExecuteDefaultStrategy_thenReturnEventsSizeIsOne() {
+  void testExecuteDefaultStrategy_thenReturnEventsSizeIsOne() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentEventsURI(Mockito.<String>any()))
@@ -332,10 +337,11 @@ public class GetPaymentEventsStrategyDiffblueTest {
    * <p>Method under test: {@link GetPaymentEventsStrategy#executeDefaultStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeDefaultStrategy(); then return Events size is two")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentEventsResponse GetPaymentEventsStrategy.executeDefaultStrategy()"})
-  public void testExecuteDefaultStrategy_thenReturnEventsSizeIsTwo() {
+  void testExecuteDefaultStrategy_thenReturnEventsSizeIsTwo() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentEventsURI(Mockito.<String>any()))
@@ -395,10 +401,11 @@ public class GetPaymentEventsStrategyDiffblueTest {
    * <p>Method under test: {@link GetPaymentEventsStrategy#executeDefaultStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeDefaultStrategy(); then return 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentEventsResponse GetPaymentEventsStrategy.executeDefaultStrategy()"})
-  public void testExecuteDefaultStrategy_thenReturnNull() {
+  void testExecuteDefaultStrategy_thenReturnNull() {
     // Arrange
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
@@ -432,10 +439,11 @@ public class GetPaymentEventsStrategyDiffblueTest {
    * <p>Method under test: {@link GetPaymentEventsStrategy#executeDefaultStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeDefaultStrategy(); then return PaymentId is '42'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentEventsResponse GetPaymentEventsStrategy.executeDefaultStrategy()"})
-  public void testExecuteDefaultStrategy_thenReturnPaymentIdIs42() {
+  void testExecuteDefaultStrategy_thenReturnPaymentIdIs42() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentEventsURI(Mockito.<String>any()))
@@ -492,12 +500,13 @@ public class GetPaymentEventsStrategyDiffblueTest {
    * <p>Method under test: {@link GetPaymentEventsStrategy#executeConnectorOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeConnectorOnlyStrategy(); then return Events size is one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentEventsResponse GetPaymentEventsStrategy.executeConnectorOnlyStrategy()"
   })
-  public void testExecuteConnectorOnlyStrategy_thenReturnEventsSizeIsOne() {
+  void testExecuteConnectorOnlyStrategy_thenReturnEventsSizeIsOne() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentEventsURI(Mockito.<String>any()))
@@ -556,12 +565,13 @@ public class GetPaymentEventsStrategyDiffblueTest {
    * <p>Method under test: {@link GetPaymentEventsStrategy#executeConnectorOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeConnectorOnlyStrategy(); then return Events size is two")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentEventsResponse GetPaymentEventsStrategy.executeConnectorOnlyStrategy()"
   })
-  public void testExecuteConnectorOnlyStrategy_thenReturnEventsSizeIsTwo() {
+  void testExecuteConnectorOnlyStrategy_thenReturnEventsSizeIsTwo() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentEventsURI(Mockito.<String>any()))
@@ -621,12 +631,13 @@ public class GetPaymentEventsStrategyDiffblueTest {
    * <p>Method under test: {@link GetPaymentEventsStrategy#executeConnectorOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeConnectorOnlyStrategy(); then return 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentEventsResponse GetPaymentEventsStrategy.executeConnectorOnlyStrategy()"
   })
-  public void testExecuteConnectorOnlyStrategy_thenReturnNull() {
+  void testExecuteConnectorOnlyStrategy_thenReturnNull() {
     // Arrange
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
@@ -661,12 +672,13 @@ public class GetPaymentEventsStrategyDiffblueTest {
    * <p>Method under test: {@link GetPaymentEventsStrategy#executeConnectorOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeConnectorOnlyStrategy(); then return PaymentId is '42'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentEventsResponse GetPaymentEventsStrategy.executeConnectorOnlyStrategy()"
   })
-  public void testExecuteConnectorOnlyStrategy_thenReturnPaymentIdIs42() {
+  void testExecuteConnectorOnlyStrategy_thenReturnPaymentIdIs42() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentEventsURI(Mockito.<String>any()))

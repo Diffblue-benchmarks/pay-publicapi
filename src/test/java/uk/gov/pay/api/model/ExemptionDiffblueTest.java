@@ -1,17 +1,17 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class ExemptionDiffblueTest {
+class ExemptionDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -29,7 +29,8 @@ public class ExemptionDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; then return Type is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void Exemption.<init>()",
@@ -38,7 +39,7 @@ public class ExemptionDiffblueTest {
     "boolean Exemption.getRequested()",
     "String Exemption.getType()"
   })
-  public void testGettersAndSetters_thenReturnTypeIsNull() {
+  void testGettersAndSetters_thenReturnTypeIsNull() {
     // Arrange and Act
     Exemption actualExemption = new Exemption();
     ExemptionOutcome actualOutcome = actualExemption.getOutcome();
@@ -68,7 +69,8 @@ public class ExemptionDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; when 'true'; then return Outcome Result is 'Result'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void Exemption.<init>()",
@@ -77,7 +79,7 @@ public class ExemptionDiffblueTest {
     "boolean Exemption.getRequested()",
     "String Exemption.getType()"
   })
-  public void testGettersAndSetters_whenTrue_thenReturnOutcomeResultIsResult() {
+  void testGettersAndSetters_whenTrue_thenReturnOutcomeResultIsResult() {
     // Arrange
     ExemptionOutcome outcome = new ExemptionOutcome("Result");
 

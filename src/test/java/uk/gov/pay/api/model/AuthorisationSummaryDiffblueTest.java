@@ -1,15 +1,15 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class AuthorisationSummaryDiffblueTest {
+class AuthorisationSummaryDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -25,14 +25,15 @@ public class AuthorisationSummaryDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; then return ThreeDSecure is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AuthorisationSummary.<init>()",
     "void AuthorisationSummary.<init>(ThreeDSecure)",
     "ThreeDSecure AuthorisationSummary.getThreeDSecure()"
   })
-  public void testGettersAndSetters_thenReturnThreeDSecureIsNull() {
+  void testGettersAndSetters_thenReturnThreeDSecureIsNull() {
     // Arrange, Act and Assert
     assertNull(new AuthorisationSummary().getThreeDSecure());
   }
@@ -52,14 +53,15 @@ public class AuthorisationSummaryDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters; then return ThreeDSecure Required")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void AuthorisationSummary.<init>()",
     "void AuthorisationSummary.<init>(ThreeDSecure)",
     "ThreeDSecure AuthorisationSummary.getThreeDSecure()"
   })
-  public void testGettersAndSetters_thenReturnThreeDSecureRequired() {
+  void testGettersAndSetters_thenReturnThreeDSecureRequired() {
     // Arrange
     ThreeDSecure threeDSecure = new ThreeDSecure(true);
 

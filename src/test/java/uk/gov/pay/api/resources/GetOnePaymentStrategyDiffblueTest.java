@@ -1,24 +1,24 @@
 package uk.gov.pay.api.resources;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.client.Client;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.app.config.PublicApiConfig;
 import uk.gov.pay.api.auth.Account;
@@ -46,17 +46,18 @@ import uk.gov.service.payments.commons.model.AuthorisationMode;
 import uk.gov.service.payments.commons.model.SupportedLanguage;
 import uk.gov.service.payments.commons.model.charge.ExternalMetadata;
 
-public class GetOnePaymentStrategyDiffblueTest {
+class GetOnePaymentStrategyDiffblueTest {
   /**
    * Test {@link GetOnePaymentStrategy#executeLedgerOnlyStrategy()}.
    *
    * <p>Method under test: {@link GetOnePaymentStrategy#executeLedgerOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeLedgerOnlyStrategy()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetOnePaymentStrategy.executeLedgerOnlyStrategy()"})
-  public void testExecuteLedgerOnlyStrategy() {
+  void testExecuteLedgerOnlyStrategy() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -164,10 +165,11 @@ public class GetOnePaymentStrategyDiffblueTest {
    * <p>Method under test: {@link GetOnePaymentStrategy#executeLedgerOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeLedgerOnlyStrategy()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetOnePaymentStrategy.executeLedgerOnlyStrategy()"})
-  public void testExecuteLedgerOnlyStrategy2() {
+  void testExecuteLedgerOnlyStrategy2() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -282,10 +284,11 @@ public class GetOnePaymentStrategyDiffblueTest {
    * <p>Method under test: {@link GetOnePaymentStrategy#executeLedgerOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeLedgerOnlyStrategy(); then calls getLedgerTransaction(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetOnePaymentStrategy.executeLedgerOnlyStrategy()"})
-  public void testExecuteLedgerOnlyStrategy_thenCallsGetLedgerTransaction() {
+  void testExecuteLedgerOnlyStrategy_thenCallsGetLedgerTransaction() {
     // Arrange
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
@@ -396,10 +399,11 @@ public class GetOnePaymentStrategyDiffblueTest {
    * <p>Method under test: {@link GetOnePaymentStrategy#executeLedgerOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeLedgerOnlyStrategy(); then return Links Cancel is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetOnePaymentStrategy.executeLedgerOnlyStrategy()"})
-  public void testExecuteLedgerOnlyStrategy_thenReturnLinksCancelIsNull() {
+  void testExecuteLedgerOnlyStrategy_thenReturnLinksCancelIsNull() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -507,10 +511,11 @@ public class GetOnePaymentStrategyDiffblueTest {
    * <p>Method under test: {@link GetOnePaymentStrategy#executeLedgerOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeLedgerOnlyStrategy(); then return Links Cancel Method is 'POST'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetOnePaymentStrategy.executeLedgerOnlyStrategy()"})
-  public void testExecuteLedgerOnlyStrategy_thenReturnLinksCancelMethodIsPost() {
+  void testExecuteLedgerOnlyStrategy_thenReturnLinksCancelMethodIsPost() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -620,10 +625,11 @@ public class GetOnePaymentStrategyDiffblueTest {
    * <p>Method under test: {@link GetOnePaymentStrategy#executeDefaultStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeDefaultStrategy()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetOnePaymentStrategy.executeDefaultStrategy()"})
-  public void testExecuteDefaultStrategy() {
+  void testExecuteDefaultStrategy() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -731,10 +737,11 @@ public class GetOnePaymentStrategyDiffblueTest {
    * <p>Method under test: {@link GetOnePaymentStrategy#executeDefaultStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeDefaultStrategy()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetOnePaymentStrategy.executeDefaultStrategy()"})
-  public void testExecuteDefaultStrategy2() {
+  void testExecuteDefaultStrategy2() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -849,10 +856,11 @@ public class GetOnePaymentStrategyDiffblueTest {
    * <p>Method under test: {@link GetOnePaymentStrategy#executeDefaultStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeDefaultStrategy(); then calls getPayment(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetOnePaymentStrategy.executeDefaultStrategy()"})
-  public void testExecuteDefaultStrategy_thenCallsGetPayment() {
+  void testExecuteDefaultStrategy_thenCallsGetPayment() {
     // Arrange
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
@@ -963,10 +971,11 @@ public class GetOnePaymentStrategyDiffblueTest {
    * <p>Method under test: {@link GetOnePaymentStrategy#executeDefaultStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeDefaultStrategy(); then return Links Cancel is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetOnePaymentStrategy.executeDefaultStrategy()"})
-  public void testExecuteDefaultStrategy_thenReturnLinksCancelIsNull() {
+  void testExecuteDefaultStrategy_thenReturnLinksCancelIsNull() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -1074,10 +1083,11 @@ public class GetOnePaymentStrategyDiffblueTest {
    * <p>Method under test: {@link GetOnePaymentStrategy#executeDefaultStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeDefaultStrategy(); then return Links Cancel Method is 'POST'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetOnePaymentStrategy.executeDefaultStrategy()"})
-  public void testExecuteDefaultStrategy_thenReturnLinksCancelMethodIsPost() {
+  void testExecuteDefaultStrategy_thenReturnLinksCancelMethodIsPost() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -1187,10 +1197,11 @@ public class GetOnePaymentStrategyDiffblueTest {
    * <p>Method under test: {@link GetOnePaymentStrategy#executeConnectorOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeConnectorOnlyStrategy()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetOnePaymentStrategy.executeConnectorOnlyStrategy()"})
-  public void testExecuteConnectorOnlyStrategy() {
+  void testExecuteConnectorOnlyStrategy() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -1298,10 +1309,11 @@ public class GetOnePaymentStrategyDiffblueTest {
    * <p>Method under test: {@link GetOnePaymentStrategy#executeConnectorOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeConnectorOnlyStrategy()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetOnePaymentStrategy.executeConnectorOnlyStrategy()"})
-  public void testExecuteConnectorOnlyStrategy2() {
+  void testExecuteConnectorOnlyStrategy2() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -1416,10 +1428,12 @@ public class GetOnePaymentStrategyDiffblueTest {
    * <p>Method under test: {@link GetOnePaymentStrategy#executeConnectorOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test executeConnectorOnlyStrategy(); then calls getConnectorCharge(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetOnePaymentStrategy.executeConnectorOnlyStrategy()"})
-  public void testExecuteConnectorOnlyStrategy_thenCallsGetConnectorCharge() {
+  void testExecuteConnectorOnlyStrategy_thenCallsGetConnectorCharge() {
     // Arrange
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
@@ -1530,10 +1544,11 @@ public class GetOnePaymentStrategyDiffblueTest {
    * <p>Method under test: {@link GetOnePaymentStrategy#executeConnectorOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeConnectorOnlyStrategy(); then return Links Cancel is 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetOnePaymentStrategy.executeConnectorOnlyStrategy()"})
-  public void testExecuteConnectorOnlyStrategy_thenReturnLinksCancelIsNull() {
+  void testExecuteConnectorOnlyStrategy_thenReturnLinksCancelIsNull() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())
@@ -1641,10 +1656,11 @@ public class GetOnePaymentStrategyDiffblueTest {
    * <p>Method under test: {@link GetOnePaymentStrategy#executeConnectorOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeConnectorOnlyStrategy(); then return Links Cancel Method is 'POST'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentWithAllLinks GetOnePaymentStrategy.executeConnectorOnlyStrategy()"})
-  public void testExecuteConnectorOnlyStrategy_thenReturnLinksCancelMethodIsPost() {
+  void testExecuteConnectorOnlyStrategy_thenReturnLinksCancelMethodIsPost() {
     // Arrange
     PublicApiUriGenerator publicApiUriGenerator = mock(PublicApiUriGenerator.class);
     when(publicApiUriGenerator.getPaymentAuthorisationURI())

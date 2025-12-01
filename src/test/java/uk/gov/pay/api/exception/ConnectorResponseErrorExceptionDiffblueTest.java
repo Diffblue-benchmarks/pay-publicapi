@@ -1,17 +1,16 @@
 package uk.gov.pay.api.exception;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.ProcessingException;
@@ -21,12 +20,13 @@ import java.util.ArrayList;
 import java.util.List;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
 import org.glassfish.jersey.message.internal.OutboundMessageContext;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.exception.ConnectorResponseErrorException.ConnectorErrorResponse;
 import uk.gov.service.payments.commons.model.ErrorIdentifier;
 
-public class ConnectorResponseErrorExceptionDiffblueTest {
+class ConnectorResponseErrorExceptionDiffblueTest {
   /**
    * Test ConnectorErrorResponse getters and setters.
    *
@@ -41,7 +41,8 @@ public class ConnectorResponseErrorExceptionDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test ConnectorErrorResponse getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void ConnectorErrorResponse.<init>()",
@@ -52,7 +53,7 @@ public class ConnectorResponseErrorExceptionDiffblueTest {
     "String ConnectorErrorResponse.getReason()",
     "String ConnectorErrorResponse.toString()"
   })
-  public void testConnectorErrorResponseGettersAndSetters() {
+  void testConnectorErrorResponseGettersAndSetters() {
     // Arrange and Act
     ConnectorErrorResponse actualConnectorErrorResponse = new ConnectorErrorResponse();
     String actualToStringResult = actualConnectorErrorResponse.toString();
@@ -82,7 +83,8 @@ public class ConnectorResponseErrorExceptionDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test ConnectorErrorResponse getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void ConnectorErrorResponse.<init>()",
@@ -93,7 +95,7 @@ public class ConnectorResponseErrorExceptionDiffblueTest {
     "String ConnectorErrorResponse.getReason()",
     "String ConnectorErrorResponse.toString()"
   })
-  public void testConnectorErrorResponseGettersAndSetters2() {
+  void testConnectorErrorResponseGettersAndSetters2() {
     // Arrange
     ArrayList<String> message = new ArrayList<>();
 
@@ -128,7 +130,8 @@ public class ConnectorResponseErrorExceptionDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test ConnectorErrorResponse getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void ConnectorErrorResponse.<init>()",
@@ -139,7 +142,7 @@ public class ConnectorResponseErrorExceptionDiffblueTest {
     "String ConnectorErrorResponse.getReason()",
     "String ConnectorErrorResponse.toString()"
   })
-  public void testConnectorErrorResponseGettersAndSetters3() {
+  void testConnectorErrorResponseGettersAndSetters3() {
     // Arrange
     ArrayList<String> message = new ArrayList<>();
 
@@ -171,13 +174,14 @@ public class ConnectorResponseErrorExceptionDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void ConnectorResponseErrorException.<init>(Throwable)",
     "int ConnectorResponseErrorException.getErrorStatus()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     Throwable cause = new Throwable();
 
@@ -198,10 +202,11 @@ public class ConnectorResponseErrorExceptionDiffblueTest {
    * ConnectorResponseErrorException#ConnectorResponseErrorException(Response)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new ConnectorResponseErrorException(Response)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void ConnectorResponseErrorException.<init>(Response)"})
-  public void testNewConnectorResponseErrorException() {
+  void testNewConnectorResponseErrorException() {
     // Arrange and Act
     ConnectorResponseErrorException actualConnectorResponseErrorException =
         new ConnectorResponseErrorException(
@@ -231,12 +236,13 @@ public class ConnectorResponseErrorExceptionDiffblueTest {
    * ConnectorResponseErrorException#ConnectorResponseErrorException(ConnectorResponseErrorException)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new ConnectorResponseErrorException(ConnectorResponseErrorException)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void ConnectorResponseErrorException.<init>(ConnectorResponseErrorException)"
   })
-  public void testNewConnectorResponseErrorException2() {
+  void testNewConnectorResponseErrorException2() {
     // Arrange
     ConnectorResponseErrorException exception =
         new ConnectorResponseErrorException(
@@ -276,10 +282,11 @@ public class ConnectorResponseErrorExceptionDiffblueTest {
    * <p>Method under test: {@link ConnectorResponseErrorException#getErrorIdentifier()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getErrorIdentifier(); then return 'GENERIC'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"ErrorIdentifier ConnectorResponseErrorException.getErrorIdentifier()"})
-  public void testGetErrorIdentifier_thenReturnGeneric() {
+  void testGetErrorIdentifier_thenReturnGeneric() {
     // Arrange, Act and Assert
     assertEquals(
         ErrorIdentifier.GENERIC,
@@ -298,10 +305,11 @@ public class ConnectorResponseErrorExceptionDiffblueTest {
    * <p>Method under test: {@link ConnectorResponseErrorException#getReason()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getReason(); then return 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String ConnectorResponseErrorException.getReason()"})
-  public void testGetReason_thenReturnNull() {
+  void testGetReason_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(
         new ConnectorResponseErrorException(
@@ -319,10 +327,11 @@ public class ConnectorResponseErrorExceptionDiffblueTest {
    * <p>Method under test: {@link ConnectorResponseErrorException#hasReason()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test hasReason(); then return 'false'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean ConnectorResponseErrorException.hasReason()"})
-  public void testHasReason_thenReturnFalse() {
+  void testHasReason_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(
         new ConnectorResponseErrorException(
@@ -336,10 +345,11 @@ public class ConnectorResponseErrorExceptionDiffblueTest {
    * <p>Method under test: {@link ConnectorResponseErrorException#getMessage()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getMessage()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String ConnectorResponseErrorException.getMessage()"})
-  public void testGetMessage() {
+  void testGetMessage() {
     // Arrange, Act and Assert
     assertEquals(
         "OutboundJaxrsResponse{status=200, reason=OK, hasEntity=false, closed=false, buffered=false}",
@@ -358,10 +368,12 @@ public class ConnectorResponseErrorExceptionDiffblueTest {
    * <p>Method under test: {@link ConnectorResponseErrorException#getConnectorErrorMessage()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getConnectorErrorMessage(); then return 'Error deserializing connector error message'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String ConnectorResponseErrorException.getConnectorErrorMessage()"})
-  public void testGetConnectorErrorMessage_thenReturnErrorDeserializingConnectorErrorMessage()
+  void testGetConnectorErrorMessage_thenReturnErrorDeserializingConnectorErrorMessage()
       throws ProcessingException {
     // Arrange
     ArrayList<String> message = new ArrayList<>();
@@ -395,11 +407,11 @@ public class ConnectorResponseErrorExceptionDiffblueTest {
    * <p>Method under test: {@link ConnectorResponseErrorException#getConnectorErrorMessage()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getConnectorErrorMessage(); then throw InternalServerException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String ConnectorResponseErrorException.getConnectorErrorMessage()"})
-  public void testGetConnectorErrorMessage_thenThrowInternalServerException()
-      throws ProcessingException {
+  void testGetConnectorErrorMessage_thenThrowInternalServerException() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse response = mock(OutboundJaxrsResponse.class);
     when(response.getStatus()).thenReturn(1);

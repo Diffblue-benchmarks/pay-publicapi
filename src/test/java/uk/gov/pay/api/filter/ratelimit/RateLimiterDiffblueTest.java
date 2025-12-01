@@ -6,7 +6,6 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.core.server.DefaultServerFactory;
@@ -16,13 +15,14 @@ import io.dropwizard.health.HealthFactory;
 import io.dropwizard.logging.common.DefaultLoggingFactory;
 import io.dropwizard.metrics.common.MetricsFactory;
 import io.dropwizard.servlets.tasks.TaskConfiguration;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.app.config.RateLimiterConfig;
 import uk.gov.pay.api.filter.RateLimiterKey;
 
-public class RateLimiterDiffblueTest {
+class RateLimiterDiffblueTest {
   /**
    * Test {@link RateLimiter#checkRateOf(String, RateLimiterKey)}.
    *
@@ -35,10 +35,12 @@ public class RateLimiterDiffblueTest {
    * <p>Method under test: {@link RateLimiter#checkRateOf(String, RateLimiterKey)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test checkRateOf(String, RateLimiterKey); given LocalRateLimiter checkRateOf(String, RateLimiterKey) does nothing; then calls checkRateOf(String, RateLimiterKey)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RateLimiter.checkRateOf(String, RateLimiterKey)"})
-  public void testCheckRateOf_givenLocalRateLimiterCheckRateOfDoesNothing_thenCallsCheckRateOf()
+  void testCheckRateOf_givenLocalRateLimiterCheckRateOfDoesNothing_thenCallsCheckRateOf()
       throws RateLimitException, RedisException {
     // Arrange
     LocalRateLimiter localRateLimiter = mock(LocalRateLimiter.class);
@@ -73,10 +75,12 @@ public class RateLimiterDiffblueTest {
    * <p>Method under test: {@link RateLimiter#checkRateOf(String, RateLimiterKey)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test checkRateOf(String, RateLimiterKey); given RedisRateLimiter checkRateOf(String, RateLimiterKey) does nothing; then calls checkRateOf(String, RateLimiterKey)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RateLimiter.checkRateOf(String, RateLimiterKey)"})
-  public void testCheckRateOf_givenRedisRateLimiterCheckRateOfDoesNothing_thenCallsCheckRateOf()
+  void testCheckRateOf_givenRedisRateLimiterCheckRateOfDoesNothing_thenCallsCheckRateOf()
       throws RateLimitException, RedisException {
     // Arrange
     AdminFactory admin = new AdminFactory();

@@ -1,24 +1,24 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.service.payments.commons.model.AgreementPaymentType;
 import uk.gov.service.payments.commons.model.AuthorisationMode;
 import uk.gov.service.payments.commons.model.SupportedLanguage;
 import uk.gov.service.payments.commons.model.charge.ExternalMetadata;
 
-public class ChargeDiffblueTest {
+class ChargeDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -58,7 +58,8 @@ public class ChargeDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void Charge.<init>(String, Long, PaymentState, String, String, String, String, String, String, SupportedLanguage, boolean, boolean, RefundSummary, PaymentSettlementSummary, CardDetails, List, Long, Long, String, ExternalMetadata, Long, Long, AuthorisationSummary, String, AuthorisationMode, AgreementPaymentType, Exemption)",
@@ -89,7 +90,7 @@ public class ChargeDiffblueTest {
     "Long Charge.getTotalAmount()",
     "boolean Charge.isMoto()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     PaymentState state = new PaymentState("Status", true);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -209,10 +210,12 @@ public class ChargeDiffblueTest {
    * <p>Method under test: {@link Charge#from(ChargeFromResponse)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test from(ChargeFromResponse) with 'chargeFromResponse'; then return CardBrand is empty string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Charge Charge.from(ChargeFromResponse)"})
-  public void testFromWithChargeFromResponse_thenReturnCardBrandIsEmptyString() {
+  void testFromWithChargeFromResponse_thenReturnCardBrandIsEmptyString() {
     // Arrange and Act
     Charge actualFromResult = Charge.from(new ChargeFromResponse());
 
@@ -257,10 +260,12 @@ public class ChargeDiffblueTest {
    * <p>Method under test: {@link Charge#from(TransactionResponse)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test from(TransactionResponse) with 'transactionResponse'; then return CardBrand is empty string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Charge Charge.from(TransactionResponse)"})
-  public void testFromWithTransactionResponse_thenReturnCardBrandIsEmptyString() {
+  void testFromWithTransactionResponse_thenReturnCardBrandIsEmptyString() {
     // Arrange and Act
     Charge actualFromResult = Charge.from(new TransactionResponse());
 
@@ -301,10 +306,11 @@ public class ChargeDiffblueTest {
    * <p>Method under test: {@link Charge#getMetadata()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getMetadata()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"java.util.Optional Charge.getMetadata()"})
-  public void testGetMetadata() {
+  void testGetMetadata() {
     // Arrange
     Charge fromResult = Charge.from(new ChargeFromResponse());
 
@@ -323,10 +329,12 @@ public class ChargeDiffblueTest {
    * <p>Method under test: {@link Charge#getCardBrand()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getCardBrand(); given from ChargeFromResponse (default constructor); then return empty string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String Charge.getCardBrand()"})
-  public void testGetCardBrand_givenFromChargeFromResponse_thenReturnEmptyString() {
+  void testGetCardBrand_givenFromChargeFromResponse_thenReturnEmptyString() {
     // Arrange
     Charge fromResult = Charge.from(new ChargeFromResponse());
 
@@ -344,10 +352,11 @@ public class ChargeDiffblueTest {
    * <p>Method under test: {@link Charge#getCardBrand()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getCardBrand(); then return 'Card Brand'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String Charge.getCardBrand()"})
-  public void testGetCardBrand_thenReturnCardBrand() {
+  void testGetCardBrand_thenReturnCardBrand() {
     // Arrange
     PaymentState state = new PaymentState("Status", true);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);

@@ -1,16 +1,16 @@
 package uk.gov.pay.api.model.search.card;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.List;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.links.SearchNavigationLinks;
 
-public class PaymentSearchResponseDiffblueTest {
+class PaymentSearchResponseDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -25,7 +25,8 @@ public class PaymentSearchResponseDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "int PaymentSearchResponse.getCount()",
@@ -34,7 +35,7 @@ public class PaymentSearchResponseDiffblueTest {
     "List PaymentSearchResponse.getPayments()",
     "int PaymentSearchResponse.getTotal()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     PaymentSearchResponse<Object> paymentSearchResponse = new PaymentSearchResponse<>();
 
@@ -62,10 +63,11 @@ public class PaymentSearchResponseDiffblueTest {
    * <p>Method under test: default or parameterless constructor of {@link PaymentSearchResponse}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new PaymentSearchResponse (default constructor)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void PaymentSearchResponse.<init>()"})
-  public void testNewPaymentSearchResponse() {
+  void testNewPaymentSearchResponse() {
     // Arrange and Act
     PaymentSearchResponse<Object> actualPaymentSearchResponse = new PaymentSearchResponse<>();
 

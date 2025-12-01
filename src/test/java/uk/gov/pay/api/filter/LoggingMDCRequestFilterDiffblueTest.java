@@ -3,7 +3,6 @@ package uk.gov.pay.api.filter;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.container.ContainerRequestContext;
@@ -12,12 +11,13 @@ import java.net.URI;
 import java.nio.file.Paths;
 import org.glassfish.jersey.internal.MapPropertiesDelegate;
 import org.glassfish.jersey.server.ContainerRequest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.auth.Account;
 import uk.gov.pay.api.model.TokenPaymentType;
 
-public class LoggingMDCRequestFilterDiffblueTest {
+class LoggingMDCRequestFilterDiffblueTest {
   /**
    * Test {@link LoggingMDCRequestFilter#filter(ContainerRequestContext)}.
    *
@@ -29,10 +29,12 @@ public class LoggingMDCRequestFilterDiffblueTest {
    * <p>Method under test: {@link LoggingMDCRequestFilter#filter(ContainerRequestContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test filter(ContainerRequestContext); given Account(String, TokenPaymentType, String) with accountId is '42' and paymentType is 'CARD' and tokenLink is 'ABC123'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void LoggingMDCRequestFilter.filter(ContainerRequestContext)"})
-  public void testFilter_givenAccountWithAccountIdIs42AndPaymentTypeIsCardAndTokenLinkIsAbc123() {
+  void testFilter_givenAccountWithAccountIdIs42AndPaymentTypeIsCardAndTokenLinkIsAbc123() {
     // Arrange
     LoggingMDCRequestFilter loggingMDCRequestFilter = new LoggingMDCRequestFilter();
 
@@ -69,10 +71,12 @@ public class LoggingMDCRequestFilterDiffblueTest {
    * <p>Method under test: {@link LoggingMDCRequestFilter#filter(ContainerRequestContext)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test filter(ContainerRequestContext); given 'null'; when SecurityContext getUserPrincipal() return 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void LoggingMDCRequestFilter.filter(ContainerRequestContext)"})
-  public void testFilter_givenNull_whenSecurityContextGetUserPrincipalReturnNull() {
+  void testFilter_givenNull_whenSecurityContextGetUserPrincipalReturnNull() {
     // Arrange
     LoggingMDCRequestFilter loggingMDCRequestFilter = new LoggingMDCRequestFilter();
 

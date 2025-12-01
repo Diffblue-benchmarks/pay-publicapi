@@ -1,30 +1,31 @@
 package uk.gov.pay.api.model.search.card;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.net.URI;
 import java.nio.file.Paths;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.RefundSettlementSummary;
 import uk.gov.pay.api.model.links.Link;
 import uk.gov.pay.api.model.links.RefundLinksForSearch;
 
-public class RefundForSearchRefundsResultDiffblueTest {
+class RefundForSearchRefundsResultDiffblueTest {
   /**
    * Test {@link RefundForSearchRefundsResult#RefundForSearchRefundsResult()}.
    *
    * <p>Method under test: {@link RefundForSearchRefundsResult#RefundForSearchRefundsResult()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new RefundForSearchRefundsResult()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RefundForSearchRefundsResult.<init>()"})
-  public void testNewRefundForSearchRefundsResult() {
+  void testNewRefundForSearchRefundsResult() {
     // Arrange and Act
     RefundForSearchRefundsResult actualRefundForSearchRefundsResult =
         new RefundForSearchRefundsResult();
@@ -49,12 +50,14 @@ public class RefundForSearchRefundsResultDiffblueTest {
    * String, String, String, Long, URI, URI, RefundSettlementSummary)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test new RefundForSearchRefundsResult(String, String, String, String, Long, URI, URI, RefundSettlementSummary)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void RefundForSearchRefundsResult.<init>(String, String, String, String, Long, URI, URI, RefundSettlementSummary)"
   })
-  public void testNewRefundForSearchRefundsResult2() {
+  void testNewRefundForSearchRefundsResult2() {
     // Arrange
     URI paymentURI = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     URI refundsURI = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
@@ -100,7 +103,8 @@ public class RefundForSearchRefundsResultDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Long RefundForSearchRefundsResult.getAmount()",
@@ -114,7 +118,7 @@ public class RefundForSearchRefundsResultDiffblueTest {
     "void RefundForSearchRefundsResult.setChargeId(String)",
     "String RefundForSearchRefundsResult.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     RefundForSearchRefundsResult refundForSearchRefundsResult = new RefundForSearchRefundsResult();
 

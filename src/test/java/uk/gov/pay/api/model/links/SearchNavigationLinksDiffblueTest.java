@@ -1,24 +1,25 @@
 package uk.gov.pay.api.model.links;
 
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class SearchNavigationLinksDiffblueTest {
+class SearchNavigationLinksDiffblueTest {
   /**
    * Test {@link SearchNavigationLinks#withSelfLink(String)}.
    *
    * <p>Method under test: {@link SearchNavigationLinks#withSelfLink(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test withSelfLink(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"SearchNavigationLinks SearchNavigationLinks.withSelfLink(String)"})
-  public void testWithSelfLink() {
+  void testWithSelfLink() {
     // Arrange
     SearchNavigationLinks searchNavigationLinks = new SearchNavigationLinks();
 
@@ -35,10 +36,11 @@ public class SearchNavigationLinksDiffblueTest {
    * <p>Method under test: {@link SearchNavigationLinks#withPrevLink(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test withPrevLink(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"SearchNavigationLinks SearchNavigationLinks.withPrevLink(String)"})
-  public void testWithPrevLink() {
+  void testWithPrevLink() {
     // Arrange
     SearchNavigationLinks searchNavigationLinks = new SearchNavigationLinks();
 
@@ -55,10 +57,11 @@ public class SearchNavigationLinksDiffblueTest {
    * <p>Method under test: {@link SearchNavigationLinks#withNextLink(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test withNextLink(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"SearchNavigationLinks SearchNavigationLinks.withNextLink(String)"})
-  public void testWithNextLink() {
+  void testWithNextLink() {
     // Arrange
     SearchNavigationLinks searchNavigationLinks = new SearchNavigationLinks();
 
@@ -75,10 +78,11 @@ public class SearchNavigationLinksDiffblueTest {
    * <p>Method under test: {@link SearchNavigationLinks#withFirstLink(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test withFirstLink(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"SearchNavigationLinks SearchNavigationLinks.withFirstLink(String)"})
-  public void testWithFirstLink() {
+  void testWithFirstLink() {
     // Arrange
     SearchNavigationLinks searchNavigationLinks = new SearchNavigationLinks();
 
@@ -95,10 +99,11 @@ public class SearchNavigationLinksDiffblueTest {
    * <p>Method under test: {@link SearchNavigationLinks#withLastLink(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test withLastLink(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"SearchNavigationLinks SearchNavigationLinks.withLastLink(String)"})
-  public void testWithLastLink() {
+  void testWithLastLink() {
     // Arrange
     SearchNavigationLinks searchNavigationLinks = new SearchNavigationLinks();
 
@@ -124,7 +129,8 @@ public class SearchNavigationLinksDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void SearchNavigationLinks.<init>()",
@@ -134,7 +140,7 @@ public class SearchNavigationLinksDiffblueTest {
     "Link SearchNavigationLinks.getPrevPage()",
     "Link SearchNavigationLinks.getSelf()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     SearchNavigationLinks actualSearchNavigationLinks = new SearchNavigationLinks();
     Link actualFirstPage = actualSearchNavigationLinks.getFirstPage();

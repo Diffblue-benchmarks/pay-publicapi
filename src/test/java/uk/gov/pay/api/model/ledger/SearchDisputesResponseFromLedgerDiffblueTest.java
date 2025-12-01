@@ -1,16 +1,16 @@
 package uk.gov.pay.api.model.ledger;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.List;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.links.SearchNavigationLinks;
 
-public class SearchDisputesResponseFromLedgerDiffblueTest {
+class SearchDisputesResponseFromLedgerDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -25,7 +25,8 @@ public class SearchDisputesResponseFromLedgerDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "int SearchDisputesResponseFromLedger.getCount()",
@@ -34,7 +35,7 @@ public class SearchDisputesResponseFromLedgerDiffblueTest {
     "int SearchDisputesResponseFromLedger.getPage()",
     "int SearchDisputesResponseFromLedger.getTotal()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     SearchDisputesResponseFromLedger searchDisputesResponseFromLedger =
         new SearchDisputesResponseFromLedger();
@@ -65,10 +66,11 @@ public class SearchDisputesResponseFromLedgerDiffblueTest {
    * SearchDisputesResponseFromLedger}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new SearchDisputesResponseFromLedger (default constructor)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SearchDisputesResponseFromLedger.<init>()"})
-  public void testNewSearchDisputesResponseFromLedger() {
+  void testNewSearchDisputesResponseFromLedger() {
     // Arrange and Act
     SearchDisputesResponseFromLedger actualSearchDisputesResponseFromLedger =
         new SearchDisputesResponseFromLedger();

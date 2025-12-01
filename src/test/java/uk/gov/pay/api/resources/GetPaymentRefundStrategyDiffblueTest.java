@@ -1,19 +1,19 @@
 package uk.gov.pay.api.resources;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.client.Client;
 import java.nio.file.Paths;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.app.config.PublicApiConfig;
 import uk.gov.pay.api.auth.Account;
@@ -28,7 +28,7 @@ import uk.gov.pay.api.service.GetPaymentRefundService;
 import uk.gov.pay.api.service.LedgerService;
 import uk.gov.pay.api.service.PublicApiUriGenerator;
 
-public class GetPaymentRefundStrategyDiffblueTest {
+class GetPaymentRefundStrategyDiffblueTest {
   /**
    * Test {@link GetPaymentRefundStrategy#executeLedgerOnlyStrategy()}.
    *
@@ -39,10 +39,11 @@ public class GetPaymentRefundStrategyDiffblueTest {
    * <p>Method under test: {@link GetPaymentRefundStrategy#executeLedgerOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeLedgerOnlyStrategy(); then return 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RefundResponse GetPaymentRefundStrategy.executeLedgerOnlyStrategy()"})
-  public void testExecuteLedgerOnlyStrategy_thenReturnNull() {
+  void testExecuteLedgerOnlyStrategy_thenReturnNull() {
     // Arrange
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
@@ -78,10 +79,11 @@ public class GetPaymentRefundStrategyDiffblueTest {
    * <p>Method under test: {@link GetPaymentRefundStrategy#executeDefaultStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeDefaultStrategy(); then return Links Payment Method is 'GET'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RefundResponse GetPaymentRefundStrategy.executeDefaultStrategy()"})
-  public void testExecuteDefaultStrategy_thenReturnLinksPaymentMethodIsGet() {
+  void testExecuteDefaultStrategy_thenReturnLinksPaymentMethodIsGet() {
     // Arrange
     ConnectorService connectorService = mock(ConnectorService.class);
     when(connectorService.getPaymentRefund(
@@ -139,10 +141,11 @@ public class GetPaymentRefundStrategyDiffblueTest {
    * <p>Method under test: {@link GetPaymentRefundStrategy#executeDefaultStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeDefaultStrategy(); then return 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RefundResponse GetPaymentRefundStrategy.executeDefaultStrategy()"})
-  public void testExecuteDefaultStrategy_thenReturnNull() {
+  void testExecuteDefaultStrategy_thenReturnNull() {
     // Arrange
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
@@ -178,10 +181,11 @@ public class GetPaymentRefundStrategyDiffblueTest {
    * <p>Method under test: {@link GetPaymentRefundStrategy#executeConnectorOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeConnectorOnlyStrategy(); then return Links Payment Method is 'GET'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RefundResponse GetPaymentRefundStrategy.executeConnectorOnlyStrategy()"})
-  public void testExecuteConnectorOnlyStrategy_thenReturnLinksPaymentMethodIsGet() {
+  void testExecuteConnectorOnlyStrategy_thenReturnLinksPaymentMethodIsGet() {
     // Arrange
     ConnectorService connectorService = mock(ConnectorService.class);
     when(connectorService.getPaymentRefund(
@@ -239,10 +243,11 @@ public class GetPaymentRefundStrategyDiffblueTest {
    * <p>Method under test: {@link GetPaymentRefundStrategy#executeConnectorOnlyStrategy()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test executeConnectorOnlyStrategy(); then return 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"RefundResponse GetPaymentRefundStrategy.executeConnectorOnlyStrategy()"})
-  public void testExecuteConnectorOnlyStrategy_thenReturnNull() {
+  void testExecuteConnectorOnlyStrategy_thenReturnNull() {
     // Arrange
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();

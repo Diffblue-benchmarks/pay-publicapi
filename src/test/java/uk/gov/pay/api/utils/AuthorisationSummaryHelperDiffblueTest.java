@@ -1,17 +1,17 @@
 package uk.gov.pay.api.utils;
 
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.AuthorisationSummary;
 import uk.gov.pay.api.model.ThreeDSecure;
 
-public class AuthorisationSummaryHelperDiffblueTest {
+class AuthorisationSummaryHelperDiffblueTest {
   /**
    * Test {@link
    * AuthorisationSummaryHelper#includeAuthorisationSummaryWhen3dsRequired(AuthorisationSummary)}.
@@ -20,12 +20,13 @@ public class AuthorisationSummaryHelperDiffblueTest {
    * AuthorisationSummaryHelper#includeAuthorisationSummaryWhen3dsRequired(AuthorisationSummary)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test includeAuthorisationSummaryWhen3dsRequired(AuthorisationSummary)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "AuthorisationSummary AuthorisationSummaryHelper.includeAuthorisationSummaryWhen3dsRequired(AuthorisationSummary)"
   })
-  public void testIncludeAuthorisationSummaryWhen3dsRequired() {
+  void testIncludeAuthorisationSummaryWhen3dsRequired() {
     // Arrange, Act and Assert
     assertNull(
         AuthorisationSummaryHelper.includeAuthorisationSummaryWhen3dsRequired(
@@ -44,12 +45,14 @@ public class AuthorisationSummaryHelperDiffblueTest {
    * AuthorisationSummaryHelper#includeAuthorisationSummaryWhen3dsRequired(AuthorisationSummary)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test includeAuthorisationSummaryWhen3dsRequired(AuthorisationSummary); then return ThreeDSecure Required")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "AuthorisationSummary AuthorisationSummaryHelper.includeAuthorisationSummaryWhen3dsRequired(AuthorisationSummary)"
   })
-  public void testIncludeAuthorisationSummaryWhen3dsRequired_thenReturnThreeDSecureRequired() {
+  void testIncludeAuthorisationSummaryWhen3dsRequired_thenReturnThreeDSecureRequired() {
     // Arrange
     ThreeDSecure threeDSecure = new ThreeDSecure(true);
 
@@ -74,12 +77,14 @@ public class AuthorisationSummaryHelperDiffblueTest {
    * AuthorisationSummaryHelper#includeAuthorisationSummaryWhen3dsRequired(AuthorisationSummary)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test includeAuthorisationSummaryWhen3dsRequired(AuthorisationSummary); when AuthorisationSummary()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "AuthorisationSummary AuthorisationSummaryHelper.includeAuthorisationSummaryWhen3dsRequired(AuthorisationSummary)"
   })
-  public void testIncludeAuthorisationSummaryWhen3dsRequired_whenAuthorisationSummary() {
+  void testIncludeAuthorisationSummaryWhen3dsRequired_whenAuthorisationSummary() {
     // Arrange, Act and Assert
     assertNull(
         AuthorisationSummaryHelper.includeAuthorisationSummaryWhen3dsRequired(
@@ -99,12 +104,14 @@ public class AuthorisationSummaryHelperDiffblueTest {
    * AuthorisationSummaryHelper#includeAuthorisationSummaryWhen3dsRequired(AuthorisationSummary)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test includeAuthorisationSummaryWhen3dsRequired(AuthorisationSummary); when 'null'; then return 'null'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "AuthorisationSummary AuthorisationSummaryHelper.includeAuthorisationSummaryWhen3dsRequired(AuthorisationSummary)"
   })
-  public void testIncludeAuthorisationSummaryWhen3dsRequired_whenNull_thenReturnNull() {
+  void testIncludeAuthorisationSummaryWhen3dsRequired_whenNull_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(AuthorisationSummaryHelper.includeAuthorisationSummaryWhen3dsRequired(null));
   }

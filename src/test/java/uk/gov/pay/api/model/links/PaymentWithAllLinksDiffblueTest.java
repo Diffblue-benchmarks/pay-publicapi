@@ -1,10 +1,9 @@
 package uk.gov.pay.api.model.links;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.net.URI;
@@ -13,8 +12,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.model.Address;
 import uk.gov.pay.api.model.AuthorisationSummary;
 import uk.gov.pay.api.model.CardDetails;
@@ -30,17 +30,18 @@ import uk.gov.service.payments.commons.model.AuthorisationMode;
 import uk.gov.service.payments.commons.model.SupportedLanguage;
 import uk.gov.service.payments.commons.model.charge.ExternalMetadata;
 
-public class PaymentWithAllLinksDiffblueTest {
+class PaymentWithAllLinksDiffblueTest {
   /**
    * Test {@link PaymentWithAllLinks#getLinks()}.
    *
    * <p>Method under test: {@link PaymentWithAllLinks#getLinks()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getLinks()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentLinks PaymentWithAllLinks.getLinks()"})
-  public void testGetLinks() {
+  void testGetLinks() {
     // Arrange
     PaymentWithAllLinksBuilder withAuthorisationModeResult =
         new PaymentWithAllLinksBuilder()
@@ -178,7 +179,8 @@ public class PaymentWithAllLinksDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test PaymentWithAllLinksBuilder build()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void PaymentWithAllLinksBuilder.<init>()",
@@ -217,7 +219,7 @@ public class PaymentWithAllLinksDiffblueTest {
     "PaymentWithAllLinksBuilder PaymentWithAllLinksBuilder.withState(PaymentState)",
     "PaymentWithAllLinksBuilder PaymentWithAllLinksBuilder.withTotalAmount(Long)"
   })
-  public void testPaymentWithAllLinksBuilderBuild() {
+  void testPaymentWithAllLinksBuilderBuild() {
     // Arrange and Act
     PaymentWithAllLinksBuilder actualWithAuthorisationModeResult =
         new PaymentWithAllLinksBuilder()
@@ -352,12 +354,13 @@ public class PaymentWithAllLinksDiffblueTest {
    * <p>Method under test: {@link PaymentWithAllLinks#valueOf(Charge, URI, URI, URI, URI, URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test valueOf(Charge, URI, URI, URI, URI, URI, URI)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentWithAllLinks PaymentWithAllLinks.valueOf(Charge, URI, URI, URI, URI, URI, URI)"
   })
-  public void testValueOf() {
+  void testValueOf() {
     // Arrange
     ArrayList<PaymentConnectorResponseLink> links = new ArrayList<>();
     PaymentConnectorResponseLink paymentConnectorResponseLink =
@@ -434,12 +437,13 @@ public class PaymentWithAllLinksDiffblueTest {
    * <p>Method under test: {@link PaymentWithAllLinks#valueOf(Charge, URI, URI, URI, URI, URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test valueOf(Charge, URI, URI, URI, URI, URI, URI)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentWithAllLinks PaymentWithAllLinks.valueOf(Charge, URI, URI, URI, URI, URI, URI)"
   })
-  public void testValueOf2() {
+  void testValueOf2() {
     // Arrange
     ArrayList<PaymentConnectorResponseLink> links = new ArrayList<>();
     PaymentConnectorResponseLink paymentConnectorResponseLink =
@@ -523,12 +527,14 @@ public class PaymentWithAllLinksDiffblueTest {
    * <p>Method under test: {@link PaymentWithAllLinks#valueOf(Charge, URI, URI, URI, URI, URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test valueOf(Charge, URI, URI, URI, URI, URI, URI); then return AuthorisationMode is 'AGREEMENT'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentWithAllLinks PaymentWithAllLinks.valueOf(Charge, URI, URI, URI, URI, URI, URI)"
   })
-  public void testValueOf_thenReturnAuthorisationModeIsAgreement() {
+  void testValueOf_thenReturnAuthorisationModeIsAgreement() {
     // Arrange
     PaymentState state = new PaymentState("Status", false);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -604,12 +610,14 @@ public class PaymentWithAllLinksDiffblueTest {
    * <p>Method under test: {@link PaymentWithAllLinks#valueOf(Charge, URI, URI, URI, URI, URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test valueOf(Charge, URI, URI, URI, URI, URI, URI); then return Links Cancel Method is 'POST'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentWithAllLinks PaymentWithAllLinks.valueOf(Charge, URI, URI, URI, URI, URI, URI)"
   })
-  public void testValueOf_thenReturnLinksCancelMethodIsPost() {
+  void testValueOf_thenReturnLinksCancelMethodIsPost() {
     // Arrange
     PaymentState state = new PaymentState("Status", false);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -691,12 +699,14 @@ public class PaymentWithAllLinksDiffblueTest {
    * <p>Method under test: {@link PaymentWithAllLinks#valueOf(Charge, URI, URI, URI, URI, URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test valueOf(Charge, URI, URI, URI, URI, URI, URI); then return Links Capture Method is 'POST'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentWithAllLinks PaymentWithAllLinks.valueOf(Charge, URI, URI, URI, URI, URI, URI)"
   })
-  public void testValueOf_thenReturnLinksCaptureMethodIsPost() {
+  void testValueOf_thenReturnLinksCaptureMethodIsPost() {
     // Arrange
     ArrayList<PaymentConnectorResponseLink> links = new ArrayList<>();
     PaymentConnectorResponseLink paymentConnectorResponseLink =
@@ -783,12 +793,14 @@ public class PaymentWithAllLinksDiffblueTest {
    * <p>Method under test: {@link PaymentWithAllLinks#valueOf(Charge, URI, URI, URI, URI, URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test valueOf(Charge, URI, URI, URI, URI, URI, URI); when PaymentState(String, boolean) with 'Status' and finished is 'true'; then return State Finished")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentWithAllLinks PaymentWithAllLinks.valueOf(Charge, URI, URI, URI, URI, URI, URI)"
   })
-  public void testValueOf_whenPaymentStateWithStatusAndFinishedIsTrue_thenReturnStateFinished() {
+  void testValueOf_whenPaymentStateWithStatusAndFinishedIsTrue_thenReturnStateFinished() {
     // Arrange
     PaymentState state = new PaymentState("Status", true);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -863,12 +875,13 @@ public class PaymentWithAllLinksDiffblueTest {
    * URI, URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentWithLinks(Charge, URI, URI, URI, URI, URI, URI)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentWithAllLinks PaymentWithAllLinks.getPaymentWithLinks(Charge, URI, URI, URI, URI, URI, URI)"
   })
-  public void testGetPaymentWithLinks() {
+  void testGetPaymentWithLinks() {
     // Arrange
     ArrayList<PaymentConnectorResponseLink> links = new ArrayList<>();
     PaymentConnectorResponseLink paymentConnectorResponseLink =
@@ -946,12 +959,13 @@ public class PaymentWithAllLinksDiffblueTest {
    * URI, URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentWithLinks(Charge, URI, URI, URI, URI, URI, URI)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentWithAllLinks PaymentWithAllLinks.getPaymentWithLinks(Charge, URI, URI, URI, URI, URI, URI)"
   })
-  public void testGetPaymentWithLinks2() {
+  void testGetPaymentWithLinks2() {
     // Arrange
     ArrayList<PaymentConnectorResponseLink> links = new ArrayList<>();
     PaymentConnectorResponseLink paymentConnectorResponseLink =
@@ -1036,12 +1050,14 @@ public class PaymentWithAllLinksDiffblueTest {
    * URI, URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getPaymentWithLinks(Charge, URI, URI, URI, URI, URI, URI); then return AuthorisationMode is 'AGREEMENT'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentWithAllLinks PaymentWithAllLinks.getPaymentWithLinks(Charge, URI, URI, URI, URI, URI, URI)"
   })
-  public void testGetPaymentWithLinks_thenReturnAuthorisationModeIsAgreement() {
+  void testGetPaymentWithLinks_thenReturnAuthorisationModeIsAgreement() {
     // Arrange
     PaymentState state = new PaymentState("Status", false);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -1118,12 +1134,14 @@ public class PaymentWithAllLinksDiffblueTest {
    * URI, URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getPaymentWithLinks(Charge, URI, URI, URI, URI, URI, URI); then return Links Cancel Method is 'POST'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentWithAllLinks PaymentWithAllLinks.getPaymentWithLinks(Charge, URI, URI, URI, URI, URI, URI)"
   })
-  public void testGetPaymentWithLinks_thenReturnLinksCancelMethodIsPost() {
+  void testGetPaymentWithLinks_thenReturnLinksCancelMethodIsPost() {
     // Arrange
     PaymentState state = new PaymentState("Status", false);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);
@@ -1206,12 +1224,14 @@ public class PaymentWithAllLinksDiffblueTest {
    * URI, URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getPaymentWithLinks(Charge, URI, URI, URI, URI, URI, URI); then return Links Capture Method is 'POST'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentWithAllLinks PaymentWithAllLinks.getPaymentWithLinks(Charge, URI, URI, URI, URI, URI, URI)"
   })
-  public void testGetPaymentWithLinks_thenReturnLinksCaptureMethodIsPost() {
+  void testGetPaymentWithLinks_thenReturnLinksCaptureMethodIsPost() {
     // Arrange
     ArrayList<PaymentConnectorResponseLink> links = new ArrayList<>();
     PaymentConnectorResponseLink paymentConnectorResponseLink =
@@ -1297,12 +1317,14 @@ public class PaymentWithAllLinksDiffblueTest {
    * URI, URI, URI)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getPaymentWithLinks(Charge, URI, URI, URI, URI, URI, URI); then return State Finished")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "PaymentWithAllLinks PaymentWithAllLinks.getPaymentWithLinks(Charge, URI, URI, URI, URI, URI, URI)"
   })
-  public void testGetPaymentWithLinks_thenReturnStateFinished() {
+  void testGetPaymentWithLinks_thenReturnStateFinished() {
     // Arrange
     PaymentState state = new PaymentState("Status", true);
     RefundSummary refundSummary = new RefundSummary("Status", 10L, 10L);

@@ -1,8 +1,8 @@
 package uk.gov.pay.api.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.atLeast;
@@ -10,7 +10,6 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.core.server.DefaultServerFactory;
@@ -30,8 +29,9 @@ import jakarta.ws.rs.core.Response.Status;
 import java.nio.file.Paths;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
 import org.glassfish.jersey.message.internal.OutboundMessageContext;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.app.config.PublicApiConfig;
 import uk.gov.pay.api.auth.Account;
@@ -45,7 +45,7 @@ import uk.gov.pay.api.model.TokenPaymentType;
 import uk.gov.pay.api.model.links.Link;
 import uk.gov.pay.api.model.links.RefundLinksForSearch;
 
-public class GetPaymentRefundServiceDiffblueTest {
+class GetPaymentRefundServiceDiffblueTest {
   /**
    * Test {@link GetPaymentRefundService#getConnectorPaymentRefund(Account, String, String)}.
    *
@@ -57,12 +57,14 @@ public class GetPaymentRefundServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getConnectorPaymentRefund(Account, String, String); then return Links Payment Method is 'GET'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "RefundResponse GetPaymentRefundService.getConnectorPaymentRefund(Account, String, String)"
   })
-  public void testGetConnectorPaymentRefund_thenReturnLinksPaymentMethodIsGet() {
+  void testGetConnectorPaymentRefund_thenReturnLinksPaymentMethodIsGet() {
     // Arrange
     ConnectorService connectorService = mock(ConnectorService.class);
     when(connectorService.getPaymentRefund(
@@ -117,12 +119,13 @@ public class GetPaymentRefundServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getLedgerPaymentRefund(Account, String, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "RefundResponse GetPaymentRefundService.getLedgerPaymentRefund(Account, String, String)"
   })
-  public void testGetLedgerPaymentRefund() {
+  void testGetLedgerPaymentRefund() {
     // Arrange
     PublicApiConfig configuration = new PublicApiConfig();
     configuration.setAdminFactory(new AdminFactory());
@@ -191,12 +194,13 @@ public class GetPaymentRefundServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getLedgerPaymentRefund(Account, String, String); then calls close()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "RefundResponse GetPaymentRefundService.getLedgerPaymentRefund(Account, String, String)"
   })
-  public void testGetLedgerPaymentRefund_thenCallsClose() throws ProcessingException {
+  void testGetLedgerPaymentRefund_thenCallsClose() throws ProcessingException {
     // Arrange
     PublicApiConfig configuration = new PublicApiConfig();
     configuration.setAdminFactory(new AdminFactory());
@@ -272,12 +276,14 @@ public class GetPaymentRefundServiceDiffblueTest {
    * <p>Method under test: {@link GetPaymentRefundService#getPaymentRefund(Account, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getPaymentRefund(Account, String, String); then return Links Payment Method is 'GET'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "RefundResponse GetPaymentRefundService.getPaymentRefund(Account, String, String)"
   })
-  public void testGetPaymentRefund_thenReturnLinksPaymentMethodIsGet() {
+  void testGetPaymentRefund_thenReturnLinksPaymentMethodIsGet() {
     // Arrange
     ConnectorService connectorService = mock(ConnectorService.class);
     when(connectorService.getPaymentRefund(

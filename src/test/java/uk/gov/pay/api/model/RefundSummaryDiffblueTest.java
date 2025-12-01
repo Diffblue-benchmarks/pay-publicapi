@@ -1,14 +1,14 @@
 package uk.gov.pay.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class RefundSummaryDiffblueTest {
+class RefundSummaryDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -22,7 +22,8 @@ public class RefundSummaryDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void RefundSummary.<init>()",
@@ -30,7 +31,7 @@ public class RefundSummaryDiffblueTest {
     "long RefundSummary.getAmountSubmitted()",
     "String RefundSummary.getStatus()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     RefundSummary actualRefundSummary = new RefundSummary();
     long actualAmountAvailable = actualRefundSummary.getAmountAvailable();
@@ -48,10 +49,11 @@ public class RefundSummaryDiffblueTest {
    * <p>Method under test: {@link RefundSummary#RefundSummary(String, long, long)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new RefundSummary(String, long, long)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RefundSummary.<init>(String, long, long)"})
-  public void testNewRefundSummary() {
+  void testNewRefundSummary() {
     // Arrange and Act
     RefundSummary actualRefundSummary = new RefundSummary("Status", 10L, 10L);
 

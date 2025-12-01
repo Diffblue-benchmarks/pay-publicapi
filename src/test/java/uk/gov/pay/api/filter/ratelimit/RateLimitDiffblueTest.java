@@ -1,24 +1,25 @@
 package uk.gov.pay.api.filter.ratelimit;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class RateLimitDiffblueTest {
+class RateLimitDiffblueTest {
   /**
    * Test {@link RateLimit#RateLimit(int, int)}.
    *
    * <p>Method under test: {@link RateLimit#RateLimit(int, int)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test new RateLimit(int, int)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RateLimit.<init>(int, int)"})
-  public void testNewRateLimit() {
+  void testNewRateLimit() {
     // Arrange and Act
     RateLimit actualRateLimit = new RateLimit(1, 1);
 
@@ -33,10 +34,11 @@ public class RateLimitDiffblueTest {
    * <p>Method under test: {@link RateLimit#updateAllowance()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test updateAllowance()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RateLimit.updateAllowance()"})
-  public void testUpdateAllowance() throws RateLimitException {
+  void testUpdateAllowance() throws RateLimitException {
     // Arrange
     RateLimit rateLimit = new RateLimit(1, 1);
 
@@ -53,10 +55,11 @@ public class RateLimitDiffblueTest {
    * <p>Method under test: {@link RateLimit#updateAllowance()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test updateAllowance()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RateLimit.updateAllowance()"})
-  public void testUpdateAllowance2() throws RateLimitException {
+  void testUpdateAllowance2() throws RateLimitException {
     // Arrange
     RateLimit rateLimit = new RateLimit(1, -1);
 
@@ -77,10 +80,11 @@ public class RateLimitDiffblueTest {
    * <p>Method under test: {@link RateLimit#updateAllowance()}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test updateAllowance(); then throw RateLimitException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void RateLimit.updateAllowance()"})
-  public void testUpdateAllowance_thenThrowRateLimitException() throws RateLimitException {
+  void testUpdateAllowance_thenThrowRateLimitException() throws RateLimitException {
     // Arrange, Act and Assert
     assertThrows(RateLimitException.class, () -> new RateLimit(-1, 1).updateAllowance());
   }
@@ -96,10 +100,11 @@ public class RateLimitDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"int RateLimit.getNoOfReq()", "int RateLimit.getRequestCount()"})
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     RateLimit rateLimit = new RateLimit(1, 1);
 

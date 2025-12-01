@@ -1,11 +1,11 @@
 package uk.gov.pay.api.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.ArgumentMatchers.isNull;
@@ -14,7 +14,6 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.ws.rs.ProcessingException;
@@ -30,8 +29,9 @@ import java.util.HashMap;
 import java.util.Optional;
 import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
 import org.glassfish.jersey.message.internal.OutboundMessageContext;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import uk.gov.pay.api.agreement.model.AgreementCreatedResponse;
 import uk.gov.pay.api.agreement.model.CreateAgreementRequest;
@@ -63,17 +63,18 @@ import uk.gov.service.payments.commons.model.AuthorisationMode;
 import uk.gov.service.payments.commons.model.SupportedLanguage;
 import uk.gov.service.payments.commons.model.charge.ExternalMetadata;
 
-public class ConnectorServiceDiffblueTest {
+class ConnectorServiceDiffblueTest {
   /**
    * Test {@link ConnectorService#getCharge(Account, String)}.
    *
    * <p>Method under test: {@link ConnectorService#getCharge(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getCharge(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Charge ConnectorService.getCharge(Account, String)"})
-  public void testGetCharge() throws ProcessingException {
+  void testGetCharge() throws ProcessingException {
     // Arrange
     ChargeFromResponse chargeFromResponse = mock(ChargeFromResponse.class);
     when(chargeFromResponse.getDelayedCapture()).thenReturn(true);
@@ -217,10 +218,11 @@ public class ConnectorServiceDiffblueTest {
    * <p>Method under test: {@link ConnectorService#getCharge(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getCharge(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Charge ConnectorService.getCharge(Account, String)"})
-  public void testGetCharge2() throws ProcessingException {
+  void testGetCharge2() throws ProcessingException {
     // Arrange
     ChargeFromResponse chargeFromResponse = mock(ChargeFromResponse.class);
     when(chargeFromResponse.getDelayedCapture()).thenReturn(true);
@@ -364,10 +366,11 @@ public class ConnectorServiceDiffblueTest {
    * <p>Method under test: {@link ConnectorService#getCharge(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getCharge(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Charge ConnectorService.getCharge(Account, String)"})
-  public void testGetCharge3() throws ProcessingException {
+  void testGetCharge3() throws ProcessingException {
     // Arrange
     ChargeFromResponse chargeFromResponse = mock(ChargeFromResponse.class);
     when(chargeFromResponse.getDelayedCapture()).thenReturn(true);
@@ -484,10 +487,11 @@ public class ConnectorServiceDiffblueTest {
    * <p>Method under test: {@link ConnectorService#getCharge(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getCharge(Account, String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Charge ConnectorService.getCharge(Account, String)"})
-  public void testGetCharge4() throws ProcessingException {
+  void testGetCharge4() throws ProcessingException {
     // Arrange
     ChargeFromResponse chargeFromResponse = mock(ChargeFromResponse.class);
     when(chargeFromResponse.getDelayedCapture()).thenReturn(true);
@@ -636,10 +640,12 @@ public class ConnectorServiceDiffblueTest {
    * <p>Method under test: {@link ConnectorService#getCharge(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getCharge(Account, String); given ChargeFromResponse getExemption() return Exemption()")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Charge ConnectorService.getCharge(Account, String)"})
-  public void testGetCharge_givenChargeFromResponseGetExemptionReturnExemption()
+  void testGetCharge_givenChargeFromResponseGetExemptionReturnExemption()
       throws ProcessingException {
     // Arrange
     ChargeFromResponse chargeFromResponse = mock(ChargeFromResponse.class);
@@ -787,10 +793,12 @@ public class ConnectorServiceDiffblueTest {
    * <p>Method under test: {@link ConnectorService#getCharge(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getCharge(Account, String); given ThreeDSecure(boolean) with required is 'false'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Charge ConnectorService.getCharge(Account, String)"})
-  public void testGetCharge_givenThreeDSecureWithRequiredIsFalse() throws ProcessingException {
+  void testGetCharge_givenThreeDSecureWithRequiredIsFalse() throws ProcessingException {
     // Arrange
     ChargeFromResponse chargeFromResponse = mock(ChargeFromResponse.class);
     when(chargeFromResponse.getDelayedCapture()).thenReturn(true);
@@ -938,10 +946,11 @@ public class ConnectorServiceDiffblueTest {
    * <p>Method under test: {@link ConnectorService#getCharge(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getCharge(Account, String); then return CardBrand is empty string")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Charge ConnectorService.getCharge(Account, String)"})
-  public void testGetCharge_thenReturnCardBrandIsEmptyString() throws ProcessingException {
+  void testGetCharge_thenReturnCardBrandIsEmptyString() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     when(outboundJaxrsResponse.readEntity(ChargeFromResponse.class))
@@ -1013,10 +1022,11 @@ public class ConnectorServiceDiffblueTest {
    * <p>Method under test: {@link ConnectorService#getCharge(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getCharge(Account, String); then throw GetChargeException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Charge ConnectorService.getCharge(Account, String)"})
-  public void testGetCharge_thenThrowGetChargeException() throws ProcessingException {
+  void testGetCharge_thenThrowGetChargeException() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     when(outboundJaxrsResponse.getStatus()).thenReturn(1);
@@ -1062,10 +1072,12 @@ public class ConnectorServiceDiffblueTest {
    * <p>Method under test: {@link ConnectorService#getChargeEvents(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getChargeEvents(Account, String); then return PaymentEvents (default constructor)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentEvents ConnectorService.getChargeEvents(Account, String)"})
-  public void testGetChargeEvents_thenReturnPaymentEvents() throws ProcessingException {
+  void testGetChargeEvents_thenReturnPaymentEvents() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     PaymentEvents paymentEvents = new PaymentEvents();
@@ -1117,10 +1129,11 @@ public class ConnectorServiceDiffblueTest {
    * <p>Method under test: {@link ConnectorService#getChargeEvents(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getChargeEvents(Account, String); then throw GetChargeException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentEvents ConnectorService.getChargeEvents(Account, String)"})
-  public void testGetChargeEvents_thenThrowGetChargeException() throws ProcessingException {
+  void testGetChargeEvents_thenThrowGetChargeException() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     when(outboundJaxrsResponse.readEntity(PaymentEvents.class))
@@ -1174,10 +1187,11 @@ public class ConnectorServiceDiffblueTest {
    * <p>Method under test: {@link ConnectorService#getChargeEvents(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getChargeEvents(Account, String); then throw GetEventsException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"PaymentEvents ConnectorService.getChargeEvents(Account, String)"})
-  public void testGetChargeEvents_thenThrowGetEventsException() throws ProcessingException {
+  void testGetChargeEvents_thenThrowGetEventsException() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     when(outboundJaxrsResponse.getStatus()).thenReturn(1);
@@ -1229,12 +1243,14 @@ public class ConnectorServiceDiffblueTest {
    * <p>Method under test: {@link ConnectorService#getPaymentRefund(String, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getPaymentRefund(String, String, String); then return RefundFromConnector (default constructor)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "RefundFromConnector ConnectorService.getPaymentRefund(String, String, String)"
   })
-  public void testGetPaymentRefund_thenReturnRefundFromConnector() throws ProcessingException {
+  void testGetPaymentRefund_thenReturnRefundFromConnector() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     RefundFromConnector refundFromConnector = new RefundFromConnector();
@@ -1287,12 +1303,13 @@ public class ConnectorServiceDiffblueTest {
    * <p>Method under test: {@link ConnectorService#getPaymentRefund(String, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentRefund(String, String, String); then throw GetChargeException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "RefundFromConnector ConnectorService.getPaymentRefund(String, String, String)"
   })
-  public void testGetPaymentRefund_thenThrowGetChargeException() throws ProcessingException {
+  void testGetPaymentRefund_thenThrowGetChargeException() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     when(outboundJaxrsResponse.readEntity(RefundFromConnector.class))
@@ -1344,12 +1361,13 @@ public class ConnectorServiceDiffblueTest {
    * <p>Method under test: {@link ConnectorService#getPaymentRefund(String, String, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getPaymentRefund(String, String, String); then throw GetRefundException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "RefundFromConnector ConnectorService.getPaymentRefund(String, String, String)"
   })
-  public void testGetPaymentRefund_thenThrowGetRefundException() throws ProcessingException {
+  void testGetPaymentRefund_thenThrowGetRefundException() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     when(outboundJaxrsResponse.getStatus()).thenReturn(1);
@@ -1399,12 +1417,14 @@ public class ConnectorServiceDiffblueTest {
    * <p>Method under test: {@link ConnectorService#createAgreement(Account, CreateAgreementRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test createAgreement(Account, CreateAgreementRequest); then return AgreementId is '42'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "AgreementCreatedResponse ConnectorService.createAgreement(Account, CreateAgreementRequest)"
   })
-  public void testCreateAgreement_thenReturnAgreementIdIs42() throws ProcessingException {
+  void testCreateAgreement_thenReturnAgreementIdIs42() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     AgreementCreatedResponse agreementCreatedResponse = new AgreementCreatedResponse("42");
@@ -1462,12 +1482,14 @@ public class ConnectorServiceDiffblueTest {
    * <p>Method under test: {@link ConnectorService#createAgreement(Account, CreateAgreementRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test createAgreement(Account, CreateAgreementRequest); then throw CreateAgreementException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "AgreementCreatedResponse ConnectorService.createAgreement(Account, CreateAgreementRequest)"
   })
-  public void testCreateAgreement_thenThrowCreateAgreementException() throws ProcessingException {
+  void testCreateAgreement_thenThrowCreateAgreementException() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     when(outboundJaxrsResponse.getStatus()).thenReturn(1);
@@ -1517,12 +1539,14 @@ public class ConnectorServiceDiffblueTest {
    * <p>Method under test: {@link ConnectorService#createAgreement(Account, CreateAgreementRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test createAgreement(Account, CreateAgreementRequest); then throw CreateAgreementException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "AgreementCreatedResponse ConnectorService.createAgreement(Account, CreateAgreementRequest)"
   })
-  public void testCreateAgreement_thenThrowCreateAgreementException2() throws ProcessingException {
+  void testCreateAgreement_thenThrowCreateAgreementException2() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     when(outboundJaxrsResponse.getStatus()).thenReturn(1);
@@ -1576,12 +1600,14 @@ public class ConnectorServiceDiffblueTest {
    * <p>Method under test: {@link ConnectorService#createAgreement(Account, CreateAgreementRequest)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test createAgreement(Account, CreateAgreementRequest); then throw GetChargeException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "AgreementCreatedResponse ConnectorService.createAgreement(Account, CreateAgreementRequest)"
   })
-  public void testCreateAgreement_thenThrowGetChargeException() throws ProcessingException {
+  void testCreateAgreement_thenThrowGetChargeException() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     when(outboundJaxrsResponse.readEntity(AgreementCreatedResponse.class))
@@ -1638,10 +1664,12 @@ public class ConnectorServiceDiffblueTest {
    * <p>Method under test: {@link ConnectorService#cancelAgreement(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test cancelAgreement(Account, String); given OutboundJaxrsResponse getStatus() return two hundred four")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void ConnectorService.cancelAgreement(Account, String)"})
-  public void testCancelAgreement_givenOutboundJaxrsResponseGetStatusReturnTwoHundredFour()
+  void testCancelAgreement_givenOutboundJaxrsResponseGetStatusReturnTwoHundredFour()
       throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
@@ -1685,10 +1713,11 @@ public class ConnectorServiceDiffblueTest {
    * <p>Method under test: {@link ConnectorService#cancelAgreement(Account, String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test cancelAgreement(Account, String); then throw CancelAgreementException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void ConnectorService.cancelAgreement(Account, String)"})
-  public void testCancelAgreement_thenThrowCancelAgreementException() throws ProcessingException {
+  void testCancelAgreement_thenThrowCancelAgreementException() throws ProcessingException {
     // Arrange
     OutboundJaxrsResponse outboundJaxrsResponse = mock(OutboundJaxrsResponse.class);
     when(outboundJaxrsResponse.getStatus()).thenReturn(1);

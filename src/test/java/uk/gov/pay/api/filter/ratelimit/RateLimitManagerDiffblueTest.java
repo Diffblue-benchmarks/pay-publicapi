@@ -1,10 +1,9 @@
 package uk.gov.pay.api.filter.ratelimit;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.core.server.DefaultServerFactory;
@@ -14,12 +13,13 @@ import io.dropwizard.health.HealthFactory;
 import io.dropwizard.logging.common.DefaultLoggingFactory;
 import io.dropwizard.metrics.common.MetricsFactory;
 import io.dropwizard.servlets.tasks.TaskConfiguration;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.app.config.RateLimiterConfig;
 import uk.gov.pay.api.filter.RateLimiterKey;
 
-public class RateLimitManagerDiffblueTest {
+class RateLimitManagerDiffblueTest {
   /**
    * Test {@link RateLimitManager#getAllowedNumberOfRequests(RateLimiterKey, String)}.
    *
@@ -31,10 +31,11 @@ public class RateLimitManagerDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getAllowedNumberOfRequests(RateLimiterKey, String); given 'Method'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"int RateLimitManager.getAllowedNumberOfRequests(RateLimiterKey, String)"})
-  public void testGetAllowedNumberOfRequests_givenMethod() {
+  void testGetAllowedNumberOfRequests_givenMethod() {
     // Arrange
     HealthCheckConfiguration healthChecks = new HealthCheckConfiguration();
     healthChecks.setMaxThreads(3);
@@ -81,10 +82,12 @@ public class RateLimitManagerDiffblueTest {
    * String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test getAllowedNumberOfRequests(RateLimiterKey, String); given 'POST'; when RateLimiterKey getMethod() return 'POST'")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"int RateLimitManager.getAllowedNumberOfRequests(RateLimiterKey, String)"})
-  public void testGetAllowedNumberOfRequests_givenPost_whenRateLimiterKeyGetMethodReturnPost() {
+  void testGetAllowedNumberOfRequests_givenPost_whenRateLimiterKeyGetMethodReturnPost() {
     // Arrange
     HealthCheckConfiguration healthChecks = new HealthCheckConfiguration();
     healthChecks.setMaxThreads(3);
@@ -125,10 +128,11 @@ public class RateLimitManagerDiffblueTest {
    * <p>Method under test: {@link RateLimitManager#getRateLimitInterval(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test getRateLimitInterval(String)")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"int RateLimitManager.getRateLimitInterval(String)"})
-  public void testGetRateLimitInterval() {
+  void testGetRateLimitInterval() {
     // Arrange
     HealthCheckConfiguration healthChecks = new HealthCheckConfiguration();
     healthChecks.setMaxThreads(3);

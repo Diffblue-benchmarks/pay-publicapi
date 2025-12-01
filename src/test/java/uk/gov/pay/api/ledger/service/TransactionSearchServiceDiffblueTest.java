@@ -1,8 +1,7 @@
 package uk.gov.pay.api.ledger.service;
 
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.dropwizard.core.server.DefaultServerFactory;
@@ -13,8 +12,9 @@ import io.dropwizard.logging.common.DefaultLoggingFactory;
 import io.dropwizard.metrics.common.MetricsFactory;
 import io.dropwizard.servlets.tasks.TaskConfiguration;
 import jakarta.ws.rs.client.Client;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import uk.gov.pay.api.app.config.PublicApiConfig;
 import uk.gov.pay.api.auth.Account;
 import uk.gov.pay.api.exception.BadRequestException;
@@ -22,7 +22,7 @@ import uk.gov.pay.api.ledger.model.TransactionSearchParams;
 import uk.gov.pay.api.model.TokenPaymentType;
 import uk.gov.pay.api.service.PaymentUriGenerator;
 
-public class TransactionSearchServiceDiffblueTest {
+class TransactionSearchServiceDiffblueTest {
   /**
    * Test {@link TransactionSearchService#doSearch(Account, TransactionSearchParams)}.
    *
@@ -35,12 +35,14 @@ public class TransactionSearchServiceDiffblueTest {
    * TransactionSearchParams)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName(
+      "Test doSearch(Account, TransactionSearchParams); given '42'; then throw BadRequestException")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "uk.gov.pay.api.ledger.model.SearchResults TransactionSearchService.doSearch(Account, TransactionSearchParams)"
   })
-  public void testDoSearch_given42_thenThrowBadRequestException() {
+  void testDoSearch_given42_thenThrowBadRequestException() {
     // Arrange
     HealthCheckConfiguration healthChecks = new HealthCheckConfiguration();
     healthChecks.setMaxThreads(3);

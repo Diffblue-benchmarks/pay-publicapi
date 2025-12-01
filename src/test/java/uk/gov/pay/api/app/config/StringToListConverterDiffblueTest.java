@@ -1,15 +1,15 @@
 package uk.gov.pay.api.app.config;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.List;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class StringToListConverterDiffblueTest {
+class StringToListConverterDiffblueTest {
   /**
    * Test {@link StringToListConverter#convert(String)} with {@code value}.
    *
@@ -21,10 +21,11 @@ public class StringToListConverterDiffblueTest {
    * <p>Method under test: {@link StringToListConverter#convert(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test convert(String) with 'value'; when '42'; then return size is one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"List StringToListConverter.convert(String)"})
-  public void testConvertWithValue_when42_thenReturnSizeIsOne() {
+  void testConvertWithValue_when42_thenReturnSizeIsOne() {
     // Arrange and Act
     List<String> actualConvertResult = new StringToListConverter().convert("42");
 
@@ -44,10 +45,11 @@ public class StringToListConverterDiffblueTest {
    * <p>Method under test: {@link StringToListConverter#convert(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test convert(String) with 'value'; when ',42'; then return size is one")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"List StringToListConverter.convert(String)"})
-  public void testConvertWithValue_when42_thenReturnSizeIsOne2() {
+  void testConvertWithValue_when42_thenReturnSizeIsOne2() {
     // Arrange and Act
     List<String> actualConvertResult = new StringToListConverter().convert(",42");
 
@@ -67,10 +69,11 @@ public class StringToListConverterDiffblueTest {
    * <p>Method under test: {@link StringToListConverter#convert(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test convert(String) with 'value'; when ','; then return Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"List StringToListConverter.convert(String)"})
-  public void testConvertWithValue_whenComma_thenReturnEmpty() {
+  void testConvertWithValue_whenComma_thenReturnEmpty() {
     // Arrange, Act and Assert
     assertTrue(new StringToListConverter().convert(",").isEmpty());
   }
@@ -86,10 +89,11 @@ public class StringToListConverterDiffblueTest {
    * <p>Method under test: {@link StringToListConverter#convert(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test convert(String) with 'value'; when empty string; then return Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"List StringToListConverter.convert(String)"})
-  public void testConvertWithValue_whenEmptyString_thenReturnEmpty() {
+  void testConvertWithValue_whenEmptyString_thenReturnEmpty() {
     // Arrange, Act and Assert
     assertTrue(new StringToListConverter().convert("").isEmpty());
   }
@@ -105,10 +109,11 @@ public class StringToListConverterDiffblueTest {
    * <p>Method under test: {@link StringToListConverter#convert(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test convert(String) with 'value'; when 'foo,bar'; then return size is two")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"List StringToListConverter.convert(String)"})
-  public void testConvertWithValue_whenFooBar_thenReturnSizeIsTwo() {
+  void testConvertWithValue_whenFooBar_thenReturnSizeIsTwo() {
     // Arrange and Act
     List<String> actualConvertResult = new StringToListConverter().convert("foo,bar");
 
@@ -129,10 +134,11 @@ public class StringToListConverterDiffblueTest {
    * <p>Method under test: {@link StringToListConverter#convert(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test convert(String) with 'value'; when 'null'; then return Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"List StringToListConverter.convert(String)"})
-  public void testConvertWithValue_whenNull_thenReturnEmpty() {
+  void testConvertWithValue_whenNull_thenReturnEmpty() {
     // Arrange, Act and Assert
     assertTrue(new StringToListConverter().convert(null).isEmpty());
   }
@@ -148,10 +154,11 @@ public class StringToListConverterDiffblueTest {
    * <p>Method under test: {@link StringToListConverter#convert(String)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
+  @DisplayName("Test convert(String) with 'value'; when space; then return Empty")
+  @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"List StringToListConverter.convert(String)"})
-  public void testConvertWithValue_whenSpace_thenReturnEmpty() {
+  void testConvertWithValue_whenSpace_thenReturnEmpty() {
     // Arrange, Act and Assert
     assertTrue(new StringToListConverter().convert(" ").isEmpty());
   }
